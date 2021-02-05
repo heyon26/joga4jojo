@@ -26,7 +26,7 @@
 		<script>
 			function profileEdit(){ // 프로필 수정
 				var url = "profileEdit.do";
-				window.open(url, "프로필 수정", "width=600, height=750");
+				window.open(url, "프로필 수정", "width=300, height=350");
 			}
 		</script>
 

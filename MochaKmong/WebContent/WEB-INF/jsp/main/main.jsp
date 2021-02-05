@@ -23,6 +23,7 @@
             <link rel="stylesheet" href="assets/css/nice-select.css">
             <link rel="stylesheet" href="assets/css/style.css">
    </head>
+   <jsp:include page="topmenu.jsp"/>
    <body>
     <header>
         <!-- menu Start -->
@@ -68,12 +69,11 @@
     </header>
 
     <main>
-
         <!-- slider Area Start-->
         <div class="slider-area ">
             <!-- Mobile Menu -->
             <div class="slider-active">
-                <div style="height:1000px" class="single-slider hero-overly  slider-height d-flex align-items-center" data-background="assets/img/hero/h1_hero.jpg">
+                <div style="height:1200px" class="single-slider hero-overly  slider-height d-flex align-items-center" data-background="assets/img/hero/h1_hero.jpg">
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-9 col-lg-9 col-md-9">
@@ -87,26 +87,27 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <!-- form -->
-                                <form action="#" class="search-box">
-                                    <div class="input-form mb-30">
-                                        <input type="text" placeholder="Where would you like to go to learn?">
+                                <form id="regionFrm" name="regionFrm" action="searchClass.do" class="search-box">
+                                    <div class="input-form mb-30">                                   
+                                        <input type="text" name="className" id="className" placeholder="Where would you like to go to learn?" >
                                     </div>
                                     <div class="select-form mb-30">
-                                        <div class="select-itms">
+                                        <div class="select-itms">                               
                                             <select name="select" id="select1">
-                                            	<option>Choose one</option>
-                                                <option>서울</option>
-                                                <option>인천/경기</option>
-                                                <option>대전/충청</option>
-                                                <option>부산/경남</option>
-                                                <option>대구/경북</option>
-                                                <option>강원</option>
-                                                <option>제주</option>
+                                            	<option value="all">Choose one</option>
+                                                <option value="서울">서울</option>
+                                                <option value="부산">부산</option>
+                                                <option value="인천/경기">인천/경기</option>
+                                                <option value="대전/충청">대전/충청</option>
+                                                <option value="울산/경남">울산/경남</option>
+                                                <option value="대구/경북">대구/경북</option>
+                                                <option value="강원">강원</option>
+                                                <option value="제주">제주</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="search-form mb-30">
-                                        <a href="#">Search</a>
+                                        <a onclick="classSearch.do">Search</a>
                                     </div>	
                                 </form>	
                             </div>
