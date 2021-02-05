@@ -63,6 +63,19 @@
 		window.open(url, "아이디 중복체크","width=600, height=200, top=100, left=100");
 		}
 	}
+	
+</script>
+
+<script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+<script>
+function openZipSearch() {
+	new daum.Postcode({
+		oncomplete: function(data) {
+			$('[name=userZipcode]').val(data.zonecode); // 우편번호 (5자리)
+			$('[name=userAddress]').val(data.address);
+		}
+	}).open();
+}
 </script>
 </head>
 <body>
@@ -81,7 +94,7 @@
 						<td><input class="input100" type="text" id="userId" name="userId" placeholder="Enter id" required="required" size="30">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span></td>
-						<td><button type="button" class="btn btn-primary default btn-sm" onclick="idCheck(userId.value)"">idCheck</button></td>
+						<td><button type="button" class="btn btn-primary default btn-sm" onclick="idCheck(userId.value)">idCheck</button></td>
 					</tr>
 					</table>
 					</div>
@@ -122,7 +135,7 @@
 						<td><input class="input100" type="text" id="userZipcode" name="userZipcode" placeholder="Enter zipcode" required="required" size="30">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span></td>
-						<td><button type="button" class="btn btn-primary default btn-sm">zipCode</button></td>
+						<td><button type="button" class="btn btn-primary default btn-sm" onclick="openZipSearch()">zipCode</button></td>
 					</tr>
 					</table>
 					</div>
