@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +38,7 @@
 </head>
 <body>
 
-	<form name="form" id="frm" name="frm" onsubmit="checkValue()" action="profileEditUpdate.do" method="post" align="center">
+	<form name="form" id="frm" name="frm" onsubmit="checkValue()" action="profileUpdate.do" method="post" align="center">
 		<div id="profileLayout">
 			<div>
 				<h2>프로필 수정</h2>
@@ -49,7 +50,8 @@
 			</div>
 			<p />
 			<div>
-				<input type="file" accept="image/*" id="uploadFile" name="uploadFile" onchange="uploadImage(event)">
+				<input type="file" accept="image/*" id="uploadFile"
+					name="uploadFile" onchange="uploadImage(event)">
 			</div>
 			<div id="userEdit">
 				<div>
@@ -72,7 +74,7 @@
 				<button type="submit">수정</button>
 				<button type="reset">취소</button>
 			</div>
-	</div>
+		</div>
 
 	</form>
 </body>

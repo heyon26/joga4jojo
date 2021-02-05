@@ -59,7 +59,6 @@ public class ClassDao extends DAO {
 				vo.setClassCode(rs.getInt("class_code"));
 				vo.setUserId(rs.getString("user_id"));
 				vo.setAreaCode(rs.getInt("area_code"));
-				vo.setClassCode(rs.getInt("time_code"));
 				vo.setClassName(rs.getString("class_name"));
 				vo.setCateGoryA(rs.getString("category_a"));
 				vo.setCateGoryB(rs.getString("category_b"));

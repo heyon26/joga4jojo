@@ -1,16 +1,16 @@
-package co.mok.pro.member;
+package co.mok.pro.web;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.mok.pro.common.Command;
 
-public class ProfileEdit implements Command {
+public class UserJoinForm implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return "member/profileEditForm";
+		return "member/userJoinForm";
 	}
 
 }
