@@ -14,17 +14,14 @@
 
 <div align="center">
   <h3>로그인</h3>
-  <form class="form-inline" action="login.do" method="post">
+  <form class="form-inline" id="frm" name="frm" action="login.do" method="post">
     <div>
-      <input type="text" class="form-control" id="user_id" name="user_id" placeholder="Enter id" required="required">
+      <input type="text" class="form-control" id="userId" name="userId" placeholder="Enter id" required="required">
     </div><br/>
     <div>
-      <input type="password" class="form-control" id="user_pw" name="user_pw" placeholder="Enter password" required="required">
+      <input type="password" class="form-control" id="userPw" name="userPw" placeholder="Enter password" required="required">
     </div><br/>
-    <div class="checkbox">
-      <label><input type="checkbox" name="remember">Remember me</label>
-    </div><br/><br/>
-     <button type="button" class="btn btn-primary">submit</button>
+    <input type="submit" class="btn btn-primary" value="로그인">&nbsp;&nbsp;&nbsp;
      </form>
 </div>
 </body>

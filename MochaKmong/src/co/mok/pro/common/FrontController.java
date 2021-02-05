@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.mok.pro.web.Login;
 import co.mok.pro.web.LoginForm;
+import co.mok.pro.web.UserIdCheck;
+import co.mok.pro.web.UserJoin;
 import co.mok.pro.web.UserJoinForm;
 
 
@@ -31,6 +33,8 @@ public class FrontController extends HttpServlet {
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/login.do", new Login());
 		map.put("/userJoinForm.do", new UserJoinForm()); 
+		map.put("/userJoin.do", new UserJoin());
+		map.put("/idCheck.do", new UserIdCheck()); 
 
 	}
 

@@ -10,49 +10,85 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+  <script type="text/javascript">
+	function formCheck() {
+
+		if (frm.userPw.value != frm.userPw1.value) {
+			alert("패스워드가 일치하지 않습니다.")
+			frm.userPw1.value = null;
+			frm.userPw1.focus();
+			return false;
+		}
+		
+		if (frm.userName.value == "") {
+			alert("이름은 반드시 입력해야 합니다.")
+			frm.userName.focus();
+			return false;
+		}
+
+		if (frm.userPw.value == "") {
+			alert("패스워드는 반드시 입력해야 합니다..")
+			frm.userPw.focus();
+			return false;
+		}
+		
+		return true;
+	}
+	
+	function idCheck(str) {
+		var url = "idCheck.do?user_id=" + str;
+		if(str == "") {
+			alter("아이디를 입력하세요");
+			frm.userId.focus();
+		}else {
+		window.open(url, "아이디 중복체크","width=600, height=200, top=100, left=100");
+		}
+	}
+</script>
 </head>
 <body>
 <div align="center">
         <div>
 		<h3>회원가입</h3>
 		</div>
-		<form class= "form-inline" id="frm" name="frm" onsubmit="return formCheck()" action="#" method="post">
+		<form class= "form-inline" id="frm" name="frm" onsubmit="return formCheck()" action="userJoin.do" method="post">
 				<div>
 				   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				   <input type="text" class="form-control" id="user_id" name="user_id" placeholder="아이디" required="required"> &nbsp;&nbsp;
-					  <button type="button" class="btn btn-default" onclick="idCheck(user_id.value)">중복체크</button>
+				   <input type="text" class="form-control" id="userId" name="userId" placeholder="아이디" required="required"> &nbsp;&nbsp;
+					  <button type="button" class="btn btn-default" onclick="idCheck(userId.value)">중복체크</button>
 						</div><br/>
 						
 						<div>
-							<input type="password"  class="form-control" id="user_pw" name="user_pw" placeholder="패스워드" required="required">
+							<input type="password"  class="form-control" id="userPw" name="userPw" placeholder="패스워드" required="required">
 						</div><br/>
 						
 						<div>
-							<input type="password"  class="form-control" id="user_pw1" name="user_pw1" placeholder="패스워드 확인"  required="required">
+							<input type="password"  class="form-control" id="userPw1" name="userPw1" placeholder="패스워드 확인"  required="required">
 						</div><br/>	
 						
 						<div>
-							<input type="text" class="form-control" id="user_name" name="user_name" placeholder="이름" required="required">
+							<input type="text" class="form-control" id="userName" name="userName" placeholder="이름" required="required">
+						</div><br/>
+						
+						<div>
+						<input type="text" class="form-control" id="userTel" name="userTel" placeholder="전화번호" required="required">
+						</div><br/>
+						
+						<div>
+					   <input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="이메일" required="required">
 						</div><br/>
 						
 						<div>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="text" class="form-control" id="user_zipcode" name="user_zipcode" placeholder="우편번호" required="required"> &nbsp;&nbsp;
+						<input type="text" class="form-control" id="userZipcode" name="userZipcode" placeholder="우편번호" required="required"> &nbsp;&nbsp;
 						<button type="button" class="btn btn-default">우편번호</button><br/><br/>
-						<input type="text" class="form-control" id="user_address" name="user_address" placeholder="주소" required="required"> <br/><br/>
+						<input type="text" class="form-control" id="userAddress" name="userAddress" placeholder="주소" required="required"> <br/><br/>
 						</div><br/>
-						
-						<div>
-						<input type="text" class="form-control" id="user_tel" name="user_tel" placeholder="전화번호" required="required">
-						</div><br/>
-						
-						<div>
-					   <input type="text" class="form-control" id="user_email" name="user_email" placeholder="이메일" required="required">
-						</div><br/><br/>
 						
 					<div>
 					<input type="submit" class="btn btn-primary" value="submit">&nbsp;&nbsp;&nbsp;
