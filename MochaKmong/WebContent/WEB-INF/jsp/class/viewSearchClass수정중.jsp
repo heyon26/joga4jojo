@@ -73,11 +73,7 @@
 						</label>
 						<label class="jss47">
 							<input type="radio" class="" id="region" name="region">
-							<span class="checkmark">전주/전북</span>
-						</label>
-						<label class="jss47">
-							<input type="radio" class="" id="region" name="region">
-							<span class="checkmark">광주/전남</span>
+							<span class="checkmark">광주/전남/전북</span>
 						</label>
 						<label class="jss47">
 							<input type="radio" class="" id="region" name="region">

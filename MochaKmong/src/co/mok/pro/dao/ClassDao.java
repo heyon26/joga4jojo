@@ -26,13 +26,17 @@ public class ClassDao extends DAO {
 				vo.setClassCode(rs.getInt("class_code"));
 				vo.setUserId(rs.getString("user_id"));
 				vo.setAreaCode(rs.getInt("area_code"));
-				vo.setTimeCode(rs.getInt("time_code"));
 				vo.setClassName(rs.getString("class_name"));
 				vo.setCateGoryA(rs.getString("category_a"));
-				vo.setCateGoryB(rs.getString("category_b"));
 				vo.setClassIntroduce(rs.getString("class_introduce"));
 				vo.setCurriculum(rs.getString("curriculum"));
+				vo.setClassContent(rs.getString("class_content"));
+				vo.setClassAddress(rs.getString("class_address"));
+				vo.setRegisterMember(rs.getInt("register_member"));
+				vo.setClassPrice(rs.getInt("class_price"));
+				vo.setClassDate(rs.getDate("class_date"));
 				vo.setRatingCode(rs.getInt("rating_code"));
+				vo.setClassTel(rs.getString("class_tel"));
 				list.add(vo);
 				
 			}
@@ -59,13 +63,17 @@ public class ClassDao extends DAO {
 				vo.setClassCode(rs.getInt("class_code"));
 				vo.setUserId(rs.getString("user_id"));
 				vo.setAreaCode(rs.getInt("area_code"));
-				vo.setTimeCode(rs.getInt("time_code"));
 				vo.setClassName(rs.getString("class_name"));
 				vo.setCateGoryA(rs.getString("category_a"));
-				vo.setCateGoryB(rs.getString("category_b"));
 				vo.setClassIntroduce(rs.getString("class_introduce"));
 				vo.setCurriculum(rs.getString("curriculum"));
+				vo.setClassContent(rs.getString("class_content"));
+				vo.setClassAddress(rs.getString("class_address"));
+				vo.setRegisterMember(rs.getInt("register_member"));
+				vo.setClassPrice(rs.getInt("class_price"));
+				vo.setClassDate(rs.getDate("class_date"));
 				vo.setRatingCode(rs.getInt("rating_code"));
+				vo.setClassTel(rs.getString("class_tel"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -78,23 +86,34 @@ public class ClassDao extends DAO {
 	}
 	
 	//class 등록
-
-	public int insertClass() {
+	public int insertClass(ClassVo vo) {
 		int n = 0;
 		
 		return n;
 	}
 	
 	//class 내용 수정
-	public int updateClass() {
+	public int updateClass(ClassVo vo) {
 		int n = 0;
 		
 		return n;
 	}
 	
 	//class 삭제
-	public int deleteClass() {
+	public int deleteClass(ClassVo vo) {
 		int n = 0;
+		String sql = "DELETE FROM CLASS WHERE CLASS_CODE = ? ";
+		try {
+			psmt=conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getClassCode());
+			
+			psmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
 		
 		return n;
 	}

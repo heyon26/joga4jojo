@@ -55,9 +55,10 @@
                                                 <option value="서울">서울</option>
                                                 <option value="부산">부산</option>
                                                 <option value="인천/경기">인천/경기</option>
-                                                <option value="대전/충청">대전/충청</option>
+                                                <option value="대전/충청">대전/세종/충청</option>
                                                 <option value="울산/경남">울산/경남</option>
                                                 <option value="대구/경북">대구/경북</option>
+                                                <option value="광주/전북">광주/전남/전북</option>
                                                 <option value="강원">강원</option>
                                                 <option value="제주">제주</option>
                                             </select>
