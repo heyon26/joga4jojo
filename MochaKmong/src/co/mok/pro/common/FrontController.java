@@ -21,23 +21,15 @@ public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HashMap<String, Command> map = new HashMap<String, Command>();
 
-
 	public FrontController() {
 		super();
 
 	}
 
-
 	public void init(ServletConfig config) throws ServletException {
-		map.put("/main.do", new Testmain());
+		map.put("/testmain.do", new Testmain());
 
-		
-		
-		
-		
-		
 	}
-
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -45,15 +37,16 @@ public class FrontController extends HttpServlet {
 		String contextPath = request.getContextPath();
 		String uri = request.getRequestURI();
 		String path = uri.substring(contextPath.length());
-		
+
 		Command command = map.get(path);
 		String viewPage = command.exec(request, response);
-		
-		if(!viewPage.endsWith(".do")) viewPage = "/WEB-INF/jsp/" +viewPage +".jsp"; 
-		
+
+		if (!viewPage.endsWith(".do"))
+			viewPage = "/WEB-INF/jsp/" + viewPage + ".jsp";
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
-		
+
 	}
 
 }
