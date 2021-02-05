@@ -23,56 +23,14 @@
             <link rel="stylesheet" href="assets/css/nice-select.css">
             <link rel="stylesheet" href="assets/css/style.css">
    </head>
+   <jsp:include page="topmenu.jsp"/>
    <body>
-    <header>
-        <!-- menu Start -->
-       <div class="header-area">
-            <div class="main-header ">
-                <div class="header-bottom  header-sticky">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <!-- Logo -->
-                            <div class="col-xl-2 col-lg-2 col-md-1">
-                                <div class="logo">
-                                  <a href="main.do"><img src="assets/img/logo/moca.png" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-10 col-lg-10 col-md-10">
-                                <!-- Main-menu -->
-                                <div class="main-menu f-right d-none d-lg-block">
-                                    <nav>               
-                                        <ul id="navigation">                                                                                                                                     
-                                            <li><a href="index.html">공지사항</a></li>
-                                            <li><a href="about.html">클래스등록</a></li>
-                                            <li><a href="blog.html">로그인</a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">로그인</a></li>
-                                                    <li><a href="single-blog.html">회원가입</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <!-- Mobile Menu -->
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
-                            </div>
-                        </div>
-                    </div>
-               </div>
-            </div>
-       </div>
-        <!-- main End -->
-    </header>
-
     <main>
-
         <!-- slider Area Start-->
         <div class="slider-area ">
             <!-- Mobile Menu -->
             <div class="slider-active">
-                <div style="height:1000px" class="single-slider hero-overly  slider-height d-flex align-items-center" data-background="assets/img/hero/h1_hero.jpg">
+                <div style="height:1200px" class="single-slider hero-overly  slider-height d-flex align-items-center" data-background="assets/img/hero/h1_hero.jpg">
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-9 col-lg-9 col-md-9">
@@ -86,26 +44,27 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <!-- form -->
-                                <form action="#" class="search-box">
-                                    <div class="input-form mb-30">
-                                        <input type="text" placeholder="Where would you like to go to learn?">
+                                <form id="regionFrm" name="regionFrm" action="searchClass.do" class="search-box">
+                                    <div class="input-form mb-30">                                   
+                                        <input type="text" name="className" id="className" placeholder="Where would you like to go to learn?" >
                                     </div>
                                     <div class="select-form mb-30">
-                                        <div class="select-itms">
+                                        <div class="select-itms">                               
                                             <select name="select" id="select1">
-                                            	<option>Choose one</option>
-                                                <option>서울</option>
-                                                <option>인천/경기</option>
-                                                <option>대전/충청</option>
-                                                <option>부산/경남</option>
-                                                <option>대구/경북</option>
-                                                <option>강원</option>
-                                                <option>제주</option>
+                                            	<option value="all">Choose one</option>
+                                                <option value="서울">서울</option>
+                                                <option value="부산">부산</option>
+                                                <option value="인천/경기">인천/경기</option>
+                                                <option value="대전/충청">대전/충청</option>
+                                                <option value="울산/경남">울산/경남</option>
+                                                <option value="대구/경북">대구/경북</option>
+                                                <option value="강원">강원</option>
+                                                <option value="제주">제주</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="search-form mb-30">
-                                        <a href="#">Search</a>
+                                        <a onclick="classSearch.do">Search</a>
                                     </div>	
                                 </form>	
                             </div>
