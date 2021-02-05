@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>index.jsp</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<jsp:forward page="boardList.do" />
+테스트용
 </body>
 </html>

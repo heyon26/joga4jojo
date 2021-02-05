@@ -8,18 +8,11 @@
 </head>
 <body>
 <script type="text/javascript">
-	function deleteAlert() {   //삭제
-		var db = confirm("글을 삭제하시겠습니까?");
-		if(db) {
-			location.href="bookDelete.do?공지사항pk값="+"${vo.공지사항pk값}";
-		}
-		
-	}
 	
 	function updateAlert() {  //수정
 		var ub = confirm("글 수정 하시겠습니까?");
 			if(ub) {
-			frm.action = "공지사항수정Form.do";
+			frm.action = "boardEditForm.do";
 			frm.submit();
 		}
 	}
@@ -27,20 +20,20 @@
 <div align ="center"><h1> 공지사항 상세보기 페이지 입니다.</h1></div>
 		<div>
 			<form id="frm" name="frm" action="" method="post">
-			<input type="hidden" id="공지사항pk값" name="공지사항pk값" value="${vo.공지사항pk값 }">
+			<input type="hidden" id="boardCode" name="boardCode" value="${vo.boardCode }">
 			</form>
 		</div>
 		<div align ="center">
 		<table border="1">
 			<tr>
-				<th width="100">공지사항pk값</th>
-				<td width="100" align="center">${book.bookCode }</td>
-				<th width="100">공지사항값1</th>
-				<td width="120" align="center">${book.bookName }</td>
-				<th width="100">공지사항값2</th>
-				<td width="120" align="center">${book.quantity }</td>
-				<th width="100">공지사항값3</th>
-				<td width="120" align="center">${book.bCount }</td>
+				<th width="100">제목</th>
+				<td width="100" align="center">${vo.bName }</td>
+				<th width="100">내용</th>
+				<td width="120" align="center">${vo.bContent }</td>
+				<th width="100">작성자</th>
+				<td width="120" align="center">${vo.userId }</td>
+				<th width="100">작성일자</th>
+				<td width="120" align="center">${vo.bDate }</td>
 			</tr>
 		</table><br/>
 		<div>
