@@ -11,5 +11,5 @@ public class ClassVo {
 	private String cateGoryB;
 	private String classIntroduce;
 	private String curriculum;
-	
+	private int ratingCode;
 }
