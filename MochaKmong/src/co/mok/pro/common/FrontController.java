@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.mok.pro.web.Testmain;
+import co.mok.pro.main.MainService;
+import co.mok.pro.web.CreateClassView;
 
 /**
  * Servlet implementation class FrontController
@@ -27,7 +28,8 @@ public class FrontController extends HttpServlet {
 	}
 
 	public void init(ServletConfig config) throws ServletException {
-		map.put("/testmain.do", new Testmain());
+		map.put("/main.do", new MainService());
+		map.put("/createClassView.do", new CreateClassView());
 
 	}
 

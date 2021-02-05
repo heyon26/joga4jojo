@@ -3,38 +3,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Summernote with Bootstrap 4</title>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"
-	crossorigin="anonymous"></script>
 <script
-	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-	integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-	crossorigin="anonymous"></script>
-
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/MochaKmong/assets/js/summernote/summernote-lite.js"></script>
+<script src="/MochaKmong/assets/js/summernote/lang/summernote-ko-KR.js"></script>
 <link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-	crossorigin="anonymous">
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-	integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-	crossorigin="anonymous"></script>
+	href="/MochaKmong/assets/css/summernote/summernote-lite.css">
+<script>
+	$(document).ready(function() {
+		//여기 아래 부분
+		$('#summernote').summernote({
+			width : 800,
+			height : 300, // 에디터 높이
+			minHeight : 400, // 최소 높이
+			maxHeight : null, // 최대 높이
+			focus : true, // 에디터 로딩후 포커스를 맞출지 여부
+			lang : "ko-KR", // 한글 설정
+			placeholder : '최대 2048자까지 쓸 수 있습니다' //placeholder 설정
 
-<link
-	href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+		});
+	});
+</script>
+<meta charset="UTF-8">
+<title>클래스 등록</title>
 </head>
 <body>
-	<div id="summernote"></div>
-	<script>
-		$('#summernote').summernote({
-			placeholder : 'Hello Bootstrap 4',
-			tabsize : 2,
-			height : 100
-		});
-	</script>
+
+	<div align="center">
+		<div style="width: 800px">
+		<form method="post">
+			<div>클래스 등록하기</div>
+			<div>
+				1. 연락처 입력
+				<div>
+				
+				</div>
+			</div>
+			<div align="left">
+				
+					<textarea id="summernote" name="editordata" style="display: none;"></textarea>
+				
+			</div>
+			</form>
+		</div>
+	</div>
+
+	<div class="note-modal-backdrop" style="display: none;"></div>
 </body>
 </html>

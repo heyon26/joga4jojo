@@ -43,7 +43,7 @@
                                     <nav>               
                                         <ul id="navigation">                                                                                                                                     
                                             <li><a href="index.html">공지사항</a></li>
-                                            <li><a href="about.html">클래스등록</a></li>
+                                            <li><a href="createClassView.do">클래스등록</a></li>
                                             <li><a href="blog.html">로그인</a>
                                                 <ul class="submenu">
                                                     <li><a href="blog.html">로그인</a></li>
