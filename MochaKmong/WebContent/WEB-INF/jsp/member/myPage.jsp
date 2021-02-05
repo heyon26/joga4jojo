@@ -7,26 +7,26 @@
  <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>수강생 마이페이지</title>
 <link rel="manifest" href="site.webmanifest">
-<link rel="shortcut icon" type="image/x-icon" href="../../assets/img/favicon.ico">
+<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
 		<!-- CSS here -->
-            <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-            <link rel="stylesheet" href="../../assets/css/owl.carousel.min.css">
-            <link rel="stylesheet" href="../../assets/css/flaticon.css">
-            <link rel="stylesheet" href="../../assets/css/slicknav.css">
-            <link rel="stylesheet" href="../../assets/css/animate.min.css">
-            <link rel="stylesheet" href="../../assets/css/magnific-popup.css">
-            <link rel="stylesheet" href="../../assets/css/fontawesome-all.min.css">
-            <link rel="stylesheet" href="../../assets/css/themify-icons.css">
-            <link rel="stylesheet" href="../../assets/css/slick.css">
-            <link rel="stylesheet" href="../../assets/css/nice-select.css">
-            <link rel="stylesheet" href="../../assets/css/style.css">
+            <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+            <link rel="stylesheet" href="assets/css/flaticon.css">
+            <link rel="stylesheet" href="assets/css/slicknav.css">
+            <link rel="stylesheet" href="assets/css/animate.min.css">
+            <link rel="stylesheet" href="assets/css/magnific-popup.css">
+            <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+            <link rel="stylesheet" href="assets/css/themify-icons.css">
+            <link rel="stylesheet" href="assets/css/slick.css">
+            <link rel="stylesheet" href="assets/css/nice-select.css">
+            <link rel="stylesheet" href="assets/css/style.css">
             
         <!-- Script -->
 		<script>
 			function profileEdit(){ // 프로필 수정
 				var url = "profileEdit.do";
-				window.open(url, "프로필 수정", "width=400, height=350");
+				window.open(url, "프로필 수정", "width=600, height=750");
 			}
 		</script>
 
@@ -113,11 +113,11 @@
                     <div class="col-lg-12">
                         <div class="section-tittle text-center" >
                             <span>수강생 페이지</span>
-                            <h2><input type="button" value="수강생" onclick="memberPage.do"></h2>
+                            <h2><input type="button" value="수강생" onclick="#"></h2>
                         </div>
                         <div class="section-tittle text-center">
                             <span>강사 페이지</span>
-                            <h2><input type="button" value="강사" onclick="expertPage.do"></h2>
+                            <h2><input type="button" value="강사" onclick="location.href='expertPage.do'"></h2>
                         </div> 
                     </div>
                 </div>
@@ -129,11 +129,11 @@
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <h3><a href="#">계정 ID (user email)</a></h3>
+                                    <h3><a href="프로필 이미지 삽입 예정">프로필 이미지</a></h3>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
-                                        <li>아이디</li>
+                                        <li>프로필 이미지</li>
                                     </ul>
                                 </div>
                             </div>
@@ -146,11 +146,11 @@
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <h3><a href="#">이름 (user name)</a></h3>
+                                    <h3><a href="#">계정 ID / 이름 (user name)</a></h3>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
-                                        <li>이름</li>
+                                        <li>계정 ID / 이름</li>
                                     </ul>
                                 </div>
                             </div>

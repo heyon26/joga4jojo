@@ -22,6 +22,12 @@
             <link rel="stylesheet" href="assets/css/nice-select.css">
             <link rel="stylesheet" href="assets/css/style.css">
 
+		<script>
+			function profileEdit(){ // 프로필 수정
+				var url = "profileEdit.do";
+				window.open(url, "프로필 수정", "width=600, height=750");
+			}
+		</script>
 
 </head>
 <body>
@@ -106,11 +112,11 @@
                     <div class="col-lg-12">
                         <div class="section-tittle text-center" >
                             <span>수강생 페이지</span>
-                            <h2><input type="button" value="수강생" onclick="memberPage.do"></h2>
+                            <h2><input type="button" value="수강생" onclick="location.href='myPage.do'"></h2>
                         </div>
                         <div class="section-tittle text-center">
                             <span>강사 페이지</span>
-                            <h2><input type="button" value="강사" onclick="expertPage.do"></h2>
+                            <h2><input type="button" value="강사" onclick="#"></h2>
                         </div> 
                     </div>
                 </div>
@@ -122,11 +128,11 @@
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <h3><a href="#">계정 ID (user email)</a></h3>
+                                    <h3><a href="#">프로필 이미지</a></h3>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
-                                        <li>아이디</li>
+                                        <li>프로필 이미지</li>
                                     </ul>
                                 </div>
                             </div>
@@ -135,15 +141,15 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="assets/img/service/services2.jpg" alt="">
+                                <img src="프로필 이미지 삽입 예정" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <h3><a href="#">이름 (user name)</a></h3>
+                                    <h3><a href="#">계정 ID / 이름 (user name)</a></h3>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
-                                        <li>이름</li>
+                                        <li>계정 ID / 이름 </li>
                                     </ul>
                                 </div>
                             </div>
@@ -173,7 +179,7 @@
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                   <h3><input type="button" value="프로필 수정" onclick="#"></h3>
+                                   <h3><input type="button" value="프로필 수정" onclick="profileEdit()"></h3>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>

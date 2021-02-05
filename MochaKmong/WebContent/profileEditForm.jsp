@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +34,6 @@
 		}
 	</script>
 	
-
 </head>
 <body>
 
@@ -45,35 +45,36 @@
 			</div>
 			<div id="imgEdit">
 				<h4>이미지 수정</h4>
-				<div id="preview"></div>
+				<img src="assets/img/mypage/profile.png" alt="프로필 이미지" id="imgPreview" name="imgPreview">
 			</div>
-			<p />
-			<div>
-				<input type="file" accept="image/*" id="uploadFile" name="uploadFile" onchange="uploadImage(event)">
-			</div>
+				<p />
+				<div>
+					<div id="preview"></div>
+					<input type="file" value="프로필 이미지 업로드" id="updateImg" name="updateImg" onchange="uploadImage(event)">
+					<input type="reset" value="취소" id="cancelImage" onchange="cancelImage()">
+				</div>
 			<div id="userEdit">
 				<div>
 					<h2>유저 정보 수정</h2>
 					<p>변경하실 유저 정보를 입력해주세요</p>
 				</div>
 				<div>
-					<input type="text" id="userName" name="userName" value="유저 이름"
-						onfocus="this.value=''"
-						onblur="if(this.value=='')this.value='유저 이름'">
+					<input type="text" id="userName" name="userName" value="유저 이름" onfocus="this.value=''" onblur="if(this.value=='')this.value='유저 이름'">
 
 					<p />
-					<input type="text" id="userTel" name="userTel" value="전화번호"
-						onfocus="this.value=''"
-						onblur="if(this.value=='')this.value='전화번호'">
+					<input type="text" id="userTel" name="userTel" value="전화번호" onfocus="this.value=''" onblur="if(this.value=='')this.value='전화번호'">
 				</div>
 			</div>
 
-			<div>
-				<button type="submit">수정</button>
-				<button type="reset">취소</button>
-			</div>
-	</div>
+		<div>
+			<button type="submit">수정</button>
+			<button type="reset">취소</button>
+		</div>
+		</div>
 
 	</form>
+	
+	
+
 </body>
 </html>
