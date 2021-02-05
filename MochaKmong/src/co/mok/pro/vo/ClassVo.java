@@ -143,7 +143,6 @@ public class ClassVo {
 	public void setClassTel(String classTel) {
 		this.classTel = classTel;
 	}
-	
-	
+
 	
 }

@@ -44,11 +44,11 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <!-- form -->
-                                <form id="regionFrm" name="regionFrm" action="searchClass.do" class="search-box">
-                                    <div class="input-form mb-30">                                   
-                                        <input type="text" name="className" id="className" placeholder="Where would you like to go to learn?" >
+                                <form id="regionFrm" name="regionFrm" action="searchClass.do" method="get" class="search-box">
+                                    <div class="input-form mb-30">                                 
+                                        <input type="text" name="searchClass" id="searchClass" placeholder="지역 또는 클래스 명을 검색해주세요." >
                                     </div>
-                                    <div class="select-form mb-30">
+                                     <div class="select-form mb-30">
                                         <div class="select-itms">                               
                                             <select name="select" id="select1">
                                             	<option value="all">Choose one</option>
@@ -65,7 +65,7 @@
                                         </div>
                                     </div>
                                     <div class="search-form mb-30">
-                                        <a onclick="classSearch.do">Search</a>
+                                        <button type="submit" class="btn btn-warning" >검색하기</button>
                                     </div>	
                                 </form>	
                             </div>

@@ -25,10 +25,10 @@
 <link rel="stylesheet" href="assets/css/nice-select.css">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<jsp:include page="../main/topmenu.jsp"></jsp:include>
 <body>
 
 <!-- 검색/선택메뉴 -->	
+	<div class="_empty">&nbsp;</div>
 	<div class="jss40">
 		<div class="jss41">
 			<fieldset class="MuiFormControl-root">

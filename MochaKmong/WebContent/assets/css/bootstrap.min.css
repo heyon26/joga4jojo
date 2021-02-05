@@ -5,14 +5,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
  
- /* 모카 클래스 설정 */
- 
- .MuiTabs-root {
-    display: flex;
-    overflow: hidden;
-    min-height: 48px;
-    -webkit-overflow-scrolling: touch;
-}
+
 
 .jss137 {
     border: 1px solid #d7d7d7;
@@ -64,13 +57,16 @@
 }
 
 .jss40 {
-    margin: 20px 0 1.5rem;
+    margin: 0 auto;
+    width:1050px;
+    height:450px;
     display: flex;
     padding: 20px 5px;
     font-size: small;
     align-items: center;
+     justify-content: center;
     border-radius: 25px;
-    flex-direction: column;
+    flex-direction: row;
     background-color: #eeeeee;
 }
 
@@ -261,7 +257,10 @@
     -webkit-appearance: none;
     -webkit-tap-highlight-color: transparent;
 }
- 
+
+._empty{
+	margin: 20px 0;
+} 
  
   /* 모카 클래스 설정 */
  
@@ -2523,13 +2522,13 @@ textarea.form-control {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	border: 1px solid transparent;
+	border: 1px solid #FAFAFA;
 	padding: .375rem .75rem;
 	font-size: 1rem;
 	line-height: 1.5;
 	border-radius: .25rem;
-	transition: color .15s ease-in-out, background-color .15s ease-in-out,
-		border-color .15s ease-in-out, box-shadow .15s ease-in-out
+	/* transition: color .15s ease-in-out, background-color .15s ease-in-out,
+		border-color .15s ease-in-out, box-shadow .15s ease-in-out */
 }
 
 @media screen and (prefers-reduced-motion:reduce) {
@@ -2833,10 +2832,10 @@ a.btn.disabled, fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-	color: #007bff;
+	color: #ff8080;
 	background-color: transparent;
 	background-image: none;
-	border-color: #007bff
+	border-color: #ffffff;
 }
 
 .btn-outline-primary:hover {
