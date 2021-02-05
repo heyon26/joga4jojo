@@ -4,13 +4,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  
+<title>로그인 / 회원가입 폼 템플릿</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/css/util.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/css/main.css">
+<!--===============================================================================================-->
   <script type="text/javascript">
 	function formCheck() {
 
@@ -48,53 +66,101 @@
 </script>
 </head>
 <body>
-<div align="center">
-        <div>
-		<h3>회원가입</h3>
+
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+				<form class="login100-form validate-form" id="frm" name="frm" onsubmit="return formCheck()" action="userJoin.do" method="post">	
+					<span class="login100-form-title p-b-33">
+						Join Membership
+					</span>
+					
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<table>
+					<tr>
+						<td><input class="input100" type="text" id="userId" name="userId" placeholder="Enter id" required="required" size="30">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span></td>
+						<td><button type="button" class="btn btn-primary default btn-sm" onclick="idCheck(userId.value)"">idCheck</button></td>
+					</tr>
+					</table>
+					</div>
+
+					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" id="userPw" name="userPw" placeholder="Enter password" required="required">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+					
+					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" id="userPw1" name="userPw1" placeholder="password check" required="required">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+					
+					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+						<input class="input100" type="text" id="userName" name="userName" placeholder="Enter name" required="required">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+					
+					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+						<input class="input100" type="text" id="userTel" name="userTel" placeholder="Enter tel" required="required">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+					
+					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+						<input class="input100" type="text" id="userEmail" name="userEmail" placeholder="Enter email" required="required">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+					
+					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+					<table>
+					<tr>
+						<td><input class="input100" type="text" id="userZipcode" name="userZipcode" placeholder="Enter zipcode" required="required" size="30">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span></td>
+						<td><button type="button" class="btn btn-primary default btn-sm">zipCode</button></td>
+					</tr>
+					</table>
+					</div>
+					
+					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+						<input class="input100" type="text" id="userAddress" name="userAddress" placeholder="Enter address" required="required">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div><br/>
+					
+
+					<div class="container-login100-form-btn m-t-20">
+						<button class="login100-form-btn" type="submit">
+							registration
+						</button>
+					</div>
+
+					</form>
+				</div>
+			</div>
 		</div>
-		<form class= "form-inline" id="frm" name="frm" onsubmit="return formCheck()" action="userJoin.do" method="post">
-				<div>
-				   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				   <input type="text" class="form-control" id="userId" name="userId" placeholder="아이디" required="required"> &nbsp;&nbsp;
-					  <button type="button" class="btn btn-default" onclick="idCheck(userId.value)">중복체크</button>
-						</div><br/>
-						
-						<div>
-							<input type="password"  class="form-control" id="userPw" name="userPw" placeholder="패스워드" required="required">
-						</div><br/>
-						
-						<div>
-							<input type="password"  class="form-control" id="userPw1" name="userPw1" placeholder="패스워드 확인"  required="required">
-						</div><br/>	
-						
-						<div>
-							<input type="text" class="form-control" id="userName" name="userName" placeholder="이름" required="required">
-						</div><br/>
-						
-						<div>
-						<input type="text" class="form-control" id="userTel" name="userTel" placeholder="전화번호" required="required">
-						</div><br/>
-						
-						<div>
-					   <input type="text" class="form-control" id="userEmail" name="userEmail" placeholder="이메일" required="required">
-						</div><br/>
-						
-						<div>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input type="text" class="form-control" id="userZipcode" name="userZipcode" placeholder="우편번호" required="required"> &nbsp;&nbsp;
-						<button type="button" class="btn btn-default">우편번호</button><br/><br/>
-						<input type="text" class="form-control" id="userAddress" name="userAddress" placeholder="주소" required="required"> <br/><br/>
-						</div><br/>
-						
-					<div>
-					<input type="submit" class="btn btn-primary" value="submit">&nbsp;&nbsp;&nbsp;
-				   <input type="reset"  class="btn btn-primary" value="reset">
-				   </div>
-		   </form>
-      </div>
+      <!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/assets/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/assets/login/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/assets/login/vendor/bootstrap/js/popper.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/login/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/assets/login/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/assets/login/vendor/daterangepicker/moment.min.js"></script>
+	<script src="${pageContext.request.contextPath}/assets/login/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/assets/login/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="${pageContext.request.contextPath}/assets/login/js/main.js"></script>
+	
+      
 </body>
 </html>
