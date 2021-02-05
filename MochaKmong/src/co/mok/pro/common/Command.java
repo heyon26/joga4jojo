@@ -1,4 +1,4 @@
-package co.mok.pro;
+package co.mok.pro.common;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

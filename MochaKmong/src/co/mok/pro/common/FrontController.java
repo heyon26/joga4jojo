@@ -1,4 +1,4 @@
-package co.mok.pro;
+package co.mok.pro.common;
 
 import java.io.IOException;
 import java.util.HashMap;
