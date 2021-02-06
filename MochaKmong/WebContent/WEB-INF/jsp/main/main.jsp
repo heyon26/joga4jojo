@@ -45,25 +45,19 @@
                             <div class="col-xl-12">
                                 <!-- form -->
                                 <form id="regionFrm" name="regionFrm" action="searchClass.do" method="get" class="search-box">
-                                    <div class="input-form mb-30">                                 
-                                        <input type="text" name="searchClass" id="searchClass" placeholder="지역 또는 클래스 명을 검색해주세요." >
-                                    </div>
-                                     <div class="select-form mb-30">
+                                    <div class="select-form mb-30">
                                         <div class="select-itms">                               
                                             <select name="select" id="select1">
-                                            	<option value="all">Choose one</option>
-                                                <option value="서울">서울</option>
-                                                <option value="부산">부산</option>
-                                                <option value="인천/경기">인천/경기</option>
-                                                <option value="대전/충청">대전/세종/충청</option>
-                                                <option value="울산/경남">울산/경남</option>
-                                                <option value="대구/경북">대구/경북</option>
-                                                <option value="광주/전북">광주/전남/전북</option>
-                                                <option value="강원">강원</option>
-                                                <option value="제주">제주</option>
+                                            	<option value="all">지역 또는 카테고리</option>
+                                                <option value="area">지역</option>
+												<option value="category">클래스 카테고리</option>
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="input-form mb-30">                                 
+                                        <input type="text" name="searchClass" id="searchClass" placeholder="검색 내용을 입력하세요." >
+                                    </div>
+                                     
                                     <div class="search-form mb-30">
                                         <button type="submit" class="btn btn-warning" >검색하기</button>
                                     </div>	
