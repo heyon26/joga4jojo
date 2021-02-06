@@ -7,20 +7,6 @@
 <meta charset="UTF-8">
 <title>프로필 수정 양식</title>
 
-<style>
-	img{
-		width: 300px;
-		height: 300px;
-		border: 1px solid #f4f4f4;
-	}
-	
-	#profileLayout{
-		background-color: #fafafa;
-		border-radius: 25px;
-	}
-	
-</style>
-
 <!-- 이미지 미리보기 -->
 	<script>
 		function uploadImage(event){
@@ -32,50 +18,73 @@
 			}
 			reader.readAsDataURL(event.target.files[0]);
 		}
+		
+		
+		
 	</script>
 	
 
 </head>
 <body>
 
-	<form name="form" id="frm" name="frm" onsubmit="checkValue()" action="profileUpdate.do" method="post" align="center">
-		<div id="profileLayout">
-			<div>
-				<h2>프로필 수정</h2>
-				<p>프로필 이미지를 업로드해 주세요</p>
-			</div>
-			<div id="imgEdit">
-				<h4>이미지 수정</h4>
-				<div id="preview"></div>
-			</div>
-			<p />
-			<div>
-				<input type="file" accept="image/*" id="uploadFile"
+	<div class="container">
+		<form name="form" id="frm" name="frm" onsubmit="checkValue()" action="profileUpdate.do" method="post">
+			<h1>프로필 수정</h1>
+			<hr>
+
+			<div class="row">
+				<!-- left column -->
+				<div class="col-md-3">
+					<div class="text-center">
+
+						<div id="preview" name="preview"></div>
+						<h6>프로필 이미지를 업로드해 주세요</h6>
+
+						<input type="file" accept="image/*" id="uploadFile"
 					name="uploadFile" onchange="uploadImage(event)">
-			</div>
-			<div id="userEdit">
-				<div>
-					<h2>유저 정보 수정</h2>
-					<p>변경하실 유저 정보를 입력해주세요</p>
+					</div>
 				</div>
-				<div>
-					<input type="text" id="userName" name="userName" value="유저 이름"
+
+				<!-- edit form column -->
+				<div class="col-md-7 personal-info">
+
+					<h3>유저 정보 수정</h3>
+					<p/>
+					<h6>변경하실 유저 정보를 입력해주세요</h6>
+					<!-- Change this to a <form> to reproduce your original issue -->
+					<div class="form-horizontal" role="form">
+						<div class="form-group">
+							<div class="col-lg-8">
+								<input class="form-control" type="text" id="userName" name="userName" value="유저 이름"
 						onfocus="this.value=''"
 						onblur="if(this.value=='')this.value='유저 이름'">
-
-					<p />
-					<input type="text" id="userTel" name="userTel" value="전화번호"
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-lg-8">
+								<input class="form-control" ype="text" id="userTel" name="userTel" value="전화번호"
 						onfocus="this.value=''"
 						onblur="if(this.value=='')this.value='전화번호'">
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label class="col-md-3 control-label"></label>
+							<div class="col-md-8">
+								<input type="submit" class="btn btn-primary"
+									value="수정"> <span></span> <a href="/home2">
+									<input type="reset" href="/home2" class="btn btn-default"
+									value="취소">
+								</a>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 
-			<div>
-				<button type="submit">수정</button>
-				<button type="reset">취소</button>
-			</div>
-		</div>
-
-	</form>
+			<hr>
+		</form>
+	</div>
 </body>
 </html>

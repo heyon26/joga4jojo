@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import co.mok.pro.main.MainService;
 import co.mok.pro.member.ExpertPage;
 import co.mok.pro.member.MyPage;
+import co.mok.pro.member.MyPageEdit;
+import co.mok.pro.member.MyPageMessage;
 import co.mok.pro.member.ProfileEdit;
 import co.mok.pro.member.ProfileUpdate;
 
@@ -47,6 +49,9 @@ public class FrontController extends HttpServlet {
 		map.put("/idCheck.do", new UserIdCheck()); 
 		
 		map.put("/myPage.do", new MyPage()); // 마이페이지 호출
+		map.put("/myPageMessage.do", new MyPageMessage()); // Message 페이지 호출
+		map.put("/myPageEdit.do", new MyPageEdit()); // Edit 페이지 호출
+		
 		map.put("/expertPage.do", new ExpertPage()); // 강사 페이지 호출
 		map.put("/profileEdit.do", new ProfileEdit()); // 프로필 수정 페이지 호출
 		map.put("/profileUpdate.do", new ProfileUpdate()); // 프로필 수정 값 전달
