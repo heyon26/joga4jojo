@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -84,7 +88,12 @@
                                             <li><a href="index.html">로그인</a>           
                                                 <ul class="submenu">
                                                     <li><a href="loginForm.do">로그인</a></li>
-                                                    <li><a href="userJoinForm.do">회원가입</a></li>               
+                                                    <li><a href="userJoinForm.do">회원가입</a></li>        
+                                                     <c:if test="${user_auth == 'MOKAPRO' }">
+				                      <li><a class="menuLink" href="#">로그아웃</a></li>
+				                     <li>|</li>
+				                   <li><a class="menuLink" href="#">내클래스/프로필</a></li>
+				                  </c:if>         
                                                 </ul>           
                                             </li>
                                         </ul>                

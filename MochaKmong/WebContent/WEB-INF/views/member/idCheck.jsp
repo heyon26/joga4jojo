@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>중복체크</title>
+<title>idCheck</title>
 <script type="text/javascript">
 	function formClose() {
 		if(${check }) {
@@ -18,9 +18,9 @@
 </script>
 </head>
 <body>
-	<div align="center">
-	<h3>${msg }</h3>
-		<button type="button" onclick="formClose()">확인</button>
+	<div align="center"><br/>
+	<h3>${msg }</h3><br/>
+		<button type="button"  onclick="formClose()">확인</button>
 	</div>
 </body>
 </html>

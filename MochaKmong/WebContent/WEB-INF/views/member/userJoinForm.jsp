@@ -64,8 +64,16 @@
 		}
 	}
 	
-</script>
-
+	function openZipSearch() {
+		new daum.Postcode({
+			oncomplete: function(data) {
+				$('[name=userZipcode]').val(data.zonecode); // 우편번호 (5자리)
+				$('[name=userAddress]').val(data.address);
+			}
+		}).open();
+	}
+	</script>
+	
 <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 <script>
 function openZipSearch() {

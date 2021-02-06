@@ -28,6 +28,18 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/css/main.css">
 <!--===============================================================================================-->
+<script>
+function loginCheck () {
+  var userId = document.getElementById("user_id").value; 
+  var userPw = document.getElementById("user_pw").value;
+  
+  if(userId == frm.userId.value && userPw == frm.userPw.value) {
+    alert("로그인 성공");
+  } else {
+    alert("로그인 실패");
+  }
+}
+</script>
 </head>
 <body>
 
@@ -35,18 +47,18 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-				<form class="login100-form validate-form";id="frm" name="frm" action="login.do" method="post">	
+				<form class="login100-form validate-form" id="frm" name="frm" action="login.do" method="post">	
 					<span class="login100-form-title p-b-33">
 						Account Login
 					</span>
 					
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+					<div class="wrap-input100 validate-input" >
 						<input class="input100" type="text" id="userId" name="userId" placeholder="Enter id" required="required">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
 					</div>
 
-					<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+					<div class="wrap-input100 rs1 validate-input" >
 						<input class="input100" type="password" id="userPw" name="userPw" placeholder="Enter password" required="required">
 						<span class="focus-input100-1"></span>
 						<span class="focus-input100-2"></span>
@@ -73,7 +85,7 @@
 							Create an account?
 						</span>
 
-						<a href="userJoinForm.do" class="txt2 hov1">
+						<a href="userJoinForm.do" class="txt2 hov1" onclick="loginCheck()">
 							Sign up
 						</a>
 					</div>

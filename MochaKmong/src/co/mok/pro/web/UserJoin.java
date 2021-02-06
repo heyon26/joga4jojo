@@ -27,7 +27,7 @@ public class UserJoin implements Command {
 		request.setAttribute("vo", vo);
 		
 		if(n != 0) {
-			viewPage = "member/userJoinSeccess";
+			viewPage = "member/loginForm";
 		} else {
 			viewPage = "member/userJoinFail";
 		}
