@@ -429,6 +429,8 @@ body{
     box-shadow: 0 11px 7px 0 rgba(0,0,0,0.19),0 13px 25px 0 rgba(0,0,0,0.3);
 }
 
+
+
 </style>
 
 <script>
@@ -513,9 +515,20 @@ body{
              </div>
            </div>
         </div>
+        
         <div class="col-lg-8">
            <div class="card z-depth-3">
             <div class="card-body">
+            
+           <ul class="nav nav-pills nav-pills-primary nav-justified">
+                <li class="nav-item">
+                    <a href="myPage.do" data-target="#profile" data-toggle="pill" class="nav-link active show"><i class="icon-user"></i> <span class="hidden-xs">수강생</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="expertPage.do" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">강사</span></a>
+                </li>
+            </ul> 
+            
             <ul class="nav nav-pills nav-pills-primary nav-justified">
                 <li class="nav-item">
                     <a href="myPage.do" data-target="#profile" data-toggle="pill" class="nav-link active show"><i class="icon-user"></i> <span class="hidden-xs">신청한 클래스</span></a>
