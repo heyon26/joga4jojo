@@ -16,6 +16,13 @@
 			frm.submit();
 		}
 	}
+	
+	function deleteAlert(){
+		var ib = confirm("삭제 하시겠습니까");
+		if (ib) {
+			location.href = "boardDelete.do?boardCode="+"${vo.boardCode}";
+		}
+	}
 </script>
 <div align ="center"><h1> 공지사항 상세보기 페이지 입니다.</h1></div>
 		<div>

@@ -7,6 +7,6 @@
 <title>index.jsp</title>
 </head>
 <body>
-	<jsp:forward page="boardList.do" />
+	<jsp:forward page="main.do" />
 </body>
 </html>

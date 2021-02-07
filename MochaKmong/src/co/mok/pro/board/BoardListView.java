@@ -1,4 +1,4 @@
-package co.mok.pro.board;
+ package co.mok.pro.board;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

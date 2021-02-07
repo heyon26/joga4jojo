@@ -13,11 +13,11 @@ import co.mok.pro.vo.BoardVo;
 public class BoardDao extends DAO {
 	private PreparedStatement psmt;
 	private ResultSet rs;
-	//selectList -게시판 전체 출력
+	//selectList -공지게시판 전체 출력
 	public ArrayList<BoardVo> selectList(){
 		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
 		BoardVo vo;
-		String sql = "SELECT * FROM BOARD";
+		String sql = "SELECT * FROM BOARD WHERE B_BOARD='test'";
 	
 		try {
 		psmt = conn.prepareStatement(sql);
@@ -42,6 +42,36 @@ public class BoardDao extends DAO {
 		return list; 
 	}
 	//selectList
+	//
+	//askList 자주묻는 질문 리스트
+	public ArrayList<BoardVo> askList(){
+		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
+		BoardVo vo;
+		String sql = "SELECT * FROM BOARD WHERE B_BOARD='ask'";
+	
+		try {
+		psmt = conn.prepareStatement(sql);
+		rs = psmt.executeQuery();
+		while(rs.next()) {
+			vo = new BoardVo();
+			vo.setBoardCode(rs.getInt("board_Code"));
+			vo.setUserId(rs.getString("user_Id"));
+			vo.setbBoard(rs.getString("b_Board"));
+			vo.setbName(rs.getString("b_Name"));
+			vo.setbContent(rs.getString("b_Content"));
+			vo.setbCategoryA(rs.getString("b_Category_A"));
+			vo.setbCategoryB(rs.getString("b_Category_B"));
+			vo.setbDate(rs.getDate("b_Date"));
+			list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return list; 
+	}
+	//askList-
 	//
 	//select - 게시판 조건검색
 	public BoardVo select(BoardVo vo) {
@@ -70,6 +100,10 @@ public class BoardDao extends DAO {
 	}
 	//select
 	//
+	//boardSearch -공지사항 내 검색 기능
+
+	//boardSearch
+	//
 	//insert-게시판 게시글 등록
 	public int insert(BoardVo vo) {
 		String sql = "INSERT INTO BOARD values(class_code_seq.nextval,?,?,?,?,?,?,SYSDATE)";
@@ -96,9 +130,7 @@ public class BoardDao extends DAO {
 	//update-게시판 글 수정
 	public int update(BoardVo vo) {
 		int n = 0;
-		String sql = "UPDATE BOARD SET b_board=?, b_name=?,"
-				+ " b_content=?, b_category_a=?,"
-				+ " b_category_b=? where board_code=?;";
+		String sql = "UPDATE BOARD SET b_board=?, b_name=?,  b_content=?, b_category_a=?, b_category_b=? where board_code=?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getbBoard());

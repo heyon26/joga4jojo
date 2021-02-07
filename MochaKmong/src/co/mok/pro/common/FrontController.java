@@ -11,10 +11,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.mok.pro.board.AskDelete;
+import co.mok.pro.board.AskEdit;
+import co.mok.pro.board.AskEditForm;
+import co.mok.pro.board.AskList;
+import co.mok.pro.board.AskListView;
+import co.mok.pro.board.BoardDelete;
 import co.mok.pro.board.BoardEdit;
 import co.mok.pro.board.BoardEditForm;
 import co.mok.pro.board.BoardList;
 import co.mok.pro.board.BoardListView;
+import co.mok.pro.board.NewAsk;
+import co.mok.pro.board.NewAskForm;
 import co.mok.pro.board.NewBoard;
 import co.mok.pro.board.NewBoardForm;
 import co.mok.pro.main.MainService;
@@ -43,7 +51,17 @@ public class FrontController extends HttpServlet {
 		map.put("/newBoardForm.do", new NewBoardForm()); //공지사항 새글 작성폼 이동
 		map.put("/newBoard.do", new NewBoard()); //공지사항 새글 작성
 		map.put("/boardEditForm.do", new BoardEditForm()); //공지사항 글 수정폼
-		map.put("/boardEdit.do", new BoardEdit()); //공지사항 글 수정폼
+		map.put("/boardEdit.do", new BoardEdit()); //공지사항 글 수정
+		map.put("/boardDelete.do", new BoardDelete()); //공지사항 삭제
+		//
+		map.put("/askList.do", new AskList()); //자주묻는 질문리스트
+		map.put("/askListView.do", new AskListView()); //묻는질문 상세페이지
+		map.put("/newAsk.do", new NewAsk()); //질문 새글 작성
+		map.put("/newAskForm.do", new NewAskForm()); //질문  작성폼 이동
+		map.put("/askEditForm.do", new AskEditForm()); //질문 수정폼 이동
+		map.put("/askEdit.do", new AskEdit()); //질문 수정
+		map.put("/askDelete.do", new AskDelete()); //질문삭제
+		
 		
 
 		

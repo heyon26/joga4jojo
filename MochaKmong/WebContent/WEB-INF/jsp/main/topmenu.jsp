@@ -42,7 +42,12 @@
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav>               
                                         <ul id="navigation">                                                                                                                                     
-                                            <li><a href="index.html">공지사항</a></li>
+                                            <li><a href="boardList.do">공지사항</a>
+                                              <ul class="submenu">
+                                             	 	<li><a href="boardList.do">공지사항</a></li>
+                                                  	<li><a href="askList.do">자주묻는질문</a></li>
+                                                </ul>
+                                            </li>
                                             <li><a href="about.html">클래스등록</a></li>
                                             <li><a href="blog.html">로그인</a>
                                                 <ul class="submenu">

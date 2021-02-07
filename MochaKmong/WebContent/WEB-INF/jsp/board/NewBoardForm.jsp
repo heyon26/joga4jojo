@@ -12,13 +12,12 @@
 	<div><h1>공지사항 작성</h1></div>
 	<div>
 		<form id="frm" name="frm"action="newBoard.do" method="post">
+			<input type="hidden" id="bBoard"name="bBoard"size="20" required="required" value=test > 
 			<div>
 				<table border="1">
 					<tr>
 						<th width="150">userId</th>
 						<td width="100"><input type="text" id="userId"name="userId"size="20"required="required"value=admin></td>
-						<th width="150">bBoard</th>
-						<td width="100"><input type="text" id="bBoard"name="bBoard"size="20" required="required"></td>
 						<th width="150">bName</th>
 						<td width="100"><input type="text" id="bName"name="bName"size="20" required="required"></td>
 						<th width="150">bContent</th>
