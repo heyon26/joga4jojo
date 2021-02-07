@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<jsp:forward page="main.do"/>
-
+<h1>테스트용</h1>
 </body>
 </html>

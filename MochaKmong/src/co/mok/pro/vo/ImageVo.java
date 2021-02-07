@@ -1,21 +1,20 @@
 package co.mok.pro.vo;
 
-public class ImageVO {
+public class ImageVo {
+	private int imageCode;
+	private String userId; //업로드 유저아이디
+	private String image; //이미지 주소
 	
-	private int imgCode;
-	private String userId;
-	private String image;
-	
-	public ImageVO() {
+	public ImageVo() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getImgCode() {
-		return imgCode;
+	public int getImageCode() {
+		return imageCode;
 	}
 
-	public void setImgCode(int imgCode) {
-		this.imgCode = imgCode;
+	public void setImageCode(int imageCode) {
+		this.imageCode = imageCode;
 	}
 
 	public String getUserId() {
@@ -34,5 +33,5 @@ public class ImageVO {
 		this.image = image;
 	}
 	
-
+	
 }

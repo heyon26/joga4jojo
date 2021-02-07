@@ -24,15 +24,16 @@ public class BoardDao extends DAO {
 		rs = psmt.executeQuery();
 		while(rs.next()) {
 			vo = new BoardVo();
-			vo.setBoardCode(rs.getInt("boardCode"));
-			vo.setUserId(rs.getString("userId"));
-			vo.setbBoard(rs.getString("bBoard"));
-			vo.setbName(rs.getString("bName"));
-			vo.setbContent(rs.getString("bContent"));
-			vo.setbCategoryA(rs.getString("bCategoryA"));
-			vo.setbCategoryB(rs.getString("bCategoryB"));
-			vo.setbDate(rs.getDate("bDate"));
+			vo.setBoardCode(rs.getInt("board_Code"));
+			vo.setUserId(rs.getString("user_Id"));
+			vo.setbBoard(rs.getString("b_Board"));
+			vo.setbName(rs.getString("b_Name"));
+			vo.setbContent(rs.getString("b_Content"));
+			vo.setbCategoryA(rs.getString("b_Category_A"));
+			vo.setbCategoryB(rs.getString("b_Category_B"));
+			vo.setbDate(rs.getDate("b_Date"));
 			list.add(vo);
+			System.out.println("리스트추가"+vo.getbName());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

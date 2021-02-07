@@ -5,7 +5,15 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
  
+#mainimage {
+	height:900px;
+	background:url("../../assets/img/main/main5.png") no-repeat;
+	-webkit-background-size: cover; 
+	-moz-background-size: cover; 
+	-o-background-size: cover; 
+	background-size: cover;
 
+}
 
 .jss137 {
     border: 1px solid #d7d7d7;
@@ -58,7 +66,7 @@
 
 .jss40 {
     margin: 0 auto;
-    width:1050px;
+    width:1200px;
     height:450px;
     display: flex;
     padding: 20px 5px;
@@ -261,6 +269,8 @@
 ._empty{
 	margin: 20px 0;
 } 
+
+
  
   /* 모카 클래스 설정 */
  
@@ -3820,7 +3830,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 
 .custom-select {
 	display: inline-block;
-	width: 100%;
+	width: 150%;
 	height: calc(2.25rem + 2px);
 	padding: .375rem 1.75rem .375rem .75rem;
 	line-height: 1.5;

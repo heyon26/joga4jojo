@@ -19,7 +19,16 @@ public class ClassVo {
 	private Date classDate; //클래스 등록일. default sysdate
 	private int ratingCode; // 별점 받아오기용
 	private String classTel; //클래스 주소. 불러올때는 m_user에서
+	private String areaName; //area테이블 조인해서 areaName값 담는용
 	
+	public String getAreaName() {
+		return areaName;
+	}
+
+	public void setAreaName(String areaName) {
+		this.areaName = areaName;
+	}
+
 	public ClassVo() {
 		// TODO Auto-generated constructor stub
 	}
@@ -143,6 +152,5 @@ public class ClassVo {
 	public void setClassTel(String classTel) {
 		this.classTel = classTel;
 	}
-
 	
 }

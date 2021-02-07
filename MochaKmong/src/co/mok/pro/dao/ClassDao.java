@@ -16,7 +16,7 @@ public class ClassDao extends DAO {
 	public ArrayList<ClassVo> selectClassList(){
 		ArrayList<ClassVo> list= new ArrayList<ClassVo>();
 		ClassVo vo;
-		String sql = "SELECT * FROM CLASS";
+		String sql = "SELECT * FROM CLASS ORDER BY class_code DESC";
 		
 		try {
 			psmt=conn.prepareStatement(sql);
@@ -45,6 +45,51 @@ public class ClassDao extends DAO {
 		} finally {
 			close();
 		}
+		
+		return list;
+	}
+	
+	//검색시 매개변수 받아서 class list 출력
+	public ArrayList<ClassVo> selectClassList(int option, String condition){
+		ArrayList<ClassVo> list= new ArrayList<ClassVo>();
+		ClassVo vo;
+
+		try {
+			String sql = null;
+			String a1 = "서울";
+			String a2 ="경기";
+			String a3 ="인천";
+			/*
+			 * if(option != 0 && condition.equals("all")) sql =
+			 * "select c.*, a.area_name from class c, area a where a.area_code=c.area_code";
+			 */
+			if(option==2 && condition.equals("서울/경기도/인천"))
+				sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+			psmt=conn.prepareStatement(sql);	
+			rs=psmt.executeQuery();
+			while(rs.next()) {
+				vo=new ClassVo();
+				vo.setClassCode(rs.getInt("class_code"));
+				vo.setUserId(rs.getString("user_id"));
+				vo.setAreaCode(rs.getInt("area_code"));
+				vo.setClassName(rs.getString("class_name"));
+				vo.setCateGoryA(rs.getString("category_a"));
+				vo.setClassIntroduce(rs.getString("class_introduce"));
+				vo.setCurriculum(rs.getString("curriculum"));
+				vo.setClassContent(rs.getString("class_content"));
+				vo.setClassAddress(rs.getString("class_address"));
+				vo.setRegisterMember(rs.getInt("register_member"));
+				vo.setClassPrice(rs.getInt("class_price"));
+				vo.setClassDate(rs.getDate("class_date"));
+				vo.setRatingCode(rs.getInt("rating_code"));
+				vo.setClassTel(rs.getString("class_tel"));
+				vo.setAreaName(rs.getString("area_name"));
+				list.add(vo);
+				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
 		
 		return list;
 	}

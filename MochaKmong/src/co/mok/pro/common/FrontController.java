@@ -17,6 +17,7 @@ import co.mok.pro.member.ExpertPage;
 import co.mok.pro.member.MyPage;
 import co.mok.pro.member.ProfileEdit;
 import co.mok.pro.member.ProfileEditUpdate;
+import co.mok.pro.web.CreateClassView;
 
 /**
  * Servlet implementation class FrontController
@@ -26,12 +27,10 @@ public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HashMap<String, Command> map = new HashMap<String, Command>();
 
-
 	public FrontController() {
 		super();
 
 	}
-
 
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainService()); //메인페이지
@@ -41,13 +40,9 @@ public class FrontController extends HttpServlet {
 		map.put("/profileEditUpdate.do", new ProfileEditUpdate()); // 프로필 수정 값 전달
 		map.put("/classSearch.do", new ClassSearch()); //메인페이지에서 클래스 검색 
 
-		
-		
-		
-		
-		
-	}
+		map.put("/createClassView.do", new CreateClassView());
 
+	}
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -55,7 +50,7 @@ public class FrontController extends HttpServlet {
 		String contextPath = request.getContextPath();
 		String uri = request.getRequestURI();
 		String path = uri.substring(contextPath.length());
-		
+
 		Command command = map.get(path);
 		String viewPage = command.exec(request, response);
 		
@@ -64,6 +59,7 @@ public class FrontController extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
 		
+
 	}
 
 }

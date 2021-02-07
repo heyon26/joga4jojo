@@ -1,5 +1,7 @@
 package co.mok.pro.classweb;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,9 +13,21 @@ public class ClassSearch implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		ClassVo vo = new ClassVo();
+		//TODO 메인화면 selectbox에서 선택 후 검색
+		
+		int option = Integer.parseInt(request.getParameter("select1")); //카테고리 OR 지역
+		String condition = request.getParameter("select2"); //카테고리명 OR 지역코드
+		
+		System.out.println(option);
+		System.out.println(condition);
+		
+		ArrayList<ClassVo> list= new ArrayList<ClassVo>();
 		ClassDao dao = new ClassDao();
-		return null;
+		list=dao.selectClassList(option, condition);	
+		request.setAttribute("condition", condition);
+		request.setAttribute("list", list);
+		
+		return "class/viewSearchClass";
 	}
 
 }
