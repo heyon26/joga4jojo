@@ -27,13 +27,27 @@
 <link rel="stylesheet" href="assets/css/style.css">
 <script src="./assets/js/jquery-3.5.1.min.js"></script>
 <script>
-$(document).ready(function(){
+	$(document).ready(function(){
 	if('${not empty condition  }'){ //조건값 받아서 radiobox에 표시
 		console.log('${condition }');
 		$("input:radio[name='categorys']:radio[value='${condition }']").prop('checked', true);
 		$("input:radio[name='region']:radio[value='${condition }']").prop('checked', true);
 	}
 			
+	});
+	
+	$('#frm2Submit').click(function(){
+		var searchRegion=  $("input:radio[name='region']:checked").val();
+		var searchCategory = $("input:radio[name='categorys']:checked").val();
+		
+		$.ajax({
+			type:'get',
+			url:$('#frm2').attr('action'),
+			data: formData,
+			dataType:'json'
+			
+		})
+
 	})
 </script>
 </head>
@@ -54,7 +68,7 @@ $(document).ready(function(){
 				</div>
 			</fieldset>
 		<div>
-		<form id="frm2" name="frm2" action="" method="post">
+		<form id="frm2" name="frm2">
 			<fieldset class="MuiFormControl-root">
 					<legend class="jss44">지역</legend>
 				<div class="MuiFormGroup-row MuiFormGroup-root">
@@ -66,35 +80,31 @@ $(document).ready(function(){
 						</label>
 						<label class="jss47">
 							<input type="radio" class="" id= "region" name="region" value="서울/경기도/인천">
-							<span class="checkmark">서울/경기도/인천</span>
+							<span class="checkmark">서울/경기/인천</span>
 						</label>
 						<label class="jss47">
 							<input type="radio" class="" id= "region" name="region" value="대전/세종/충청도">
-							<span class="checkmark">대전/세종/충청도</span>
+							<span class="checkmark">대전/세종/충청</span>
 						</label>
 						<label class="jss47">
 							<input type="radio" class="" id= "region" name="region" value="강원도" >
-							<span class="checkmark">강원도</span>
-						</label>
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="전라북도">
-							<span class="checkmark">전라북도</span>
+							<span class="checkmark">강원</span>
 						</label>
 						<label class="jss47">
 							<input type="radio" class="" id= "region" name="region" value="전라남도/광주">
-							<span class="checkmark">전라남도/광주</span>
+							<span class="checkmark">광주/전라</span>
 						</label>
 						<label class="jss47">
 							<input type="radio" class="" id= "region" name="region" value="경상북도/대구/부산">
-							<span class="checkmark">경상북도/대구/부산</span>
+							<span class="checkmark">대구/경북</span>
 						</label>
 						<label class="jss47">
 							<input type="radio" class="" id= "region" name="region" value="경상남도/울산">
-							<span class="checkmark">경상남도/울산</span>
+							<span class="checkmark">부산/울산/경남</span>
 						</label>
 						<label class="jss47">
 							<input type="radio" class="" id= "region" name="region" value="제주도">
-							<span class="checkmark">제주도</span>
+							<span class="checkmark">제주</span>
 						</label>
 				</div>	
 				</div>
@@ -144,7 +154,7 @@ $(document).ready(function(){
 					</label>
 				</div>
 				<div>
-					<button type="button" onclick="#">검색하기</button> 
+					<button type="submit" name="frm2Submit">검색하기</button> 
 				</div>
 			</fieldset>
 		</form>
