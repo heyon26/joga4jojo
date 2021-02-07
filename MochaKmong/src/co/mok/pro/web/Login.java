@@ -17,7 +17,7 @@ public class Login implements Command {
 		vo.setUserId(request.getParameter("userId"));
 		vo.setUserPw(request.getParameter("userPw"));
 		
-		vo = dao.UserSelect(vo);
+		vo = dao.UserLogin(vo);
 		
 		String viewPage = null;
 		

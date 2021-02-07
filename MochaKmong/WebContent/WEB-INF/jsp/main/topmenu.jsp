@@ -46,7 +46,7 @@
                                             <li><a href="about.html">클래스등록</a></li>
                                             <li><a href="blog.html">로그인</a>
                                                 <ul class="submenu">
-                                                    <li><a href="blog.html">로그인</a></li>
+                                                    <li><a href="loginForm.do">로그인</a></li>
                                                     <li><a href="single-blog.html">회원가입</a></li>
                                                     <li><a href="myPage.do">마이페이지</a></li>
                                                 </ul>

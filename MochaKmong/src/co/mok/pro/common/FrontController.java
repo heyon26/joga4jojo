@@ -44,6 +44,7 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainService());
 		
+		// 로그인 기능
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/login.do", new Login());
 		map.put("/userJoinForm.do", new UserJoinForm()); 
@@ -60,6 +61,7 @@ public class FrontController extends HttpServlet {
 		map.put("/myPageClassExpert.do", new MyPageClassExpert()); // 등록한 클래스 페이지 호출
 		map.put("/myPageExpertEdit.do", new MyPageExpertEdit());
 		
+		// 프로필 수정 기능
 		map.put("/profileEdit.do", new ProfileEdit()); // 프로필 수정 페이지 호출
 		map.put("/profileUpdate.do", new ProfileUpdate()); // 프로필 수정 값 전달
 		

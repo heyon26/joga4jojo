@@ -70,6 +70,26 @@ public class UserDao extends DAO {
 
 		return vo;
 	}
+	
+	public UserVo UserLogin(UserVo vo) {
+		String sql = "SELECT * FROM M_USER WHERE USER_ID = ? AND USER_PW = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getUserId());
+			psmt.setString(2, vo.getUserPw());
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				vo.setUserName(rs.getString("user_name"));
+				vo.setUserAuth(rs.getString("user_auth"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return vo;
+	}
 
 
 	public int UserInsert(UserVo vo) {
@@ -158,12 +178,9 @@ public class UserDao extends DAO {
 
 	private void close() {
 		try {
-			if (rs != null)
-				rs.close();
-			if (psmt != null)
-				psmt.close();
-			if (conn != null)
-				conn.close();
+			if (rs != null) rs.close();
+			if (psmt != null) psmt.close();
+			if (conn != null) conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
