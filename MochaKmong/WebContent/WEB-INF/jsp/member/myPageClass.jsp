@@ -522,7 +522,7 @@ body{
                     <a href="myPage.do" data-target="#profile" data-toggle="pill" class="nav-link active show"><i class="icon-user"></i> <span class="hidden-xs">수강생</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="myPageMessage.do" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">강사</span></a>
+                    <a href="expertPage.do" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">강사</span></a>
                 </li>
             </ul>
             

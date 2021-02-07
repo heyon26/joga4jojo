@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.mok.pro.common.Command;
 
-public class MyPageMessage implements Command {
+public class MyPageClass implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// Message 탭 호출
-		return "member/myPageMessage";
+		return "member/myPageClass";
 	}
 
 }

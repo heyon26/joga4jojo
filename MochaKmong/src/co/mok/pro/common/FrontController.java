@@ -17,7 +17,7 @@ import co.mok.pro.member.MyPage;
 import co.mok.pro.member.MyPageClassExpert;
 import co.mok.pro.member.MyPageEdit;
 import co.mok.pro.member.MyPageExpertEdit;
-import co.mok.pro.member.MyPageMessage;
+import co.mok.pro.member.MyPageClass;
 import co.mok.pro.member.ProfileEdit;
 import co.mok.pro.member.ProfileUpdate;
 
@@ -42,6 +42,8 @@ public class FrontController extends HttpServlet {
 	}
 
 	public void init(ServletConfig config) throws ServletException {
+		
+		// 메인페이지 호출
 		map.put("/main.do", new MainService());
 		
 		// 로그인 기능
@@ -51,12 +53,16 @@ public class FrontController extends HttpServlet {
 		map.put("/userJoin.do", new UserJoin());
 		map.put("/idCheck.do", new UserIdCheck()); 
 		
-		// 수강생
+		// 회원가입
+		map.put("/userJoinForm", new UserJoinForm());
+		map.put("/userJoin.do", new UserJoin());
+		
+		// 마이페이지_수강생
 		map.put("/myPage.do", new MyPage()); // 마이페이지 호출
-		map.put("/myPageMessage.do", new MyPageMessage()); // 신청한 클래스 페이지 호출
+		map.put("/myPageClass.do", new MyPageClass()); // 신청한 클래스 페이지 호출
 		map.put("/myPageEdit.do", new MyPageEdit()); // 프로필 수정 페이지 호출
 		
-		// 강사
+		// 마이페이지_강사
 		map.put("/expertPage.do", new ExpertPage()); // 강사 페이지 호출
 		map.put("/myPageClassExpert.do", new MyPageClassExpert()); // 등록한 클래스 페이지 호출
 		map.put("/myPageExpertEdit.do", new MyPageExpertEdit());
