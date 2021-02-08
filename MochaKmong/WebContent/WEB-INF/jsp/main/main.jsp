@@ -23,7 +23,7 @@
             <link rel="stylesheet" href="assets/css/nice-select.css">
             <link rel="stylesheet" href="assets/css/style.css">
    </head>
-   <jsp:include page="topmenu.jsp"/>
+   <jsp:include page="topmenu.jsp"></jsp:include>
    <body>
     <main>
         <!-- slider Area Start-->

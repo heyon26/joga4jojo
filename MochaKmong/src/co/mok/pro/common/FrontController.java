@@ -21,10 +21,14 @@ import co.mok.pro.board.BoardEdit;
 import co.mok.pro.board.BoardEditForm;
 import co.mok.pro.board.BoardList;
 import co.mok.pro.board.BoardListView;
+import co.mok.pro.board.ConsultList;
+import co.mok.pro.board.ConsultListView;
 import co.mok.pro.board.NewAsk;
 import co.mok.pro.board.NewAskForm;
 import co.mok.pro.board.NewBoard;
 import co.mok.pro.board.NewBoardForm;
+import co.mok.pro.board.NewConsult;
+import co.mok.pro.board.NewConsultForm;
 import co.mok.pro.main.MainService;
 import co.mok.pro.main.MainServiceTest;
 
@@ -61,6 +65,14 @@ public class FrontController extends HttpServlet {
 		map.put("/askEditForm.do", new AskEditForm()); //질문 수정폼 이동
 		map.put("/askEdit.do", new AskEdit()); //질문 수정
 		map.put("/askDelete.do", new AskDelete()); //질문삭제
+		//
+		map.put("/consultList.do", new ConsultList()); //문의페이지
+		map.put("/consultListView.do", new ConsultListView()); //문의 상세페이지(댓글방식으로 답변)
+		map.put("/newConsultForm.do", new NewConsultForm()); //문의하기 작성폼 이동
+		map.put("/newConsult.do", new NewConsult()); //문의하기 글 작성
+		
+	
+		
 		
 		
 

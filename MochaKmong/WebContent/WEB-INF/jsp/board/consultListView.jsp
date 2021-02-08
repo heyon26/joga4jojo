@@ -30,7 +30,7 @@
 	function updateAlert() {  //수정
 		var ub = confirm("글 수정 하시겠습니까?");
 			if(ub) {
-			frm.action = "boardEditForm.do";
+			frm.action = "consultEditForm.do";
 			frm.submit();
 		}
 	}
@@ -50,7 +50,7 @@
 		</div>
                <div class="single-post">
                   <div class="blog_details">
-                   	<h3>공지사항</h3>
+                   	<h3>문의</h3>
                    	<br/>
                      <h4>${vo.bName }</h4> <!-- 제목 -->
                      <ul class="blog-info-link mt-3 mb-4">
@@ -71,7 +71,7 @@
 			   </div>
 			   <!-- 댓글 부분 -->
                <div class="comments-area">
-                  <h4>Comments</h4>
+                  <h4>답변</h4>
                  <!-- 댓글 리스트 --> 
                   <div class="comment-list">
                      <div class="single-comment justify-content-between d-flex">
@@ -80,23 +80,22 @@
                               <img src="assets/img/comment/comment_1.png" alt="">
                            </div> 
                            -->
+                           <c:forEach var="avo" items="${list }">
                            <div class="desc">
-                              <p class="comment">
-                                 Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                 Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                              </p>
+                              <p class="comment">${avo.aContent }</p>
                               <div class="d-flex justify-content-between">
                                  <div class="d-flex align-items-center">
                                     <h5>
-                                       <a href="#">Emilly Blunt</a>
+                                       <a href="#">${avo.userId }</a>
                                     </h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
+                                    <p class="date">${avo.aDate }</p>
                                  </div>
                                  <div class="reply-btn">
                                     <a href="#" class="btn-reply text-uppercase">reply</a>
                                  </div>
                               </div>
-                           </div>
+                           </div>${avo.userId }
+                           </c:forEach>
                         </div>
                      </div>
                   </div>

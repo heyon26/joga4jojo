@@ -46,6 +46,7 @@
                                               <ul class="submenu">
                                              	 	<li><a href="boardList.do">공지사항</a></li>
                                                   	<li><a href="askList.do">자주묻는질문</a></li>
+                                                  	<li><a href="consultList.do">문의게시판</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="about.html">클래스등록</a></li>

@@ -25,44 +25,59 @@
             <link rel="stylesheet" href="assets/css/style.css">
    </head>
 <jsp:include page="../main/topmenu.jsp"></jsp:include>
+<script type="text/javascript">
+window.onload = function(){
+    var dt = new Date();
+    var Year = dt.getFullYear();        
+    var Month = "" + (dt.getMonth()+1);
+    var Day = "" + dt.getDate();            
+    
+    if(Month.length < 2) Month = "0" + Month;
+    if(Day.length < 2) Day = "0" + Day;
+    
+    var Today = Year.toString()+"/" + Month +"/" + Day;
+    
+    document.getElementById("TODAY").value = Today;
+} 
+</script>
 <div class="container box_1170">
 <div class="comment-form">
-                  <h4>공지 사항 수정</h4>
-                  <form class="form-contact comment_form" action="boardEdit.do" id="frm"name="frm"method="post">
+                  <h4>문의 사항 작성</h4>
+                  <form class="form-contact comment_form" action="newConsult.do" id="frm"name="frm"method="post">
                      <div class="row">
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                            <div class="form-group">
-                              <input class="form-control" id="boardCode" name="boardCode" type="text" placeholder="Name" value="${vo.boardCode }"readonly="readonly">
+               <!-- 로그인 세션값 --><input class="form-control" id="userId"name="userId" type="text" placeholder="ID" value="admin" readonly="readonly">
                            </div>
                         </div>
                          <div class="col-sm-2">
                            <div class="form-group">
-                              <input class="form-control" name="bDate" id="bDate" type="text" value="${vo.bDate }"placeholder="작성일"readonly="readonly">
+                              <input class="form-control"  id="TODAY" type="text" readonly="readonly">
+                           </div>
+                        </div>
+                        <div class="col-sm-2">
+                           <div class="form-group">
+                              <input class="form-control"id="bBoard"name="bBoard"size="30" value="consult" type="text" placeholder="대분류"readonly="readonly">
                            </div>
                         </div>
                         <div class="col-sm-3">
                            <div class="form-group">
-                              <input class="form-control"id="bBoard"name="bBoard"size="20" value="${vo.bBoard }" type="text" placeholder="대분류">
-                           </div>
-                        </div>
-                        <div class="col-sm-3">
-                           <div class="form-group">
-                              <input class="form-control" id="bCategoryA"name="bCategoryA" type="text" placeholder="CategoryA" value="${vo.bCategoryA }">
+                              <input class="form-control" id="bCategoryA"name="bCategoryA" type="text" placeholder="CategoryA"required="required">
                            </div>
                         </div>
                          <div class="col-sm-3">
                            <div class="form-group">
-                              <input class="form-control" id="bCategoryB"name="bCategoryB" type="text" placeholder="CategoryB"value="${vo.bCategoryB }">
+                              <input class="form-control" id="bCategoryB"name="bCategoryB" type="text" placeholder="CategoryB"required="required">
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
-                              <input class="form-control" id="bName"name="bName" value="${vo.bName }"type="text" placeholder="제목"required="required">
+                              <input class="form-control" id="bName"name="bName" type="text" placeholder="제목"required="required">
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
-                              <textarea class="form-control w-100" id="bContent"name="bContent" cols="30" rows="9" placeholder="내용" required="required">${vo.bContent }</textarea>
+                              <textarea class="form-control w-100" id="bContent"name="bContent" cols="30" rows="9" placeholder="내용" required="required"></textarea>
                            </div>
                         </div>
                      </div>
@@ -73,6 +88,5 @@
                   </form>
                </div>
             </div>
-    
 </body>
 </html>

@@ -28,20 +28,20 @@
 <script type="text/javascript">
 	function formSubmit(str){
 		frm.boardCode.value = str;
-		frm.action = "boardListView.do";
+		frm.action = "consultListView.do";
 		frm.submit();
 	}
 	
 	function insertAlert() {
-		var ib = confirm("공지사항을 작성하시겠습니까?");
+		var ib = confirm("문의사항을 작성하시겠습니까?");
 		if(ib) {
-		location.href = "newBoardForm.do";
+		location.href = "newConsultForm.do";
 		}
 	}
 </script>
 <div class="container box_1170">
 <div class="section-top-border">
-				<h3 align="center"class="mb-30">공지사항</h3>
+				<h3 align="center"class="mb-30">문의게시판</h3>
 				<form id="frm" name="frm" action="" method="post">
 					<input type="hidden" id="boardCode" name="boardCode">
 				</form>
@@ -67,7 +67,7 @@
 				</div>
 			</div>
 			<div align="right" class="button-group-area mt-40">
-			<a onclick="insertAlert()"class="genric-btn info circle arrow">글쓰기</a>
+			<a onclick="insertAlert()"class="genric-btn info circle arrow">문의하기</a>
 			</div>
 		</div>
 </body>
