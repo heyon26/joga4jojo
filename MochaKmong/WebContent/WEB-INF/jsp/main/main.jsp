@@ -31,7 +31,7 @@
    	function categoryChange(e){
    		var target = document.getElementById("select2");
    		var className =["핸드메이드·수공예","쿠킹클래스","플라워레슨","드로잉","음악","요가·필라테스","레저·스포츠","체험","자기계발"];
-   		var areaName= ["서울/경기/인천","대전/세종/충청","강원","광주/전라","대구/경북","부산/울산/경남","제주"];
+   		var areaName= ["서울/경기/인천","대전/세종/충청","광주/전라","대구/경북","부산/울산/경남","강원","제주"];
    		
    		if(e.value == 1) var a= className;
    		else if(e.value == 2) a= areaName;

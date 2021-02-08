@@ -32,10 +32,7 @@ $(document).ready(function(){
 
 		$("input:radio[name='categorys']:radio[value='${condition }']").prop('checked', true);
 		$("input:radio[name='region']:radio[value='${condition }']").prop('checked', true);
-		/* if('${not empty region } && ${not empty category }')	{
-			$("input:radio[name='categorys']:radio[value='${category }']").prop('checked', true);
-			$("input:radio[name='region']:radio[value='${region }']").prop('checked', true);
-		} */
+		
 		
 });
 
