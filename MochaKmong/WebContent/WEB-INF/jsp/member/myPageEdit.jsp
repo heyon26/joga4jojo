@@ -23,7 +23,7 @@
 	
 	function uploadImage(){
 		var url = "uploadImageForm.do";
-		window.open(url, "이미지 수정", "width=400, height=450");
+		window.open(url, "이미지 수정", "width=700, height=650");
 	}
 	
 	function updateAlert(){

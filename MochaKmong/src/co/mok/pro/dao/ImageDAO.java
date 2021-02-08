@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.sun.prism.Image;
 
 import co.mok.pro.common.DAO;
 import co.mok.pro.vo.ImageVO;

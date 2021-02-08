@@ -1,79 +1,71 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>프로필 이미지 수정</title>
-</head>
-<!-- 이미지 미리보기 -->
-<!-- <script>
-	
-		function uploadImage(event){
-			var reader = new FileReader();
-			reader.onload = function(event){
-				var img = document.createElement("img");
-				img.setAttribute("src",event.target.result);
-				document.querySelector("div#preview").appendChild(img);
-			}
-			reader.readAsDataURL(event.target.files[0]);
-		}		
-	</script> -->
-	
-	<script type="text/javascript">
-		// 등록 이미지 등록 미리보기 
 
-		function readInputFile(input) {
-			if (input.files && input.files[0]) {
-				var reader = new FileReader();
-				reader.onload = function(e) {
-					$('#preview').html("<img src="+ e.target.result +">");
-				}
-				reader.readAsDataURL(input.files[0]);
-			}
+<script>
+	function uploadImage(){
+		var msg = confirm("해당 이미지로 변경하시겠습니까?");
+		if(msg){
+			frm.action = "uploadImage.do";
+			frm.userId.value;
+			frm.submit();
 		}
-		$(".inp-img").on('change', function() {
-			readInputFile(this);
-		}); 
-		
-		// 등록 이미지 삭제 ( input file reset ) 
-		function resetInputFile($input, $preview) { 
-			var agent = navigator.userAgent.toLowerCase(); 
-			if((navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (agent.indexOf("msie") != -1)) { 
-			// ie 일때 
-			$input.replaceWith($input.clone(true)); $preview.empty(); } else { 
-				//other 
-				$input.val(""); 
-				$preview.empty(); 
-				} 
-		} 
-		$(".btn-delete").click(function(event) { 
-			var $input = $(".inp-img"); 
-			var $preview = $('#preview'); 
-			resetInputFile($input, $preview); 
-		});
-	</script>	
+	}
+</script>
+
+</head>
 
 <body>
-<!-- 	<div class="col-md-3">
-		<div class="text-center">
 
-			<div id="preview" name="preview"></div>
-			<h6>프로필 이미지를 업로드해 주세요</h6>
-
-			<input type="file" accept="image/*" id="uploadFile" name="uploadFile"
-				onchange="uploadImage(event)">
+<form name="frm" method="post" enctype="multipart/form-data" action="uploadImage.do">
+<input type="hidden" name="userId">
+<div class="file-wrapper flie-wrapper-area">
+		<div class="float-left">
+			<span class="label-plus"><i class="fas fa-plus"></i></span> 
+			<div id="preview"></div>
+			<input type="file" name="userImage" id="userImage" class="upload-box upload-plus" accept="image/*" size="40">
+			<p/>
+			
+			<div class="file-edit-icon">
+			<input type="button" class="preview-edit" value="수정" onclick="uploadImage()">&nbsp;
+			<input type="button" class="preview-de" value="삭제">
+			</div>
 		</div>
-	</div> -->
-	<div id="sero3">이미지등록 :</div>
-	<div id="sero4">
-		<input type="file" name="upfile" class="inp-img" accept=".gif, .jpg, .png"> <span class="btn-delete">삭제</span>
-	</div>
-	<div id="work_col_left">
-		<div id="preview"></div>
-	</div>
+</div>
+</form>
+<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+
+	function handleFileSelect(event) {
+		var input = this;
+		console.log(input.files)
+		if (input.files && input.files.length) {
+			var reader = new FileReader();
+			this.enabled = false
+			reader.onload = (function(e) {
+				console.log(e)
+				$("#preview").html(
+						[ '<img class="thumb" src="', e.target.result,
+								'" title="', escape(e.name), '"/>' ].join(''))
+			});
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
+	$('#file').change(handleFileSelect);
+	$('.file-edit-icon').on('click', '.preview-de', function() {
+		$("#preview").empty()
+		$("#file").val("");
+	});
+	$('.preview-edit').click(function() {
+		$("#file").click();
+	});
+</script>
 
 </body>
 
-	
+
 </html>

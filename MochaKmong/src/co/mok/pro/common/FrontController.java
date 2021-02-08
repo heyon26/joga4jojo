@@ -18,8 +18,8 @@ import co.mok.pro.member.MyPageClassExpert;
 import co.mok.pro.member.MyPageEdit;
 import co.mok.pro.member.MyPageExpertEdit;
 import co.mok.pro.member.MyPageClass;
-import co.mok.pro.member.ProfileEdit;
 import co.mok.pro.member.ProfileUpdate;
+import co.mok.pro.member.UploadImage;
 import co.mok.pro.member.UploadImageForm;
 import co.mok.pro.web.Login;
 import co.mok.pro.web.LoginForm;
@@ -69,9 +69,8 @@ public class FrontController extends HttpServlet {
 		
 		// 프로필 수정 기능
 		map.put("/profileUpdate.do", new ProfileUpdate()); // 프로필 업데이트
-		map.put("/profileEdit.do", new ProfileEdit()); // 프로필 수정 페이지 호출
-		map.put("/uploadImageForm.do", new UploadImageForm()); // 프로필 이미지 업로드
-		
+		map.put("/uploadImageForm.do", new UploadImageForm()); // 프로필 이미지 업로드 폼 호출
+		map.put("/uploadImage.do", new UploadImage()); // 프로필 이미지 업로드 실행
 
 
 	}
