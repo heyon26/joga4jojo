@@ -6,7 +6,6 @@ import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,8 +42,12 @@ import co.mok.pro.member.MyPageClass;
 import co.mok.pro.member.ProfileUpdate;
 import co.mok.pro.member.UploadImage;
 import co.mok.pro.member.UploadImageForm;
+import co.mok.pro.main.MainService;
+import co.mok.pro.web.FindPw;
+import co.mok.pro.web.FindPwForm;
 import co.mok.pro.web.Login;
 import co.mok.pro.web.LoginForm;
+import co.mok.pro.web.Logout;
 import co.mok.pro.web.UserIdCheck;
 import co.mok.pro.web.UserJoin;
 import co.mok.pro.web.UserJoinForm;
@@ -54,7 +57,6 @@ import co.mok.pro.web.UserJoinForm;
  */
 
 
-@WebServlet("/FrontController")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HashMap<String, Command> map = new HashMap<String, Command>();
@@ -91,11 +93,7 @@ public class FrontController extends HttpServlet {
 		map.put("/newConsultForm.do", new NewConsultForm()); //문의하기 작성폼 이동
 		map.put("/newConsult.do", new NewConsult()); //문의하기 글 작성
 		
-	
-		
-		
-		
-		
+
 		// 로그인 기능
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/login.do", new Login());
@@ -122,6 +120,9 @@ public class FrontController extends HttpServlet {
 		map.put("/uploadImageForm.do", new UploadImageForm()); // 프로필 이미지 업로드 폼 호출
 		map.put("/uploadImage.do", new UploadImage()); // 프로필 이미지 업로드 실행
 
+		map.put("/logout.do", new Logout()); //로그아웃
+		map.put("/findPwForm.do", new FindPwForm()); //비밀번호 찾기 폼
+		map.put("/findPw.do", new FindPw()); //비밀번호 찾기 기능
 
 	}
 

@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>로그인 실패</title>
+<title>로그인 / 회원가입 폼 템플릿</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
- <!--===============================================================================================-->	
+  <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/vendor/bootstrap/css/bootstrap.min.css">
@@ -32,24 +31,59 @@
 </head>
 <body>
 
+
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-				<form class="login100-form validate-form" id="frm" name="frm" action="userJoinForm.do" method="post">	
+				<form class="login100-form validate-form" id="frm" name="frm" action="login.do" method="post">	
 					<span class="login100-form-title p-b-33">
-						회원가입 실패
+						Account Login
 					</span>
 					
-					<div align="center" >
-						<p>${param.userId }님 회원가입에 실패했습니다.</p>
-						<p>아이디 중복확인 후 시도해주세요.</p>
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="text" id="userId" name="userId" placeholder="Enter id" required="required">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 rs1 validate-input" >
+						<input class="input100" type="password" id="userPw" name="userPw" placeholder="Enter password" required="required">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="container-login100-form-btn m-t-20">
+						<button class="login100-form-btn" type="submit" onclick="loginCheck()">
+							Sign in
+						</button>
+					</div>
+
+					<div class="text-center p-t-45 p-b-4">
+						<span class="txt1">
+							Forgot
+						</span>
+
+						<a href="findPwForm.do" class="txt2 hov1">
+							 Password?
+						</a>
+					</div>
+
+					<div class="text-center">
+						<span class="txt1">
+							Create an account?
+						</span>
+
+						<a href="userJoinForm.do" class="txt2 hov1">
+							Sign up
+						</a>
 					</div>
 					
-					<div class="container-login100-form-btn m-t-20">
-						<button class="login100-form-btn" type="submit">
-						 회원가입 화면으로 돌아가기
-						</button>
-					</div><br/>		
+					<div align="center">
+					<a href="main.do" class="txt2 hov1">
+							 main
+					</a>
+					</div>
+					
 					
 				</form>
 			</div>

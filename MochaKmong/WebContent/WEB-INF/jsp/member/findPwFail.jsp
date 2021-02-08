@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인 실패</title>
+<title>Insert title here</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
- <!--===============================================================================================-->	
+  <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/vendor/bootstrap/css/bootstrap.min.css">
@@ -29,28 +29,27 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/css/main.css">
 <!--===============================================================================================-->
+
 </head>
 <body>
-
-	<div class="limiter">
+<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-				<form class="login100-form validate-form" id="frm" name="frm" action="userJoinForm.do" method="post">	
+				<form class="login100-form validate-form" id="frm" name="frm" action="findPwForm.do" method="post">	
 					<span class="login100-form-title p-b-33">
-						회원가입 실패
+						비밀번호 조회 실패
 					</span>
 					
 					<div align="center" >
-						<p>${param.userId }님 회원가입에 실패했습니다.</p>
-						<p>아이디 중복확인 후 시도해주세요.</p>
+						<p>${param.userId }님 일치하는 패스워드가 없습니다..</p>
+						<p>입력하신 정보가 맞는지 다시 한 번 확인해주세요.</p>
 					</div>
 					
 					<div class="container-login100-form-btn m-t-20">
 						<button class="login100-form-btn" type="submit">
-						 회원가입 화면으로 돌아가기
+							Password 찾기
 						</button>
-					</div><br/>		
-					
+					</div>	
 				</form>
 			</div>
 		</div>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>로그인 실패</title>
+<title>아이디 찾기</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
  <!--===============================================================================================-->	
@@ -31,25 +31,43 @@
 <!--===============================================================================================-->
 </head>
 <body>
-
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-				<form class="login100-form validate-form" id="frm" name="frm" action="userJoinForm.do" method="post">	
+				<form class="login100-form validate-form" id="frm" name="frm" action="findPw.do" method="post">	
 					<span class="login100-form-title p-b-33">
-						회원가입 실패
+						Password 찾기
 					</span>
 					
-					<div align="center" >
-						<p>${param.userId }님 회원가입에 실패했습니다.</p>
-						<p>아이디 중복확인 후 시도해주세요.</p>
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="text" id="userId" name="userId" placeholder="Enter id" required="required">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
 					</div>
 					
+					<div class="wrap-input100 validate-input" >
+						<input class="input100" type="text" id="userName" name="userName" placeholder="Enter name" required="required">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
+					<div class="wrap-input100 rs1 validate-input" >
+						<input class="input100" type="text" id="userEmail" name="userEmail" placeholder="Enter email" required="required">
+						<span class="focus-input100-1"></span>
+						<span class="focus-input100-2"></span>
+					</div>
+
 					<div class="container-login100-form-btn m-t-20">
 						<button class="login100-form-btn" type="submit">
-						 회원가입 화면으로 돌아가기
+							찾기
 						</button>
-					</div><br/>		
+					</div><br/>
+					
+					<div align="center">
+					<a href="main.do" class="txt2 hov1">
+							 main
+					</a>
+					</div>
 					
 				</form>
 			</div>
@@ -74,5 +92,6 @@
 <!--===============================================================================================-->
 	<script src="${pageContext.request.contextPath}/assets/login/js/main.js"></script>
 	
+
 </body>
 </html>
