@@ -10,7 +10,7 @@ public class MainService implements Command {
 	@Override
 	public String excute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return "main/main";
+		return "main/main"; 
 	}
 
 }
