@@ -20,9 +20,8 @@ location.href ="main.do";
 }
 
 body {
-	background-image: url("/MochaKmong/assets/img/bg/bg.png");
-	background-size: cover;
-	background-repeat: repeat;
+	background-color: #ffea84 !important;
+
 
 }
 .note-modal-content{
@@ -69,8 +68,9 @@ min-height: 10px !important;
 
 </head>
 
-<body>
+
    <jsp:include page="../main/topmenu.jsp"/>
+   
 	<div id="carouselExampleIndicators" class="carousel slide"
 		data-ride="carousel" data-interval="false">
 		<ol class="carousel-indicators">
@@ -261,12 +261,12 @@ min-height: 10px !important;
 
 		<a class="carousel-control-prev" href="#carouselExampleIndicators"
 			role="button" data-slide="prev"
-			style="position: fixed; top: 0; left: 5%;"> <span
+			style="position: fixed; top: 30%; left: 5%; height: 50%"> <span
 			class="carousel-control-prev-icon" aria-hidden="true"></span> <span
 			class="sr-only">Previous</span>
 		</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
 			role="button" data-slide="next"
-			style="position: fixed; top: 0; right: 5%"> <span
+			style="position: fixed; top: 30%; right: 5%; height: 50%"> <span
 			class="carousel-control-next-icon" aria-hidden="true"></span> <span
 			class="sr-only">Next</span>
 		</a>

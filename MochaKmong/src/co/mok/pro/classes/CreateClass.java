@@ -1,7 +1,5 @@
 package co.mok.pro.classes;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
@@ -73,7 +71,7 @@ public class CreateClass implements Command {
 			tvo.setFixedNumber(Integer.parseInt(request.getParameter("fixedNumbers")));
 			list.add(tvo);
 
-		//tvo =new CTimeVo();
+
 		System.out.println(array[i]);
 		}
 			
