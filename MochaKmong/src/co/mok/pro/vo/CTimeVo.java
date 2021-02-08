@@ -4,8 +4,9 @@ import oracle.sql.DATE;
 
 public class CTimeVo {
 	private int timeCode;
-	private DATE startDate;
-	private DATE endDate;
+	private String startTime; //시간
+	private int classCode; //클래스코드
+	private int fixedNumber; //정원
 	
 	public CTimeVo() {
 		// TODO Auto-generated constructor stub
@@ -19,21 +20,27 @@ public class CTimeVo {
 		this.timeCode = timeCode;
 	}
 
-	public DATE getStartDate() {
-		return startDate;
+	public String getStartTime() {
+		return startTime;
 	}
 
-	public void setStartDate(DATE startDate) {
-		this.startDate = startDate;
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
 	}
 
-	public DATE getEndDate() {
-		return endDate;
+	public int getClassCode() {
+		return classCode;
 	}
 
-	public void setEndDate(DATE endDate) {
-		this.endDate = endDate;
+	public void setClassCode(int classCode) {
+		this.classCode = classCode;
 	}
-	
-	
+
+	public int getFixedNumber() {
+		return fixedNumber;
+	}
+
+	public void setFixedNumber(int fixedNumber) {
+		this.fixedNumber = fixedNumber;
+	}
 }

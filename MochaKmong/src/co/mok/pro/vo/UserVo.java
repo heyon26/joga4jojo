@@ -67,12 +67,6 @@ public String getUserAuth() {
 public void setUserAuth(String userAuth) {
 	this.userAuth = userAuth;
 }
-@Override
-public String toString() {
-	return "UserVo [userId=" + userId + ", userPw=" + userPw + ", userName=" + userName + ", userTel=" + userTel
-			+ ", userEmail=" + userEmail + ", userZipcode=" + userZipcode + ", userAddress=" + userAddress
-			+ ", userJoindate=" + userJoindate + ", userAuth=" + userAuth + "]";
-}
   
   
   

@@ -56,17 +56,19 @@ import co.mok.pro.member.ProfileEditUpdate;
 import co.mok.pro.web.ClassSearch;
 import co.mok.pro.web.ClassSearch1;
 import co.mok.pro.web.ClassSearch2;
+import co.mok.pro.web.CreateClass;
 import co.mok.pro.web.CreateClassView;
 
 /**
  * Servlet implementation class FrontController
  */
+
 @WebServlet("/FrontController")
-public class FrontController extends HttpServlet {
+public class FrontController1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HashMap<String, Command> map = new HashMap<String, Command>();
 
-	public FrontController() {
+	public FrontController1() {
 		super();
 
 	}
@@ -139,6 +141,8 @@ public class FrontController extends HttpServlet {
 		map.put("/classSearch1.do", new ClassSearch1()); //클래스 list 페이지에서 단어입력 후 검색 
 		map.put("/classSearch2.do", new ClassSearch2()); //클래스 list 페이지에서 radio로 검색
 		map.put("/createClassView.do", new CreateClassView());
+		map.put("/createClass.do", new CreateClass());
+
 
 	}
 
