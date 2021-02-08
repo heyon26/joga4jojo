@@ -16,6 +16,6 @@ public class Logout implements Command {
 		request.setAttribute("user_id", userId);
 		session.invalidate();
 		
-		return "main/main";
+		return "main.do";
 	}
 }

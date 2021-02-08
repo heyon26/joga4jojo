@@ -83,7 +83,7 @@
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav>               
                                         <ul id="navigation">     
-                                         <c:if test="${user_id eq null }">                                                                                                                                
+                                         <c:if test="${user_auth eq null }">                                                                                                                                
                                             <li><a href="index.html">공지사항</a></li>
                                             <li><a href="about.html">클래스등록</a></li>
                                             <li><a href="#">로그인</a>           
@@ -92,15 +92,15 @@
                                                     <li><a href="userJoinForm.do">회원가입</a></li>   
                                                 </ul>           
                                            </c:if>            
-                                      <c:if test="${user_id ne null }">
-                                       <li><a href="#">나의 메뉴</a>      
-                                       <ul class="submenu">    
-				                       <li><a class="menuLink" href="logout.do">로그아웃</a></li>
+                                      <c:if test="${user_auth ne null }">
+                                      <li><a href="#">로그아웃</a>
+                                      <ul class="submenu">
+				                       <li><a class="menuLink" href="logout.do" >로그아웃</a></li>
 				                       <li></li>
 				                       <li><a class="menuLink" href="#">내클래스/프로필</a></li>
-				                       </ul>    
-				                       </c:if>         
                                        </ul>                
+				                       </c:if>         
+                                     </ul>
                                     </nav>
                                 </div>
                             </div>

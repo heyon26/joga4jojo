@@ -28,17 +28,6 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/css/main.css">
 <!--===============================================================================================-->
-<script>
-function loginCheck(){
-  var userId = document.getElementById("userId").value; 
-  var userPw = document.getElementById("userPw").value;
-  if(userId == frm.userId.value && userPw == frm.userPw.value) {
-    alert("로그인 성공");
-  } else {
-    alert("로그인 실패");
-  }
-}
-</script>
 </head>
 <body>
 
@@ -119,6 +108,5 @@ function loginCheck(){
 <!--===============================================================================================-->
 	<script src="${pageContext.request.contextPath}/assets/login/js/main.js"></script>
 	
-
 </body>
 </html>
