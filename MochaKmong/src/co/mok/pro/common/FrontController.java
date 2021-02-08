@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.mok.pro.main.MainService;
+import co.mok.pro.web.FindPw;
+import co.mok.pro.web.FindPwForm;
 import co.mok.pro.web.Login;
 import co.mok.pro.web.LoginForm;
-
+import co.mok.pro.web.Logout;
 import co.mok.pro.web.UserIdCheck;
 import co.mok.pro.web.UserJoin;
 import co.mok.pro.web.UserJoinForm;
@@ -30,12 +32,15 @@ public class FrontController extends HttpServlet {
 	}
 
 	public void init(ServletConfig config) throws ServletException {
-		map.put("/main.do", new MainService());
-		map.put("/loginForm.do", new LoginForm());
-		map.put("/login.do", new Login());
-		map.put("/userJoinForm.do", new UserJoinForm()); 
-		map.put("/userJoin.do", new UserJoin());
-		map.put("/idCheck.do", new UserIdCheck()); 
+		map.put("/main.do", new MainService()); //메인 호출
+		map.put("/loginForm.do", new LoginForm()); // 로그인 폼
+		map.put("/login.do", new Login()); //로그인
+		map.put("/userJoinForm.do", new UserJoinForm()); //회원가입 폼
+		map.put("/userJoin.do", new UserJoin()); //회원가입
+		map.put("/idCheck.do", new UserIdCheck()); //아이디 중복체크
+		map.put("/logout.do", new Logout()); //로그아웃
+		map.put("/findPwForm.do", new FindPwForm()); //비밀번호 찾기 폼
+		map.put("/findPw.do", new FindPw()); //비밀번호 찾기 기능
 
 	}
 

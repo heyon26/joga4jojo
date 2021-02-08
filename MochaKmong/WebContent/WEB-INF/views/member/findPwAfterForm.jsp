@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<title>로그인 / 회원가입 폼 템플릿</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--===============================================================================================-->	
+ <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/vendor/bootstrap/css/bootstrap.min.css">
@@ -28,74 +29,25 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/css/main.css">
 <!--===============================================================================================-->
-<script>
-function loginCheck(){
-  var userId = document.getElementById("userId").value; 
-  var userPw = document.getElementById("userPw").value;
-  if(userId == frm.userId.value && userPw == frm.userPw.value) {
-    alert("로그인 성공");
-  } else {
-    alert("로그인 실패");
-  }
-}
-</script>
 </head>
 <body>
-
-
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-				<form class="login100-form validate-form" id="frm" name="frm" action="login.do" method="post">	
+				<form class="login100-form validate-form" id="frm" name="frm" action="loginForm.do" method="post">	
 					<span class="login100-form-title p-b-33">
-						Account Login
+						Password 찾기
 					</span>
 					
-					<div class="wrap-input100 validate-input" >
-						<input class="input100" type="text" id="userId" name="userId" placeholder="Enter id" required="required">
-						<span class="focus-input100-1"></span>
-						<span class="focus-input100-2"></span>
+					<div align="center" >
+						<p>귀하의 비밀번호는 ${pw }입니다.</p>
 					</div>
-
-					<div class="wrap-input100 rs1 validate-input" >
-						<input class="input100" type="password" id="userPw" name="userPw" placeholder="Enter password" required="required">
-						<span class="focus-input100-1"></span>
-						<span class="focus-input100-2"></span>
-					</div>
-
+					
 					<div class="container-login100-form-btn m-t-20">
-						<button class="login100-form-btn" type="submit" onclick="loginCheck()">
-							Sign in
+						<button class="login100-form-btn" type="submit">
+						 로그인 화면으로 돌아가기
 						</button>
-					</div>
-
-					<div class="text-center p-t-45 p-b-4">
-						<span class="txt1">
-							Forgot
-						</span>
-
-						<a href="findPwForm.do" class="txt2 hov1">
-							 Password?
-						</a>
-					</div>
-
-					<div class="text-center">
-						<span class="txt1">
-							Create an account?
-						</span>
-
-						<a href="userJoinForm.do" class="txt2 hov1">
-							Sign up
-						</a>
-					</div>
-					
-					<div align="center">
-					<a href="main.do" class="txt2 hov1">
-							 main
-					</a>
-					</div>
-					
-					
+					</div><br/>			
 				</form>
 			</div>
 		</div>
@@ -119,6 +71,5 @@ function loginCheck(){
 <!--===============================================================================================-->
 	<script src="${pageContext.request.contextPath}/assets/login/js/main.js"></script>
 	
-
 </body>
 </html>
