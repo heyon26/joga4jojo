@@ -17,6 +17,8 @@ import co.mok.pro.member.MyPage;
 import co.mok.pro.member.ProfileEdit;
 import co.mok.pro.member.ProfileEditUpdate;
 import co.mok.pro.web.ClassSearch;
+import co.mok.pro.web.ClassSearch1;
+import co.mok.pro.web.ClassSearch2;
 import co.mok.pro.web.CreateClassView;
 
 /**
@@ -39,7 +41,8 @@ public class FrontController extends HttpServlet {
 		map.put("/profileEdit.do", new ProfileEdit()); // 프로필 수정 페이지 호출
 		map.put("/profileEditUpdate.do", new ProfileEditUpdate()); // 프로필 수정 값 전달
 		map.put("/classSearch.do", new ClassSearch()); //메인페이지에서 클래스 검색 
-
+		map.put("/classSearch1.do", new ClassSearch1()); //클래스 list 페이지에서 단어입력 후 검색 
+		map.put("/classSearch2.do", new ClassSearch2()); //클래스 list 페이지에서 radio로 검색
 		map.put("/createClassView.do", new CreateClassView());
 
 	}

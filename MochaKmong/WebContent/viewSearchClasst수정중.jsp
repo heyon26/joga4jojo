@@ -41,68 +41,74 @@ $(document).ready(function(){
 
 	
 </script>
+		<style>
+			.div1{width:120px; height:90px;  padding:15px; display:flex; color: #f57c00; font-size: medium; }
+			.div2{width: 170px; max-height:45px; padding:10px; display:flex; color: black; font-size: medium;  }
+			.div3{width: 200px; max-height:45px; padding:15px; display:flex; color: black; font-size: medium; }
+			.label1{ margin: 0; min-width: 167px; display:inline; }
+			.label2 { margin: 0; min-width: 140px;display:inline;}
+		</style>
 </head>
-<jsp:include page="../main/topmenu.jsp" />
+<jsp:include page="/WEB-INF/jsp/main/topmenu.jsp" />
 <body>
 	
 <!-- 검색/선택메뉴 -->	
-	<div class="_empty">&nbsp;</div>
-	<div class="jss40">
+	<div class="jss39">
 		<div class="jss41">
-			<fieldset class="MuiFormControl-root">
 				<div class="jss42">
-				<legend class="jss44">클래스 명</legend>
-				<div class="MuiFormControl-root">
-				<form id="frm1" name="frm1" action="classSearch1.do" method="post">
-					<input type="text" class="jss57" id= "word" name= "word" placeholder="원하는 클래스를 입력하세요." required>
-					<button type="submit" name = "frm1Button">검색하기</button>
-				</form>
+					<div class="div1">
+						<p style="color: #f57c00; font-size:19px; font-weight: bold;">클래스 명</p>
+					</div>
+					<div class="MuiFormControl-root">
+						<form id="frm1" name="frm1" action="classSearch1.do" method="post">
+							<input type="text" class="jss57" id= "word" name= "word" placeholder="원하는 클래스를 입력하세요." required>
+							<button type="submit" name = "frm1Button">검색하기</button>
+						</form>
+					</div>
 				</div>
-				</div>
-			</fieldset>
-		<div>
-		<form id="frm2" name="frm2" action="classSearch2.do" method="post">
-			<fieldset class="MuiFormControl-root">
-					<legend class="jss44">지역</legend>
-				<div class="MuiFormGroup-row MuiFormGroup-root">
-				<div class="jss45">
-					
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="all" checked>
+				<div class="jss49">
+					<div class="div1">
+						<p style="color: #f57c00; font-size:19px; font-weight: bold;">지역</p>
+					</div>
+					<div class="div2">
+						<label class="label1">
+							<input type="radio" class="" id="categorys" name="categorys" value="all" checked>
 							<span class="checkmark">전체</span>
 						</label>
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="서울/경기/인천">
+					</div>
+						<label class="label1">
+							<input type="radio" class="" id="categorys" name="categorys" value="서울/경기/인천" >
 							<span class="checkmark">서울/경기/인천</span>
 						</label>
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="대전/세종/충청">
+						<label class="label1">
+							<input type="radio" class="" id="categorys" name="categorys" value="대전/세종/충청" >
 							<span class="checkmark">대전/세종/충청</span>
 						</label>
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="강원" >
+						<label class="label2">
+							<input type="radio" class="" id="categorys" name="categorys" value="강원" >
 							<span class="checkmark">강원</span>
 						</label>
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="광주/전라">
+						<label class="label1">
+							<input type="radio" class="" id="categorys" name="categorys" value="광주/전라" >
 							<span class="checkmark">광주/전라</span>
 						</label>
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="대구/경북">
+						<label class="label1">
+							<input type="radio" class="" id="categorys" name="categorys" value="대구/경북" >
 							<span class="checkmark">대구/경북</span>
 						</label>
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="부산/울산/경남">
+						<label class="label1">
+							<input type="radio" class="" id="categorys" name="categorys" value="부산/울산/경남" >
 							<span class="checkmark">부산/울산/경남</span>
 						</label>
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="제주">
+						<label class="label2">
+							<input type="radio" class="" id="categorys" name="categorys" value="제주" >
 							<span class="checkmark">제주</span>
 						</label>
-				</div>	
+   					</div>
 				</div>
-			</fieldset>
-			<fieldset class="MuiFormControl-root">
+			</div>	
+
+			<!-- <fieldset class="MuiFormControl-root">
 				<legend class="jss44">카테고리</legend>
 				<div class="select-suport-items">
 					<label class="jss46">
@@ -149,7 +155,7 @@ $(document).ready(function(){
 				<div>
 					<button type="submit" id ="frm2Button" name="frm2Button">검색하기</button> 
 				</div>
-			</fieldset>
+			</fieldset> -->
 		</form>
 		</div>
 	</div>
@@ -159,9 +165,30 @@ $(document).ready(function(){
 <div class="favourite-place jss100">
             <div class="container">
                 <div class="row">
+                <!-- 임시 테스트 화면 -->
+                <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="single-place mb-30">
+                            <div class="place-img">
+                                <img src="assets/img/service/services1.jpg" alt="">
+                            </div>
+                            <div class="place-cap">
+                                <div class="place-cap-top">
+                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
+                                    <h3><a href="#">The Dark Forest Adventure</a></h3>
+                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
+                                </div>
+                                <div class="place-cap-bottom">
+                                    <ul>
+                                        <li><i class="far fa-clock"></i>3 Days</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <!-- 여기서부터 데이터 받음ㄴ -->
                 <c:if test ="${empty list }">
-                	<div class="typography"><h3>등록된 클래스가 없습니다.</h3></div>
+                	<div><h2>등록된 클래스가 없습니다.</h2></div>
                 </c:if>
                 <c:if test="${not empty list }">
                 <c:forEach var="vo" items="${list }">
@@ -193,5 +220,8 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
+        <!-- class-list 끝 -->
+        	
+
 </body>
 </html>

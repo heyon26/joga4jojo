@@ -120,7 +120,7 @@ public class ClassDao extends DAO {
 		return n;
 	}
 	
-	//검색바에서 검색시에 사용
+	//검색바에서 단어 입력으로 검색시에 사용 --사용함
 	public ArrayList<ClassVo> selectClassList(String condition){
 		ArrayList<ClassVo> list= new ArrayList<ClassVo>();
 		ClassVo vo;
@@ -128,7 +128,6 @@ public class ClassDao extends DAO {
 		
 		try {
 			psmt=conn.prepareStatement(sql);
-			psmt.setString(1, condition);
 			rs=psmt.executeQuery();
 			while(rs.next()) {
 				vo=new ClassVo();
@@ -146,6 +145,7 @@ public class ClassDao extends DAO {
 				vo.setClassDate(rs.getDate("class_date"));
 				vo.setRatingCode(rs.getInt("rating_code"));
 				vo.setClassTel(rs.getString("class_tel"));
+				vo.setAreaName(rs.getString("area_name"));
 				list.add(vo);
 				
 			}
@@ -160,17 +160,100 @@ public class ClassDao extends DAO {
 	
 	
 	
-	//검색바에서 직접 검색시에 사용
-		public ArrayList<ClassVo> selectClassList(String condition1,String condition2 ){
+	//검색바에서 radio값으로 검색시에 사용 --사용함
+		public ArrayList<ClassVo> searchClassList1(String condition1, String condition2 ){ //condition1=지역, condition2=카테고리
 			ArrayList<ClassVo> list= new ArrayList<ClassVo>();
 			ClassVo vo;
-			String sql = "select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+condition1+"%' and c.categoty_a like '%"+condition2+"%'";
 			
 			try {
-				psmt=conn.prepareStatement(sql);
-				psmt.setString(1, condition1);
-				psmt.setString(2, condition2);
+				String sql = null;
+				String a1 = null;
+				String a2 =null;
+				String a3 =null;
+				
+				if (condition1.equals("all") && condition2.equals("all")) {
+					 sql ="select c.*, a.area_name from class c, area a where a.area_code=c.area_code";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("서울/경기/인천") &&condition2.equals(condition2)) {
+					 a1 = "서울";
+					 a2 ="경기";
+					 a3 ="인천";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%' and a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("대전/세종/충청")  &&condition2.equals(condition2)) { 
+					 a1 = "대전";
+					 a2 ="세종";
+					 a3 ="충청";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%' and a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("강원") &&condition2.equals(condition2)) { 
+					 a1 = "강원";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%' and a.area_name like '%"+a1+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("광주/전라") &&condition2.equals(condition2)) { 
+					 a1 = "광주";
+					 a2 ="전라";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%' and a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("대구/경북") &&condition2.equals(condition2)) {
+					 a1 = "대구";
+					 a2 ="경상북";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%' and a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("부산/울산/경남") &&condition2.equals(condition2)) {
+					 a1 = "부산";
+					 a2 ="울산";
+					 a3 ="경상남";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%' and a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("제주") &&condition2.equals(condition2)) {
+					 a1 = "제주";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%' and a.area_name like '%"+a1+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("all")&& condition2.equals(condition2)) {
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 } 
+				
+				 else if(condition1.equals("서울/경기/인천") &&condition2.equals("all")) {
+					 a1 = "서울";
+					 a2 ="경기";
+					 a3 ="인천";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("대전/세종/충청")  &&condition2.equals("all")) { 
+					 a1 = "대전";
+					 a2 ="세종";
+					 a3 ="충청";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("강원") &&condition2.equals("all")) { 
+					 a1 = "강원";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("광주/전라") &&condition2.equals("all")) { 
+					 a1 = "광주";
+					 a2 ="전라";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("대구/경북") &&condition2.equals("all")) {
+					 a1 = "대구";
+					 a2 ="경상북";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("부산/울산/경남") &&condition2.equals("all")) {
+					 a1 = "부산";
+					 a2 ="울산";
+					 a3 ="경상남";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) wherea.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("제주") &&condition2.equals("all")) {
+					 a1 = "제주";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }
 				rs=psmt.executeQuery();
+				
 				while(rs.next()) {
 					vo=new ClassVo();
 					vo.setClassCode(rs.getInt("class_code"));
@@ -187,6 +270,87 @@ public class ClassDao extends DAO {
 					vo.setClassDate(rs.getDate("class_date"));
 					vo.setRatingCode(rs.getInt("rating_code"));
 					vo.setClassTel(rs.getString("class_tel"));
+					vo.setAreaName(rs.getString("area_name"));
+					list.add(vo);
+					
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			
+			return list;
+		}
+		
+		// 검색화면 radiobox에서 카테고리가 all이면
+		public ArrayList<ClassVo> searchClassList2(String condition1){ //condition1=지역, condition2=카테고리
+			ArrayList<ClassVo> list= new ArrayList<ClassVo>();
+			ClassVo vo;
+			
+			try {
+				String sql = null;
+				String a1 = null;
+				String a2 =null;
+				String a3 =null;
+				
+				
+				  if(condition1.equals("서울/경기/인천")) {
+					 a1 = "서울";
+					 a2 ="경기";
+					 a3 ="인천";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("대전/세종/충청")) { 
+					 a1 = "대전";
+					 a2 ="세종";
+					 a3 ="충청";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("강원")) { 
+					 a1 = "강원";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("광주/전라")) { 
+					 a1 = "광주";
+					 a2 ="전라";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("대구/경북")) {
+					 a1 = "대구";
+					 a2 ="경상북";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("부산/울산/경남")) {
+					 a1 = "부산";
+					 a2 ="울산";
+					 a3 ="경상남";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) wherea.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }else if(condition1.equals("제주")) {
+					 a1 = "제주";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%'";
+					 psmt=conn.prepareStatement(sql);
+				 }
+				rs=psmt.executeQuery();
+				
+				while(rs.next()) {
+					vo=new ClassVo();
+					vo.setClassCode(rs.getInt("class_code"));
+					vo.setUserId(rs.getString("user_id"));
+					vo.setAreaCode(rs.getInt("area_code"));
+					vo.setClassName(rs.getString("class_name"));
+					vo.setCateGoryA(rs.getString("category_a"));
+					vo.setClassIntroduce(rs.getString("class_introduce"));
+					vo.setCurriculum(rs.getString("curriculum"));
+					vo.setClassContent(rs.getString("class_content"));
+					vo.setClassAddress(rs.getString("class_address"));
+					vo.setRegisterMember(rs.getInt("register_member"));
+					vo.setClassPrice(rs.getInt("class_price"));
+					vo.setClassDate(rs.getDate("class_date"));
+					vo.setRatingCode(rs.getInt("rating_code"));
+					vo.setClassTel(rs.getString("class_tel"));
+					vo.setAreaName(rs.getString("area_name"));
 					list.add(vo);
 					
 				}
@@ -203,7 +367,7 @@ public class ClassDao extends DAO {
 	
 	
 	
-	//main 화면에서 검색시 매개변수 받아서 class list 출력
+	//main 화면에서 검색시 매개변수 받아서 class list 출력 --사용함
 		public ArrayList<ClassVo> selectClassList(int option, String condition){
 			ArrayList<ClassVo> list= new ArrayList<ClassVo>();
 			ClassVo vo;
@@ -281,7 +445,9 @@ public class ClassDao extends DAO {
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
-			} 
+			} finally {
+				close();
+			}
 			
 			return list;
 		}
@@ -291,7 +457,7 @@ public class ClassDao extends DAO {
 		try {
 			if(rs!=null) rs.close();
 			if(psmt != null) psmt.close();
-			if(conn!=null)psmt.close();
+			if(conn!=null) conn.close();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
