@@ -23,8 +23,34 @@
             <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
             <link rel="stylesheet" href="assets/css/themify-icons.css">
             <link rel="stylesheet" href="assets/css/slick.css">
-            <link rel="stylesheet" href="assets/css/nice-select.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="assets/css/nice-select.css"> 
+            
             <link rel="stylesheet" href="assets/css/style.css">
+            
+	<script>
+           
+   	function categoryChange(e){
+   		var target = document.getElementById("select2");
+   		var className =["핸드메이드·수공예","쿠킹클래스","플라워레슨","드로잉","음악","요가·필라테스","레저·스포츠","체험","자기계발"];
+   		var areaName= ["서울/경기/인천","대전/세종/충청","광주/전라","대구/경북","부산/울산/경남","강원","제주"];
+   		
+   		if(e.value == 1) var a= className;
+   		else if(e.value == 2) a= areaName;
+   		target.options.length = 2;
+   		
+   		
+   		for(value in a){
+   			var option=document.createElement("option");
+   			option.value=a[value];
+   			option.innerHTML=a[value];
+   			target.appendChild(option);   	
+   		} 
+   		
+   	}
+   	
+   </script>         
    </head>
    <body>
    <jsp:include page="topmenu.jsp"/>
@@ -35,13 +61,13 @@
         <div class="slider-area ">
             <!-- Mobile Menu -->
             <div class="slider-active">
-                <div style="height:1200px" class="single-slider hero-overly  slider-height d-flex align-items-center" data-background="assets/img/hero/h1_hero.jpg">
+                <div id="mainimage" class="d-flex align-items-center" >
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-9 col-lg-9 col-md-9">
                                 <div class="hero__caption">
                                     <h1>Find your <span>Interest</span> </h1>
-                                    <p>What would you like to learn?</p>
+                                    <p style="font-family: 'Do Hyeon', sans-serif">당신이 원하는 취미를 찾아보세요!</p>
                                 </div>
                             </div>
                         </div>
@@ -49,28 +75,29 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <!-- form -->
-                                <form id="regionFrm" name="regionFrm" action="searchClass.do" class="search-box">
-                                    <div class="input-form mb-30">                                   
-                                        <input type="text" name="className" id="className" placeholder="Where would you like to go to learn?" >
-                                    </div>
-                                    <div class="select-form mb-30">
+                                <form id="searchFrm" name="searchFrm" action="classSearch.do" method="post" class="search-box">
+                                    <div class="select-form mb-20">
                                         <div class="select-itms">                               
-                                            <select name="select" id="select1">
-                                            	<option value="all">Choose one</option>
-                                                <option value="서울">서울</option>
-                                                <option value="부산">부산</option>
-                                                <option value="인천/경기">인천/경기</option>
-                                                <option value="대전/충청">대전/충청</option>
-                                                <option value="울산/경남">울산/경남</option>
-                                                <option value="대구/경북">대구/경북</option>
-                                                <option value="강원">강원</option>
-                                                <option value="제주">제주</option>
+                                            <select class="custom-select mr-sm-2" name="select1" id="select1" onchange="categoryChange(this)" style="height:57px">
+                                            	<option>OPTION</option>
+												<option value="1">카테고리</option>
+                                                <option value="2">지역</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="search-form mb-30">
-                                        <a onclick="classSearch.do">Search</a>
-                                    </div>	
+                                     <div class="select-form mb-20">
+                                        <div class="select-itms">                               
+                                            <select class="custom-select mr-sm-2" name="select2" id="select2" style="height:57px">
+                                            	<option>OPTION</option>
+                                            	<option value="all">전체</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="search-form mb-20">
+                                        <button type="submit"  class="button rounded primary-bg text-white w-100 btn_1 boxed-btn">SEARCH</button>
+                                       
+                                    </div>
+
                                 </form>	
                             </div>
                         </div>
@@ -82,7 +109,7 @@
     </main>
    
 	<!-- JS here -->
-	
+
 		<!-- All JS Custom Plugins Link Here here -->
         <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
 		
@@ -103,7 +130,7 @@
 
 		<!-- Scrollup, nice-select, sticky -->
         <script src="./assets/js/jquery.scrollUp.min.js"></script>
-        <script src="./assets/js/jquery.nice-select.min.js"></script>
+        <!-- <script src="./assets/js/jquery.nice-select.min.js"></script> -->
 		<script src="./assets/js/jquery.sticky.js"></script>
         
         <!-- contact js -->
@@ -116,6 +143,11 @@
 		<!-- Jquery Plugins, main Jquery -->	
         <script src="./assets/js/plugins.js"></script>
         <script src="./assets/js/main.js"></script>
+        
+
+
+
+
         
     </body>
 </html>

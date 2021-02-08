@@ -5,12 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.mok.pro.common.Command;
 
-public class LoginForm implements Command {
+public class CreateClassView implements Command {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		return "member/loginForm";
+		return "class/createClass1";
 	}
 
 }
