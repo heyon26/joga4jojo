@@ -124,10 +124,13 @@ public class ClassDao extends DAO {
 	public ArrayList<ClassVo> selectClassList(String condition){
 		ArrayList<ClassVo> list= new ArrayList<ClassVo>();
 		ClassVo vo;
-		String sql = "select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like '%"+condition+"%' or c.class_name like '%"+condition+"%' or a.area_name like '%"+condition+"%'";
+		String sql = "select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like '%'||?||'%' or c.class_name like '%'||?||'%' or a.area_name like '%'||?||'%'";
 		
 		try {
 			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, condition);
+			psmt.setString(2, condition);
+			psmt.setString(3, condition);
 			rs=psmt.executeQuery();
 			while(rs.next()) {
 				vo=new ClassVo();

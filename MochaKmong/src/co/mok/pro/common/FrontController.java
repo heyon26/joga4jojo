@@ -53,8 +53,9 @@ public class FrontController extends HttpServlet {
 		String contextPath = request.getContextPath();
 		String uri = request.getRequestURI();
 		String path = uri.substring(contextPath.length());
-
+		
 		Command command = map.get(path);
+		
 		String viewPage = command.exec(request, response);
 		
 		if(!viewPage.endsWith(".do")) viewPage = "/WEB-INF/jsp/" +viewPage +".jsp"; 

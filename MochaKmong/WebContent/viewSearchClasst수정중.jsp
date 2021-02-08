@@ -38,122 +38,22 @@ $(document).ready(function(){
 
 	
 </script>
-		<style>
-			.div1{width:120px; height:90px;  padding:15px; display:flex; color: #f57c00; font-size: medium; }
-			.div2{width: 170px; max-height:45px; padding:10px; display:flex; color: black; font-size: medium;  }
-			.div3{width: 200px; max-height:45px; padding:15px; display:flex; color: black; font-size: medium; }
-			.label1{ margin: 0; min-width: 167px; display:inline; }
-			.label2 { margin: 0; min-width: 140px;display:inline;}
-		</style>
+
 </head>
 <jsp:include page="/WEB-INF/jsp/main/topmenu.jsp" />
 <body>
 	
 <!-- 검색/선택메뉴 -->	
-	<div class="jss39">
-		<div class="jss41">
-				<div class="jss42">
-					<div class="div1">
-						<p style="color: #f57c00; font-size:19px; font-weight: bold;">클래스 명</p>
-					</div>
-					<div class="MuiFormControl-root">
-						<form id="frm1" name="frm1" action="classSearch1.do" method="post">
-							<input type="text" class="jss57" id= "word" name= "word" placeholder="원하는 클래스를 입력하세요." required>
-							<button type="submit" name = "frm1Button">검색하기</button>
-						</form>
-					</div>
-				</div>
-				<div class="jss49">
-					<div class="div1">
-						<p style="color: #f57c00; font-size:19px; font-weight: bold;">지역</p>
-					</div>
-					<div class="div2">
-						<label class="label1">
-							<input type="radio" class="" id="categorys" name="categorys" value="all" checked>
-							<span class="checkmark">전체</span>
-						</label>
-					</div>
-						<label class="label1">
-							<input type="radio" class="" id="categorys" name="categorys" value="서울/경기/인천" >
-							<span class="checkmark">서울/경기/인천</span>
-						</label>
-						<label class="label1">
-							<input type="radio" class="" id="categorys" name="categorys" value="대전/세종/충청" >
-							<span class="checkmark">대전/세종/충청</span>
-						</label>
-						<label class="label2">
-							<input type="radio" class="" id="categorys" name="categorys" value="강원" >
-							<span class="checkmark">강원</span>
-						</label>
-						<label class="label1">
-							<input type="radio" class="" id="categorys" name="categorys" value="광주/전라" >
-							<span class="checkmark">광주/전라</span>
-						</label>
-						<label class="label1">
-							<input type="radio" class="" id="categorys" name="categorys" value="대구/경북" >
-							<span class="checkmark">대구/경북</span>
-						</label>
-						<label class="label1">
-							<input type="radio" class="" id="categorys" name="categorys" value="부산/울산/경남" >
-							<span class="checkmark">부산/울산/경남</span>
-						</label>
-						<label class="label2">
-							<input type="radio" class="" id="categorys" name="categorys" value="제주" >
-							<span class="checkmark">제주</span>
-						</label>
-   					</div>
-				</div>
-			</div>	
-
-			<!-- <fieldset class="MuiFormControl-root">
-				<legend class="jss44">카테고리</legend>
-				<div class="select-suport-items">
-					<label class="jss46">
-						<input type="radio" class="" id="categorys" name="categorys" value="all" checked>
-						<span class="checkmark">전체</span>
-					</label>
-					<label class="jss46">
-						<input type="radio" class="" id="categorys" name="categorys" value="핸드메이드·수공예" >
-						<span class="checkmark">핸드메이드·수공예</span>
-					</label>
-					<label class="jss46">
-						<input type="radio" class="" id="categorys" name="categorys" value="쿠킹클래스">
-						<span class="checkmark">쿠킹클래스</span>
-					</label>
-					<label class="jss46">
-						<input type="radio" class="" id="categorys" name="categorys" value="플라워레슨">
-						<span class="checkmark">플라워레슨</span>
-					</label>
-					<label class="jss46">
-						<input type="radio" class="" id="categorys" name="categorys" value="드로잉">
-						<span class="checkmark">드로잉</span>
-					</label>
-					<label class="jss46">
-						<input type="radio" class="" id="categorys" name="categorys" value="음악">
-						<span class="checkmark">음악</span>
-					</label>
-					<label class="jss46">
-						<input type="radio" class="" id="categorys" name="categorys" value="요가·필라테스">
-						<span class="checkmark">요가·필라테스</span>
-					</label>
-					<label class="jss46">
-						<input type="radio" class="" id="categorys" name="categorys" value="레저·스포츠">
-						<span class="checkmark">레저·스포츠</span>
-					</label>
-					<label class="jss46">
-						<input type="radio" class="" id="categorys" name="categorys" value="체험">
-						<span class="checkmark">체험</span>
-					</label>
-					<label class="jss46">
-						<input type="radio" class="" id="categorys" name="categorys" value="자기계발">
-						<span class="checkmark">자기계발</span>
-					</label>
-				</div>
-				<div>
-					<button type="submit" id ="frm2Button" name="frm2Button">검색하기</button> 
-				</div>
-			</fieldset> -->
-		</form>
+<div class="jss39">
+	<div class="jss41">
+		<div>
+			<table id="table1" style={border:1px}>
+				<tr>
+					<td>클래스명</td>
+					<td><input type="text" name="className" id="className"></td> 
+				</tr>
+				
+			</table>			
 		</div>
 	</div>
 </div>

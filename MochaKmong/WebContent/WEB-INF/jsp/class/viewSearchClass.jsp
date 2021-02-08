@@ -26,82 +26,84 @@
 <link rel="stylesheet" href="assets/css/nice-select.css">
 <link rel="stylesheet" href="assets/css/style.css">
 <script src="./assets/js/jquery-3.5.1.min.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 <script>
 
 $(document).ready(function(){
 
 		$("input:radio[name='categorys']:radio[value='${condition }']").prop('checked', true);
 		$("input:radio[name='region']:radio[value='${condition }']").prop('checked', true);
-		/* if('${not empty region } && ${not empty category }')	{
+		
+		if('${not empty region } && ${not empty category }')	{
 			$("input:radio[name='categorys']:radio[value='${category }']").prop('checked', true);
 			$("input:radio[name='region']:radio[value='${region }']").prop('checked', true);
-		} */
+		}
 		
 });
+	function searchClass(){
+		frm1.submit();
+	}
 
-	
 </script>
+<style>
+*{font-family: 'Noto Sans KR', sans-serif;}
+body{margin-bottom:80px;}
+</style>
 </head>
 <jsp:include page="../main/topmenu.jsp" />
 <body>
 	
 <!-- 검색/선택메뉴 -->	
-	<div class="_empty">&nbsp;</div>
-	<div class="jss40">
-		<div class="jss41">
-			<fieldset class="MuiFormControl-root">
-				<div class="jss42">
-				<legend class="jss44">클래스 명</legend>
-				<div class="MuiFormControl-root">
+<div class="jss39">
+	<div class="jss41">
+			<div class="jss42">
 				<form id="frm1" name="frm1" action="classSearch1.do" method="post">
-					<input type="text" class="jss57" id= "word" name= "word" placeholder="원하는 클래스를 입력하세요." required>
-					<button type="submit" name = "frm1Button">검색하기</button>
+					<fieldset class="">
+					<legend class="jss44">클래스 명</legend>
+						<input  type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id= "word" name= "word" onkeypress="if(f.keyCode==13){searchClass();}" required> 
+					</fieldset>
 				</form>
-				</div>
-				</div>
-			</fieldset>
-		<div>
+			</div>
+			<div>
 		<form id="frm2" name="frm2" action="classSearch2.do" method="post">
-			<fieldset class="MuiFormControl-root">
+				<fieldset class="MuiFormControl-root">
 					<legend class="jss44">지역</legend>
-				<div class="MuiFormGroup-row MuiFormGroup-root">
-				<div class="jss45">
-					
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="all" checked>
-							<span class="checkmark">전체</span>
-						</label>
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="서울/경기/인천">
-							<span class="checkmark">서울/경기/인천</span>
-						</label>
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="대전/세종/충청">
-							<span class="checkmark">대전/세종/충청</span>
-						</label>
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="강원" >
-							<span class="checkmark">강원</span>
-						</label>
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="광주/전라">
-							<span class="checkmark">광주/전라</span>
-						</label>
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="대구/경북">
-							<span class="checkmark">대구/경북</span>
-						</label>
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="부산/울산/경남">
-							<span class="checkmark">부산/울산/경남</span>
-						</label>
-						<label class="jss47">
-							<input type="radio" class="" id= "region" name="region" value="제주">
-							<span class="checkmark">제주</span>
-						</label>
-				</div>	
-				</div>
-			</fieldset>
+						<div class="select-suport-items">
+								<label class="jss47">
+									<input type="radio" class="" id= "region" name="region" value="all" checked>
+									<span class="checkmark">전체</span>
+								</label>
+								<label class="jss47">
+									<input type="radio" class="" id= "region" name="region" value="서울/경기/인천">
+									<span class="checkmark">서울/경기/인천</span>
+								</label>
+								<label class="jss47">
+									<input type="radio" class="" id= "region" name="region" value="대전/세종/충청">
+								<span class="checkmark">대전/세종/충청</span>
+								</label>
+								<label class="jss47">
+									<input type="radio" class="" id= "region" name="region" value="강원" >
+									<span class="checkmark">강원</span>
+								</label>
+								<label class="jss47">
+									<input type="radio" class="" id= "region" name="region" value="광주/전라">
+									<span class="checkmark">광주/전라</span>
+								</label>
+								<label class="jss47">
+									<input type="radio" class="" id= "region" name="region" value="대구/경북">
+									<span class="checkmark">대구/경북</span>
+								</label>
+								<label class="jss47">
+									<input type="radio" class="" id= "region" name="region" value="부산/울산/경남">
+									<span class="checkmark">부산/울산/경남</span>
+								</label>
+								<label class="jss47">
+									<input type="radio" class="" id= "region" name="region" value="제주">
+									<span class="checkmark">제주</span>
+								</label>
+							</div>	
+				</fieldset>
 			<fieldset class="MuiFormControl-root">
 				<legend class="jss44">카테고리</legend>
 				<div class="select-suport-items">
@@ -146,14 +148,15 @@ $(document).ready(function(){
 						<span class="checkmark">자기계발</span>
 					</label>
 				</div>
-				<div>
-					<button type="submit" id ="frm2Button" name="frm2Button">검색하기</button> 
+				<div class="text-center">
+					<button class="button rounded primary-bg text-white w-100 btn_1 boxed-btn" type="submit" id ="frm2Button" name="frm2Button">검색하기</button> 
 				</div>
 			</fieldset>
 		</form>
 		</div>
 	</div>
 </div>
+	
 <!-- 검색/선택메뉴 끝 -->
 <!-- 검색한 클래스 클래스 리스트 -->
 <div class="favourite-place jss100">
@@ -175,8 +178,9 @@ $(document).ready(function(){
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                     <span><i class="fas fa-star"></i><span>${vo.ratingCode }</span> </span>
-                                    <h3><a href="#">${vo.className }</a></h3>
+                                    <h5><a href="#">${vo.className }</a></h5>
                                     <p class="dolor">${vo.classPrice }원<span>/1인당</span></p>
+                                    <p>${vo.classIntroduce }</p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
@@ -193,5 +197,28 @@ $(document).ready(function(){
                 </div>
             </div>
         </div>
+<!--클래스 검색 list 끝-->
+<!-- bootstrap 페이징 시작 -->
+<nav class="blog-pagination justify-content-center d-flex">
+	<ul class="pagination">
+		<li class="page-item">
+			<a href="#" class="page-link" aria-label="Previous">
+				<i class="ti-angle-left"></i>
+			</a>
+		</li>
+		<li class="page-item">
+			<a href="#" class="page-link">1</a>
+		</li>
+		<li class="page-item active">
+			<a href="#" class="page-link">2</a>
+		</li>
+		<li class="page-item">
+			<a href="#" class="page-link" aria-label="Next">
+				<i class="ti-angle-right"></i>
+			</a>
+		</li>
+	</ul>
+</nav>
+
 </body>
 </html>
