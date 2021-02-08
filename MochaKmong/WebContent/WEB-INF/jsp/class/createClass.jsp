@@ -70,6 +70,7 @@ min-height: 10px !important;
 </head>
 
 <body>
+   <jsp:include page="../main/topmenu.jsp"/>
 	<div id="carouselExampleIndicators" class="carousel slide"
 		data-ride="carousel" data-interval="false">
 		<ol class="carousel-indicators">
@@ -136,7 +137,7 @@ min-height: 10px !important;
 														name="detailAddress" placeholder="상세주소">
 												</div>
 												<div class="input-group">
-													<input type="button" class="btn btn--radius-2 btn--blue"
+													<input type="button" class="btn btn--radius-2 btn--blue" style="background-color: #4272d7; width: 100%"
 														onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
 												</div>
 
@@ -206,7 +207,7 @@ min-height: 10px !important;
 												<div class="input-group">
 												<label class="label">수업비</label><input type="number"
 													class="input--style-4" id="classPrice" name="classPrice"
-													placeholder="수업비">
+													placeholder="(원)">
 											</div>
 										</div>
 									</div>
@@ -245,7 +246,7 @@ min-height: 10px !important;
 <jsp:include page="calendar.jsp"></jsp:include>
 											
 											<div class="p-t-15" align="right">
-												<button class="btn btn--radius-2 btn--blue" type="submit">등록</button>
+												<button class="btn btn--radius-2 btn--blue" style="background-color: #4272d7; width: 100%" type="submit">등록</button>
 											</div>
 										</div>
 									</div>
@@ -324,7 +325,7 @@ min-height: 10px !important;
 <script>
 		$('#summernote').summernote(
 				{	lang : "ko-KR",
-					placeholder : 'Hello stand alone ui',
+					placeholder : '클래스 설명을 써주세요',
 					tabsize : 2,
 					height : 300,
 					toolbar : [ [ 'style', [ 'style' ] ],

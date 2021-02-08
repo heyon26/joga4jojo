@@ -6,6 +6,7 @@ import java.util.HashMap;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -29,20 +30,21 @@ import co.mok.pro.board.NewBoardForm;
 import co.mok.pro.board.NewConsult;
 import co.mok.pro.board.NewConsultForm;
 import co.mok.pro.main.MainService;
-
 import co.mok.pro.main.MainServiceTest;
-
-
 import co.mok.pro.member.ExpertPage;
 import co.mok.pro.member.MyPage;
+import co.mok.pro.member.MyPageClass;
 import co.mok.pro.member.MyPageClassExpert;
 import co.mok.pro.member.MyPageEdit;
 import co.mok.pro.member.MyPageExpertEdit;
-import co.mok.pro.member.MyPageClass;
 import co.mok.pro.member.ProfileUpdate;
 import co.mok.pro.member.UploadImage;
 import co.mok.pro.member.UploadImageForm;
-import co.mok.pro.main.MainService;
+import co.mok.pro.web.ClassSearch;
+import co.mok.pro.web.ClassSearch1;
+import co.mok.pro.web.ClassSearch2;
+import co.mok.pro.web.CreateClass;
+import co.mok.pro.web.CreateClassView;
 import co.mok.pro.web.FindPw;
 import co.mok.pro.web.FindPwForm;
 import co.mok.pro.web.Login;
@@ -51,24 +53,17 @@ import co.mok.pro.web.Logout;
 import co.mok.pro.web.UserIdCheck;
 import co.mok.pro.web.UserJoin;
 import co.mok.pro.web.UserJoinForm;
-import co.mok.pro.member.ProfileEdit;
-import co.mok.pro.member.ProfileEditUpdate;
-import co.mok.pro.web.ClassSearch;
-import co.mok.pro.web.ClassSearch1;
-import co.mok.pro.web.ClassSearch2;
-import co.mok.pro.web.CreateClass;
-import co.mok.pro.web.CreateClassView;
 
 /**
  * Servlet implementation class FrontController
  */
 
 @WebServlet("/FrontController")
-public class FrontController1 extends HttpServlet {
+public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HashMap<String, Command> map = new HashMap<String, Command>();
 
-	public FrontController1() {
+	public FrontController() {
 		super();
 
 	}
@@ -135,8 +130,8 @@ public class FrontController1 extends HttpServlet {
 
 		map.put("/myPage.do", new MyPage()); // 마이페이지 호출
 		map.put("/expertPage.do", new ExpertPage()); // 강사 페이지 호출
-		map.put("/profileEdit.do", new ProfileEdit()); // 프로필 수정 페이지 호출
-		map.put("/profileEditUpdate.do", new ProfileEditUpdate()); // 프로필 수정 값 전달
+		//map.put("/profileEdit.do", new ProfileEdit()); // 프로필 수정 페이지 호출
+		//map.put("/profileEditUpdate.do", new ProfileEditUpdate()); // 프로필 수정 값 전달
 		map.put("/classSearch.do", new ClassSearch()); //메인페이지에서 클래스 검색 
 		map.put("/classSearch1.do", new ClassSearch1()); //클래스 list 페이지에서 단어입력 후 검색 
 		map.put("/classSearch2.do", new ClassSearch2()); //클래스 list 페이지에서 radio로 검색

@@ -10,7 +10,7 @@ import co.mok.pro.dao.UserDao;
 public class FindPw implements Command {
 
 	@Override
-	public String excute(HttpServletRequest request, HttpServletResponse response) {
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		UserDao dao = new UserDao();
 		String userId = request.getParameter("userId");
 		String userName = request.getParameter("userName");

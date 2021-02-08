@@ -11,10 +11,18 @@
   clear: both;
   float: none;
 }
+.calendbutton {
+color: black;
+}
 
 /* ======== Calendar ======== */
+.calendalcontainer {
+width: 698px;
+position: relative;
+right:70px;
+}
 .my-calendar {
-  width: 600px;
+  width: 698px;
 
   padding: 20px 20px 10px;
   text-align: center;
@@ -118,7 +126,7 @@
 }
 </style>
 
-	<div class="container">
+	<div class="calendalcontainer">
 		<div class="my-calendar clearfix">
 			
 			<div class="calendar-box">
@@ -145,7 +153,9 @@
 			<div class="calendar-add">
 				<div class="cal-day"></div>
 				<div class="cal-date"></div>
-				<table class="cal-plus" style="text-align: center"><tr><td style="width: 160px">날짜</td><td style="text-align: left; width: 40px;">정원</td><td>삭제</td></tr></table>
+				<table style="text-align: center"><tr><td style="min-width: 185px;">날짜</td><td style="text-align: left; width: 40px;">정원</td><td style="width: 60px">삭제</td></tr>
+				<tbody class="cal-plus"></tbody>
+				</table>
 			</div>
 		</div>
 		<!-- // .my-calendar -->
@@ -157,7 +167,7 @@
 		plusdate++;
 		var calendarAdd = document.querySelector('.cal-plus');
 		var pd= 'date'+plusdate;
-		calendarAdd.innerHTML += "<tr id="+pd+"><td><input name='classDates' type='date' value='"+init.activeDate.toISOString().slice(0,10)+"' style='width:160px'></td><td><input type='number' name='fixedNumbers' value='5' style='width: 30px; text-align:center;'></td><td><button type='button' onclick='deleteDate("+'"'+pd+'"'+")'>삭제</button></td></tr>";
+		calendarAdd.innerHTML += "<tr id="+pd+" style='border:1px solid #f8f9fa;'><td><input name='classDates' type='date' value='"+init.activeDate.toISOString().slice(0,10)+"' style='text-align:right;'></td><td><input type='number' name='fixedNumbers' value='5' style='text-align:right;'></td><td><button type='button' class='calendbutton' onclick='deleteDate("+'"'+pd+'"'+")'>삭제</button></td></tr>";
 	}
 	function deleteDate(id){
 		plusdate--;

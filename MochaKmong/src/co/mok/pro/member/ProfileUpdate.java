@@ -10,7 +10,7 @@ import co.mok.pro.vo.UserVo;
 public class ProfileUpdate implements Command {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// 프로필 업데이트 값 전달
 		
 		UserDao dao = new UserDao();

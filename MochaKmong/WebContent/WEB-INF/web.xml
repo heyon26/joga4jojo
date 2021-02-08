@@ -7,12 +7,12 @@
 
 
 	<servlet>
-		<servlet-name>FrontController1</servlet-name>
-		<servlet-class>co.mok.pro.common.FrontController1</servlet-class>
+		<servlet-name>FrontController</servlet-name>
+		<servlet-class>co.mok.pro.common.FrontController</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>FrontController1</servlet-name>
+		<servlet-name>FrontController</servlet-name>
 		<url-pattern>*.do</url-pattern>
 	</servlet-mapping>
 

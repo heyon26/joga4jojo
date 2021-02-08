@@ -6,7 +6,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import co.mok.pro.common.DAO;
+import co.mok.pro.vo.CTimeVo;
 import co.mok.pro.vo.ClassVo;
+import co.mok.pro.vo.ImageVo;
 
 public class ClassDao extends DAO {
 	PreparedStatement psmt;
@@ -29,7 +31,7 @@ public class ClassDao extends DAO {
 				vo.setClassName(rs.getString("class_name"));
 				vo.setCateGoryA(rs.getString("category_a"));
 				vo.setClassIntroduce(rs.getString("class_introduce"));
-				vo.setCurriculum(rs.getString("curriculum"));
+
 				vo.setClassContent(rs.getString("class_content"));
 				vo.setClassAddress(rs.getString("class_address"));
 				vo.setRegisterMember(rs.getInt("register_member"));
@@ -68,7 +70,7 @@ public class ClassDao extends DAO {
 				vo.setClassName(rs.getString("class_name"));
 				vo.setCateGoryA(rs.getString("category_a"));
 				vo.setClassIntroduce(rs.getString("class_introduce"));
-				vo.setCurriculum(rs.getString("curriculum"));
+
 				vo.setClassContent(rs.getString("class_content"));
 				vo.setClassAddress(rs.getString("class_address"));
 				vo.setRegisterMember(rs.getInt("register_member"));
@@ -87,12 +89,7 @@ public class ClassDao extends DAO {
 		
 	}
 	
-	//class 등록
-	public int insertClass(ClassVo vo) {
-		int n = 0;
-		
-		return n;
-	}
+
 	
 	//class 내용 수정
 	public int updateClass(ClassVo vo) {
@@ -137,7 +134,7 @@ public class ClassDao extends DAO {
 				vo.setClassName(rs.getString("class_name"));
 				vo.setCateGoryA(rs.getString("category_a"));
 				vo.setClassIntroduce(rs.getString("class_introduce"));
-				vo.setCurriculum(rs.getString("curriculum"));
+
 				vo.setClassContent(rs.getString("class_content"));
 				vo.setClassAddress(rs.getString("class_address"));
 				vo.setRegisterMember(rs.getInt("register_member"));
@@ -262,7 +259,7 @@ public class ClassDao extends DAO {
 					vo.setClassName(rs.getString("class_name"));
 					vo.setCateGoryA(rs.getString("category_a"));
 					vo.setClassIntroduce(rs.getString("class_introduce"));
-					vo.setCurriculum(rs.getString("curriculum"));
+
 					vo.setClassContent(rs.getString("class_content"));
 					vo.setClassAddress(rs.getString("class_address"));
 					vo.setRegisterMember(rs.getInt("register_member"));
@@ -342,7 +339,7 @@ public class ClassDao extends DAO {
 					vo.setClassName(rs.getString("class_name"));
 					vo.setCateGoryA(rs.getString("category_a"));
 					vo.setClassIntroduce(rs.getString("class_introduce"));
-					vo.setCurriculum(rs.getString("curriculum"));
+
 					vo.setClassContent(rs.getString("class_content"));
 					vo.setClassAddress(rs.getString("class_address"));
 					vo.setRegisterMember(rs.getInt("register_member"));
@@ -431,7 +428,7 @@ public class ClassDao extends DAO {
 					vo.setClassName(rs.getString("class_name"));
 					vo.setCateGoryA(rs.getString("category_a"));
 					vo.setClassIntroduce(rs.getString("class_introduce"));
-					vo.setCurriculum(rs.getString("curriculum"));
+
 					vo.setClassContent(rs.getString("class_content"));
 					vo.setClassAddress(rs.getString("class_address"));
 					vo.setRegisterMember(rs.getInt("register_member"));
