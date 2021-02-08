@@ -13,7 +13,7 @@
 /* ==========================================================================
    #GRID
    ========================================================================== */
-.row {
+.row2 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -24,7 +24,7 @@
   flex-wrap: wrap;
 }
 
-.row-space {
+.row2-space {
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -moz-box-pack: justify;
@@ -32,14 +32,14 @@
   justify-content: space-between;
 }
 
-.col-2 {
+.col-22 {
   width: -webkit-calc((100% - 30px) / 2);
   width: -moz-calc((100% - 30px) / 2);
   width: calc((100% - 30px) / 2);
 }
 
 @media (max-width: 767px) {
-  .col-2 {
+  .col-22 {
     width: 100%;
   }
 }
@@ -565,6 +565,7 @@ input {
 }
 
 .rs-select2 .select2-container .select2-selection--single .select2-selection__rendered {
+  width: 100%;
   line-height: 50px;
   padding-left: 0;
   color: #555;

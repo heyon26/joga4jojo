@@ -12,17 +12,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.mok.pro.main.MainService;
+import co.mok.pro.web.CreateClass;
 import co.mok.pro.web.CreateClassView;
 
 /**
  * Servlet implementation class FrontController
  */
+
 @WebServlet("/FrontController")
-public class FrontController extends HttpServlet {
+public class FrontController1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HashMap<String, Command> map = new HashMap<String, Command>();
 
-	public FrontController() {
+	public FrontController1() {
 		super();
 
 	}
@@ -30,6 +32,8 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainService());
 		map.put("/createClassView.do", new CreateClassView());
+		map.put("/createClass.do", new CreateClass());
+
 
 	}
 
