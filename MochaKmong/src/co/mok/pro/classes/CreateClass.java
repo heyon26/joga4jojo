@@ -1,4 +1,4 @@
-package co.mok.pro.web;
+package co.mok.pro.classes;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
