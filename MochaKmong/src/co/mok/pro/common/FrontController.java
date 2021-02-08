@@ -20,7 +20,7 @@ import co.mok.pro.member.MyPageExpertEdit;
 import co.mok.pro.member.MyPageClass;
 import co.mok.pro.member.ProfileEdit;
 import co.mok.pro.member.ProfileUpdate;
-
+import co.mok.pro.member.UploadImageForm;
 import co.mok.pro.web.Login;
 import co.mok.pro.web.LoginForm;
 import co.mok.pro.web.UserIdCheck;
@@ -68,8 +68,9 @@ public class FrontController extends HttpServlet {
 		map.put("/myPageExpertEdit.do", new MyPageExpertEdit());
 		
 		// 프로필 수정 기능
+		map.put("/profileUpdate.do", new ProfileUpdate()); // 프로필 업데이트
 		map.put("/profileEdit.do", new ProfileEdit()); // 프로필 수정 페이지 호출
-		map.put("/profileUpdate.do", new ProfileUpdate()); // 프로필 수정 값 전달
+		map.put("/uploadImageForm.do", new UploadImageForm()); // 프로필 이미지 업로드
 		
 
 
@@ -84,7 +85,6 @@ public class FrontController extends HttpServlet {
 
 		Command command = map.get(path); 
 		String viewPage = command.execute(request, response); 
-
 		if (!viewPage.endsWith(".do"))
 			viewPage = "/WEB-INF/jsp/" + viewPage + ".jsp";
 

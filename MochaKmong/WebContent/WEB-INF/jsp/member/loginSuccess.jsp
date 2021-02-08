@@ -8,10 +8,11 @@
 </head>
 <body>
 <div align="center">
-<h3>${vo.userName } 님 로그인에 성공했습니다.</h3>
+<h3>${user_id } 님 로그인에 성공했습니다.</h3>
 <h3>${vo.userAuth } 님 권한을 갖습니다.</h3>
 <div>
 <button type="button" onclick="location.href='main.do'">메인화면</button>
+<button type="button" onclick="location.href='myPage.do'">마이페이지</button>
 </div>
 </div>
 </body>

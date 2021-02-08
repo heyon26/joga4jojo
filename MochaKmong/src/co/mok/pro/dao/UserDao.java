@@ -71,6 +71,8 @@ public class UserDao extends DAO {
 		return vo;
 	}
 	
+	
+	
 	public UserVo UserLogin(UserVo vo) {
 		String sql = "SELECT * FROM M_USER WHERE USER_ID = ? AND USER_PW = ?";
 		try {
@@ -175,7 +177,67 @@ public class UserDao extends DAO {
 	    }
 		return bool;
 	}
+	
+	// 수정(김찬곤)_210208
+	// 로그인 후 회원정보 가져오기
+		public UserVo getUserInfo(String id) {
+			String sql = "SELECT * FROM M_USER WHERE USER_ID = ?";
+			UserVo vo = null;
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, id);
+				rs = psmt.executeQuery();
+				if (rs.next()) {
+					vo = new UserVo();
+					vo.setUserId(rs.getString("user_id"));
+					vo.setUserPw(rs.getString("user_pw"));
+					vo.setUserName(rs.getString("user_name"));
+					vo.setUserTel(rs.getString("user_tel"));
+					vo.setUserEmail(rs.getString("user_email"));
+					vo.setUserZipcode(rs.getString("user_zipcode"));
+					vo.setUserAddress(rs.getString("user_address"));
+					vo.setUserJoindate(rs.getDate("user_joindate"));
+					vo.setUserAuth(rs.getString("user_auth"));
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
 
+			return vo;
+		}
+		
+		// 수정(김찬곤)_210208
+		// 회원 정보 수정
+		public int UpdateProfile(UserVo vo) {
+			int n = 0;
+			
+			String sql = "update m_user ";
+				   sql += "set user_name = ?, user_tel = ?, user_email = ?, user_address = ?";
+				   sql += " where user_id = ?";
+			
+			try {
+				psmt = conn.prepareStatement(sql);
+				psmt.setString(1, vo.getUserName());
+				psmt.setString(2, vo.getUserTel());
+				psmt.setString(3, vo.getUserEmail());
+				psmt.setString(4, vo.getUserAddress());
+				psmt.setString(5, vo.getUserId());
+				n = psmt.executeUpdate();
+				System.out.println(n + "건 수정 완료");
+			}catch(SQLException e) {
+				e.printStackTrace();
+				System.out.println("수정 실패");
+			}finally {
+				close();
+			}
+			
+			return n;
+		}
+	
+
+	
 	private void close() {
 		try {
 			if (rs != null) rs.close();

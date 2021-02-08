@@ -46,11 +46,11 @@ public class ImageDAO extends DAO {
 	public int updateImage(ImageVO vo) {
 		int n = 0;
 		
-		String sql = "UPDATE IMAGE SET IMAGE_CODE = ? WHERE USER_ID = ?";
+		String sql = "UPDATE IMAGE SET IMAGE= ? WHERE USER_ID = ?";
 		
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getImgCode());
+			psmt.setString(1, vo.getImage());
 			psmt.setString(2, vo.getUserId());
 			n = psmt.executeUpdate();
 		}catch(SQLException e) {
