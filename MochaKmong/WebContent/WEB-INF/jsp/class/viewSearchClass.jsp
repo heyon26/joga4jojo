@@ -44,7 +44,7 @@
 			type:'get',
 			url:$('#frm2').attr('action'),
 			data: formData,
-			dataType:'json'
+			dataType:'json',
 			
 		})
 

@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import co.mok.pro.classweb.ClassSearch;
 import co.mok.pro.main.MainService;
 import co.mok.pro.member.ExpertPage;
 import co.mok.pro.member.MyPage;
 import co.mok.pro.member.ProfileEdit;
 import co.mok.pro.member.ProfileEditUpdate;
+import co.mok.pro.web.ClassSearch;
 import co.mok.pro.web.CreateClassView;
 
 /**

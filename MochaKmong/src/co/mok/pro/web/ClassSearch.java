@@ -1,4 +1,4 @@
-package co.mok.pro.classweb;
+package co.mok.pro.web;
 
 import java.util.ArrayList;
 
