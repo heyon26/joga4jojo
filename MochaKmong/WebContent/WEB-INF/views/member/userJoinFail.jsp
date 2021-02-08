@@ -51,12 +51,6 @@
 						</button>
 					</div><br/>		
 					
-					<div align="center">
-					<a href="main.do" class="txt2 hov1">
-							 main
-					</a>
-					</div>
-						
 				</form>
 			</div>
 		</div>
