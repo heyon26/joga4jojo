@@ -11,15 +11,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.mok.pro.main.MainService;
 import co.mok.pro.web.Login;
 import co.mok.pro.web.LoginForm;
+
 import co.mok.pro.web.UserIdCheck;
 import co.mok.pro.web.UserJoin;
 import co.mok.pro.web.UserJoinForm;
 
 
 
-@WebServlet("/FrontController")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HashMap<String, Command> map = new HashMap<String, Command>();
@@ -30,6 +31,7 @@ public class FrontController extends HttpServlet {
 	}
 
 	public void init(ServletConfig config) throws ServletException {
+		map.put("/main.do", new MainService());
 		map.put("/loginForm.do", new LoginForm());
 		map.put("/login.do", new Login());
 		map.put("/userJoinForm.do", new UserJoinForm()); 
