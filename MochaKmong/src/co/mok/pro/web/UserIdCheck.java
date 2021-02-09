@@ -9,7 +9,7 @@ import co.mok.pro.dao.UserDao;
 public class UserIdCheck implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		UserDao dao = new UserDao();
 		String id = request.getParameter("user_id");
 		boolean bool = dao.isidCheck(id);

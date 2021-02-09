@@ -10,12 +10,12 @@ import co.mok.pro.common.Command;
 public class Logout implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
 		String userId = (String) session.getAttribute("user_id");
 		request.setAttribute("user_id", userId);
 		session.invalidate();
 		
-		return "main.do";
+		return "main/main";
 	}
 }

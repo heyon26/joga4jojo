@@ -37,6 +37,7 @@
 		</div>
 </div>
 </form>
+
 <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
 

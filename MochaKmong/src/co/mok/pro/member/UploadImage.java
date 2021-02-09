@@ -10,7 +10,7 @@ public class UploadImage implements Command {
 	private static final String userImage_dir = "./assets/img/mypage";
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// 프로필 이미지 업로드 실행
 		
 		

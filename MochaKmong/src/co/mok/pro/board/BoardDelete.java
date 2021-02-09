@@ -10,7 +10,7 @@ import co.mok.pro.vo.BoardVo;
 public class BoardDelete implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO 공지사항 삭제
 		BoardDao dao =  new BoardDao();
 		BoardVo vo = new BoardVo();

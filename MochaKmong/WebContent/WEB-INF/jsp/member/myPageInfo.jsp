@@ -10,6 +10,22 @@
 <title>회원 정보 관리</title>
  <link rel="stylesheet" href="assets/css/mypage.css">
  
+<style>
+.profileImage {
+    width: 150px;
+    height: 150px; 
+    border-radius: 70%;
+    overflow: hidden;
+}
+.empty_img {
+    width: 150px; height: 150px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    cursor: pointer;
+}
+</style>
+
 
 </head>
 
@@ -27,7 +43,7 @@
 <!-- 로그인 세션값 호출 -->
 
 <form name="frm" method="post">
-	<input type="hidden" name="userId" value=<%=vo.getUserId() %>>
+	<input type="hidden" name="userId" value="<%=vo.getUserId() %>">
 </form>
 <div class="col-lg-4">
            <div class="profile-card-4 z-depth-3">
@@ -35,8 +51,9 @@
             
               <div class="card-body text-center bg-primary rounded-top">
                <div class="user-box">
-               <!--  <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user avatar"> -->
-               <img src="" alt="user avatar">
+               <div class="profileImage" style="background:#FFFFFF;">
+               		<img src="./assets/img/mypage/profile.png" class="image" name="image">
+               </div>
               </div>
               <h5 class="mb-1 text-white"><%=vo.getUserName() %></h5>
               <h6 class="text-light">이름</h6>

@@ -8,7 +8,7 @@ import co.mok.pro.common.Command;
 public class MainService implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		return "main/main";
 	}

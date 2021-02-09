@@ -10,7 +10,8 @@ import co.mok.pro.vo.ClassVo;
 public class ClassViewForm implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
 		//TODO class_code값 받아서 클래스 상세보기form 으로 이동
 		ClassVo vo = new ClassVo();
 		ClassDao dao = new ClassDao();
