@@ -135,15 +135,16 @@ public class BoardDao extends DAO {
 	//select
 	//
 	//boardSearch -공지사항 내 검색 기능
-	public ArrayList<BoardVo> getBoardSearch(String keyWord, String searchWord){
+	public ArrayList<BoardVo> getBoardSearch(String searchWord){
 		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
 		BoardVo vo = null;
-		String sql ="select * from board where "+keyWord+" like ? and b_board='test'"; //%여기에 넣기 불가
+		String sql ="select * from board where b_name like ? and b_board='test'"; //%여기에 넣기 불가
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, "%"+searchWord+"%");
 			rs = psmt.executeQuery();
 			while(rs.next()) {
+				vo = new BoardVo();
 				vo.setBoardCode(rs.getInt("board_Code"));
 				vo.setUserId(rs.getString("user_Id"));
 				vo.setbBoard(rs.getString("b_Board"));
@@ -152,8 +153,8 @@ public class BoardDao extends DAO {
 				vo.setbCategoryA(rs.getString("b_Category_A"));
 				vo.setbCategoryB(rs.getString("b_Category_B"));
 				vo.setbDate(rs.getDate("b_Date"));
-			
-				vo = new BoardVo();
+				vo.setbHit(rs.getInt("b_hit"));
+				System.out.println(vo);
 				list.add(vo);
 			}
 		} catch (Exception e) {
