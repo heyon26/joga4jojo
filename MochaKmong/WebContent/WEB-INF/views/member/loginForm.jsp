@@ -28,15 +28,45 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/login/css/main.css">
 <!--===============================================================================================-->
+ 
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+ 
+<script type="text/javascript">
+function submitFunc() {
+	var userId = document.getElementById('userId').value;
+	var userPw = document.getElementById('userPw').value;
+	console.log(userId, userPw)
+	$.ajax({ 
+		type : "POST", 
+		url : "/MochaKmong/login.do", 
+		data : "userId=" + userId + "&userPw=" + userPw, 
+		dataType : "text", 
+		success : function(data, textStatus, xhr) {
+			console.log(data);
+			if (data == 'ng') { 
+				alert('로그인에 실패하였습니다.') 
+			} else { 
+				window.location.href = 'main.do'; 
+			} 
+		}, 
+		error : function(request, status, error) { 
+			alert("code:" + request.status + "\n" + "error:" + error); 
+		} 
+	 });
+	return false;
+}
+</script>
 </head>
 <body>
-
-
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
-				<form class="login100-form validate-form" id="frm" name="frm" action="login.do" method="post">	
-					<span class="login100-form-title p-b-33">
+				<form class="login100-form validate-form" id="frm" name="frm" action="login.do" method="post" onsubmit="return submitFunc()">	
+                    <div align="center" class="logo">
+                    <a href="main.do"><img src="assets/img/logo/123.png"></a>
+                    </div><br/>
+			  		<span class="login100-form-title p-b-33">
 						Account Login
 					</span>
 					
@@ -53,7 +83,7 @@
 					</div>
 
 					<div class="container-login100-form-btn m-t-20">
-						<button class="login100-form-btn" type="submit" onclick="loginCheck()">
+						<button class="login100-form-btn" type="submit" id="btn_login">
 							Sign in
 						</button>
 					</div>
@@ -77,13 +107,6 @@
 							Sign up
 						</a>
 					</div>
-					
-					<div align="center">
-					<a href="main.do" class="txt2 hov1">
-							 main
-					</a>
-					</div>
-					
 					
 				</form>
 			</div>
