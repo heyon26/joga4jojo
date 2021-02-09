@@ -16,10 +16,13 @@ public class DAO {
 		try {
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, password);
+			System.out.println("연결 성공");
 		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("연결 실패");
 			e.printStackTrace();
+			
 		}
 	}
-	
 }
+	
+

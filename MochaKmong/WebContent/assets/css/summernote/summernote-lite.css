@@ -610,7 +610,7 @@ a.note-dropdown-item, a.note-dropdown-item:hover {
 	right: 0;
 	bottom: 0;
 	top: 0;
-	z-index: 1040;
+	z-index: 1;
 	background: #000;
 	-webkit-opacity: .5;
 	-khtml-opacity: .5;
@@ -619,10 +619,6 @@ a.note-dropdown-item, a.note-dropdown-item:hover {
 	-ms-filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
 	filter: alpha(opacity = 50);
 	display: none
-}
-
-.note-modal-backdrop.open {
-	display: block
 }
 
 @media ( min-width : 768px) {

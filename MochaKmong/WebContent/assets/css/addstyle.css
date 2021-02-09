@@ -1,0 +1,13 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Barlow+Condensed:200,300,400,500,600,700,800,900|Roboto:300,400,500,700,900|Satisfy&display=swap");
+
+#searchClass {
+    height: 55px;
+    width: 700px;
+    color: #777777;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 9px 9px 9px 22px;
+    border: none;
+    border-radius: 5px;
+}

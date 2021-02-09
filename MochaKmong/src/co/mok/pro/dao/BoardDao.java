@@ -35,6 +35,7 @@ public class BoardDao extends DAO {
 			vo.setbDate(rs.getDate("b_Date"));
 			vo.setbHit(rs.getInt("b_hit"));
 			list.add(vo);
+			System.out.println("리스트추가"+vo.getbName());
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
