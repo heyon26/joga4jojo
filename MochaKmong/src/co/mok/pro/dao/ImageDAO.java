@@ -40,6 +40,25 @@ public class ImageDAO extends DAO {
 		return list;
 	}
 	
+	public int InsertImage(ImageVO vo) {
+		int n = 0;
+		String sql = "INSERT INTO IMAGE VALUES(IMAGE_CODE.NEXTVAL, ?, ?)";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getUserId());
+			psmt.setString(2, vo.getImage());
+			n = psmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return n;
+	}
+	
 
 	// 프로필 이미지 수정
 	public int updateImage(ImageVo vo) {

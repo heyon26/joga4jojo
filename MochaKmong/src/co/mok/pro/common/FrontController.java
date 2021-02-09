@@ -39,6 +39,8 @@ import co.mok.pro.board.SearchBoard;
 import co.mok.pro.main.MainService;
 import co.mok.pro.main.MainServiceTest;
 import co.mok.pro.member.ExpertPage;
+import co.mok.pro.member.InsertImage;
+import co.mok.pro.member.InsertImageForm;
 import co.mok.pro.member.MyPage;
 import co.mok.pro.member.MyPageClass;
 import co.mok.pro.member.MyPageClassExpert;
@@ -145,6 +147,8 @@ public class FrontController extends HttpServlet {
 		map.put("/createClassView.do", new CreateClassView());
 		map.put("/createClass.do", new CreateClass());
 
+		map.put("/insertImageForm.do", new InsertImageForm()); // 프로필 이미지 삽입 폼 호출
+		map.put("/insertImage.do",new InsertImage()); // 프로필 이미지 삽입 실행
 
 	}
 
