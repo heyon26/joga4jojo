@@ -11,7 +11,7 @@ public class BoardVo {
 	private String bCategoryA;  // 6.카테고리
 	private String bCategoryB;  // 7.카테고리2
 	private Date bDate; // 8.작성일자
-//	private int bHit; // 9.조회수
+	private int bHit; // 9.조회수
 	public int getBoardCode() {
 		return boardCode;
 	}
@@ -60,12 +60,12 @@ public class BoardVo {
 	public void setbDate(Date bDate) {
 		this.bDate = bDate;
 	}
-//	public int getbHit() {
-//		return bHit;
-//	}
-//	public void setbHit(int bHit) {
-//		this.bHit = bHit;
-//	}
+	public int getbHit() {
+		return bHit;
+	}
+	public void setbHit(int bHit) {
+		this.bHit = bHit;
+	}
 	
 	
 	

@@ -56,6 +56,7 @@
                      <ul class="blog-info-link mt-3 mb-4">
                         <li><a href="#"><i class="fa fa-user"></i> ${vo.userId }</a></li> <!-- 작성자 -->
                         <li><a href="#">${vo.bDate }</a></li>
+                        <li><a href="#">조회수 ${vo.bHit}</a></li>
                      </ul>
                      <p class="excert">
                         MCSE boot camps have its supporters and its detractors. Some people do not understand why you
@@ -66,6 +67,7 @@
                   </div>
                </div>
                <div align="right" class="button-group-area mt-40">
+               		<a href="askList.do"class="genric-btn info circle arrow">목록</a>
 					<a onclick="updateAlert()"class="genric-btn info circle arrow">수정</a>
 					<a onclick="deleteAlert()"class="genric-btn info circle arrow">삭제</a>
 			   </div>
