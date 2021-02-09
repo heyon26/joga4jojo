@@ -41,6 +41,20 @@
 			location.href = "boardDelete.do?boardCode="+"${vo.boardCode}";
 		}
 	}
+	window.onload = function(){
+	    var dt = new Date();
+	    var Year = dt.getFullYear();        
+	    var Month = "" + (dt.getMonth()+1);
+	    var Day = "" + dt.getDate();            
+	    
+	    if(Month.length < 2) Month = "0" + Month;
+	    if(Day.length < 2) Day = "0" + Day;
+	    
+	    var Today = Year.toString()+"/" + Month +"/" + Day;
+	    
+	    document.getElementById("TODAY").value = Today;
+	} 
+	
 </script>
 <div class="container box_1170">
 		<div>
@@ -56,6 +70,7 @@
                      <ul class="blog-info-link mt-3 mb-4">
                         <li><a href="#"><i class="fa fa-user"></i> ${vo.userId }</a></li> <!-- 작성자 -->
                         <li><a href="#">${vo.bDate }</a></li>
+                        <li><a href="#">조회수 ${vo.bHit }</a></li>
                      </ul>
                      <p class="excert">
                         MCSE boot camps have its supporters and its detractors. Some people do not understand why you
@@ -66,6 +81,7 @@
                   </div>
                </div>
                <div align="right" class="button-group-area mt-40">
+               		<a href="consultList.do"class="genric-btn info circle arrow">목록</a>
 					<a onclick="updateAlert()"class="genric-btn info circle arrow">수정</a>
 					<a onclick="deleteAlert()"class="genric-btn info circle arrow">삭제</a>
 			   </div>
@@ -88,45 +104,41 @@
                                     <h5>
                                        <a href="#">${avo.userId }</a>
                                     </h5>
-                                    <p class="date">${avo.aDate }</p>
+                                    <p class="date">20${avo.aDate }</p>
                                  </div>
                                  <div class="reply-btn">
-                                    <a href="#" class="btn-reply text-uppercase">reply</a>
+                                    <a href="#" class="btn-reply text-uppercase"></a>
                                  </div>
                               </div>
-                           </div>${avo.userId }
+                           </div>
                            </c:forEach>
                         </div>
                      </div>
                   </div>
                  <!-- 댓글 리스트-->
                <div class="comment-form">
-                  <h4>Leave a Reply</h4>
-                  <form class="form-contact comment_form" action="#" id="commentForm">
+                  <h4>답변 작성</h4>
+                  <form class="form-contact comment_form" action="newAnswer.do" id="frm"name="frm"method="post">
+                  	<input type="hidden" id="boardCode" name="boardCode" value="${vo.boardCode }">
                      <div class="row">
-                        <div class="col-12">
+                        <div class="col-sm-6">
                            <div class="form-group">
-                              <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9" placeholder="Write Comment"></textarea>
+<!-- 답변 이름 -->              <input class="form-control" id="userId"name="userId" type="text" placeholder="Name" value="admin"readonly="readonly">
                            </div>
                         </div>
                         <div class="col-sm-6">
                            <div class="form-group">
-                              <input class="form-control" name="name" id="name" type="text" placeholder="Name">
-                           </div>
-                        </div>
-                        <div class="col-sm-6">
-                           <div class="form-group">
-                              <input class="form-control" name="email" id="email" type="email" placeholder="Email">
+<!-- 작성일        -->         <input class="form-control"id="TODAY" type="text" placeholder="작성일"readonly="readonly">
                            </div>
                         </div>
                         <div class="col-12">
                            <div class="form-group">
-                              <input class="form-control" name="website" id="website" type="text" placeholder="Website">
+                              <textarea class="form-control w-100" name="aContent" id="aContent" cols="30" rows="20" placeholder="답변 작성"></textarea>
                            </div>
                         </div>
                      </div>
                      <div class="form-group">
-                        <button type="submit" class="button button-contactForm btn_1 boxed-btn">Send Message</button>
+                        <button type="submit" class="button button-contactForm btn_1 boxed-btn">작성 완료</button>
                      </div>
                   </form>
                </div>

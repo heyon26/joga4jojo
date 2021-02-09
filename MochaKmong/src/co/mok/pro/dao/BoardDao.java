@@ -33,6 +33,7 @@ public class BoardDao extends DAO {
 			vo.setbCategoryA(rs.getString("b_Category_A"));
 			vo.setbCategoryB(rs.getString("b_Category_B"));
 			vo.setbDate(rs.getDate("b_Date"));
+			vo.setbHit(rs.getInt("b_hit"));
 			list.add(vo);
 			System.out.println("리스트추가"+vo.getbName());
 			}
@@ -64,6 +65,7 @@ public class BoardDao extends DAO {
 			vo.setbCategoryA(rs.getString("b_Category_A"));
 			vo.setbCategoryB(rs.getString("b_Category_B"));
 			vo.setbDate(rs.getDate("b_Date"));
+			vo.setbHit(rs.getInt("b_hit"));
 			list.add(vo);
 			}
 		} catch (SQLException e) {
@@ -94,6 +96,7 @@ public class BoardDao extends DAO {
 			vo.setbCategoryA(rs.getString("b_Category_A"));
 			vo.setbCategoryB(rs.getString("b_Category_B"));
 			vo.setbDate(rs.getDate("b_Date"));
+			vo.setbHit(rs.getInt("b_hit"));
 			list.add(vo);
 			}
 		} catch (SQLException e) {
@@ -120,6 +123,8 @@ public class BoardDao extends DAO {
 				vo.setbCategoryA(rs.getString("b_Category_A"));
 				vo.setbCategoryB(rs.getString("b_Category_B"));
 				vo.setbDate(rs.getDate("b_Date"));
+				vo.setbHit(rs.getInt("b_Hit"));
+				hitCount(rs.getInt("board_Code"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -134,7 +139,7 @@ public class BoardDao extends DAO {
 	public ArrayList<BoardVo> getBoardSearch(String keyWord, String searchWord){
 		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
 		BoardVo vo = null;
-		String sql ="select * from board where "+keyWord+" like ?"; //%여기에 넣기 불가
+		String sql ="select * from board where "+keyWord+" like ? and b_board='test'"; //%여기에 넣기 불가
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, "%"+searchWord+"%");
@@ -148,7 +153,7 @@ public class BoardDao extends DAO {
 				vo.setbCategoryA(rs.getString("b_Category_A"));
 				vo.setbCategoryB(rs.getString("b_Category_B"));
 				vo.setbDate(rs.getDate("b_Date"));
-				
+			
 				vo = new BoardVo();
 				list.add(vo);
 			}
@@ -165,7 +170,7 @@ public class BoardDao extends DAO {
 	//
 	//insert-게시판 게시글 등록
 	public int insert(BoardVo vo) {
-		String sql = "INSERT INTO BOARD values(class_code_seq.nextval,?,?,?,?,?,?,SYSDATE)";
+		String sql = "INSERT INTO BOARD values(class_code_seq.nextval,?,?,?,?,?,?,SYSDATE,0)";
 		int n = 0;
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -228,18 +233,18 @@ public class BoardDao extends DAO {
 	//delete
 	//
 	//조회수 증가
-//	private void hitCount(int boardCode) {
-//		String sql = "UPDATE BOARD SET B_HIT = B_HIT + 1 WHERE BOARD_CODE =?";
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			psmt.setInt(1, boardCode);
-//			psmt.executeUpdate();
-//		} catch (SQLException e) {
-//			e.printStackTrace();	
-//		}
-//		
-//	}
-//	//조회수 증가
+	private void hitCount(int boardCode) {
+		String sql = "UPDATE BOARD SET B_HIT = B_HIT + 1 WHERE BOARD_CODE =?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, boardCode);
+			psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();	
+		}
+		
+	}
+	//조회수 증가
 	//
 	//close
 	
@@ -254,7 +259,7 @@ public class BoardDao extends DAO {
 	}
 	//close
 	//
-	//answerSelect 답변달기 //수정중 
+	//answerSelect 답변달기
 	public ArrayList<AnswerVo> answerSelect(AnswerVo vo){
 		ArrayList<AnswerVo> answerList = new ArrayList<AnswerVo>();
 		AnswerVo avo;
@@ -268,7 +273,7 @@ public class BoardDao extends DAO {
 				avo.setBoardCode(rs.getInt("board_Code"));
 				avo.setUserId(rs.getString("user_Id"));
 				avo.setaContent(rs.getString("a_Content"));
-				avo.setaDate(rs.getDate("a_Date"));
+				avo.setaDate(rs.getString("a_Date"));
 				answerList.add(avo);
 			}
 		} catch (SQLException e) {
@@ -278,5 +283,25 @@ public class BoardDao extends DAO {
 		}
 		return answerList;
 	}
+	//answerSelect
+	//
+	//
+	public int insertConsult(AnswerVo vo) {
+	String sql = "INSERT INTO ANSWER values(?,?,?,SYSDATE)";
+	int n = 0;
+	try {
+		psmt = conn.prepareStatement(sql);
+		psmt.setInt(1, vo.getBoardCode());
+		psmt.setString(2, vo.getUserId());
+		psmt.setString(3, vo.getaContent());
+		
+		n = psmt.executeUpdate();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}finally {
+		close();
+	}
+	return n;
+}
 	
 }

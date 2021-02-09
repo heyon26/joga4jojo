@@ -1,12 +1,12 @@
 package co.mok.pro.vo;
 
-import java.sql.Date;
+
 
 public class AnswerVo {
 	private int boardCode;
 	private String userId;
 	private String aContent;
-	private Date aDate;
+	private String  aDate;
 	public int getBoardCode() {
 		return boardCode;
 	}
@@ -25,10 +25,10 @@ public class AnswerVo {
 	public void setaContent(String aContent) {
 		this.aContent = aContent;
 	}
-	public Date getaDate() {
+	public String  getaDate() {
 		return aDate;
 	}
-	public void setaDate(Date aDate) {
+	public void setaDate(String  aDate) {
 		this.aDate = aDate;
 	}
 	

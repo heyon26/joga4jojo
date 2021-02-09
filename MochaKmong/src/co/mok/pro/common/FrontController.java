@@ -23,17 +23,21 @@ import co.mok.pro.board.BoardList;
 import co.mok.pro.board.BoardListView;
 import co.mok.pro.board.ConsultList;
 import co.mok.pro.board.ConsultListView;
+import co.mok.pro.board.NewAnswer;
 import co.mok.pro.board.NewAsk;
 import co.mok.pro.board.NewAskForm;
 import co.mok.pro.board.NewBoard;
 import co.mok.pro.board.NewBoardForm;
 import co.mok.pro.board.NewConsult;
 import co.mok.pro.board.NewConsultForm;
+import co.mok.pro.board.SearchBoard;
 import co.mok.pro.classes.CreateClass;
 import co.mok.pro.classes.CreateClassView;
 import co.mok.pro.main.MainService;
 import co.mok.pro.main.MainServiceTest;
 import co.mok.pro.member.ExpertPage;
+import co.mok.pro.member.InsertImage;
+import co.mok.pro.member.InsertImageForm;
 import co.mok.pro.member.MyPage;
 import co.mok.pro.member.MyPageClass;
 import co.mok.pro.member.MyPageClassExpert;
@@ -82,6 +86,7 @@ public class FrontController extends HttpServlet {
 		map.put("/boardEditForm.do", new BoardEditForm()); //공지사항 글 수정폼
 		map.put("/boardEdit.do", new BoardEdit()); //공지사항 글 수정
 		map.put("/boardDelete.do", new BoardDelete()); //공지사항 삭제
+		map.put("/searchBoard.do", new SearchBoard()); //공지사항 삭제
 		//
 		map.put("/askList.do", new AskList()); //자주묻는 질문리스트
 		map.put("/askListView.do", new AskListView()); //묻는질문 상세페이지
@@ -95,11 +100,13 @@ public class FrontController extends HttpServlet {
 		map.put("/consultListView.do", new ConsultListView()); //문의 상세페이지(댓글방식으로 답변)
 		map.put("/newConsultForm.do", new NewConsultForm()); //문의하기 작성폼 이동
 		map.put("/newConsult.do", new NewConsult()); //문의하기 글 작성
+		map.put("/newAnswer.do", new NewAnswer()); //문의하기 답변 작성
 		
 
 		// 로그인 기능
 		map.put("/loginForm.do", new LoginForm());
-		map.put("/login.do", new Login());
+
+
 		map.put("/userJoinForm.do", new UserJoinForm()); 
 		map.put("/userJoin.do", new UserJoin());
 		map.put("/idCheck.do", new UserIdCheck()); 
@@ -138,7 +145,13 @@ public class FrontController extends HttpServlet {
 		map.put("/classSearch2.do", new ClassSearch2()); //클래스 list 페이지에서 radio로 검색
 		map.put("/createClassView.do", new CreateClassView());
 		map.put("/createClass.do", new CreateClass());
+
 		map.put("/createPlaceView.do", new CreatePlaceView());
+
+
+		map.put("/insertImageForm.do", new InsertImageForm()); // 프로필 이미지 삽입 폼 호출
+		//map.put("/insertImage.do",new InsertImage()); // 프로필 이미지 삽입 실행
+
 
 	}
 
@@ -148,8 +161,9 @@ public class FrontController extends HttpServlet {
 		String contextPath = request.getContextPath();
 		String uri = request.getRequestURI();
 		String path = uri.substring(contextPath.length());
-
+		
 		Command command = map.get(path);
+		
 		String viewPage = command.exec(request, response);
 		
 		if(!viewPage.endsWith(".do")) viewPage = "/WEB-INF/jsp/" +viewPage +".jsp"; 

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,41 +105,30 @@
                 </div>
                 <div class="tab-pane active show" id="messages">
                     <div class="alert alert-info alert-dismissible" role="alert">
-    			   <button type="button" class="close" data-dismiss="alert">×</button>
+    			   <button type="button" class="close" data-dismiss="alert"></button>
 				    <div class="alert-icon">
 					 <i class="icon-info"></i>
 				    </div>
 				    <div class="alert-message">
-				      <span><strong>Info!</strong> Lorem Ipsum is simply dummy text.</span>
+				      <span><strong>신청한 클래스 목록</strong></span>
 				    </div>
                   </div>
                     <table class="table table-hover table-striped">
                         <tbody>                                    
+                            <c:forEach var="cvo" items="${list }">
                             <tr>
                                 <td>
-                                   <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
+                                   <span class="float-right font-weight-bold">${cvo.cateGoryA }</span>${cvo.className }
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus. 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus. 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros. 
-                                </td>
-                            </tr>
+                        <c:if test="${empty cvo.className }">
+                        <tr>
+                             <td align="center">
+                               <span class="float-right font-weight-bold"></span>- 신청한 클래스가 없습니다. -
+                             </td>
+                        </tr>
+                        </c:if> 
+                        </c:forEach>
                         </tbody> 
                     </table>
                 </div>
