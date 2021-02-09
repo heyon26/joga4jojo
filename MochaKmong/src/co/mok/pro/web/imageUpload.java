@@ -17,13 +17,13 @@ import javax.servlet.http.Part;
 import co.mok.pro.dao.ClassDao;
 import co.mok.pro.vo.ImageVo;
 
-@MultipartConfig(location = "C:\\Users\\hoy\\git\\moka\\joga4jojo\\MochaKmong\\WebContent\\assets\\img\\upload", maxFileSize = -1, maxRequestSize = -1, fileSizeThreshold = 1024)
+@MultipartConfig(location = "\\\\192.168.0.87\\project4\\img", maxFileSize = -1, maxRequestSize = -1, fileSizeThreshold = 1024)
 
 @WebServlet("/imageUpload")
 public class imageUpload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String CHARSET = "utf-8";
-	private static final String ATTACHES_DIR = "C:\\Users\\hoy\\git\\moka\\joga4jojo\\MochaKmong\\WebContent\\assets\\img\\upload";
+	private static final String ATTACHES_DIR = "\\\\192.168.0.87\\project4\\img";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -75,7 +75,7 @@ public class imageUpload extends HttpServlet {
 			vo.setImage(fileName);
 			dao.summernoteImg(vo);
 
-			out.println("/MochaKmong/assets/img/upload/"+fileName);
+			out.println("/MochaKmong/upload/"+fileName);
 		} else {
 			out.println("<h1>enctype이 multipart/form-data가  아님</h1>");
 		}

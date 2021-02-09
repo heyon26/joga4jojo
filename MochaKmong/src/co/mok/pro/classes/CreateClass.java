@@ -21,8 +21,8 @@ public class CreateClass implements Command {
 		ArrayList<CTimeVo> list = new ArrayList<CTimeVo>();
 		CTimeVo tvo= new CTimeVo();
 		HttpSession session = request.getSession();
-		//vo.setUserId((String) session.getAttribute("user_id"));
-		vo.setUserId("hong");
+		vo.setUserId((String) session.getAttribute("user_id"));
+		//vo.setUserId("hong");
 		String area = request.getParameter("area");
 		switch (area) { //지역코드
 		case "서울": area = "1";break;

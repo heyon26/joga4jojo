@@ -40,6 +40,7 @@ keyframes blinker { 50% {
 </style>
 
 ${userId }
+
 <header>
 
 	<!-- menu Start -->
@@ -76,7 +77,7 @@ ${userId }
 
 										<li><a href="index.html">공지사항</a></li>
 										<li><a href="createClassView.do">클래스등록</a></li>
-										<li><a href="blog.html">로그인</a>
+										<li><a href="loginForm.do">로그인</a>
 											<ul class="submenu">
 												<li><a href="loginForm.do">로그인</a></li>
 												<li><a href="userJoinForm.do">회원가입</a></li>
