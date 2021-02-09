@@ -10,7 +10,7 @@ import co.mok.pro.vo.BoardVo;
 public class NewBoard implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO 새글작성
 		BoardDao dao = new BoardDao();
 		BoardVo vo = new BoardVo();

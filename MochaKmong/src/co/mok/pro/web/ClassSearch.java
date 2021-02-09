@@ -12,7 +12,7 @@ import co.mok.pro.vo.ClassVo;
 public class ClassSearch implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		//TODO 메인화면 selectbox에서 선택 후 검색
 		
 		int option = Integer.parseInt(request.getParameter("select1")); //카테고리 OR 지역

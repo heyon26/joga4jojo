@@ -12,7 +12,7 @@ import co.mok.pro.vo.BoardVo;
 public class ConsultList implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO 문의 게시판 출력
 		BoardDao dao = new BoardDao();
 		ArrayList<BoardVo> list = new ArrayList<BoardVo>();

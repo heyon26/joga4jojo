@@ -12,7 +12,7 @@ import co.mok.pro.vo.ClassVo;
 public class ClassSearch1 implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		//TODO 클래스list화면에서 직접 입력한 값으로 검색
 		String word = request.getParameter("word");
 		

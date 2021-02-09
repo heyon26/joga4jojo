@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+
 import co.mok.pro.common.DAO;
 import co.mok.pro.vo.CTimeVo;
 import co.mok.pro.vo.ClassVo;
@@ -18,10 +20,11 @@ public class ClassDao extends DAO {
 	public ArrayList<ClassVo> selectClassList(){
 		ArrayList<ClassVo> list= new ArrayList<ClassVo>();
 		ClassVo vo;
-		String sql = "SELECT * FROM CLASS ORDER BY class_code DESC";
+		String sql = "SELECT * FROM CLASS ORDER BY class_code DESC"; 
 		
 		try {
 			psmt=conn.prepareStatement(sql);
+
 			rs=psmt.executeQuery();
 			while(rs.next()) {
 				vo=new ClassVo();
@@ -89,6 +92,33 @@ public class ClassDao extends DAO {
 		
 	}
 	
+	// 유저에 따른 클래스 목록 조회
+	// 수정(김찬곤 / 210209)
+	public ArrayList<ClassVo> selectUserClassList(String id){
+		ArrayList<ClassVo> list = new ArrayList<ClassVo>();
+		String sql = "SELECT CLASS_NAME, CATEGORY_A FROM CLASS WHERE USER_ID = ?";
+		
+		try {
+			ClassVo vo = new ClassVo();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				vo.setClassName(rs.getString("class_name"));
+				vo.setCateGoryA(rs.getString("category_a"));
+				list.add(vo);
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return list;
+	}
+	
+	//class 등록
 
 	
 	//class 내용 수정
@@ -121,10 +151,13 @@ public class ClassDao extends DAO {
 	public ArrayList<ClassVo> selectClassList(String condition){
 		ArrayList<ClassVo> list= new ArrayList<ClassVo>();
 		ClassVo vo;
-		String sql = "select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like '%"+condition+"%' or c.class_name like '%"+condition+"%' or a.area_name like '%"+condition+"%'";
+		String sql = "SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) WHERE C.CATEGORY_A LIKE '%'||?||'%' OR C.CLASS_NAME LIKE '%'||?||'%' OR A.AREA_NAME LIKE '%'||?||'%'";
 		
 		try {
 			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, condition);
+			psmt.setString(2, condition);
+			psmt.setString(3, condition);
 			rs=psmt.executeQuery();
 			while(rs.next()) {
 				vo=new ClassVo();
@@ -158,7 +191,7 @@ public class ClassDao extends DAO {
 	
 	
 	//검색바에서 radio값으로 검색시에 사용 --사용함
-		public ArrayList<ClassVo> searchClassList1(String condition1, String condition2 ){ //condition1=지역, condition2=카테고리
+		public ArrayList<ClassVo> searchClassList1(String condition1, String condition2){ //condition1=지역, condition2=카테고리
 			ArrayList<ClassVo> list= new ArrayList<ClassVo>();
 			ClassVo vo;
 			
@@ -170,6 +203,10 @@ public class ClassDao extends DAO {
 				
 				if (condition1.equals("all") && condition2.equals("all")) {
 					 sql ="select c.*, a.area_name from class c, area a where a.area_code=c.area_code";
+//					sql="select * from("
+//							+ " select  rownum as rnum , c.* from "
+//							+ " (select c.*, a.area_name from class c, area a where a.area_code=c.area_code order by class_code desc) c  )"
+//							+ " where rnum >= "+ startrow +" and "+ "rnum <=" + endrow ;
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("서울/경기/인천") &&condition2.equals(condition2)) {
 					 a1 = "서울";
@@ -489,7 +526,7 @@ public class ClassDao extends DAO {
 	// 클래스 summernote 이미지 등록
 	public int summernoteImg(ImageVo vo) {
 		int rs = 0;
-		String sql = "INSERT INTO IMAGE VALUES(IMAGE_SEQ.NEXTVAL, ?,?)";
+		String sql = "INSERT INTO IMAGE VALUES(IMAGE_CODE.NEXTVAL, ?,?)";
 
 		try {
 			psmt = conn.prepareStatement(sql);

@@ -13,7 +13,7 @@ import co.mok.pro.vo.BoardVo;
 public class ConsultListView implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO 문의 상세페이지
 		BoardDao dao = new BoardDao();
 		BoardVo vo = new BoardVo();
@@ -22,6 +22,7 @@ public class ConsultListView implements Command {
 		
 		vo.setBoardCode(Integer.parseInt(request.getParameter("boardCode")));
 		avo.setBoardCode(Integer.parseInt(request.getParameter("boardCode")));
+		//
 		
 		vo = dao.select(vo); //문의글읽기
 		dao = new BoardDao();
@@ -30,6 +31,9 @@ public class ConsultListView implements Command {
 		
 		request.setAttribute("vo", vo); // 문의글담기
 		request.setAttribute("list", list);
+		
+		
+		
 		
 		
 		return "board/consultListView";

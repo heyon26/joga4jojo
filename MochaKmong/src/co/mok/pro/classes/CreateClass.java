@@ -14,15 +14,15 @@ import co.mok.pro.vo.ClassVo;
 public class CreateClass implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		ClassDao dao = new ClassDao();
 		ClassVo vo = new ClassVo();
 		ArrayList<CTimeVo> list = new ArrayList<CTimeVo>();
 		CTimeVo tvo= new CTimeVo();
 		HttpSession session = request.getSession();
-		//vo.setUserId((String) session.getAttribute("user_id"));
-		vo.setUserId("hong");
+		vo.setUserId((String) session.getAttribute("user_id"));
+		//vo.setUserId("hong");
 		String area = request.getParameter("area");
 		switch (area) { //지역코드
 		case "서울": area = "1";break;

@@ -40,10 +40,11 @@ keyframes blinker { 50% {
 </style>
 
 ${userId }
+
 <header>
 
 	<!-- menu Start -->
-	<div class="header-area">
+	<div class="header-area" style="background-color: white;">
 		<div class="main-header ">
 			<div class="header-bottom  header-sticky">
 				<div class="container">
@@ -58,7 +59,7 @@ ${userId }
 							<!-- Main-menu -->
 							<div class="main-menu f-right d-none d-lg-block">
 								<nav>
-									<ul id="navigation">
+										<ul id="navigation">
 									  <c:if test="${user_auth eq null }">                                                                                                                                
                                             <li><a href="boardList.do">공지사항</a>
                                             <ul class="submenu">
@@ -66,7 +67,6 @@ ${userId }
 												<li><a href="askList.do">자주묻는질문</a></li>
 												<li><a href="consultList.do">문의게시판</a></li>
 											</ul></li>
-                                            <li><a href="about.html">클래스등록</a></li>
                                             <li>  
                                             <i class="far fa-user-circle"></i>  
                                                 <ul class="submenu">
@@ -82,6 +82,7 @@ ${userId }
 												<li><a href="askList.do">자주묻는질문</a></li>
 												<li><a href="consultList.do">문의게시판</a></li>
 											</ul></li>
+											 <li><a href="about.html">클래스등록</a></li>
 											<li><a href="about.html" class="blink">${user_id }님 접속을 환영합니다.</a>	
 									   <ul class="submenu">
 				                       <li><a class="menuLink" href="logout.do" >로그아웃</a></li>

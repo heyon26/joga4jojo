@@ -10,7 +10,7 @@ import co.mok.pro.vo.BoardVo;
 public class BoardListView implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO 공지사항 글 상세보기
 		BoardDao dao = new BoardDao();
 		BoardVo vo = new BoardVo();

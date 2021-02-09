@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-
 import co.mok.pro.common.DAO;
 import co.mok.pro.vo.ImageVo;
 
@@ -38,6 +37,25 @@ public class ImageDAO extends DAO {
 		}
 
 		return list;
+	}
+	
+	public int InsertImage(ImageVo vo) {
+		int n = 0;
+		String sql = "INSERT INTO IMAGE VALUES(IMAGE_CODE.NEXTVAL, ?, ?)";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getUserId());
+			psmt.setString(2, vo.getImage());
+			n = psmt.executeUpdate();
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return n;
 	}
 	
 
