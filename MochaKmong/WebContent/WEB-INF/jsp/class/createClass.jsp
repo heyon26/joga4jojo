@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
 <html>
@@ -14,22 +14,20 @@ location.href ="main.do";
 </script> -->
 
 <style>
-
 #carouselExampleIndicators {
 	z-index: 1900 !important;
 }
 
 body {
 	background-color: #ffea84 !important;
-
-
 }
-.note-modal-content{
-height: 360px;
+
+.note-modal-content {
+	height: 360px;
 }
 
 li {
-min-height: 10px !important;
+	min-height: 10px !important;
 }
 </style>
 
@@ -51,7 +49,8 @@ min-height: 10px !important;
 <link
 	href="/MochaKmong/assets/regform/vendor/datepicker/daterangepicker.css"
 	rel="stylesheet" media="all">
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css"
+<link
+	href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css"
 	rel="stylesheet">
 <!-- Required meta tags-->
 <meta charset="UTF-8">
@@ -63,14 +62,11 @@ min-height: 10px !important;
 
 <!-- Title Page-->
 <title>클래스 등록</title>
-
-
-
 </head>
 
 
-   <jsp:include page="../main/topmenu.jsp"/>
-   
+<jsp:include page="../main/topmenu.jsp" />
+<main>
 	<div id="carouselExampleIndicators" class="carousel slide"
 		data-ride="carousel" data-interval="false">
 		<ol class="carousel-indicators">
@@ -97,13 +93,15 @@ min-height: 10px !important;
 											<div class="col-22">
 												<div class="input-group">
 													<label class="label">이메일</label> <input
-														class="input--style-4" type="email" name="email">
+														class="input--style-4" type="email" name="email"
+														required="required">
 												</div>
 											</div>
 											<div class="col-22">
 												<div class="input-group">
 													<label class="label">전화번호</label> <input
-														class="input--style-4" type="text" name="tel">
+														class="input--style-4" type="text" name="tel"
+														required="required">
 												</div>
 											</div>
 											<div class="input-group">
@@ -113,7 +111,8 @@ min-height: 10px !important;
 														<div class="input-group">
 															<label class="label">우편번호</label><input type="text"
 																class="input--style-4" id="zipcode" name="zipcode"
-																placeholder="우편번호" readonly="readonly">
+																placeholder="우편번호" readonly="readonly"
+																required="required">
 														</div>
 													</div>
 													<div class="col-22">
@@ -121,7 +120,7 @@ min-height: 10px !important;
 														<div class="input-group">
 															<label class="label">지역</label> <input
 																class="input--style-4" type="text" id="area" name="area"
-																placeholder="지역" readonly="readonly">
+																placeholder="지역" readonly="readonly" required="required">
 														</div>
 													</div>
 												</div>
@@ -129,15 +128,17 @@ min-height: 10px !important;
 												<div class="input-group">
 													<label class="label">주소</label><input type="text"
 														class="input--style-4" id="address" name="address"
-														placeholder="주소" readonly="readonly">
+														placeholder="주소" readonly="readonly" required="required">
 												</div>
 												<div class="input-group">
 													<label class="label">상세주소</label><input type="text"
 														class="input--style-4" id="detailAddress"
-														name="detailAddress" placeholder="상세주소">
+														name="detailAddress" placeholder="상세주소"
+														required="required">
 												</div>
 												<div class="input-group">
-													<input type="button" class="btn btn--radius-2 btn--blue" style="background-color: #4272d7; width: 100%"
+													<input type="button" class="btn btn--radius-2 btn--blue"
+														style="background-color: #4272d7; width: 100%"
 														onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
 												</div>
 
@@ -172,14 +173,13 @@ min-height: 10px !important;
 											<div class="input-group">
 												<label class="label">클래스 이름</label><input type="text"
 													class="input--style-4" id="className" name="className"
-													placeholder="이름">
+													placeholder="이름" required="required">
 											</div>
-											<br>
-
-												<label class="label">클래스 분류</label>
-												<div>
-												<div class="rs-select2 js-select-simple" style="width: 100% !important">
-													<select name="cateGoryA">
+											<br> <label class="label">클래스 분류</label>
+											<div>
+												<div class="rs-select2 js-select-simple"
+													style="width: 100% !important">
+													<select name="cateGoryA" required="required">
 														<option disabled="disabled" selected="selected">분류
 															선택</option>
 														<option>핸드메이드·수공예</option>
@@ -194,20 +194,21 @@ min-height: 10px !important;
 													</select>
 													<div class="select-dropdown"></div>
 												</div>
-												</div>
-										
+											</div>
+
 
 											<div class="input-group">
 												<label class="label">클래스 소개</label>
 												<textarea id="classIntroduce" name="classIntroduce" rows="3"
-													cols="33" style="height: 150px !important;"></textarea>
+													cols="33" style="height: 150px !important;"
+													required="required"></textarea>
 											</div>
 
 											<br>
-												<div class="input-group">
+											<div class="input-group">
 												<label class="label">수업비</label><input type="number"
 													class="input--style-4" id="classPrice" name="classPrice"
-													placeholder="(원)">
+													placeholder="(원)" required="required">
 											</div>
 										</div>
 									</div>
@@ -228,8 +229,9 @@ min-height: 10px !important;
 										<div class="card-body">
 											<h4 class="title">클래스 상세</h4>
 
-											<textarea id="summernote" name="summernote"></textarea>
-											
+											<textarea id="summernote" name="summernote"
+												required="required"></textarea>
+
 										</div>
 									</div>
 								</div>
@@ -243,10 +245,12 @@ min-height: 10px !important;
 									<div class="card card-4">
 										<div class="card-body">
 											<h4 class="title">클래스 일정</h4>
-<jsp:include page="calendar.jsp"></jsp:include>
-											
+											<jsp:include page="calendar.jsp"></jsp:include>
+
 											<div class="p-t-15" align="right">
-												<button class="btn btn--radius-2 btn--blue" style="background-color: #4272d7; width: 100%" type="submit">등록</button>
+												<button class="btn btn--radius-2 btn--blue"
+													style="background-color: #4272d7; width: 100%"
+													type="submit">등록</button>
 											</div>
 										</div>
 									</div>
@@ -272,12 +276,12 @@ min-height: 10px !important;
 		</a>
 	</div>
 
+</main>
+</body>
 
 
 
-
-
-	<!-- ---------------------------------------------------- -->
+<!-- ---------------------------------------------------- -->
 
 <!-- Vendor JS-->
 <script src="/MochaKmong/assets/regform/vendor/select2/select2.min.js"></script>
@@ -285,13 +289,13 @@ min-height: 10px !important;
 <script
 	src="/MochaKmong/assets/regform/vendor/datepicker/daterangepicker.js"></script>
 
-	<!-- Main JS-->
-	<script src="/MochaKmong/assets/regform/global.js"></script>
-	<script
-		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=166687fbfc9cd51a893d2249271fe4e1&libraries=services"></script>
-	<script>
+<!-- Main JS-->
+<script src="/MochaKmong/assets/regform/global.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=166687fbfc9cd51a893d2249271fe4e1&libraries=services"></script>
+<script>
 	
 
 		function sample5_execDaumPostcode() {
@@ -309,7 +313,7 @@ min-height: 10px !important;
 			}).open();
 		}
 	</script>
-	
+
 
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -352,17 +356,17 @@ min-height: 10px !important;
 				data : form_data,
 				type : "POST",
 				url : "<%=application.getContextPath()%>/imageUpload",
-				cache : false,
-				contentType : false,
-				enctype : 'multipart/form-data',
-				processData : false,
-				success : function(img_name) {
-					$(el).summernote('editor.insertImage', img_name);
-				}
-			});
-		}
-	</script>
-</body>
+			cache : false,
+			contentType : false,
+			enctype : 'multipart/form-data',
+			processData : false,
+			success : function(img_name) {
+				$(el).summernote('editor.insertImage', img_name);
+			}
+		});
+	}
+</script>
+
 <!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>

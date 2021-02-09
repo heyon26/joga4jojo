@@ -489,7 +489,7 @@ public class ClassDao extends DAO {
 	// 클래스 summernote 이미지 등록
 	public int summernoteImg(ImageVo vo) {
 		int rs = 0;
-		String sql = "INSERT INTO IMAGE VALUES(IMAGE_SEQ.NEXTVAL, ?,?)";
+		String sql = "INSERT INTO IMAGE VALUES(IMAGE_CODE.NEXTVAL, ?,?)";
 
 		try {
 			psmt = conn.prepareStatement(sql);
