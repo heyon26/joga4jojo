@@ -13,7 +13,7 @@ import co.mok.pro.vo.ClassVo;
 public class MyPage implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 //		HttpSession session = request.getSession();
 //		String id = (String)session.getAttribute("user_id");

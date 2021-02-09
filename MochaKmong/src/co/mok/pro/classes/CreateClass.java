@@ -14,7 +14,7 @@ import co.mok.pro.vo.ClassVo;
 public class CreateClass implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		ClassDao dao = new ClassDao();
 		ClassVo vo = new ClassVo();

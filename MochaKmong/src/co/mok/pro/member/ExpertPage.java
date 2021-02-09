@@ -13,7 +13,7 @@ import co.mok.pro.vo.ClassVo;
 public class ExpertPage implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// 강사 페이지 호출
 		
 		ArrayList<ClassVo> list = new ArrayList<ClassVo>();

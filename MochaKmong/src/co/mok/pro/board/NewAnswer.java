@@ -10,7 +10,7 @@ import co.mok.pro.vo.AnswerVo;
 public class NewAnswer implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO 문의하기 답변작성
 		BoardDao dao = new BoardDao();
 		AnswerVo vo = new AnswerVo();

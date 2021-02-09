@@ -12,7 +12,7 @@ import co.mok.pro.vo.ClassVo;
 public class ClassSearch2 implements Command {
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		//TODO 클래스list화면에서 radio버튼 값으로 검색
 		String region = request.getParameter("region");

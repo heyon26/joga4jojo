@@ -32,7 +32,6 @@ public class Login extends HttpServlet {
 		vo.setUserPw(request.getParameter("userPw"));
 		
 		vo = dao.UserLogin(vo);
-		System.out.println(vo);
 		
 		String viewPage = null;
 		
