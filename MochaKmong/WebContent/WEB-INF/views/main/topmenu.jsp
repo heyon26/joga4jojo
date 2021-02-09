@@ -36,13 +36,13 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2 col-md-1">
                                 <div class="logo">
-                                  <a href="main.do"><img src="assets/img/logo/moca.png" alt=""></a>
+                                  <a href="main.do"><img src="assets/img/logo/123.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
                                 <!-- Main-menu -->
                                 <div class="main-menu f-right d-none d-lg-block">
-                                  <nav>               
+                                 <nav>               
                                         <ul id="navigation">     
                                          <c:if test="${user_auth eq null }">                                                                                                                                
                                             <li><a href="index.html">공지사항</a></li>
@@ -54,8 +54,11 @@
                                                     <li><a href="userJoinForm.do">회원가입</a></li>   
                                                 </ul>           
                                            </c:if>            
-                                      <c:if test="${user_auth ne null }">
-                                      <li><a href="#">로그아웃</a>
+                                       <c:if test="${user_auth ne null }">
+                                       <li><a href="index.html">공지사항</a></li>
+                                       <li><a href="about.html">클래스등록</a></li>
+                                       <li>
+                                      <i class="far fa-user-circle"></i>  
                                       <ul class="submenu">
 				                       <li><a class="menuLink" href="logout.do" >로그아웃</a></li>
 				                       <li></li>

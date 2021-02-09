@@ -30,11 +30,10 @@
    <body>
     <!-- Preloader Start -->
     <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
+        <div>
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/logo.png" alt="">
                 </div>
             </div>
         </div>
@@ -75,7 +74,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2 col-md-1">
                                 <div class="logo">
-                                  <a href="main.do"><img src="assets/img/logo/logo.png" alt=""></a>
+                                  <a href="main.do"><img src="assets/img/logo/123.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
@@ -93,8 +92,11 @@
                                                     <li><a href="userJoinForm.do">회원가입</a></li>   
                                                 </ul>           
                                            </c:if>            
-                                      <c:if test="${user_auth ne null }">
-                                      <li><a href="#">로그아웃</a>
+                                       <c:if test="${user_auth ne null }">
+                                       <li><a href="index.html">공지사항</a></li>
+                                       <li><a href="about.html">클래스등록</a></li>
+                                       <li>
+                                      <i class="far fa-user-circle"></i>  
                                       <ul class="submenu">
 				                       <li><a class="menuLink" href="logout.do" >로그아웃</a></li>
 				                       <li></li>
