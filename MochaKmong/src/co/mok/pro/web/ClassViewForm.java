@@ -18,7 +18,7 @@ public class ClassViewForm implements Command {
 		vo.setClassCode(Integer.parseInt(request.getParameter("classCode")));
 		vo = dao.selectClass(vo);
 		request.setAttribute("vo", vo);
-		return null;
+		return "class/classViewForm";
 	}
 
 }

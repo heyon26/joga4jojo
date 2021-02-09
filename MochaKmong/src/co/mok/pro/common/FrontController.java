@@ -45,6 +45,7 @@ import co.mok.pro.member.UploadImageForm;
 import co.mok.pro.web.ClassSearch;
 import co.mok.pro.web.ClassSearch1;
 import co.mok.pro.web.ClassSearch2;
+import co.mok.pro.web.ClassViewForm;
 import co.mok.pro.web.FindPw;
 import co.mok.pro.web.FindPwForm;
 import co.mok.pro.web.Login;
@@ -137,6 +138,7 @@ public class FrontController extends HttpServlet {
 		map.put("/classSearch2.do", new ClassSearch2()); //클래스 list 페이지에서 radio로 검색
 		map.put("/createClassView.do", new CreateClassView());
 		map.put("/createClass.do", new CreateClass());
+		map.put("/classViewForm.do", new ClassViewForm());
 
 
 	}

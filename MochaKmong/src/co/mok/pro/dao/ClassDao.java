@@ -163,6 +163,7 @@ public class ClassDao extends DAO {
 	
 	
 	//검색바에서 radio값으로 검색시에 사용 --사용함
+	//송예솔 20210209 16:45 sql구문 수정함.
 		public ArrayList<ClassVo> searchClassList1(String condition1, String condition2){ //condition1=지역, condition2=카테고리
 			ArrayList<ClassVo> list= new ArrayList<ClassVo>();
 			ClassVo vo;
@@ -181,14 +182,14 @@ public class ClassDao extends DAO {
 					 a2 ="경기";
 					 a3 ="인천";
 					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) "
-					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%' OR A.AREA_NAME LIKE '%"+a3+"%'";
+					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND (A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%' OR A.AREA_NAME LIKE '%"+a3+"%')";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("대전/세종/충청")  &&condition2.equals(condition2)) { 
 					 a1 = "대전";
 					 a2 ="세종";
 					 a3 ="충청";
 					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) "
-					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%' OR A.AREA_NAME LIKE '%"+a3+"%'";
+					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND (A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%' OR A.AREA_NAME LIKE '%"+a3+"%')";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("강원") &&condition2.equals(condition2)) { 
 					 a1 = "강원";
@@ -199,20 +200,20 @@ public class ClassDao extends DAO {
 					 a1 = "광주";
 					 a2 ="전라";
 					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) "
-					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND A.AREA_NAME LIKE '%"+a1+"%' or a.area_name like '%"+a2+"%'";
+					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND (A.AREA_NAME LIKE '%"+a1+"%' or a.area_name like '%"+a2+"%')";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("대구/경북") &&condition2.equals(condition2)) {
 					 a1 = "대구";
 					 a2 ="경상북";
 					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) "
-					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%'";
+					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND (A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%')";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("부산/울산/경남") &&condition2.equals(condition2)) {
 					 a1 = "부산";
 					 a2 ="울산";
 					 a3 ="경상남";
 					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) "
-					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%' OR A.AREA_NAME LIKE '%"+a3+"%'";
+					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND (A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%' OR A.AREA_NAME LIKE '%"+a3+"%')";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("제주") &&condition2.equals(condition2)) {
 					 a1 = "제주";
