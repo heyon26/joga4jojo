@@ -75,7 +75,7 @@
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2 col-md-1">
                                 <div class="logo">
-                                  <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                  <a href="main.do"><img src="assets/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
@@ -86,7 +86,8 @@
                                          <c:if test="${user_auth eq null }">                                                                                                                                
                                             <li><a href="index.html">공지사항</a></li>
                                             <li><a href="about.html">클래스등록</a></li>
-                                            <li><a href="#">로그인</a>           
+                                            <li>  
+                                            <i class="far fa-user-circle"></i>  
                                                 <ul class="submenu">
                                                     <li><a href="loginForm.do">로그인</a></li>
                                                     <li><a href="userJoinForm.do">회원가입</a></li>   

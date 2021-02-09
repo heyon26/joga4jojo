@@ -87,11 +87,13 @@ function openZipSearch() {
 </script>
 </head>
 <body>
-
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
 				<form class="login100-form validate-form" id="frm" name="frm" onsubmit="return formCheck()" action="userJoin.do" method="post">	
+				     <div align="center" class="logo">
+                     <a href="main.do"><img src="assets/img/logo/logo.png"></a>
+                     </div><br/>
 					<span class="login100-form-title p-b-33">
 						Join Membership
 					</span>
@@ -160,12 +162,6 @@ function openZipSearch() {
 							registration
 						</button>
 					</div><br/>
-					
-					<div align="center">
-					<a href="main.do" class="txt2 hov1">
-							 main
-					</a>
-					</div>
 					
 					</form>
 				</div>
