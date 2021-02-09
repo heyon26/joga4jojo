@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+
 import co.mok.pro.common.DAO;
 import co.mok.pro.vo.ClassVo;
 
@@ -74,6 +76,32 @@ public class ClassDao extends DAO {
 		
 		return vo;
 		
+	}
+	
+	// 유저에 따른 클래스 목록 조회
+	// 수정(김찬곤 / 210209)
+	public ArrayList<ClassVo> selectUserClassList(String id){
+		ArrayList<ClassVo> list = new ArrayList<ClassVo>();
+		String sql = "SELECT CLASS_NAME, CATEGORY_A FROM CLASS WHERE USER_ID = ?";
+		
+		try {
+			ClassVo vo = new ClassVo();
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				vo.setClassName(rs.getString("class_name"));
+				vo.setCateGoryA(rs.getString("category_a"));
+				list.add(vo);
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return list;
 	}
 	
 	//class 등록

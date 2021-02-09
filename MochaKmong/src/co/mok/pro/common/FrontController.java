@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import co.mok.pro.main.MainService;
 import co.mok.pro.member.ExpertPage;
+import co.mok.pro.member.InsertImage;
+import co.mok.pro.member.InsertImageForm;
 import co.mok.pro.member.MyPage;
 import co.mok.pro.member.MyPageClassExpert;
 import co.mok.pro.member.MyPageEdit;
@@ -71,7 +73,8 @@ public class FrontController extends HttpServlet {
 		map.put("/profileUpdate.do", new ProfileUpdate()); // 프로필 업데이트
 		map.put("/uploadImageForm.do", new UploadImageForm()); // 프로필 이미지 업로드 폼 호출
 		map.put("/uploadImage.do", new UploadImage()); // 프로필 이미지 업로드 실행
-
+		map.put("/insertImageForm.do", new InsertImageForm()); // 프로필 이미지 삽입 폼 호출
+		map.put("/insertImage.do",new InsertImage()); // 프로필 이미지 삽입 실행
 
 	}
 
