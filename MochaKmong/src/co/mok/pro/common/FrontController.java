@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import co.mok.pro.main.MainService;
 import co.mok.pro.web.FindPw;
 import co.mok.pro.web.FindPwForm;
-import co.mok.pro.web.Login;
 import co.mok.pro.web.LoginForm;
 import co.mok.pro.web.Logout;
 import co.mok.pro.web.UserIdCheck;
@@ -34,7 +33,6 @@ public class FrontController extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		map.put("/main.do", new MainService()); //메인 호출
 		map.put("/loginForm.do", new LoginForm()); // 로그인 폼
-		map.put("/login.do", new Login()); //로그인
 		map.put("/userJoinForm.do", new UserJoinForm()); //회원가입 폼
 		map.put("/userJoin.do", new UserJoin()); //회원가입
 		map.put("/idCheck.do", new UserIdCheck()); //아이디 중복체크
@@ -54,12 +52,13 @@ public class FrontController extends HttpServlet {
 		Command command = map.get(path); 
 		String viewPage = command.excute(request, response); 
 
-		if (!viewPage.endsWith(".do"))
+		if (!viewPage.endsWith(".do")) {
 			viewPage = "/WEB-INF/views/" + viewPage + ".jsp";
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
-
+		}
+		
 	}
 
 }
