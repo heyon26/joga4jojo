@@ -11,7 +11,7 @@ public class ClassVo {
 	private String cateGoryA; //클래스 카테고리 
 	private String cateGoryB; //소카테고리로 만들었는데 필요없을것같아요
 	private String classIntroduce; //짧은 클래스 소개
-	private String curriculum; //짧은 커리큘럼 소개
+	//private String curriculum; //짧은 커리큘럼 소개
 	private String classContent; //클래스 소개(긴글)
 	private String classAddress; //클래스 상세주소
 	private int registerMember; //c_register 에 class_code로 셀렉트해서 갯수 받아오기
@@ -89,14 +89,12 @@ public class ClassVo {
 		this.classIntroduce = classIntroduce;
 	}
 
-	public String getCurriculum() {
-		return curriculum;
-	}
-
-	public void setCurriculum(String curriculum) {
-		this.curriculum = curriculum;
-	}
-
+	/*
+	 * public String getCurriculum() { return curriculum; }
+	 * 
+	 * public void setCurriculum(String curriculum) { this.curriculum = curriculum;
+	 * }
+	 */
 	public String getClassContent() {
 		return classContent;
 	}

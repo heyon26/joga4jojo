@@ -5,269 +5,224 @@
 <head>
 <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>전문가 마이페이지</title>
-<link rel="manifest" href="site.webmanifest">
-<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+ <link rel="stylesheet" href="assets/css/mypage.css">
+<title>강사 마이페이지</title>
 
-		<!-- CSS here -->
-            <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-            <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-            <link rel="stylesheet" href="assets/css/flaticon.css">
-            <link rel="stylesheet" href="assets/css/slicknav.css">
-            <link rel="stylesheet" href="assets/css/animate.min.css">
-            <link rel="stylesheet" href="assets/css/magnific-popup.css">
-            <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
-            <link rel="stylesheet" href="assets/css/themify-icons.css">
-            <link rel="stylesheet" href="assets/css/slick.css">
-            <link rel="stylesheet" href="assets/css/nice-select.css">
-            <link rel="stylesheet" href="assets/css/style.css">
 
-		<script>
-			function profileEdit(){ // 프로필 수정
-				var url = "profileEdit.do";
-				window.open(url, "프로필 수정", "width=300, height=350");
-			}
-		</script>
 
+<script>
+	function profileEdit() { // 프로필 수정
+		var url = "profileEdit.do";
+		window.open(url, "프로필 수정", "width=400, height=450");
+	}
+	
+	function uploadImage(){
+		var url = "uploadImage.do";
+		window.open(url, "이미지 수정", "width=400, height=450");
+	}
+	
+</script>
 </head>
+<jsp:include page="../main/topmenu.jsp" />
 <body>
 
- <!-- Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/logo.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Preloader Start -->
-    <header>
-        <!-- Header Start -->
-       <div class="header-area">
-            <div class="main-header ">
-               <div class="header-bottom  header-sticky">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <!-- Logo -->
-                            <div class="col-xl-2 col-lg-2 col-md-1">
-                                <div class="logo">
-                                  <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-10 col-lg-10 col-md-10">
-                                <!-- Main-menu -->
-                                <div class="main-menu f-right d-none d-lg-block">
-                                    <nav>               
-                                        <ul id="navigation">                                                                                                                                     
-                                            <li><a href="about.html">공지사항</a></li>
-                                            <li><a href="packages.html">클래스 등록</a></li>
-                                            <li><a href="blog.html">로그인</a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">로그인</a></li>
-                                                    <li><a href="single-blog.html">회원가입</a></li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <!-- Mobile Menu -->
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
-                            </div>
-                        </div>
-                    </div>
-               </div>
-            </div>
-       </div>
-        <!-- Header End -->
-    </header>
+<div class="container">
+<div class="row">
 
-    <main>
-        <!-- slider Area Start-->
-        <div class="slider-area ">
-            <!-- Mobile Menu -->
-            <div class="single-slider slider-height2 d-flex align-items-center" data-background="assets/img/hero/contact_hero.jpg">
-                <div class="container">
+<!-- myPageInfo 삽입 -->
+<jsp:include page="myPageInfo.jsp" />
+<!-- myPageInfo 삽입 -->           
+        
+        <div class="col-lg-8">
+           <div class="card z-depth-3">
+            <div class="card-body">
+            
+           <ul class="nav nav-pills nav-pills-primary nav-justified">
+                <li class="nav-item">
+                    <a href="myPage.do" data-target="#profile" data-toggle="pill" class="nav-link"><i class="icon-user"></i> <span class="hidden-xs">수강생</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="expertPage.do" data-target="#messages" data-toggle="pill" class="nav-link active show"><i class="icon-envelope-open"></i> <span class="hidden-xs">강사</span></a>
+                </li>
+            </ul> 
+            
+            <ul class="nav nav-pills nav-pills-primary nav-justified">
+                <li class="nav-item">
+                    <a href="expertPage.do" data-target="#profile" data-toggle="pill" class="nav-link active show"><i class="icon-user"></i> <span class="hidden-xs">신청한 클래스</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="myPageClassExpert.do" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">등록한 클래스</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="myPageExpertEdit.do" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">프로필 수정</span></a>
+                </li>
+            </ul>
+            <div class="tab-content p-3">
+                <div class="tab-pane" id="profile">
+                    <h5 class="mb-3">회원정보</h5>
                     <div class="row">
-                        <div class="col-xl-12">
-                            <div class="hero-cap text-center">
-                                <h2>마이 페이지</h2>
-                            </div>
+                        <div class="col-md-6">
+                            <h6>가입일</h6>
+                            <p>
+                                - 가입일 -
+                            </p>
+                        </div>
+                        <div class="col-md-12">
+                            <h5 class="mt-2 mb-3"><span class="fa fa-clock-o ion-clock float-right"></span>신청한 클래스</h5>
+                            <table class="table table-hover table-striped">
+                                <tbody>                                    
+                                    <tr>
+                                        <td>
+                                            <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
+                    <!--/row-->
+                </div>
+                <div class="tab-pane active show" id="messages">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+    			   <button type="button" class="close" data-dismiss="alert">×</button>
+				    <div class="alert-icon">
+					 <i class="icon-info"></i>
+				    </div>
+				    <div class="alert-message">
+				      <span><strong>Info!</strong> Lorem Ipsum is simply dummy text.</span>
+				    </div>
+                  </div>
+                    <table class="table table-hover table-striped">
+                        <tbody>                                    
+                            <tr>
+                                <td>
+                                   <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link to the latest summary report from the..
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus. 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus. 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                   <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros. 
+                                </td>
+                            </tr>
+                        </tbody> 
+                    </table>
+                </div>
+                <div class="tab-pane" id="edit">
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="Mark">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="Jhonsan">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="email" value="mark@example.com">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Change profile</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="file">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Website</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="url" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="" placeholder="Street">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-6">
+                                <input class="form-control" type="text" value="" placeholder="City">
+                            </div>
+                            <div class="col-lg-3">
+                                <input class="form-control" type="text" value="" placeholder="State">
+                            </div>
+                        </div>
+                       
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="jhonsanmark">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password" value="11111122333">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password" value="11111122333">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-9">
+                                <input type="reset" class="btn btn-secondary" value="Cancel">
+                                <input type="button" class="btn btn-primary" value="Save Changes">
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <!-- slider Area End-->
-
-        <!-- Favourite Places Start -->
-        <div class="favourite-place place-padding">
-            <div class="container">
-                <!-- Section Tittle -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-tittle text-center" >
-                            <span>수강생 페이지</span>
-                            <h2><input type="button" value="수강생" onclick="location.href='myPage.do'"></h2>
-                        </div>
-                        <div class="section-tittle text-center">
-                            <span>강사 페이지</span>
-                            <h2><input type="button" value="강사" onclick="#"></h2>
-                        </div> 
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="assets/img/service/services1.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <h3><a href="#">프로필 이미지</a></h3>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li>프로필 이미지</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="프로필 이미지 삽입 예정" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <h3><a href="#">계정 ID / 이름 (user name)</a></h3>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li>계정 ID / 이름 </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="assets/img/service/services3.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <h3><a href="#">전화 번호 (phone number)</a></h3>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li>전화번호</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="assets/img/service/services3.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                   <h3><input type="button" value="프로필 수정" onclick="profileEdit()"></h3>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li>프로필 수정</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="assets/img/service/services3.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <h3><a href="#">신청한 클래스</a></h3>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li>전화번호</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="assets/img/service/services3.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <h3><a href="#">등록한 클래스</a></h3>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li>등록한 클래스</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-				</div>
-            </div>
-        </div>
-        <!-- Favourite Places End -->
-
-    </main>
-               
-               
- <!-- JS here -->
-	
-		<!-- All JS Custom Plugins Link Here here -->
-        <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
-		
-		<!-- Jquery, Popper, Bootstrap -->
-		<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
-        <script src="./assets/js/popper.min.js"></script>
-        <script src="./assets/js/bootstrap.min.js"></script>
-	    <!-- Jquery Mobile Menu -->
-        <script src="./assets/js/jquery.slicknav.min.js"></script>
-
-		<!-- Jquery Slick , Owl-Carousel Plugins -->
-        <script src="./assets/js/owl.carousel.min.js"></script>
-        <script src="./assets/js/slick.min.js"></script>
-		<!-- One Page, Animated-HeadLin -->
-        <script src="./assets/js/wow.min.js"></script>
-		<script src="./assets/js/animated.headline.js"></script>
-        <script src="./assets/js/jquery.magnific-popup.js"></script>
-
-		<!-- Scrollup, nice-select, sticky -->
-        <script src="./assets/js/jquery.scrollUp.min.js"></script>
-        <script src="./assets/js/jquery.nice-select.min.js"></script>
-		<script src="./assets/js/jquery.sticky.js"></script>
+      </div>
+      </div>
         
-        <!-- contact js -->
-        <script src="./assets/js/contact.js"></script>
-        <script src="./assets/js/jquery.form.js"></script>
-        <script src="./assets/js/jquery.validate.min.js"></script>
-        <script src="./assets/js/mail-script.js"></script>
-        <script src="./assets/js/jquery.ajaxchimp.min.js"></script>
-        
-		<!-- Jquery Plugins, main Jquery -->	
-        <script src="./assets/js/plugins.js"></script>
-        <script src="./assets/js/main.js"></script>
-	
+    </div>
+</div>
 </body>
 </html>
