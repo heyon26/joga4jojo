@@ -22,6 +22,7 @@ public class ConsultListView implements Command {
 		
 		vo.setBoardCode(Integer.parseInt(request.getParameter("boardCode")));
 		avo.setBoardCode(Integer.parseInt(request.getParameter("boardCode")));
+		//
 		
 		vo = dao.select(vo); //문의글읽기
 		dao = new BoardDao();
@@ -30,6 +31,9 @@ public class ConsultListView implements Command {
 		
 		request.setAttribute("vo", vo); // 문의글담기
 		request.setAttribute("list", list);
+		
+		
+		
 		
 		
 		return "board/consultListView";

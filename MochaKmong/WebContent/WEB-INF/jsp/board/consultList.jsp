@@ -48,7 +48,7 @@
 				<div class="progress-table-wrap">
 					<div class="progress-table">
 						<div class="table-head">
-							<div class="serial">글번호</div>
+							<div class="serial">조회수</div>
 							<div class="serial">카테고리</div>
 							<div align="right"class="percentage">제목</div>
 							<div class="visit"></div>
@@ -56,7 +56,7 @@
 							<div class="visit">&nbsp;&nbsp;&nbsp;&nbsp;작성일</div>
 						</div><c:forEach var ="vo" items="${list }">
 						<div class="table-row" onclick = "formSubmit('${vo.boardCode }')">
-							<div class="serial">${vo.boardCode }</div>
+							<div class="serial">${vo.bHit }</div>
 							<div class="serial">${vo.bCategoryA }</div>
 							<div class="percentage">${vo.bName }</div>
 							<div class="visit"></div>

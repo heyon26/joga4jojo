@@ -23,12 +23,14 @@ import co.mok.pro.board.BoardList;
 import co.mok.pro.board.BoardListView;
 import co.mok.pro.board.ConsultList;
 import co.mok.pro.board.ConsultListView;
+import co.mok.pro.board.NewAnswer;
 import co.mok.pro.board.NewAsk;
 import co.mok.pro.board.NewAskForm;
 import co.mok.pro.board.NewBoard;
 import co.mok.pro.board.NewBoardForm;
 import co.mok.pro.board.NewConsult;
 import co.mok.pro.board.NewConsultForm;
+import co.mok.pro.board.SearchBoard;
 import co.mok.pro.main.MainService;
 import co.mok.pro.main.MainServiceTest;
 
@@ -57,6 +59,7 @@ public class FrontController extends HttpServlet {
 		map.put("/boardEditForm.do", new BoardEditForm()); //공지사항 글 수정폼
 		map.put("/boardEdit.do", new BoardEdit()); //공지사항 글 수정
 		map.put("/boardDelete.do", new BoardDelete()); //공지사항 삭제
+		map.put("/searchBoard.do", new SearchBoard()); //공지사항 삭제
 		//
 		map.put("/askList.do", new AskList()); //자주묻는 질문리스트
 		map.put("/askListView.do", new AskListView()); //묻는질문 상세페이지
@@ -70,6 +73,7 @@ public class FrontController extends HttpServlet {
 		map.put("/consultListView.do", new ConsultListView()); //문의 상세페이지(댓글방식으로 답변)
 		map.put("/newConsultForm.do", new NewConsultForm()); //문의하기 작성폼 이동
 		map.put("/newConsult.do", new NewConsult()); //문의하기 글 작성
+		map.put("/newAnswer.do", new NewAnswer()); //문의하기 답변 작성
 		
 	
 		
