@@ -70,8 +70,8 @@ public class imageUpload extends HttpServlet {
 					System.out.printf("name : %s, value : %s  \n", part.getName(), formValue);
 				}
 			}
-//			vo.setUserId((String) session.getAttribute("user_id"));
-			vo.setUserId("hong");
+			vo.setUserId((String) session.getAttribute("user_id"));
+			//vo.setUserId("hong");
 			vo.setImage(fileName);
 			dao.summernoteImg(vo);
 

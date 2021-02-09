@@ -93,14 +93,14 @@ li {
 											<div class="col-22">
 												<div class="input-group">
 													<label class="label">이메일</label> <input
-														class="input--style-4" type="email" name="email"
+														class="input--style-4" type="email" name="email" placeholder="이메일"
 														required="required">
 												</div>
 											</div>
 											<div class="col-22">
 												<div class="input-group">
 													<label class="label">전화번호</label> <input
-														class="input--style-4" type="text" name="tel"
+														class="input--style-4" type="text" name="tel" placeholder="전화번호"
 														required="required">
 												</div>
 											</div>
@@ -112,7 +112,7 @@ li {
 															<label class="label">우편번호</label><input type="text"
 																class="input--style-4" id="zipcode" name="zipcode"
 																placeholder="우편번호" readonly="readonly"
-																required="required">
+																required="required" style="background-color: #c1c1c1" title="ADDRESS SEARCH를 클릭해주세요">
 														</div>
 													</div>
 													<div class="col-22">
@@ -120,7 +120,8 @@ li {
 														<div class="input-group">
 															<label class="label">지역</label> <input
 																class="input--style-4" type="text" id="area" name="area"
-																placeholder="지역" readonly="readonly" required="required">
+																placeholder="지역" readonly="readonly" required="required"
+																style="background-color: #c1c1c1" title="ADDRESS SEARCH를 클릭해주세요">
 														</div>
 													</div>
 												</div>
@@ -128,7 +129,8 @@ li {
 												<div class="input-group">
 													<label class="label">주소</label><input type="text"
 														class="input--style-4" id="address" name="address"
-														placeholder="주소" readonly="readonly" required="required">
+														placeholder="주소" readonly="readonly" required="required"
+														style="background-color: #c1c1c1" title="ADDRESS SEARCH를 클릭해주세요">
 												</div>
 												<div class="input-group">
 													<label class="label">상세주소</label><input type="text"
@@ -136,20 +138,28 @@ li {
 														name="detailAddress" placeholder="상세주소"
 														required="required">
 												</div>
-												<div class="input-group">
-													<input type="button" class="btn btn--radius-2 btn--blue"
-														style="background-color: #4272d7; width: 100%"
-														onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
+												<div class="input-group" style="width: 550px;height: 55px;">
+													<input type="button" style="background-image:url('/MochaKmong/assets/img/class/ADDRESSSEARCH.png'); 
+													background-size:contain; background-repeat:no-repeat; background-color:transparent; width: 100%;height: 100%;"
+														onclick="sample5_execDaumPostcode()" title="주소 검색"><br>
 												</div>
 
 											</div>
 
 										</div>
 
+<div style="width:100%; height:1px; display: flex;  justify-content: space-between;">
+<a>
+		
+		</a> 
+		<a class="carousel-control-next" href="#carouselExampleIndicators"
+			role="button" data-slide="next"
+			style="height: 5%;width: 11%;top: 93%;  padding-right: 10px;"title="다음으로"> <span
+			class="carousel-control-next-icon" aria-hidden="true" style="background-size: contain;background-repeat: no-repeat;"></span> <span
+			class="sr-only">Next</span>
+		</a>
 
-
-
-
+</div>
 
 									</div>
 
@@ -210,6 +220,26 @@ li {
 													class="input--style-4" id="classPrice" name="classPrice"
 													placeholder="(원)" required="required">
 											</div>
+											
+											
+<div style="width:100%; height:1px; display: flex;  justify-content: space-between;">
+<a class="carousel-control-prev" href="#carouselExampleIndicators"
+			role="button" data-slide="prev"
+			style="height: 5%;width: 11%; top: 93%; padding-left: 10px;"title="앞으로">
+			<span
+			class="carousel-control-prev-icon" aria-hidden="true" style="background-size: contain;background-repeat: no-repeat;"></span>
+			<span
+			class="sr-only">Previous</span>
+		</a> 
+		<a class="carousel-control-next" href="#carouselExampleIndicators"
+			role="button" data-slide="next"
+			style="height: 5%;width: 11%;top: 93%;  padding-right: 10px;"title="다음으로"> <span
+			class="carousel-control-next-icon" aria-hidden="true" style="background-size: contain;background-repeat: no-repeat;"></span> <span
+			class="sr-only">Next</span>
+		</a>
+
+</div>
+											
 										</div>
 									</div>
 
@@ -228,10 +258,28 @@ li {
 									<div class="card card-4">
 										<div class="card-body">
 											<h4 class="title">클래스 상세</h4>
-
+<div>
 											<textarea id="summernote" name="summernote"
 												required="required"></textarea>
+</div>
 
+<div style="width:100%; height:1px; display: flex;  justify-content: space-between;">
+<a class="carousel-control-prev" href="#carouselExampleIndicators"
+			role="button" data-slide="prev"
+			style="height: 5%;width: 11%; top: 93%; padding-left: 10px;">
+			<span
+			class="carousel-control-prev-icon" aria-hidden="true" style="background-size: contain;background-repeat: no-repeat;"></span>
+			<span
+			class="sr-only">Previous</span>
+		</a> 
+		<a class="carousel-control-next" href="#carouselExampleIndicators"
+			role="button" data-slide="next"
+			style="height: 5%;width: 11%;top: 93%;  padding-right: 10px;" title="다음으로"> <span
+			class="carousel-control-next-icon" aria-hidden="true" style="background-size: contain;background-repeat: no-repeat;"></span> <span
+			class="sr-only">Next</span>
+		</a>
+
+</div>
 										</div>
 									</div>
 								</div>
@@ -247,11 +295,25 @@ li {
 											<h4 class="title">클래스 일정</h4>
 											<jsp:include page="calendar.jsp"></jsp:include>
 
-											<div class="p-t-15" align="right">
-												<button class="btn btn--radius-2 btn--blue"
-													style="background-color: #4272d7; width: 100%"
-													type="submit">등록</button>
-											</div>
+
+											
+<div style="width:100%; height:1px; display: flex;  justify-content: space-between;">
+<a class="carousel-control-prev" href="#carouselExampleIndicators"
+			role="button" data-slide="prev"
+			style="height: 5%;width: 11%; top: 93%; padding-left: 10px;" title="앞으로">
+			<span
+			class="carousel-control-prev-icon" aria-hidden="true" style="background-size: contain;background-repeat: no-repeat;"></span>
+			<span
+			class="sr-only">Previous</span>
+		</a> 
+		<a class="carousel-control-next"
+			
+			style="height: 5%;width: 15%; top: 93%; padding-right: 10px;">
+		<button style="background-image:url('/MochaKmong/assets/img/class/SUBMIT.png'); background-size: contain;background-repeat: no-repeat; width: 100%;height: 100%;"
+													type="submit" title="등록"></button>
+		</a>
+
+</div>
 										</div>
 									</div>
 								</div>
@@ -263,17 +325,6 @@ li {
 
 		</form>
 
-		<a class="carousel-control-prev" href="#carouselExampleIndicators"
-			role="button" data-slide="prev"
-			style="position: fixed; top: 30%; left: 5%; height: 50%"> <span
-			class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-			class="sr-only">Previous</span>
-		</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
-			role="button" data-slide="next"
-			style="position: fixed; top: 30%; right: 5%; height: 50%"> <span
-			class="carousel-control-next-icon" aria-hidden="true"></span> <span
-			class="sr-only">Next</span>
-		</a>
 	</div>
 
 </main>
@@ -331,7 +382,7 @@ li {
 				{	lang : "ko-KR",
 					placeholder : '클래스 설명을 써주세요',
 					tabsize : 2,
-					height : 300,
+					height : 450,
 					toolbar : [ [ 'style', [ 'style' ] ],
 							[ 'font', [ 'bold', 'underline', 'clear' ] ],
 							[ 'color', [ 'color' ] ],

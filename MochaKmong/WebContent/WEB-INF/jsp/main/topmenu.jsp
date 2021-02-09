@@ -44,7 +44,7 @@ ${userId }
 <header>
 
 	<!-- menu Start -->
-	<div class="header-area">
+	<div class="header-area" style="background-color: white;">
 		<div class="main-header ">
 			<div class="header-bottom  header-sticky">
 				<div class="container">
@@ -75,7 +75,7 @@ ${userId }
 										</c:if>
 										<!-- 로그인 알림(임시) -->
 
-										<li><a href="index.html">공지사항</a></li>
+										<li><a href="createPlaceView.do">플레이스등록</a></li>
 										<li><a href="createClassView.do">클래스등록</a></li>
 										<li><a href="loginForm.do">로그인</a>
 											<ul class="submenu">
