@@ -8,9 +8,9 @@ import co.mok.pro.common.Command;
 public class MainService implements Command {
 
 	@Override
-	public String excute(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		return "main/main"; 
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
+		
+		return "main/main";
 	}
 
 }

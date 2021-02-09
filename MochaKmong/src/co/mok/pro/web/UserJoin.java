@@ -10,7 +10,7 @@ import co.mok.pro.vo.UserVo;
 public class UserJoin implements Command {
 
 	@Override
-	public String excute(HttpServletRequest request, HttpServletResponse response) {
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		UserDao dao = new UserDao();
 		UserVo vo = new UserVo();
 		
