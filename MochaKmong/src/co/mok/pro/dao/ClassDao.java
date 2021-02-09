@@ -388,10 +388,6 @@ public class ClassDao extends DAO {
 				
 				 if(option != 0 && condition.equals("all")) {
 					 sql ="select c.*, a.area_name from class c, area a where a.area_code=c.area_code";
-//					 sql="select * from(\r\n"
-//					 		+ " select  rownum as rnum , c.* from "
-//					 		+ " (select c.*, a.area_name from class c, area a where a.area_code=c.area_code order by class_code desc) c  )"
-//					 		+ " where rnum>= "+startnum+" and " + "rnum< =" + endnum ;
 					 psmt=conn.prepareStatement(sql);	
 				 }else if(option==1 ) {
 					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like '%"+condition+"%'";
@@ -464,25 +460,6 @@ public class ClassDao extends DAO {
 			return list;
 		}
 	
-	//총 등록된 class 갯수 count
-	public int getTotalCount() {
-		int total=0;
-		String sql = "SELECT COUNT(*) FROM CLASS";
-		try {
-			psmt=conn.prepareStatement(sql);
-			rs=psmt.executeQuery();
-			if(rs.next()) {
-				total=rs.getInt(1);
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close();
-		}
-		return total;
-	}
-	
-
 	
 	private void close() {
 		try {

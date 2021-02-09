@@ -162,9 +162,9 @@ body{margin-bottom:80px;}
 <div class="favourite-place jss100">
             <div class="container">
                 <div class="row">
-                <!-- 여기서부터 데이터 받음ㄴ -->
+                <!-- 여기서부터 데이터 받음 -->
                 <c:if test ="${empty list }">
-                	<div class="typography"><h3>등록된 클래스가 없습니다.</h3></div>
+                	<div align="center">등록된 클래스가 없습니다.</div>
                 </c:if>
                 <c:if test="${not empty list }">
                 <c:forEach var="vo" items="${list }">
@@ -198,37 +198,6 @@ body{margin-bottom:80px;}
             </div>
         </div>
 <!--클래스 검색 list 끝-->
-<!-- bootstrap 페이징 시작 -->
-<nav class="blog-pagination justify-content-center d-flex">
-	<ul class="pagination">
-		<li class="page-item">
-			<a href="#" class="page-link" aria-label="Previous">
-				<i class="ti-angle-left"></i>
-			</a>
-		</li>
-		<li class="page-item">
-			<a href="#" class="page-link">1</a>
-		</li>
-		<li class="page-item active">
-			<a href="#" class="page-link">2</a>
-		</li>
-		<li class="page-item">
-			<a href="#" class="page-link">3</a>
-		</li>
-		<li class="page-item active">
-			<a href="#" class="page-link">4</a>
-		</li>
-		<li class="page-item">
-			<a href="#" class="page-link">5</a>
-		</li>
-
-		<li class="page-item">
-			<a href="#" class="page-link" aria-label="Next">
-				<i class="ti-angle-right"></i>
-			</a>
-		</li>
-	</ul>
-</nav>
 
 </body>
 </html>
