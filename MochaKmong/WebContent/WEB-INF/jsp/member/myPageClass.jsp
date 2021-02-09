@@ -127,7 +127,7 @@
 					 <i class="icon-info"></i>
 				    </div>
 				    <div class="alert-message">
-				      <span><strong>Info!</strong> Lorem Ipsum is simply dummy text.</span>
+				      <span><strong>찜한 클래스</strong></span>
 				    </div>
                   </div>
                     <table class="table table-hover table-striped">

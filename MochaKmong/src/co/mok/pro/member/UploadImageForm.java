@@ -8,7 +8,7 @@ import co.mok.pro.common.Command;
 public class UploadImageForm implements Command {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// 프로필 이미지 업로드
 		return "member/uploadImageForm";
 	}

@@ -22,6 +22,7 @@
 		window.open(url, "이미지 수정", "width=400, height=450");
 	}
 	
+	
 </script>
 </head>
 <jsp:include page="../main/topmenu.jsp" />
@@ -114,6 +115,7 @@
                   </div>
                     <table class="table table-hover table-striped">
                         <tbody> 
+                        
                         <c:forEach var="cvo" items="${list }">
                             <tr>
                                 <td>

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 
 import co.mok.pro.common.DAO;
-import co.mok.pro.vo.ImageVO;
+import co.mok.pro.vo.ImageVo;
 
 public class ImageDAO extends DAO {
 
@@ -15,18 +15,18 @@ public class ImageDAO extends DAO {
 	private ResultSet rs;
 
 	// 회원 이미지 조회
-	public ArrayList<ImageVO> selectImageList() {
-		ArrayList<ImageVO> list = new ArrayList<ImageVO>();
+	public ArrayList<ImageVo> selectImageList() {
+		ArrayList<ImageVo> list = new ArrayList<ImageVo>();
 
 		String sql = "SELECT * FROM IMAGE";
-		ImageVO vo;
+		ImageVo vo;
 
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
-				vo = new ImageVO();
-				vo.setImgCode(rs.getInt("image_code"));
+				vo = new ImageVo();
+				vo.setImageCode(rs.getInt("image_code"));
 				vo.setUserId(rs.getString("user_id"));
 				vo.setImage(rs.getString("image"));
 				list.add(vo);
@@ -40,7 +40,7 @@ public class ImageDAO extends DAO {
 		return list;
 	}
 	
-	public int InsertImage(ImageVO vo) {
+	public int InsertImage(ImageVo vo) {
 		int n = 0;
 		String sql = "INSERT INTO IMAGE VALUES(IMAGE_CODE.NEXTVAL, ?, ?)";
 		
@@ -61,7 +61,7 @@ public class ImageDAO extends DAO {
 	
 
 	// 프로필 이미지 수정
-	public int updateImage(ImageVO vo) {
+	public int updateImage(ImageVo vo) {
 		int n = 0;
 		
 		String sql = "UPDATE IMAGE SET IMAGE= ? WHERE USER_ID = ?";

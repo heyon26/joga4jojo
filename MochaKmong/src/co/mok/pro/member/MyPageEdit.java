@@ -8,7 +8,7 @@ import co.mok.pro.common.Command;
 public class MyPageEdit implements Command {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// Edit 페이지 호출
 		return "member/myPageEdit";
 	}

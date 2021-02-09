@@ -1,6 +1,5 @@
 <%@page import="co.mok.pro.vo.UserVo"%>
 <%@page import="co.mok.pro.dao.UserDao"%>
-<%@page import="co.mok.pro.vo.ImageVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,13 +8,17 @@
 <meta charset="UTF-8">
 <title>프로필 이미지 삽입</title>
 
-<script>
-	function insertImage(){
+<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+
+	function insertImage(e){
 		var msg = confirm("해당 이미지로 변경하시겠습니까?");
 		if(msg){
-			frm.action = "${pageContext.request.contextPath}/InsertImage";
-			frm.userId.value;
-			frm.submit();
+			e.preventDefault();
+			var imgName = $('#file').val();
+			imgName = imgName.substring(imgName.lastIndexOf('\\') + 1);
+			$('#image').val(imgName);
+			document.frm.submit();
 		}
 	}
 </script>
@@ -34,19 +37,20 @@
 %>
 <!-- 로그인 세션값 호출 -->
 
-<form name="frm" method="post" enctype="multipart/form-data">
+<form name="frm" method="post" enctype="multipart/form-data" action="InsertImage" onsubmit="insertImage(event)">
 <input type="hidden" name="userId" value="<%=vo.getUserId() %>">
 
 <div class="file-wrapper flie-wrapper-area">
 		<div class="float-left">
 			<span class="label-plus"><i class="fas fa-plus"></i></span> 
 			<div id="preview"></div>
-			<input type="file" name="userImage" id="userImage" class="upload-box upload-plus" accept="image/*" size="40">
+			<input type="file" name="file" id="file" class="upload-box upload-plus" accept="image/*" size="40">
+			<input type="hidden" id="image" name="image">
 			<p/>
 			
 			<div class="file-edit-icon">
-			<input type="button" class="preview-edit" value="수정" onclick="insertImage()">&nbsp;
-			<input type="button" class="preview-de" value="삭제">
+			<input type="submit" class="preview-edit" value="수정">&nbsp;
+			<input type="reset" class="preview-de" value="삭제">
 			</div>
 		</div>
 </div>

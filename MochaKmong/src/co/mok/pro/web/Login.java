@@ -11,7 +11,7 @@ import co.mok.pro.vo.UserVo;
 public class Login implements Command {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		UserDao dao = new UserDao();
 		UserVo vo = new UserVo();
 		vo.setUserId(request.getParameter("userId"));
@@ -28,7 +28,7 @@ public class Login implements Command {
 			session.setAttribute("user_id", vo.getUserId()); 
 			session.setAttribute("user_auth", vo.getUserAuth()); 
 			request.setAttribute("vo", vo);
-			viewPage = "member/loginSuccess";
+			viewPage = "main/main";
 		}else {
 			viewPage = "member/loginFail";
 		}

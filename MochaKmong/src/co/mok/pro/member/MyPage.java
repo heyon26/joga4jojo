@@ -15,7 +15,7 @@ import co.mok.pro.vo.UserVo;
 public class MyPage implements Command {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 //		HttpSession session = request.getSession();
 //		String id = (String)session.getAttribute("user_id");
@@ -48,9 +48,7 @@ public class MyPage implements Command {
 		
 		HttpSession session = request.getSession();
 		String id = session.getAttribute("user_id").toString();
-		System.out.println("아이디" + id);
 		list = dao.selectUserClassList(id);
-		System.out.println("유저정보" + list);
 		request.setAttribute("list", list);
 		
 		return "member/myPage";

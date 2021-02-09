@@ -75,7 +75,7 @@ public class InsertImage extends HttpServlet implements Command{
 		}
 		
 	// DB에 파일 업로드하기
-	RequestDispatcher dispatcher = request.getRequestDispatcher("InsertImageDB.do");
+	RequestDispatcher dispatcher = request.getRequestDispatcher("InsertImageDo.do");
 	dispatcher.forward(request, response);
 	}
 	
@@ -100,7 +100,7 @@ public class InsertImage extends HttpServlet implements Command{
 	}
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		return null;
 	}

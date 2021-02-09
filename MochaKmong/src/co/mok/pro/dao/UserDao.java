@@ -70,9 +70,6 @@ public class UserDao extends DAO {
 
 		return vo;
 	}
-	
-	
-	
 	public UserVo UserLogin(UserVo vo) {
 		String sql = "SELECT * FROM M_USER WHERE USER_ID = ? AND USER_PW = ?";
 		try {
@@ -93,7 +90,6 @@ public class UserDao extends DAO {
 		return vo;
 	}
 
-
 	public int UserInsert(UserVo vo) {
 		String sql = "INSERT INTO M_USER(USER_ID, USER_PW, USER_NAME, USER_TEL, USER_EMAIL, USER_ZIPCODE, USER_ADDRESS)"
 				+ "VALUES(?, ?, ?, ?, ?, ?, ?)";
@@ -108,38 +104,37 @@ public class UserDao extends DAO {
 			psmt.setString(6, vo.getUserZipcode());
 			psmt.setString(7, vo.getUserAddress());
 			n = psmt.executeUpdate();
-		}catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
 		return n;
 	}
-	
 
 	public int UserUpdate(UserVo vo) {
 		int n = 0;
 		String sql = null;
-		if(vo.getUserPw() != null) {
-			sql = "UPDATE M_USER SET USER_PW=? WHERE USER_ID=?";  
-		}else if(vo.getUserTel() != null) {
-			sql = "UPDATE M_USER SET USER_TEL=? WHERE USER_ID=?"; 
-		}else if(vo.getUserEmail() != null) {
-			sql = "UPDATE M_USER SET USER_EMAIL=? WHERE USER_ID=?"; 
+		if (vo.getUserPw() != null) {
+			sql = "UPDATE M_USER SET USER_PW=? WHERE USER_ID=?";
+		} else if (vo.getUserTel() != null) {
+			sql = "UPDATE M_USER SET USER_TEL=? WHERE USER_ID=?";
+		} else if (vo.getUserEmail() != null) {
+			sql = "UPDATE M_USER SET USER_EMAIL=? WHERE USER_ID=?";
 		}
-		try { 
-			psmt =  conn.prepareStatement(sql);
-			if(vo.getUserPw() != null)
-			    psmt.setString(1, vo.getUserPw()); 
-			else if(vo.getUserTel() != null)
-				psmt.setString(1, vo.getUserTel()); 
-			else if(vo.getUserEmail() != null)
-				psmt.setString(1, vo.getUserEmail());   
-		        psmt.setString(2, vo.getUserId());
-			    n = psmt.executeUpdate();
-		}catch(SQLException e) {
+		try {
+			psmt = conn.prepareStatement(sql);
+			if (vo.getUserPw() != null)
+				psmt.setString(1, vo.getUserPw());
+			else if (vo.getUserTel() != null)
+				psmt.setString(1, vo.getUserTel());
+			else if (vo.getUserEmail() != null)
+				psmt.setString(1, vo.getUserEmail());
+			psmt.setString(2, vo.getUserId());
+			n = psmt.executeUpdate();
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close();
 		}
 		return n;
@@ -159,22 +154,22 @@ public class UserDao extends DAO {
 		}
 		return n;
 	}
-	
-	public boolean isidCheck(String id) { 
+
+	public boolean isidCheck(String id) {
 		boolean bool = true;
-	    String sql = "SELECT USER_ID FROM M_USER WHERE USER_ID = ?"; 
-	    try {
-	    	psmt = conn.prepareStatement(sql);
-	    	psmt.setString(1, id);
-	    	rs = psmt.executeQuery();
-	    	if(rs.next() ) {
-	    		bool = false;
-	    	}
-	    }catch(SQLException e) {
-	    	e.printStackTrace();
-	    }finally {
-	    	close();
-	    }
+		String sql = "SELECT USER_ID FROM M_USER WHERE USER_ID = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				bool = false;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
 		return bool;
 	}
 	
@@ -237,7 +232,23 @@ public class UserDao extends DAO {
 		}
 	
 
-	
+	public String findPw(String userId, String userName, String userEmail ) {
+		String pw = null;
+		try {
+			String sql = "SELECT USER_PW FROM M_USER WHERE USER_ID = ? AND USER_NAME = ? AND USER_EMAIL = ?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, userId);
+			psmt.setString(2, userName);
+			psmt.setString(3, userEmail);
+			ResultSet rs = psmt.executeQuery();
+			if (rs.next())
+				pw = rs.getString("USER_PW");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return pw;
+	}
+
 	private void close() {
 		try {
 			if (rs != null) rs.close();
