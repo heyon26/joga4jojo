@@ -182,7 +182,7 @@ body{margin-bottom:80px;}
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                     <span><i class="fas fa-star"></i><span>${vo.ratingCode }</span> </span>
-                                    <h5><a href="location.href='classView.do?classCode='+${vo.classCode }">${vo.className }</a></h5>
+                                    <h5><a href="location.href='classViewForm.do?classCode='+${vo.classCode }">${vo.className }</a></h5>
                                     <p class="dolor">${vo.classPrice }원<span>/1인당</span></p>
                                     <p>${vo.classIntroduce }</p>
                                 </div>
