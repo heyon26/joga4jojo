@@ -126,7 +126,7 @@
 
 .jss47 {
     margin: 0;
-    min-width: 124px;
+   	min-width: 200px;;
 }
 
 .jss49 {
@@ -578,7 +578,7 @@ textarea {
 
 fieldset {
 	min-width: 1000px;
-	padding: 0;
+	padding-left: 50px;
 	margin: 0;
 	border: 0
 }

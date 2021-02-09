@@ -213,6 +213,16 @@ body{margin-bottom:80px;}
 			<a href="#" class="page-link">2</a>
 		</li>
 		<li class="page-item">
+			<a href="#" class="page-link">3</a>
+		</li>
+		<li class="page-item active">
+			<a href="#" class="page-link">4</a>
+		</li>
+		<li class="page-item">
+			<a href="#" class="page-link">5</a>
+		</li>
+
+		<li class="page-item">
 			<a href="#" class="page-link" aria-label="Next">
 				<i class="ti-angle-right"></i>
 			</a>
