@@ -42,8 +42,8 @@ public class InsertImage extends HttpServlet implements Command{
 	
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding(CHARSET);
-		String ATTACHES_DIR = "/image";
-		System.out.println(request.getContextPath());
+		String ATTACHES_DIR = request.getServletContext().getRealPath("image");
+		System.out.println(request.getServletContext().getRealPath("image"));
 		PrintWriter out = response.getWriter();
 		String contentType = request.getContentType();
 		

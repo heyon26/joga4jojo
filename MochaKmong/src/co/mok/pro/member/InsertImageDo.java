@@ -15,17 +15,18 @@ public class InsertImageDo implements Command {
 		// 진짜 진짜 프로필 이미지 삽입
 		
 		ImageDAO dao = new ImageDAO();
-		ImageVo vo = new ImageVo();
+		ImageVo ivo = new ImageVo();
 		
 		HttpSession session = request.getSession();
-		vo.setUserId(session.getAttribute("user_id").toString());
-		vo.setImage(request.getParameter("image"));
+		ivo.setUserId(session.getAttribute("user_id").toString());
+		ivo.setImage(request.getParameter("image"));
 		
 		String viewPage = null;
-		int n = dao.InsertImage(vo);
+		int n = dao.InsertImage(ivo);
 		if(n != 0) {
-			viewPage = "member/insertImageForm.jsp";
-		}
+			viewPage = "member/myPage";
+			request.setAttribute("ivo", ivo);
+		}	
 		return viewPage;
 	}
 
