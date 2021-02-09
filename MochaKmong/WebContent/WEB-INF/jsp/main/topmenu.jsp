@@ -53,7 +53,7 @@ keyframes blinker { 50% {
 <header>
 
 	<!-- menu Start -->
-	<div class="header-area">
+	<div class="header-area" style="background-color: white;">
 		<div class="main-header ">
 			<div class="header-bottom  header-sticky">
 				<div class="container">
@@ -61,7 +61,7 @@ keyframes blinker { 50% {
 						<!-- Logo -->
 						<div class="col-xl-2 col-lg-2 col-md-1">
 							<div class="logo">
-								<a href="main.do"><img src="assets/img/logo/moca.png" alt=""></a>
+								<a href="main.do"><img src="assets/img/logo/123.png" alt=""></a>
 					
 							</div>
 						</div>
