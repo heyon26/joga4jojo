@@ -576,6 +576,8 @@ public class ClassDao extends DAO {
 
 		return rs;
 	}
+	
+
 
 	private void close() {
 		try {

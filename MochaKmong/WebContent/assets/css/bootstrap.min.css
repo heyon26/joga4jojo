@@ -5,6 +5,77 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
  
+#nonClass{
+    margin: 0 auto;
+    width:700px;
+    height:200px;
+    display: flex;
+    padding: 25px;
+    font-size: medium;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-direction: row;
+    border:1px solid #eee;
+    }
+#nonClass > p {
+	font-size: medium;
+	font-weight:bold;
+	font-style: italic;
+}
+
+.askClass{
+    margin: 0 auto;
+    margin-bottom:60px;
+    min-width:900px;
+    width:900px;
+    height:150px;
+    display: flex;
+	font-size: medium;
+	font-weight:bold;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-direction: row;
+    	
+    }
+        
+
+.paymentAsk { 
+	margin: 0 auto;
+    margin-bottom:40px;
+    min-width:900px;
+    width:900px;
+    height:300px;
+    display: flex;
+	font-size: medium;
+	font-weight:bold;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-direction: row;
+	border-bottom: 0.5px solid #e8e8e3;
+	
+}
+.returnAsk{
+	margin: 0 auto;
+    margin-bottom:40px;
+    padding-bottom:40px;
+    min-width:900px;
+    width:900px;
+    height:200px;
+    display: flex;
+	font-size: medium;
+	font-weight:bold;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-direction: column;
+	border-bottom: 0.5px solid #e8e8e3;
+}
+
+ 
+ 
 /* Tabs*/
 section {
     padding: 60px 0;
@@ -938,7 +1009,7 @@ pre code {
 	flex-basis: 0;
 	-ms-flex-positive: 1;
 	flex-grow: 1;
-	max-width: 100%
+	max-width: 1200px;
 }
 
 .col-auto {
@@ -4173,7 +4244,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	padding-left: 0;
 	margin-bottom: 0;
 	list-style: none;
-	width:1000px;
+	width:1200px;
 	background-color: #f9df84;
 
 }
@@ -4188,7 +4259,7 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .nav-link.disabled {
-	color: #6c757d
+	color: #6c757d;
 }
 
 .nav-tabs {
@@ -4247,7 +4318,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	flex-basis: 0;
 	-ms-flex-positive: 1;
 	flex-grow: 1;
-	text-align: center
+	text-align: center;
+	width:1200px;
 }
 
 .tab-content>.tab-pane {

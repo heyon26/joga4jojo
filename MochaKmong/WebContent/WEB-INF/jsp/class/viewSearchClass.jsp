@@ -166,8 +166,8 @@ body{margin-bottom:80px;}
                 <c:if test ="${empty list }">
                 	<div id="nonClass">
 	                	<img src="assets/img/icon/nontext.png" style="width:150px">
-	                	<p style={font-family:'Noto Sans KR' sans-serif;">등록된 클래스가 없습니다.<br/>
-	                	   다양한 클래스를 경험하실 수 있도록 노력하겠습니다:-)</p>
+	                	<p style="font-family:'Noto Sans KR' sans-serif;">등록된 클래스가 없습니다.<br/>
+	                	   다양한 클래스를 경험하실 수 있도록 노력하겠습니다 :-)</p>
                 	</div>
                 </c:if>
                 <c:if test="${not empty list }">

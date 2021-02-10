@@ -3,14 +3,12 @@
 *{font-family: 'Noto Sans KR', sans-serif;}
 body{margin-bottom:80px;}
 p { margin:20px 0px; }
-.nav-tabs > li {float:none; display:inline-block;zoom:1;}
-.nav-tabs {text-align:center;}
+
 .row{margin-bottom:40px}
 * {box-sizing:border-box}
 
 .title {
-	margin-top:40px;
-	margin-bottom:50px;
+	margin-top:30px;
 }
 .title > span {
 	color: #727070;
@@ -21,57 +19,5 @@ p { margin:20px 0px; }
 .title > h3 {
 	font-size:40px;
 	
-}
-
-
-
-	
-/* 클래스 이미지 보는 화면 css */
-.slideshow-container {
-max-width: 1000px;
-  position: relative;
-  margin: auto;
-}
-.mySlides {
-  display: none;
-}
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-.active, .dot:hover {
-  background-color: #717171;
-}
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-@-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
-}
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
 }
 

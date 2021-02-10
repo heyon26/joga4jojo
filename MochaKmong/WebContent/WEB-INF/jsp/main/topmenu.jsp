@@ -47,6 +47,15 @@ keyframes blinker { 50% {
 	right: 5px;
 	top: 5px;
 }
+
+.name{
+height:35px;
+width: 200px;
+padding-left:25px;
+border-radius: 15px;
+border : 0.5px solid #eee;
+}
+
 </style>
 
 <header>
@@ -78,19 +87,12 @@ keyframes blinker { 50% {
 												<form id="frm01" name="frm01" action="classSearch1.do"
 													method="post">
 													<span class="icon"><i id="icon1"
-														class="fa fa-search"></i></span> <input class="name" type="text"
-														id="word" name="word" placeholder="search..">
+														class="fa fa-search"></i></span> 
+														<input class="name" type="text"	id="word" name="word" placeholder="search..">
 
 												</form>
 											</div>
 										</li>
-										<!-- 로그인 알림(임시) -->
-										<c:if test="${not empty user_id }">
-											<li><a href="about.html" class="blink">${user_id }님
-													접속을 환영합니다.</a></li>
-										</c:if>
-
-
 											<c:if test="${user_auth eq null }">
 												<li><a href="boardList.do">공지사항</a>
 													<ul class="submenu">
