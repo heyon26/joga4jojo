@@ -84,11 +84,7 @@ keyframes blinker { 50% {
 												</form>
 											</div>
 										</li>
-										<!-- 로그인 알림(임시) -->
-										<c:if test="${not empty user_id }">
-											<li><a href="about.html" class="blink">${user_id }님
-													접속을 환영합니다.</a></li>
-										</c:if>
+										
 
 
 											<c:if test="${user_auth eq null }">
@@ -122,7 +118,7 @@ keyframes blinker { 50% {
 													<ul class="submenu">
 														<li><a class="menuLink" href="logout.do">로그아웃</a></li>
 														<li></li>
-														<li><a class="menuLink" href="#">내클래스/프로필</a></li>
+														<li><a class="menuLink" href="myPage.do">내클래스/프로필</a></li>
 													</ul>
 											</c:if>
 										</ul>

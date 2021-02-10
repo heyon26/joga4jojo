@@ -47,10 +47,11 @@ public class MyPage implements Command {
 		HttpSession session = request.getSession();
 		String id = session.getAttribute("user_id").toString();
 		System.out.println("아이디" + id);
+
 		list = dao.selectUserClassList(id);
-		System.out.println("유저정보" + list);
-		request.setAttribute("list", list);
 		
+		request.setAttribute("list", list);
+
 		return "member/myPage";
 		
 		

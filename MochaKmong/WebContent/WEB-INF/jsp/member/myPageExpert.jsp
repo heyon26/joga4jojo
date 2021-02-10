@@ -9,7 +9,11 @@
  <link rel="stylesheet" href="assets/css/mypage.css">
 <title>강사 마이페이지</title>
 
-
+<style>
+	.pointer{
+		cursor:pointer;
+	}
+</style>
 
 <script>
 	function profileEdit() { // 프로필 수정
@@ -116,7 +120,7 @@
                     <table class="table table-hover table-striped">
                         <tbody>                                    
                             <c:forEach var="cvo" items="${list }">
-                            <tr>
+                            <tr  id="${cvo.classCode }" class="pointer" onclick="location.href='myPageClassExpert.do?classCode=${cvo.classCode}'">
                                 <td>
                                    <span class="float-right font-weight-bold">${cvo.cateGoryA }</span>${cvo.className }
                                 </td>

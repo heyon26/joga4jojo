@@ -5,7 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import co.mok.pro.common.DAO;
 import co.mok.pro.vo.CTimeVo;
@@ -93,10 +92,10 @@ public class ClassDao extends DAO {
 	}
 	
 	// 유저에 따른 클래스 목록 조회
-	// 수정(김찬곤 / 210209)
+	// 작성(김찬곤 / 210209)
 	public ArrayList<ClassVo> selectUserClassList(String id){
 		ArrayList<ClassVo> list = new ArrayList<ClassVo>();
-		String sql = "SELECT CLASS_NAME, CATEGORY_A FROM CLASS WHERE USER_ID = ?";
+		String sql = "SELECT CLASS_CODE, CLASS_NAME, CATEGORY_A FROM CLASS WHERE USER_ID = ?";
 		
 		try {
 			ClassVo vo = new ClassVo();
@@ -104,6 +103,8 @@ public class ClassDao extends DAO {
 			psmt.setString(1, id);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
+				vo = new ClassVo();
+				vo.setClassCode(rs.getInt("class_code"));
 				vo.setClassName(rs.getString("class_name"));
 				vo.setCateGoryA(rs.getString("category_a"));
 				list.add(vo);
@@ -116,6 +117,27 @@ public class ClassDao extends DAO {
 		}
 		
 		return list;
+	}
+	
+	// 찜한 클래스 선택
+	// 작성(김찬곤 / 210210)
+	public ClassVo selectFavClass(ClassVo vo) {
+		
+		String sql = "SELECT CLASS_NAME, CATEGORY_A FROM CLASS WHERE CLASS_CODE = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getClassCode());
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				vo.setClassName(rs.getString("class_name"));
+				vo.setCateGoryA(rs.getString("category_a"));
+			}	
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return vo;
 	}
 	
 	//class 등록
@@ -396,10 +418,6 @@ public class ClassDao extends DAO {
 			
 			return list;
 		}
-		
-		
-	
-	
 	
 	//main 화면에서 검색시 매개변수 받아서 class list 출력 --사용함
 		public ArrayList<ClassVo> selectClassList(int option, String condition){

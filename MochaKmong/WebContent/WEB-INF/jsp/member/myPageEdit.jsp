@@ -20,17 +20,17 @@
 
 	function uploadImage() { // 프로필 이미지 수정
 		var url = "uploadImageForm.do";
-		window.open(url, "이미지 수정", "width=700, height=650");
+		window.open(url, "이미지 수정", "width=500, height=450");
 	}
 
 	function insertImage() { // 프로필 이미지 삽입
 		var url = "insertImageForm.do";
-		window.open(url, "프로필 이미지 삽입", "width=400, height=450");
+		window.open(url, "프로필 이미지 삽입", "width=500, height=450");
 	}
 
 	function profileEdit() { // 프로필 수정
 		var url = "profileEdit.do";
-		window.open(url, "프로필 수정", "width=400, height=450");
+		window.open(url, "프로필 수정", "width=500, height=450");
 	}
 
 	function updateAlert() {

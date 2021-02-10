@@ -36,6 +36,7 @@ import co.mok.pro.classes.CreateClassView;
 import co.mok.pro.main.MainService;
 import co.mok.pro.main.MainServiceTest;
 import co.mok.pro.member.ExpertPage;
+import co.mok.pro.member.InsertImageDo;
 import co.mok.pro.member.InsertImageForm;
 import co.mok.pro.member.MyPage;
 import co.mok.pro.member.MyPageClass;
@@ -114,7 +115,7 @@ public class FrontController extends HttpServlet {
 		// 회원가입
 		map.put("/userJoinForm", new UserJoinForm());
 		map.put("/userJoin.do", new UserJoin());
-
+		
 		// 마이페이지_수강생
 		map.put("/myPage.do", new MyPage()); // 마이페이지 호출
 		map.put("/myPageClass.do", new MyPageClass()); // 신청한 클래스 페이지 호출
@@ -129,6 +130,7 @@ public class FrontController extends HttpServlet {
 		map.put("/profileUpdate.do", new ProfileUpdate()); // 프로필 업데이트
 		map.put("/uploadImageForm.do", new UploadImageForm()); // 프로필 이미지 업로드 폼 호출
 		map.put("/uploadImage.do", new UploadImage()); // 프로필 이미지 업로드 실행
+		map.put("/InsertImageDo.do", new InsertImageDo()); // 프로필 이미지 삽입
 
 		map.put("/logout.do", new Logout()); // 로그아웃
 		map.put("/findPwForm.do", new FindPwForm()); // 비밀번호 찾기 폼

@@ -41,7 +41,7 @@ public class ImageDAO extends DAO {
 	
 	public int InsertImage(ImageVo vo) {
 		int n = 0;
-		String sql = "INSERT INTO IMAGE VALUES(IMAGE_CODE.NEXTVAL, ?, ?)";
+		String sql = "INSERT INTO IMAGE VALUES(IMAGE_SEQ.NEXTVAL, ?, ?)";
 		
 		try {
 			psmt = conn.prepareStatement(sql);

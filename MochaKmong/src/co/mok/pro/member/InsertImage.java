@@ -42,8 +42,8 @@ public class InsertImage extends HttpServlet implements Command{
 	
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding(CHARSET);
-		String ATTACHES_DIR = "/image";
-		System.out.println(request.getContextPath());
+		String ATTACHES_DIR = request.getServletContext().getRealPath("image");
+		System.out.println("나의 경로" + request.getServletContext().getRealPath("image"));
 		PrintWriter out = response.getWriter();
 		String contentType = request.getContentType();
 		
@@ -75,7 +75,7 @@ public class InsertImage extends HttpServlet implements Command{
 		}
 		
 	// DB에 파일 업로드하기
-	RequestDispatcher dispatcher = request.getRequestDispatcher("InsertImageDB.do");
+	RequestDispatcher dispatcher = request.getRequestDispatcher("InsertImageDo.do");
 	dispatcher.forward(request, response);
 	}
 	

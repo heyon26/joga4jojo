@@ -9,9 +9,13 @@
  <link rel="stylesheet" href="assets/css/mypage.css">
 <title>수강생 마이페이지</title>
 
+<style>
+	.pointer{
+		cursor:pointer;
+	}
+</style>
 
-
-<script>
+<script type="text/javascript" src="./assets/js/vendor/modernizr-3.5.0.min.js">
 	function profileEdit() { // 프로필 수정
 		var url = "profileEdit.do";
 		window.open(url, "프로필 수정", "width=400, height=450");
@@ -22,6 +26,8 @@
 		window.open(url, "이미지 수정", "width=400, height=450");
 	}
 	
+
+
 </script>
 </head>
 <jsp:include page="../main/topmenu.jsp" />
@@ -112,43 +118,21 @@
 				      <span><strong>신청한 클래스 목록</strong></span>
 				    </div>
                   </div>
+                  
                     <table class="table table-hover table-striped">
                         <tbody> 
+                        <!-- 신청한 클래스 출력 -->
                         <c:forEach var="cvo" items="${list }">
-                            <tr>
+                  	<input type="hidden" id="classcode" name="classcode" value="${cvo.classCode }">
+                            <tr id="${cvo.classCode }" class="pointer" onclick="location.href='myPageClass.do?classCode=${cvo.classCode}'">
                                 <td>
                                    <span class="float-right font-weight-bold">${cvo.cateGoryA }</span>${cvo.className }
                                 </td>
                             </tr>
-                        <c:if test="${empty cvo.className }">
-                        <tr>
-                             <td align="center">
-                               <span class="float-right font-weight-bold"></span>- 신청한 클래스가 없습니다. -
-                             </td>
-                        </tr>
-                        </c:if>  
                         </c:forEach>
-                            <!-- <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">Yesterday</span> There has been a request on your account since that was..
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices quis, dapibus id dolor. Morbi venenatis lacinia rhoncus. 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt ullamcorper eros eget luctus. 
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                   <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix for tibulum tincidunt ullamcorper eros. 
-                                </td>
-                            </tr> -->
+                        <!-- 신청한 클래스 출력 -->
                         </tbody> 
+                        
                     </table>
                 </div>
                 <div class="tab-pane" id="edit">
@@ -233,5 +217,6 @@
         
     </div>
 </div>
+
 </body>
 </html>

@@ -16,13 +16,10 @@
     height: 150px; 
     border-radius: 70%;
     overflow: hidden;
+   	margin: -20px;
 }
-.empty_img {
-    width: 150px; height: 150px;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 50%;
-    cursor: pointer;
+.space{
+	padding: 10px;
 }
 </style>
 
@@ -52,9 +49,10 @@
               <div class="card-body text-center bg-primary rounded-top">
                <div class="user-box">
                <div class="profileImage" style="background:#FFFFFF;">
-               		<img src="./assets/img/mypage/profile.png" class="image" name="image">
+               		<img src="assets/img/mypage/profile.png" name="image">
                </div>
               </div>
+              <div class="space"></div>
               <h5 class="mb-1 text-white"><%=vo.getUserName() %></h5>
               <h6 class="text-light">이름</h6>
              </div>
@@ -97,7 +95,7 @@
                     
                     <c:set var="userAuth" value="<%=vo.getUserAuth() %>" />
                     <c:choose>
-                    <c:when test="${userAuth eq 'ADMIN'}">
+                    <c:when test="${userAuth ne 'MOKAPRO'}">
                     	<h4 class="mb-1 line-height-5">관리자</h4>
                      </c:when>
                     <c:otherwise>

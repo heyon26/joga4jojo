@@ -11,16 +11,31 @@
 
 
 <script>
-	function profileEdit() { // 프로필 수정
-		var url = "profileEdit.do";
-		window.open(url, "프로필 수정", "width=400, height=450");
+
+
+function uploadImage() { // 프로필 이미지 수정
+	var url = "uploadImageForm.do";
+	window.open(url, "이미지 수정", "width=700, height=450");
+}
+
+function insertImage() { // 프로필 이미지 삽입
+	var url = "insertImageForm.do";
+	window.open(url, "프로필 이미지 삽입", "width=500, height=450");
+}
+
+function profileEdit() { // 프로필 수정
+	var url = "profileEdit.do";
+	window.open(url, "프로필 수정", "width=400, height=450");
+}
+
+function updateAlert() {
+	var msg = confirm("수정하시겠습니까?");
+	if (msg) {
+		updateForm.action = "profileUpdate.do";
+		updateForm.userId.value = frm.userId.value;
+		updateForm.submit();
 	}
-	
-	function uploadImage(){
-		var url = "uploadImage.do";
-		window.open(url, "이미지 수정", "width=400, height=450");
-	}
-	
+}
 </script>
 </head>
 <jsp:include page="../main/topmenu.jsp" />
@@ -188,24 +203,23 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">프로필 이미지</label>
+                            <label class="col-lg-3 col-form-label form-control-label">프로필 이미지 삽입</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="file">
+                                <input class="form-control" id="insertImg" name="insertImg" type="button" value="프로필 이미지 삽입(Click!)" onclick="insertImage()">
+                            </div>
+                        </div>
+                        
+                        <!-- 함수 이름과 id,name 태그 이름이 동일하면 오류 발생. 주의할 것. -->
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">프로필 이미지 수정</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" id="uploadImg" name="uploadImg" type="button" value="프로필 이미지 수정(Click!)" onclick="uploadImage()">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">주소</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="" placeholder="Street">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label"></label>
-                            <div class="col-lg-6">
-                                <input class="form-control" type="text" value="" placeholder="City">
-                            </div>
-                            <div class="col-lg-3">
-                                <input class="form-control" type="text" value="" placeholder="State">
+                                <input class="form-control" type="text" value="" name="userAddress" placeholder="주소">
                             </div>
                         </div>
                        
