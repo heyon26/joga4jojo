@@ -131,12 +131,14 @@
 				    </div>
                   </div>
                     <table class="table table-hover table-striped">
-                        <tbody>                                    
+                        <tbody>     
+                        <c:forEach var="cvo" items="${list }">                              
                             <tr>
                                 <td>
-                                   <span class="float-right font-weight-bold">${vo.cateGoryA }</span>${vo.className }
+                                   <span class="float-right font-weight-bold">${cvo.cateGoryA }</span>${cvo.className }
                                 </td>
                             </tr>
+                        </c:forEach> 
                         </tbody> 
                     </table>
                 </div>

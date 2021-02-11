@@ -119,21 +119,23 @@
 				    </div>
                   </div>
                   
+                  <form id="frm" name="frm" method="post" action="myPageClass.do">
                     <table class="table table-hover table-striped">
                         <tbody> 
                         <!-- 신청한 클래스 출력 -->
                         <c:forEach var="cvo" items="${list }">
-                  	<input type="hidden" id="classcode" name="classcode" value="${cvo.classCode }">
-                            <tr id="${cvo.classCode }" class="pointer" onclick="location.href='myPageClass.do?classCode=${cvo.classCode}'">
+                            <tr>
                                 <td>
+                                	<input type="checkbox" name="classCode" value="${cvo.classCode }"> 
                                    <span class="float-right font-weight-bold">${cvo.cateGoryA }</span>${cvo.className }
                                 </td>
                             </tr>
                         </c:forEach>
                         <!-- 신청한 클래스 출력 -->
                         </tbody> 
-                        
                     </table>
+                    <input type="submit" value="찜하기">
+                    </form>
                 </div>
                 <div class="tab-pane" id="edit">
                     <form>

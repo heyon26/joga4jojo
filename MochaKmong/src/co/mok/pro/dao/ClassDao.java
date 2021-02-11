@@ -121,23 +121,27 @@ public class ClassDao extends DAO {
 	
 	// 찜한 클래스 선택
 	// 작성(김찬곤 / 210210)
-	public ClassVo selectFavClass(ClassVo vo) {
-		
-		String sql = "SELECT CLASS_NAME, CATEGORY_A FROM CLASS WHERE CLASS_CODE = ?";
-		
+	public ArrayList<ClassVo> selectFavClass() {
+		ArrayList<ClassVo> list = new ArrayList<ClassVo>();
+		String sql = "SELECT CLASS_CODE, CLASS_NAME, CATEGORY_A FROM CLASS";
+		ClassVo vo;
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getClassCode());
 			rs = psmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
+				vo = new ClassVo();
+				vo.setClassCode(rs.getInt("class_code"));
 				vo.setClassName(rs.getString("class_name"));
 				vo.setCateGoryA(rs.getString("category_a"));
+				list.add(vo);
 			}	
 		}catch(SQLException e) {
 			e.printStackTrace();
+		}finally {
+			close();
 		}
 		
-		return vo;
+		return list;
 	}
 	
 	//class 등록
