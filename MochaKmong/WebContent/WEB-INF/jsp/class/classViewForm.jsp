@@ -97,13 +97,25 @@
 				console.log($('#total').val());
 			    
 			  });
+		
 	})
 
+
+	
 	function applyClassDate() {
+		var result = true;
 		if('${user_id }'==""){
 			alert("로그인 후 신청 가능 합니다.");
 			location.href="loginForm.do";
+			return false;
 		}
+		if('${user_id }'!=null){
+		var classTime=$("#classTime option:selected").val();
+			alert(classTime);
+			$("#startTime").empty();
+			$("#startTime").val(classTime);
+		}
+		return result;
 	}
 	
 </script>
@@ -151,7 +163,11 @@
 			<h3 style="display:inline-block; font-weight:bold;color:black;">${vo.className }</h3>
 		</div>	
 		<form id="applyFrm" name="applyFrm" onsubmit="return applyClassDate()" action="applyViewForm.do" method="post">
-
+					<!-- 값 넘기기 위해서 hidden -->
+						<input type="hidden" name="classCode" id="classCode" value="${vo.classCode }">
+						<input type="hidden" name="startTime" id="startTime"> 
+						<input type="hidden" name="className" id="className" value=${vo.className }>
+								
 			<div class="cul" align="right">
 					<p style="display:inline-block; font-weight:bold; color:#6c757d;">1인 금액 </p>&nbsp;&nbsp;&nbsp;
 					<input  type="text" name="add1" id="add1" value="${vo.classPrice }" readonly> 원
@@ -160,26 +176,21 @@
 					<input  type="text" class="input--style-4 numPerson" id="add2" name="add2" placeholder="인원" value="" required="required">&nbsp;명
 					<p style="font-weight:bold; color:#6c757d;"> 결제 예정 금액 &nbsp; <input type="text" id="total" name="total" readonly>&nbsp;원</p>	
 					
-						<select class="form-control01" >
+						<select class="form-control01" id="classTime" >
+								<option>날짜 선택</option>
 								<c:if test="${not empty list }">
 									<c:forEach var="clist" items="${list }">
-								 	<c:if test="${clist.startTime == null && clist.possibleNumber==0 }">
-								 		<option>날짜 선택</option>
-								 		<option disabled>선택가능한 일자가 없습니다.</option>
-								 	</c:if>
+									 	<c:if test="${clist.startTime == null && clist.possibleNumber==0 }">
+									 		<option disabled>선택가능한 일자가 없습니다.</option>
+									 	</c:if>
 								 	<c:if test="${clist.possibleNumber!= 0 }">
-								 		<option>날짜 선택</option>
-								 		<option> 신청일자 : ${clist.startTime } / 현재 신청가능인원 : ${clist.possibleNumber }</option>
+								 		<option value="${clist.startTime }"> 신청일자 : ${clist.startTime } / 현재 신청가능인원 : ${clist.possibleNumber }</option>
 								 	</c:if>
-								 	<!-- 값 넘기기 위해서 hidden -->
-										<input type="hidden" name="classCode" id="classCode" value="${clist.classCode }">
-										<input type="hidden" name="timeCode" id="timeCode" value="${clist.timeCode }">
-										<input type="hidden" name="startTime" id="startTime" value="${clist.startTime }">
-										<input type="hidden" name="className" id="className" value=${vo.className }>
+								 	
 								 </c:forEach>
 							 	</c:if>
 	  					</select>
-  					
+  							
 					<button type="submit" class="btn-secondary btn-sm"> 클래스 신청하기</button>
 				</div>
 			</div>

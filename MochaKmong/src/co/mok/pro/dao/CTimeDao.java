@@ -19,7 +19,7 @@ public class CTimeDao extends DAO {
 	public ArrayList<CTimeVo> applyOption(int code) {
 		ArrayList<CTimeVo> list = new ArrayList<CTimeVo>();
 		CTimeVo cvo;
-		String sql = "SELECT CT.TIME_CODE, CT.CLASS_CODE, TO_CHAR(ct.START_TIME,'YYYY/DD/MM') AS START_TIME, CT.FIXED_NUMBER, "
+		String sql = "SELECT CT.TIME_CODE, CT.CLASS_CODE, TO_CHAR(ct.START_TIME,'YYYY/MM/DD') AS START_TIME, CT.FIXED_NUMBER, "
 				+ "NVL(C.REGISTER_MEMBER,0) AS REGISTER_NUMBER, (CT.FIXED_NUMBER - NVL(C.REGISTER_MEMBER,0) ) AS POSSIBLE_NUMBER "
 				+ "FROM C_TIME CT, CLASS C WHERE CT.CLASS_CODE= C.CLASS_CODE AND CT.CLASS_CODE = ?";
 		try {
@@ -67,13 +67,12 @@ public class CTimeDao extends DAO {
 	}
 	
 	//클래스 결제 완료후  등록테이블에 등록
-	public int registerClass(CRegisterVo vo) {
+	public int registerClass(CRegisterVo vo,String startTime) {
 		int n=0;
-		String sql="INSERT INTO C_REGISTER VALUES(REGISTER_CODE_SEQ.NEXTVAL,?,? )";
+		String sql="INSERT INTO C_REGISTER VALUES(REGISTER_CODE_SEQ.NEXTVAL,?,(select time_code from c_time where start_time= "+startTime+" ))";
 		try {
 			psmt=conn.prepareStatement(sql);
 			psmt.setString(1, vo.getUserId());
-			psmt.setInt(2, vo.getTimeCode());
 			n=psmt.executeUpdate();
 			System.out.println(n+"개 행 register 테이블 업뎃 완료");
 		} catch (SQLException e) {
