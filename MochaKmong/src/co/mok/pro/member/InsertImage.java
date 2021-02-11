@@ -43,11 +43,8 @@ public class InsertImage extends HttpServlet implements Command{
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding(CHARSET);
 		String ATTACHES_DIR = request.getServletContext().getRealPath("image");
-<<<<<<< HEAD
 		System.out.println("나의 경로" + request.getServletContext().getRealPath("image"));
-=======
 		System.out.println(request.getServletContext().getRealPath("image"));
->>>>>>> refs/remotes/origin/changon
 		PrintWriter out = response.getWriter();
 		String contentType = request.getContentType();
 		
@@ -104,9 +101,10 @@ public class InsertImage extends HttpServlet implements Command{
 	}
 
 	@Override
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 }

@@ -54,7 +54,6 @@ public class ClassDao extends DAO {
 	}
 	
 	
-	
 	//class 목록 중 1개 생성 (class_code로 검색)
 	
 	public ClassVo selectClass(ClassVo vo) {
@@ -105,10 +104,7 @@ public class ClassDao extends DAO {
 			
 			while(rs.next()) {
 				vo = new ClassVo();
-<<<<<<< HEAD
 				vo.setClassCode(rs.getInt("class_code"));
-=======
->>>>>>> refs/remotes/origin/changon
 				vo.setClassName(rs.getString("class_name"));
 				vo.setCateGoryA(rs.getString("category_a"));
 				list.add(vo);
@@ -127,7 +123,7 @@ public class ClassDao extends DAO {
 	// 작성(김찬곤 / 210210)
 	public ArrayList<ClassVo> selectFavClass() {
 		ArrayList<ClassVo> list = new ArrayList<ClassVo>();
-		String sql = "SELECT CLASS_CODE, CLASS_NAME, CATEGORY_A FROM CLASS";
+		String sql = "SELECT CLASS_CODE, CLASS_NAME, CATEGORY_A, CATEGORY_B FROM CLASS";
 		ClassVo vo;
 		try {
 			psmt = conn.prepareStatement(sql);
@@ -137,15 +133,51 @@ public class ClassDao extends DAO {
 				vo.setClassCode(rs.getInt("class_code"));
 				vo.setClassName(rs.getString("class_name"));
 				vo.setCateGoryA(rs.getString("category_a"));
+				vo.setCateGoryB(rs.getNString("category_b"));
 				list.add(vo);
 			}	
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+	
+	// 찜한 클래스로 상태 변경
+	// category_b에 '찜한 클래스' 입력
+	public int confirmFavClass(ClassVo vo) {
+		int n = 0;
+		String sql = "UPDATE CLASS SET CATEGORY_B = '찜한 클래스' WHERE CLASS_CODE = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getClassCode());
+			n = psmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return n;
+	}
+	
+	//찜한 클래스 취소
+	//category_b값 '찜한 클래스' -> null로 변경
+	public int cancelFavClass(ClassVo vo) {
+		int n = 0;
+		
+		String sql = "UPDATE CLASS SET CATEGORY_B = '' WHERE CLASS_CODE = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getClassCode());
+			n = psmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {
 			close();
 		}
 		
-		return list;
+		return n;
 	}
 	
 	//class 등록

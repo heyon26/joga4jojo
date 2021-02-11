@@ -11,42 +11,24 @@ import co.mok.pro.vo.ImageVo;
 public class InsertImageDo implements Command {
 
 	@Override
-<<<<<<< HEAD
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// 진짜로 이미지 삽입
-		
+
 		ImageDAO dao = new ImageDAO();
 		ImageVo ivo = new ImageVo();
-		
+
 		HttpSession session = request.getSession();
 		ivo.setUserId(session.getAttribute("user_id").toString());
 		ivo.setImage("image");
-		
+
 		String viewPage = null;
 		int n = dao.InsertImage(ivo);
-		if(n != 0) {
+		if (n != 0) {
 			viewPage = "member/myPageInfo";
 			request.setAttribute("ivo", ivo);
 		}
-=======
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// 진짜 진짜 프로필 이미지 삽입
 		
-		ImageDAO dao = new ImageDAO();
-		ImageVo ivo = new ImageVo();
-		
-		HttpSession session = request.getSession();
-		ivo.setUserId(session.getAttribute("user_id").toString());
-		ivo.setImage(request.getParameter("image"));
-		
-		String viewPage = null;
-		int n = dao.InsertImage(ivo);
-		if(n != 0) {
-			viewPage = "member/myPage";
-			request.setAttribute("ivo", ivo);
-		}	
->>>>>>> refs/remotes/origin/changon
 		return viewPage;
-	}
 
+	}
 }

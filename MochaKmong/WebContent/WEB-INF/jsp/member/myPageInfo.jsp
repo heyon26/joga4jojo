@@ -53,11 +53,8 @@
               <div class="card-body text-center bg-primary rounded-top">
                <div class="user-box">
                <div class="profileImage" style="background:#FFFFFF;">
-<<<<<<< HEAD
                		<img src="assets/img/mypage/profile.png" name="image">
-=======
                		<img src="C:\Users\admin\git\joga4jojo\MochaKmong\WebContent\image + ${ivo.image }" class="image" name="image">
->>>>>>> refs/remotes/origin/changon
                </div>
               </div>
               <div class="space"></div>

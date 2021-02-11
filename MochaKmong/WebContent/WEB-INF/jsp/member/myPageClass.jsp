@@ -9,18 +9,10 @@
 <link rel="stylesheet" href="assets/css/mypage.css">
 <title>수강생 마이페이지</title>
 
-<script>
-	function profileEdit() { // 프로필 수정
-		var url = "profileEdit.do";
-		window.open(url, "프로필 수정", "width=400, height=450");
-	}
-	
-	function uploadImage(){
-		var url = "uploadImage.do";
-		window.open(url, "이미지 수정", "width=400, height=450");
-	}
-	
-</script>
+<style>
+	#pointer{cursor:pointer}
+</style>
+
 </head>
 <jsp:include page="../main/topmenu.jsp" />
 <body>
@@ -133,7 +125,7 @@
                     <table class="table table-hover table-striped">
                         <tbody>     
                         <c:forEach var="cvo" items="${list }">                              
-                            <tr>
+                            <tr id="pointer" onclick="location.href='myPageClassDelete.do?classCode=${cvo.classCode}'">
                                 <td>
                                    <span class="float-right font-weight-bold">${cvo.cateGoryA }</span>${cvo.className }
                                 </td>
