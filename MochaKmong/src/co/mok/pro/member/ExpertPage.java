@@ -13,7 +13,11 @@ import co.mok.pro.vo.ClassVo;
 public class ExpertPage implements Command {
 
 	@Override
+<<<<<<< HEAD
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
+=======
+	public String exec(HttpServletRequest request, HttpServletResponse response) {
+>>>>>>> refs/remotes/origin/changon
 		// 강사 페이지 호출
 		
 		ArrayList<ClassVo> list = new ArrayList<ClassVo>();
@@ -28,5 +32,6 @@ public class ExpertPage implements Command {
 		
 		return "member/myPageExpert";
 	}
+
 
 }

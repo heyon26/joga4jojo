@@ -77,7 +77,7 @@ public class imageUpload extends HttpServlet {
 
 			out.println("/MochaKmong/upload/"+fileName);
 		} else {
-			out.println("<h1>enctype이 multipart/form-data가  아님</h1>");
+			out.println("<h1>enctype이 multipart/form-data가 아님</h1>");
 		}
 	}
 

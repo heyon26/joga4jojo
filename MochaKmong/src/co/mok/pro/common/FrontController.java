@@ -36,6 +36,10 @@ import co.mok.pro.classes.CreateClassView;
 import co.mok.pro.main.MainService;
 import co.mok.pro.main.MainServiceTest;
 import co.mok.pro.member.ExpertPage;
+<<<<<<< HEAD
+=======
+import co.mok.pro.member.InsertImage;
+>>>>>>> refs/remotes/origin/changon
 import co.mok.pro.member.InsertImageDo;
 import co.mok.pro.member.InsertImageForm;
 import co.mok.pro.member.MyPage;
@@ -130,7 +134,13 @@ public class FrontController extends HttpServlet {
 		map.put("/profileUpdate.do", new ProfileUpdate()); // 프로필 업데이트
 		map.put("/uploadImageForm.do", new UploadImageForm()); // 프로필 이미지 업로드 폼 호출
 		map.put("/uploadImage.do", new UploadImage()); // 프로필 이미지 업로드 실행
+<<<<<<< HEAD
 		map.put("/InsertImageDo.do", new InsertImageDo()); // 프로필 이미지 삽입
+=======
+		map.put("/insertImageForm.do", new InsertImageForm()); // 프로필 이미지 삽입 폼 호출
+		map.put("/insertImage.do",new InsertImage()); // 프로필 이미지 삽입 실행
+		map.put("/InsertImageDo.do", new InsertImageDo()); // 진짜 진짜 프로필 이미지 삽입 실행
+>>>>>>> refs/remotes/origin/changon
 
 		map.put("/logout.do", new Logout()); // 로그아웃
 		map.put("/findPwForm.do", new FindPwForm()); // 비밀번호 찾기 폼
@@ -146,10 +156,13 @@ public class FrontController extends HttpServlet {
 		map.put("/createClassView.do", new CreateClassView());
 		map.put("/createClass.do", new CreateClass());
 
+<<<<<<< HEAD
 		map.put("/createPlaceView.do", new CreatePlaceView());
 
 		map.put("/insertImageForm.do", new InsertImageForm()); // 프로필 이미지 삽입 폼 호출
 		// map.put("/insertImage.do",new InsertImage()); // 프로필 이미지 삽입 실행
+=======
+>>>>>>> refs/remotes/origin/changon
 
 	}
 

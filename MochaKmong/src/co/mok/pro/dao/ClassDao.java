@@ -102,9 +102,13 @@ public class ClassDao extends DAO {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			rs = psmt.executeQuery();
+			
 			while(rs.next()) {
 				vo = new ClassVo();
+<<<<<<< HEAD
 				vo.setClassCode(rs.getInt("class_code"));
+=======
+>>>>>>> refs/remotes/origin/changon
 				vo.setClassName(rs.getString("class_name"));
 				vo.setCateGoryA(rs.getString("category_a"));
 				list.add(vo);

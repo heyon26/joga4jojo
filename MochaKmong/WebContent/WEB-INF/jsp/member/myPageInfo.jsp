@@ -1,3 +1,5 @@
+<%@page import="co.mok.pro.vo.ImageVo"%>
+<%@page import="co.mok.pro.dao.ImageDAO"%>
 <%@page import="co.mok.pro.vo.UserVo"%>
 <%@page import="co.mok.pro.dao.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -35,7 +37,9 @@
 	UserVo vo = new UserVo();
 	
 	vo = dao.getUserInfo(id);
+	
 %>
+
 
 <!-- 로그인 세션값 호출 -->
 
@@ -49,7 +53,11 @@
               <div class="card-body text-center bg-primary rounded-top">
                <div class="user-box">
                <div class="profileImage" style="background:#FFFFFF;">
+<<<<<<< HEAD
                		<img src="assets/img/mypage/profile.png" name="image">
+=======
+               		<img src="C:\Users\admin\git\joga4jojo\MochaKmong\WebContent\image + ${ivo.image }" class="image" name="image">
+>>>>>>> refs/remotes/origin/changon
                </div>
               </div>
               <div class="space"></div>

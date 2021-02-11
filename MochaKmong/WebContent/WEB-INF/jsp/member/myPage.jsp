@@ -26,8 +26,12 @@
 		window.open(url, "이미지 수정", "width=400, height=450");
 	}
 	
+<<<<<<< HEAD
 
 
+=======
+	
+>>>>>>> refs/remotes/origin/changon
 </script>
 </head>
 <jsp:include page="../main/topmenu.jsp" />
@@ -122,7 +126,11 @@
                   <form id="frm" name="frm" method="post" action="myPageClass.do">
                     <table class="table table-hover table-striped">
                         <tbody> 
+<<<<<<< HEAD
                         <!-- 신청한 클래스 출력 -->
+=======
+                        
+>>>>>>> refs/remotes/origin/changon
                         <c:forEach var="cvo" items="${list }">
                             <tr>
                                 <td>

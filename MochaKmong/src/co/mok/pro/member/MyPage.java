@@ -9,6 +9,10 @@ import javax.servlet.http.HttpSession;
 import co.mok.pro.common.Command;
 import co.mok.pro.dao.ClassDao;
 import co.mok.pro.vo.ClassVo;
+<<<<<<< HEAD
+=======
+import co.mok.pro.vo.UserVo;
+>>>>>>> refs/remotes/origin/changon
 
 public class MyPage implements Command {
 
@@ -46,9 +50,16 @@ public class MyPage implements Command {
 		
 		HttpSession session = request.getSession();
 		String id = session.getAttribute("user_id").toString();
+<<<<<<< HEAD
 		System.out.println("아이디" + id);
 
+=======
+>>>>>>> refs/remotes/origin/changon
 		list = dao.selectUserClassList(id);
+<<<<<<< HEAD
+=======
+		request.setAttribute("list", list);
+>>>>>>> refs/remotes/origin/changon
 		
 		request.setAttribute("list", list);
 
