@@ -557,14 +557,15 @@ public class ClassDao extends DAO {
 	// 클래스 일자별 등록(c_time)
 	public int classTime(ArrayList<CTimeVo> list) {
 		int rs = 0;
-		String sql = "INSERT INTO C_TIME(TIME_CODE, START_TIME, CLASS_CODE, FIXED_NUMBER) "
-				+ "VALUES(C_TIME_SEQ.NEXTVAL, TO_DATE(?,'YYYY-MM-DD'), ?, ?)";
+		String sql = "INSERT INTO C_TIME(TIME_CODE, START_TIME, CLASS_CODE, FIXED_NUMBER,possible_number) "
+				+ "VALUES(C_TIME_SEQ.NEXTVAL, TO_DATE(?,'YYYY-MM-DD'), ?, ?, ?)";
 		try {
 			for (CTimeVo vo : list) {
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, vo.getStartTime());
 				psmt.setInt(2, vo.getClassCode());
 				psmt.setInt(3, vo.getFixedNumber());
+				psmt.setInt(4, vo.getFixedNumber());
 				rs += psmt.executeUpdate();
 			}
 		} catch (SQLException e) {

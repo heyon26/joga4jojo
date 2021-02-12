@@ -13,21 +13,21 @@
     <script>
     $(function(){
         var IMP = window.IMP; // 생략가능
-        IMP.init('iamport'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+        IMP.init('imp39955886'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
         var msg;
         
         IMP.request_pay({
-            pg : 'kakaopay',
+            pg : 'inicis',
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
-            name : '${cName}',
-            amount : '${tPrice}',
-            buyer_id : '${id}'
-<%--             buyer_name : '<%=name%>',
-            buyer_tel : '<%=phone%>',
-            buyer_addr : '<%=address%>',
-            buyer_postcode : '123-456', --%>
-            //m_redirect_url : 'http://www.naver.com'
+            name : '${cName }',
+            amount : ${tPrice },
+            buyer_name : '${id }',
+            buyer_name : '테스트',
+            buyer_tel : '010-0000-0000',
+            buyer_addr : '대구광역시 중구 블라블라 블라블라',
+            buyer_postcode : '123-456',
+            m_redirect_url : 'http://localhost:80'
         }, function(rsp) {
             if ( rsp.success ) {
                 //[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
@@ -55,12 +55,13 @@
                     }
                 });
                 //성공시 이동할 페이지
-                location.href='<%=request.getContextPath()%>/order/paySuccess?msg='+msg;
+                alert(msg);
+                location.href='<%=request.getContextPath()%>/order/paySuccess.jsp?msg='+msg;
             } else {
                 msg = '결제에 실패하였습니다.';
                 msg += '에러내용 : ' + rsp.error_msg;
                 //실패시 이동할 페이지
-                location.href="<%=request.getContextPath()%>/order/payFail";
+                location.href="<%=request.getContextPath()%>/payFail";
                 alert(msg);
             }
         });

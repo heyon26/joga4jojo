@@ -149,7 +149,6 @@ public class FrontController extends HttpServlet {
 		map.put("/classViewForm.do", new ClassViewForm()); //클래스 상세보기 
 		map.put("/applyViewForm.do", new ApplyViewForm()); //클래스 신청 페이지(결제 하기 전)
 		map.put("/payClass.do", new PayClass());//신청과 결제 페이지 
-
 		map.put("/createPlaceView.do", new CreatePlaceView());
 
 		map.put("/insertImageForm.do", new InsertImageForm()); // 프로필 이미지 삽입 폼 호출

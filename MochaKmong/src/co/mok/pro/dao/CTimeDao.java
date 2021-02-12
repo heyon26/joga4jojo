@@ -18,10 +18,9 @@ public class CTimeDao extends DAO {
 	//클래스 신청 옵션 불러오기
 	public ArrayList<CTimeVo> applyOption(int code) {
 		ArrayList<CTimeVo> list = new ArrayList<CTimeVo>();
-		CTimeVo cvo;
-		String sql = "SELECT CT.TIME_CODE, CT.CLASS_CODE, TO_CHAR(ct.START_TIME,'YYYY/MM/DD') AS START_TIME, CT.FIXED_NUMBER, "
-				+ "NVL(C.REGISTER_MEMBER,0) AS REGISTER_NUMBER, (CT.FIXED_NUMBER - NVL(C.REGISTER_MEMBER,0) ) AS POSSIBLE_NUMBER "
-				+ "FROM C_TIME CT, CLASS C WHERE CT.CLASS_CODE= C.CLASS_CODE AND CT.CLASS_CODE = ?";
+		CTimeVo cvo;		
+		String sql = "SELECT TIME_CODE, CLASS_CODE, TO_CHAR(START_TIME,'YYYY/MM/DD') AS START_TIME, FIXED_NUMBER, REGISTER_NUMBER, POSSIBLE_NUMBER "
+				+ " FROM C_TIME  WHERE class_CODE = ?";
 		try {
 			psmt=conn.prepareStatement(sql);
 			psmt.setInt(1, code);
@@ -44,35 +43,18 @@ public class CTimeDao extends DAO {
 		
 	}
 	
-	//클래스 결제 완료 후 해당 클래스에 등록인원 수 넣기
-	public int updateRgstNum(CTimeVo vo) {
-		int n=0;
-		String sql ;
-		try {
-			sql="UPDATE CLASS SET REGISTER_NUMBER= ? WHERE CLASS_CODE= ? and start_time=?";
-			psmt=conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getRegisterNumber());
-			psmt.setInt(2, vo.getClassCode());
-			psmt.setString(3, vo.getStartTime());
-			n=psmt.executeUpdate();
-			System.out.println(n+"개 행 class table 업데이트 완료");
-			
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return n;
-	}
 	
-	//클래스 결제 완료후  등록테이블에 등록
-	public int registerClass(CRegisterVo vo,String startTime) {
+	//클래스 결제 완료후  등록테이블에 등록 (트리거 생성 되어있어서 c_register에 insert 되면 자동으로 c_time의 register_number 업데이트 )
+	public int registerClass(String id,String startTime, int cCode, int registerNumber) {
 		int n=0;
-		String sql="INSERT INTO C_REGISTER VALUES(REGISTER_CODE_SEQ.NEXTVAL,?,(select time_code from c_time where start_time= "+startTime+" ))";
+		String sql="INSERT INTO C_REGISTER VALUES(REGISTER_CODE_SEQ.NEXTVAL,?,(select time_code from c_time where start_time= to_date(?,'yyyy/mm/dd') and class_code= ? ),?)";
 		try {
 			psmt=conn.prepareStatement(sql);
-			psmt.setString(1, vo.getUserId());
+			psmt.setString(1, id);
+			psmt.setString(2, startTime);
+			psmt.setInt(3, cCode);
+			psmt.setInt(4, registerNumber);
+			
 			n=psmt.executeUpdate();
 			System.out.println(n+"개 행 register 테이블 업뎃 완료");
 		} catch (SQLException e) {
@@ -81,15 +63,19 @@ public class CTimeDao extends DAO {
 		return n;
 	}
 	
+
+	
+	
+	
 	//클래스 결제 결과 등록 
-	public int payClassPrice(PaymentVo vo) {
+	public int payClassPrice(int rCode, String sTime, int totalPrice) {
 		int n=0;
-		String sql = "insert into payment values(pay_seq.nextval,?,?,?,sysdate,'카드결제'";
+		String sql = "insert into payment values(pay_seq.nextval,?,?,?,sysdate,'카드결제')";
 		try {
 			psmt=conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getRegisterCode());
-			psmt.setString(2, vo.getUserId());
-			psmt.setInt(3, vo.getMoney());
+			psmt.setInt(1, rCode);
+			psmt.setString(2, sTime);
+			psmt.setInt(3, totalPrice);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

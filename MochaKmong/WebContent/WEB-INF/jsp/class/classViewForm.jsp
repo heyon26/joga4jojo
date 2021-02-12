@@ -166,7 +166,7 @@
 					<!-- 값 넘기기 위해서 hidden -->
 						<input type="hidden" name="classCode" id="classCode" value="${vo.classCode }">
 						<input type="hidden" name="startTime" id="startTime"> 
-						<input type="hidden" name="className" id="className" value=${vo.className }>
+						<input type="hidden" name="className" id="className" value="${vo.className }">
 								
 			<div class="cul" align="right">
 					<p style="display:inline-block; font-weight:bold; color:#6c757d;">1인 금액 </p>&nbsp;&nbsp;&nbsp;
@@ -180,13 +180,10 @@
 								<option>날짜 선택</option>
 								<c:if test="${not empty list }">
 									<c:forEach var="clist" items="${list }">
-									 	<c:if test="${clist.startTime == null && clist.possibleNumber==0 }">
-									 		<option disabled>선택가능한 일자가 없습니다.</option>
-									 	</c:if>
-								 	<c:if test="${clist.possibleNumber!= 0 }">
+<%-- 									<c:if test="${clist.startTime == null || clist.possibleNumber==0 }">
+									 		<option>선택가능한 일자가 없습니다.</option>
+									 	</c:if> --%>
 								 		<option value="${clist.startTime }"> 신청일자 : ${clist.startTime } / 현재 신청가능인원 : ${clist.possibleNumber }</option>
-								 	</c:if>
-								 	
 								 </c:forEach>
 							 	</c:if>
 	  					</select>

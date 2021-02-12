@@ -44,7 +44,7 @@
                 <div class="card-body">
                     <form name="payFrm" id="payFrm" method="POST" action="payClass.do">
                     <input type="hidden" name="cCode" id="cCode" value="${classCode }">
-                    <input type="hidden"name="tCode" id="tCode" value="${timeCode }">
+                    <%-- <input type="hidden"name="tCode" id="tCode" value="${timeCode }"> --%>
                         <div class="form-row m-b-55">
                             <div class="name">신청클래스</div>
                             <div class="value">
