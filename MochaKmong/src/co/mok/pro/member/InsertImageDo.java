@@ -19,8 +19,9 @@ public class InsertImageDo implements Command {
 
 		HttpSession session = request.getSession();
 		ivo.setUserId(session.getAttribute("user_id").toString());
+		
 		ivo.setImage("image");
-
+		
 		String viewPage = null;
 		int n = dao.InsertImage(ivo);
 		if (n != 0) {

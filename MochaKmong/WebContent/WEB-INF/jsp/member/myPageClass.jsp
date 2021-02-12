@@ -127,6 +127,9 @@
                         <c:forEach var="cvo" items="${list }">                              
                             <tr id="pointer" onclick="location.href='myPageClassDelete.do?classCode=${cvo.classCode}'">
                                 <td>
+                                   <c:if test="${cvo.cateGoryB eq '찜한 클래스' }">
+                                   &#10084;<span class="float-right font-weight-bold">${cvo.cateGoryA }</span>${cvo.className }
+                                   </c:if>
                                    <span class="float-right font-weight-bold">${cvo.cateGoryA }</span>${cvo.className }
                                 </td>
                             </tr>

@@ -54,7 +54,7 @@
                <div class="user-box">
                <div class="profileImage" style="background:#FFFFFF;">
                		<img src="assets/img/mypage/profile.png" name="image">
-               		<img src="C:\Users\admin\git\joga4jojo\MochaKmong\WebContent\image + ${ivo.image }" class="image" name="image">
+               		<img src="C:\Users\admin\git\joga4jojo\MochaKmong\WebContent\image\${ivo.image }" class="image" name="image">
                </div>
               </div>
               <div class="space"></div>

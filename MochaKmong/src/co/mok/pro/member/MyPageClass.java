@@ -21,13 +21,13 @@ public class MyPageClass implements Command {
 		
 		list = dao.selectFavClass();
 		System.out.println("선택된 클래스 정보" + list);
-		request.setAttribute("list", list);
 		
 		vo.setClassCode(Integer.parseInt(request.getParameter("classCode")));
 		int n = dao.confirmFavClass(vo);
 		String viewPage = null;
 		if(n != 0) {
 			viewPage = "member/myPageClass";
+			request.setAttribute("list", list);
 		}
 		
 		return viewPage;

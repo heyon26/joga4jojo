@@ -27,7 +27,7 @@ public class MyPageClassDelete implements Command {
 		String viewPage = null;
 
 		if (n != 0) {
-			viewPage = "member/myPage";
+			viewPage = "member/myPageClass";
 			request.setAttribute("list", list);
 		}
 
