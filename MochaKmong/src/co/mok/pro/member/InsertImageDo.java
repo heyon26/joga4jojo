@@ -20,13 +20,18 @@ public class InsertImageDo implements Command {
 		HttpSession session = request.getSession();
 		ivo.setUserId(session.getAttribute("user_id").toString());
 		
-		ivo.setImage("image");
+		ivo.setImage("filename");
+		System.out.println("업로드 하려는 파일 이름 " + ivo);
+		
+		String filepath = request.getServletContext().getRealPath("image");
+		System.out.println("image 파일 경로입니다 " + filepath);
 		
 		String viewPage = null;
 		int n = dao.InsertImage(ivo);
 		if (n != 0) {
 			viewPage = "member/myPageInfo";
 			request.setAttribute("ivo", ivo);
+			request.setAttribute("filepath", filepath);
 		}
 		
 		return viewPage;
