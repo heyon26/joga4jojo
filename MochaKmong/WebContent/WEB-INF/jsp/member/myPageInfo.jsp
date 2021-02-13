@@ -53,8 +53,8 @@
               <div class="card-body text-center bg-primary rounded-top">
                <div class="user-box">
                <div class="profileImage" style="background:#FFFFFF;">
-               		<!-- <img src="assets/img/mypage/profile.png" name="image"> -->
-               		<img src="${filepath}/${ivo.image}" class="image" name="image">
+               		<img src="assets/img/mypage/profile.png" name="image">
+               		<%-- <img src="${filepath}/${ivo.image}" class="image" name="image"> 이미지 업로드 작업 중--%>
                </div>
               </div>
               <div class="space"></div>

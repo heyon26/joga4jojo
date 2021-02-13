@@ -213,7 +213,8 @@ public class ClassDao extends DAO {
 	public ArrayList<ClassVo> selectClassList(String condition){
 		ArrayList<ClassVo> list= new ArrayList<ClassVo>();
 		ClassVo vo;
-		String sql = "SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) WHERE C.CATEGORY_A LIKE '%'||?||'%' OR C.CLASS_NAME LIKE '%'||?||'%' OR A.AREA_NAME LIKE '%'||?||'%'";
+		String sql = "SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) "
+				+ "WHERE C.CATEGORY_A LIKE '%'||?||'%' OR C.CLASS_NAME LIKE '%'||?||'%' OR A.AREA_NAME LIKE '%'||?||'%'";
 		
 		try {
 			psmt=conn.prepareStatement(sql);
@@ -253,6 +254,7 @@ public class ClassDao extends DAO {
 	
 	
 	//검색바에서 radio값으로 검색시에 사용 --사용함
+	//송예솔 20210209 16:45 sql구문 수정함.
 		public ArrayList<ClassVo> searchClassList1(String condition1, String condition2){ //condition1=지역, condition2=카테고리
 			ArrayList<ClassVo> list= new ArrayList<ClassVo>();
 			ClassVo vo;
@@ -264,88 +266,98 @@ public class ClassDao extends DAO {
 				String a3 =null;
 				
 				if (condition1.equals("all") && condition2.equals("all")) {
-					 sql ="select c.*, a.area_name from class c, area a where a.area_code=c.area_code";
-//					sql="select * from("
-//							+ " select  rownum as rnum , c.* from "
-//							+ " (select c.*, a.area_name from class c, area a where a.area_code=c.area_code order by class_code desc) c  )"
-//							+ " where rnum >= "+ startrow +" and "+ "rnum <=" + endrow ;
+					 sql ="SELECT C.*, A.AREA_NAME FROM CLASS C, AREA A WHERE A.AREA_CODE=C.AREA_CODE";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("서울/경기/인천") &&condition2.equals(condition2)) {
 					 a1 = "서울";
 					 a2 ="경기";
 					 a3 ="인천";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%' and a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) "
+					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND (A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%' OR A.AREA_NAME LIKE '%"+a3+"%')";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("대전/세종/충청")  &&condition2.equals(condition2)) { 
 					 a1 = "대전";
 					 a2 ="세종";
 					 a3 ="충청";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%' and a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) "
+					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND (A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%' OR A.AREA_NAME LIKE '%"+a3+"%')";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("강원") &&condition2.equals(condition2)) { 
 					 a1 = "강원";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%' and a.area_name like '%"+a1+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) "
+					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND A.AREA_NAME LIKE '%"+a1+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("광주/전라") &&condition2.equals(condition2)) { 
 					 a1 = "광주";
 					 a2 ="전라";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%' and a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) "
+					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND (A.AREA_NAME LIKE '%"+a1+"%' or a.area_name like '%"+a2+"%')";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("대구/경북") &&condition2.equals(condition2)) {
 					 a1 = "대구";
 					 a2 ="경상북";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%' and a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) "
+					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND (A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%')";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("부산/울산/경남") &&condition2.equals(condition2)) {
 					 a1 = "부산";
 					 a2 ="울산";
 					 a3 ="경상남";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%' and a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) "
+					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND (A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%' OR A.AREA_NAME LIKE '%"+a3+"%')";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("제주") &&condition2.equals(condition2)) {
 					 a1 = "제주";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%' and a.area_name like '%"+a1+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) "
+					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%' AND A.AREA_NAME LIKE '%"+a1+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("all")&& condition2.equals(condition2)) {
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like'%"+condition2+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) "
+					 		+ "WHERE C.CATEGORY_A LIKE'%"+condition2+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 } 
-				
 				 else if(condition1.equals("서울/경기/인천") &&condition2.equals("all")) {
 					 a1 = "서울";
 					 a2 ="경기";
 					 a3 ="인천";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) "
+					 		+ "where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("대전/세종/충청")  &&condition2.equals("all")) { 
 					 a1 = "대전";
 					 a2 ="세종";
 					 a3 ="충청";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) "
+					 		+ "where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("강원") &&condition2.equals("all")) { 
 					 a1 = "강원";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%'";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) "
+					 		+ "where a.area_name like '%"+a1+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("광주/전라") &&condition2.equals("all")) { 
 					 a1 = "광주";
 					 a2 ="전라";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%'";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) "
+					 		+ "where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("대구/경북") &&condition2.equals("all")) {
 					 a1 = "대구";
 					 a2 ="경상북";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%'";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) "
+					 		+ "where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("부산/울산/경남") &&condition2.equals("all")) {
 					 a1 = "부산";
 					 a2 ="울산";
 					 a3 ="경상남";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) wherea.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) "
+					 		+ "wherea.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(condition1.equals("제주") &&condition2.equals("all")) {
 					 a1 = "제주";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%'";
+					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) "
+					 		+ "where a.area_name like '%"+a1+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }
 				rs=psmt.executeQuery();
@@ -471,46 +483,46 @@ public class ClassDao extends DAO {
 				String a3 =null;
 				
 				 if(option != 0 && condition.equals("all")) {
-					 sql ="select c.*, a.area_name from class c, area a where a.area_code=c.area_code";
+					 sql ="SELECT C.*, A.AREA_NAME FROM CLASS C, AREA A WHERE A.AREA_CODE=C.AREA_CODE";
 					 psmt=conn.prepareStatement(sql);	
 				 }else if(option==1 ) {
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where c.category_a like '%"+condition+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) WHERE C.CATEGORY_A LIKE '%"+condition+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(option==2 && condition.equals("서울/경기/인천")) {
 					 a1 = "서울";
 					 a2 ="경기";
 					 a3 ="인천";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) WHERE A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%' OR A.AREA_NAME LIKE '%"+a3+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(option==2 && condition.equals("대전/세종/충청")) { 
 					 a1 = "대전";
 					 a2 ="세종";
 					 a3 ="충청";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) WHERE A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%' OR A.AREA_NAME LIKE '%"+a3+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(option==2 && condition.equals("강원")) { 
 					 a1 = "강원";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) WHERE A.AREA_NAME LIKE '%"+a1+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(option==2 && condition.equals("광주/전라")) { 
 					 a1 = "광주";
 					 a2 ="전라";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) WHERE A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(option==2 && condition.equals("대구/경북")) {
 					 a1 = "대구";
 					 a2 ="경상북";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) WHERE A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(option==2 && condition.equals("부산/울산/경남")) {
 					 a1 = "부산";
 					 a2 ="울산";
 					 a3 ="경상남";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%' or a.area_name like '%"+a2+"%' or a.area_name like '%"+a3+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) WHERE A.AREA_NAME LIKE '%"+a1+"%' OR A.AREA_NAME LIKE '%"+a2+"%' OR A.AREA_NAME LIKE '%"+a3+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }else if(option==2 && condition.equals("제주")) {
 					 a1 = "제주";
-					 sql="select c.*, a.area_name from class c join area a on ( a.area_code=c.area_code ) where a.area_name like '%"+a1+"%'";
+					 sql="SELECT C.*, A.AREA_NAME FROM CLASS C JOIN AREA A ON ( A.AREA_CODE=C.AREA_CODE ) WHERE A.AREA_NAME LIKE '%"+a1+"%'";
 					 psmt=conn.prepareStatement(sql);
 				 }
 				 
@@ -603,14 +615,15 @@ public class ClassDao extends DAO {
 	// 클래스 일자별 등록(c_time)
 	public int classTime(ArrayList<CTimeVo> list) {
 		int rs = 0;
-		String sql = "INSERT INTO C_TIME(TIME_CODE, START_TIME, CLASS_CODE, FIXED_NUMBER) "
-				+ "VALUES(C_TIME_SEQ.NEXTVAL, TO_DATE(?,'YYYY-MM-DD'), ?, ?)";
+		String sql = "INSERT INTO C_TIME(TIME_CODE, START_TIME, CLASS_CODE, FIXED_NUMBER,possible_number) "
+				+ "VALUES(C_TIME_SEQ.NEXTVAL, TO_DATE(?,'YYYY-MM-DD'), ?, ?, ?)";
 		try {
 			for (CTimeVo vo : list) {
 				psmt = conn.prepareStatement(sql);
 				psmt.setString(1, vo.getStartTime());
 				psmt.setInt(2, vo.getClassCode());
 				psmt.setInt(3, vo.getFixedNumber());
+				psmt.setInt(4, vo.getFixedNumber());
 				rs += psmt.executeUpdate();
 			}
 		} catch (SQLException e) {
@@ -622,6 +635,8 @@ public class ClassDao extends DAO {
 
 		return rs;
 	}
+	
+
 
 	private void close() {
 		try {
