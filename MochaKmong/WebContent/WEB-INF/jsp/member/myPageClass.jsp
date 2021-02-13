@@ -42,7 +42,7 @@
                     <a href="myPage.do" data-target="#profile" data-toggle="pill" class="nav-link"><i class="icon-user"></i> <span class="hidden-xs">신청한 클래스</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="myPageMessage.do" data-target="#messages" data-toggle="pill" class="nav-link active show"><i class="icon-envelope-open"></i> <span class="hidden-xs">찜한 클래스</span></a>
+                    <a href="myPageClass.do" data-target="#messages" data-toggle="pill" class="nav-link active show"><i class="icon-envelope-open"></i> <span class="hidden-xs">찜한 클래스</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="myPageEdit.do" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">프로필 수정</span></a>
@@ -123,19 +123,24 @@
 				    </div>
                   </div>
                     <table class="table table-hover table-striped">
-                        <tbody>     
-                        <c:forEach var="cvo" items="${list }">                              
-                            <tr id="pointer" onclick="location.href='myPageClassDelete.do?classCode=${cvo.classCode}'">
+                        <tbody>
+                        <c:forEach var="vo" items="${list }">
+                            <tr id="pointer" onclick="location.href='myPageClassDelete.do?classCode=${vo.classCode}'">
                                 <td>
-                                   <c:if test="${cvo.cateGoryB eq '찜한 클래스' }">
-                                   &#10084;<span class="float-right font-weight-bold">${cvo.cateGoryA }</span>${cvo.className }
-                                   </c:if>
-                                   <span class="float-right font-weight-bold">${cvo.cateGoryA }</span>${cvo.className }
+                                   <span class="float-right font-weight-bold">${vo.cateGoryA }</span>${vo.className }
                                 </td>
                             </tr>
-                        </c:forEach> 
-                        </tbody> 
+                         </c:forEach>
+                          <c:if test="${empty list }">
+                            <tr>
+                                <td align="center">
+                                   <span class="float-right font-weight-bold"></span>- 찜한 클래스가 없습니다. -
+                                </td>
+                            </tr>
+                          </c:if>
+                        </tbody>
                     </table>
+                    
                 </div>
                 <div class="tab-pane" id="edit">
                     <form>

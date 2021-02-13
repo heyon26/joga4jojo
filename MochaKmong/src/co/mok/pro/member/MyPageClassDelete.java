@@ -1,13 +1,12 @@
 package co.mok.pro.member;
 
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.mok.pro.common.Command;
-import co.mok.pro.dao.ClassDao;
-import co.mok.pro.vo.ClassVo;
+import co.mok.pro.dao.FavClassDao;
+import co.mok.pro.vo.FavClassVo;
 
 public class MyPageClassDelete implements Command {
 
@@ -15,20 +14,15 @@ public class MyPageClassDelete implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// 찜한 클래스 취소(category_b값 '찜한 클래스' -> null로 변경)
 
-		ClassDao dao = new ClassDao();
-		ClassVo vo = new ClassVo();
-		ArrayList<ClassVo> list = new ArrayList<ClassVo>();
-
-		list = dao.selectFavClass();
-		System.out.println("선택된 클래스 정보" + list);
+		FavClassDao dao = new FavClassDao();
+		FavClassVo vo = new FavClassVo();
 		
 		vo.setClassCode(Integer.parseInt(request.getParameter("classCode")));
-		int n = dao.cancelFavClass(vo);
+		int n = dao.deleteFavClass(vo);
 		String viewPage = null;
 
 		if (n != 0) {
 			viewPage = "member/myPageClass";
-			request.setAttribute("list", list);
 		}
 
 		return viewPage;

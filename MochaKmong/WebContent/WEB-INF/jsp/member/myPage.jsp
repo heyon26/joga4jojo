@@ -15,23 +15,6 @@
 	}
 </style>
 
-<script type="text/javascript" src="./assets/js/vendor/jquery-1.12.4.min.js">
-
-	function valuecheck(check){
-		var isClassChk = false;
-		var arr_class = document.getElementsByName("classCode[]");
-		for(var i = 0; arr_class.length; i++){
-			if(arr_class[i].checked == true){
-				isClassChk = true;
-				break;
-			}	
-		}
-		else(!isClassChk){
-			alert("하나 이상의 클래스를 선택하세요.");
-			return false;
-		}
-	}
-</script>
 </head>
 <jsp:include page="../main/topmenu.jsp" />
 <body>
@@ -126,10 +109,10 @@
                     <table class="table table-hover table-striped">
                         <tbody> 
                         <!-- 신청한 클래스 출력 -->
-                            <tr id="pointer" onclick="location.href='myPageClass.do?classCode=${cvo.classCode}'">
+                            <tr id="pointer" onclick="location.href='insertFavClass.do?classCode=${cvo.classCode}'">
                                 <td>
-                                	<%-- <input type="checkbox" name="classCode[]" id="classCode" value="${cvo.classCode }"> --%> 
-                                   <span class="float-right font-weight-bold">${cvo.cateGoryA }</span>${cvo.className }
+                                   <span class="float-right font-weight-bold" name="categoryA">${cvo.cateGoryA }</span>
+                                   <span name="className">${cvo.className }</span>
                                 </td>
                             </tr>
                         

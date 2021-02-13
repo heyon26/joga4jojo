@@ -90,6 +90,24 @@ public class ClassDao extends DAO {
 		
 	}
 	
+	// 찜한 클래스로 이동
+	public int insertFavClass(int classCode) {
+		int n = 0;
+		String sql = "insert into favclass select class_code, user_id, class_name, category_a "
+				+ "from class where class_code = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, classCode);
+			n = psmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return n;
+	}
+	
+	
 	// 유저에 따른 클래스 목록 조회
 	// 작성(김찬곤 / 210209)
 	public ArrayList<ClassVo> selectUserClassList(String id){
@@ -117,67 +135,6 @@ public class ClassDao extends DAO {
 		}
 		
 		return list;
-	}
-	
-	// 찜한 클래스 선택
-	// 작성(김찬곤 / 210210)
-	public ArrayList<ClassVo> selectFavClass() {
-		ArrayList<ClassVo> list = new ArrayList<ClassVo>();
-		String sql = "SELECT CLASS_CODE, CLASS_NAME, CATEGORY_A, CATEGORY_B FROM CLASS";
-		ClassVo vo;
-		try {
-			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery();
-			while(rs.next()) {
-				vo = new ClassVo();
-				vo.setClassCode(rs.getInt("class_code"));
-				vo.setClassName(rs.getString("class_name"));
-				vo.setCateGoryA(rs.getString("category_a"));
-				vo.setCateGoryB(rs.getNString("category_b"));
-				list.add(vo);
-			}	
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}
-		
-		return list;
-	}
-	
-	// 찜한 클래스로 상태 변경
-	// category_b에 '찜한 클래스' 입력
-	public int confirmFavClass(ClassVo vo) {
-		int n = 0;
-		String sql = "UPDATE CLASS SET CATEGORY_B = '찜한 클래스' WHERE CLASS_CODE = ?";
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getClassCode());
-			n = psmt.executeUpdate();
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close();
-		}
-		return n;
-	}
-	
-	//찜한 클래스 취소
-	//category_b값 '찜한 클래스' -> null로 변경
-	public int cancelFavClass(ClassVo vo) {
-		int n = 0;
-		
-		String sql = "UPDATE CLASS SET CATEGORY_B = '' WHERE CLASS_CODE = ?";
-		
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getClassCode());
-			n = psmt.executeUpdate();
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close();
-		}
-		
-		return n;
 	}
 	
 	//class 등록

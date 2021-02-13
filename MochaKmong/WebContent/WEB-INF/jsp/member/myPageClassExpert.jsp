@@ -52,7 +52,7 @@
                     <a href="expertPage.do" data-target="#profile" data-toggle="pill" class="nav-link"><i class="icon-user"></i> <span class="hidden-xs">신청한 클래스</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="myPageMessage.do" data-target="#messages" data-toggle="pill" class="nav-link active show"><i class="icon-envelope-open"></i> <span class="hidden-xs">등록한 클래스</span></a>
+                    <a href="myPageClass.do" data-target="#messages" data-toggle="pill" class="nav-link active show"><i class="icon-envelope-open"></i> <span class="hidden-xs">등록한 클래스</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="myPageExpertEdit.do" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">프로필 수정</span></a>

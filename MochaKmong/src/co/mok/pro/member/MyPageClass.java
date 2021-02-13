@@ -1,13 +1,14 @@
 package co.mok.pro.member;
 
+
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import co.mok.pro.common.Command;
-import co.mok.pro.dao.ClassDao;
-import co.mok.pro.vo.ClassVo;
+import co.mok.pro.dao.FavClassDao;
+import co.mok.pro.vo.FavClassVo;
 
 public class MyPageClass implements Command {
 
@@ -15,22 +16,13 @@ public class MyPageClass implements Command {
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// Message 탭 호출
 			
-		ClassDao dao = new ClassDao();
-		ClassVo vo = new ClassVo();
-		ArrayList<ClassVo> list = new ArrayList<ClassVo>();
+		FavClassDao dao = new FavClassDao();
+		ArrayList<FavClassVo> list = new ArrayList<FavClassVo>();
 		
 		list = dao.selectFavClass();
-		System.out.println("선택된 클래스 정보" + list);
+		request.setAttribute("list", list);
+		return "member/myPageClass";
 		
-		vo.setClassCode(Integer.parseInt(request.getParameter("classCode")));
-		int n = dao.confirmFavClass(vo);
-		String viewPage = null;
-		if(n != 0) {
-			viewPage = "member/myPageClass";
-			request.setAttribute("list", list);
-		}
-		
-		return viewPage;
 	}
 
 }
