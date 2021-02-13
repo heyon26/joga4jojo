@@ -9,18 +9,10 @@
 <link rel="stylesheet" href="assets/css/mypage.css">
 <title>수강생 마이페이지</title>
 
-<script>
-	function profileEdit() { // 프로필 수정
-		var url = "profileEdit.do";
-		window.open(url, "프로필 수정", "width=400, height=450");
-	}
-	
-	function uploadImage(){
-		var url = "uploadImage.do";
-		window.open(url, "이미지 수정", "width=400, height=450");
-	}
-	
-</script>
+<style>
+	#pointer{cursor:pointer}
+</style>
+
 </head>
 <jsp:include page="../main/topmenu.jsp" />
 <body>
@@ -50,7 +42,7 @@
                     <a href="myPage.do" data-target="#profile" data-toggle="pill" class="nav-link"><i class="icon-user"></i> <span class="hidden-xs">신청한 클래스</span></a>
                 </li>
                 <li class="nav-item">
-                    <a href="myPageMessage.do" data-target="#messages" data-toggle="pill" class="nav-link active show"><i class="icon-envelope-open"></i> <span class="hidden-xs">찜한 클래스</span></a>
+                    <a href="myPageClass.do" data-target="#messages" data-toggle="pill" class="nav-link active show"><i class="icon-envelope-open"></i> <span class="hidden-xs">찜한 클래스</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="myPageEdit.do" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">프로필 수정</span></a>
@@ -131,16 +123,24 @@
 				    </div>
                   </div>
                     <table class="table table-hover table-striped">
-                        <tbody>     
-                        <c:forEach var="cvo" items="${list }">                              
-                            <tr>
+                        <tbody>
+                        <c:forEach var="vo" items="${list }">
+                            <tr id="pointer" onclick="location.href='myPageClassDelete.do?classCode=${vo.classCode}'">
                                 <td>
-                                   <span class="float-right font-weight-bold">${cvo.cateGoryA }</span>${cvo.className }
+                                   <span class="float-right font-weight-bold">${vo.cateGoryA }</span>${vo.className }
                                 </td>
                             </tr>
-                        </c:forEach> 
-                        </tbody> 
+                         </c:forEach>
+                          <c:if test="${empty list }">
+                            <tr>
+                                <td align="center">
+                                   <span class="float-right font-weight-bold"></span>- 찜한 클래스가 없습니다. -
+                                </td>
+                            </tr>
+                          </c:if>
+                        </tbody>
                     </table>
+                    
                 </div>
                 <div class="tab-pane" id="edit">
                     <form>

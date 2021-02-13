@@ -54,7 +54,6 @@ public class ClassDao extends DAO {
 	}
 	
 	
-	
 	//class 목록 중 1개 생성 (class_code로 검색)
 	
 	public ClassVo selectClass(ClassVo vo) {
@@ -91,6 +90,24 @@ public class ClassDao extends DAO {
 		
 	}
 	
+	// 찜한 클래스로 이동
+	public int insertFavClass(int classCode) {
+		int n = 0;
+		String sql = "insert into favclass select class_code, user_id, class_name, category_a "
+				+ "from class where class_code = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, classCode);
+			n = psmt.executeUpdate();
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return n;
+	}
+	
+	
 	// 유저에 따른 클래스 목록 조회
 	// 작성(김찬곤 / 210209)
 	public ArrayList<ClassVo> selectUserClassList(String id){
@@ -105,40 +122,12 @@ public class ClassDao extends DAO {
 			
 			while(rs.next()) {
 				vo = new ClassVo();
-<<<<<<< HEAD
 				vo.setClassCode(rs.getInt("class_code"));
-=======
->>>>>>> refs/remotes/origin/changon
 				vo.setClassName(rs.getString("class_name"));
 				vo.setCateGoryA(rs.getString("category_a"));
 				list.add(vo);
 			}
 			
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close();
-		}
-		
-		return list;
-	}
-	
-	// 찜한 클래스 선택
-	// 작성(김찬곤 / 210210)
-	public ArrayList<ClassVo> selectFavClass() {
-		ArrayList<ClassVo> list = new ArrayList<ClassVo>();
-		String sql = "SELECT CLASS_CODE, CLASS_NAME, CATEGORY_A FROM CLASS";
-		ClassVo vo;
-		try {
-			psmt = conn.prepareStatement(sql);
-			rs = psmt.executeQuery();
-			while(rs.next()) {
-				vo = new ClassVo();
-				vo.setClassCode(rs.getInt("class_code"));
-				vo.setClassName(rs.getString("class_name"));
-				vo.setCateGoryA(rs.getString("category_a"));
-				list.add(vo);
-			}	
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}finally {

@@ -10,29 +10,11 @@
 <title>수강생 마이페이지</title>
 
 <style>
-	.pointer{
+	#pointer{
 		cursor:pointer;
 	}
 </style>
 
-<script type="text/javascript" src="./assets/js/vendor/modernizr-3.5.0.min.js">
-	function profileEdit() { // 프로필 수정
-		var url = "profileEdit.do";
-		window.open(url, "프로필 수정", "width=400, height=450");
-	}
-	
-	function uploadImage(){
-		var url = "uploadImage.do";
-		window.open(url, "이미지 수정", "width=400, height=450");
-	}
-	
-<<<<<<< HEAD
-
-
-=======
-	
->>>>>>> refs/remotes/origin/changon
-</script>
 </head>
 <jsp:include page="../main/topmenu.jsp" />
 <body>
@@ -122,28 +104,25 @@
 				      <span><strong>신청한 클래스 목록</strong></span>
 				    </div>
                   </div>
-                  
-                  <form id="frm" name="frm" method="post" action="myPageClass.do">
+                  <c:forEach var="cvo" items="${list }">
+                  <!-- <form id="frm" name="frm" method="post" onsubmit="return valuecheck(this)" action="myPageClass.do"> -->
                     <table class="table table-hover table-striped">
                         <tbody> 
-<<<<<<< HEAD
                         <!-- 신청한 클래스 출력 -->
-=======
-                        
->>>>>>> refs/remotes/origin/changon
-                        <c:forEach var="cvo" items="${list }">
-                            <tr>
+                            <tr id="pointer" onclick="location.href='insertFavClass.do?classCode=${cvo.classCode}'">
                                 <td>
-                                	<input type="checkbox" name="classCode" value="${cvo.classCode }"> 
-                                   <span class="float-right font-weight-bold">${cvo.cateGoryA }</span>${cvo.className }
+                                   <span class="float-right font-weight-bold" name="categoryA">${cvo.cateGoryA }</span>
+                                   <span name="className">${cvo.className }</span>
                                 </td>
                             </tr>
-                        </c:forEach>
+                        
                         <!-- 신청한 클래스 출력 -->
                         </tbody> 
                     </table>
-                    <input type="submit" value="찜하기">
-                    </form>
+                    <!-- <input type="submit" value="찜하기"> -->
+                    
+                    <!-- </form> -->
+                    </c:forEach>
                 </div>
                 <div class="tab-pane" id="edit">
                     <form>

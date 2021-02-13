@@ -81,7 +81,6 @@ border : 0.5px solid #eee;
 								<nav>
 								
 									<ul id="navigation">
-
 										<li>
 											<div class="container01">
 												<form id="frm01" name="frm01" action="classSearch1.do"
@@ -94,20 +93,6 @@ border : 0.5px solid #eee;
 											</div>
 										</li>
 
-									
-									<!-- 로그인 알림(임시) -->
-										<c:if test="${not empty user_id }">
-											<li><a href="about.html" class="blink">${user_id }님
-													접속을 환영합니다.</a></li>
-										</c:if>
-
-									
-										<li><a href="boardList.do">공지사항</a>
-											<ul class="submenu">
-												<li><a href="boardList.do">공지사항</a></li>
-												<li><a href="askList.do">자주묻는질문</a></li>
-												<li><a href="consultList.do">문의게시판</a></li>
-											</ul></li>
 
 
 											<c:if test="${user_auth eq null }">
@@ -119,7 +104,6 @@ border : 0.5px solid #eee;
 														<li><a href="consultList.do">문의게시판</a></li>
 													</ul></li>
 
-										<li><a href="createClassView.do">클래스등록</a></li>
 
 												<li><i class="far fa-user-circle"></i>
 													<ul class="submenu">

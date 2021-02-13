@@ -11,42 +11,30 @@ import co.mok.pro.vo.ImageVo;
 public class InsertImageDo implements Command {
 
 	@Override
-<<<<<<< HEAD
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// 진짜로 이미지 삽입
-		
+
 		ImageDAO dao = new ImageDAO();
 		ImageVo ivo = new ImageVo();
-		
+
 		HttpSession session = request.getSession();
 		ivo.setUserId(session.getAttribute("user_id").toString());
-		ivo.setImage("image");
+		
+		ivo.setImage("filename");
+		System.out.println("업로드 하려는 파일 이름 " + ivo);
+		
+		String filepath = request.getServletContext().getRealPath("image");
+		System.out.println("image 파일 경로입니다 " + filepath);
 		
 		String viewPage = null;
 		int n = dao.InsertImage(ivo);
-		if(n != 0) {
+		if (n != 0) {
 			viewPage = "member/myPageInfo";
 			request.setAttribute("ivo", ivo);
+			request.setAttribute("filepath", filepath);
 		}
-=======
-	public String exec(HttpServletRequest request, HttpServletResponse response) {
-		// 진짜 진짜 프로필 이미지 삽입
 		
-		ImageDAO dao = new ImageDAO();
-		ImageVo ivo = new ImageVo();
-		
-		HttpSession session = request.getSession();
-		ivo.setUserId(session.getAttribute("user_id").toString());
-		ivo.setImage(request.getParameter("image"));
-		
-		String viewPage = null;
-		int n = dao.InsertImage(ivo);
-		if(n != 0) {
-			viewPage = "member/myPage";
-			request.setAttribute("ivo", ivo);
-		}	
->>>>>>> refs/remotes/origin/changon
 		return viewPage;
-	}
 
+	}
 }

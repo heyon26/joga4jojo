@@ -36,11 +36,13 @@ import co.mok.pro.classes.CreateClassView;
 import co.mok.pro.main.MainService;
 import co.mok.pro.main.MainServiceTest;
 import co.mok.pro.member.ExpertPage;
+import co.mok.pro.member.InsertFavClass;
 import co.mok.pro.member.InsertImage;
 import co.mok.pro.member.InsertImageDo;
 import co.mok.pro.member.InsertImageForm;
 import co.mok.pro.member.MyPage;
 import co.mok.pro.member.MyPageClass;
+import co.mok.pro.member.MyPageClassDelete;
 import co.mok.pro.member.MyPageClassExpert;
 import co.mok.pro.member.MyPageEdit;
 import co.mok.pro.member.MyPageExpertEdit;
@@ -123,18 +125,23 @@ public class FrontController extends HttpServlet {
 		// 마이페이지_수강생
 		map.put("/myPage.do", new MyPage()); // 마이페이지 호출
 		map.put("/myPageClass.do", new MyPageClass()); // 신청한 클래스 페이지 호출
+		map.put("/insertFavClass.do", new InsertFavClass()); // 클래스 찜하기
 		map.put("/myPageEdit.do", new MyPageEdit()); // 프로필 수정 페이지 호출
 
 		// 마이페이지_강사
 		map.put("/expertPage.do", new ExpertPage()); // 강사 페이지 호출
 		map.put("/myPageClassExpert.do", new MyPageClassExpert()); // 등록한 클래스 페이지 호출
-		map.put("/myPageExpertEdit.do", new MyPageExpertEdit());
+		map.put("/myPageExpertEdit.do", new MyPageExpertEdit()); // 강사 프로필 수정 페이지 호출
+		
+		// 찜한 클래스 취소
+		map.put("/myPageClassDelete.do", new MyPageClassDelete());
 
 		// 프로필 수정 기능
 		map.put("/profileUpdate.do", new ProfileUpdate()); // 프로필 업데이트
 		map.put("/uploadImageForm.do", new UploadImageForm()); // 프로필 이미지 업로드 폼 호출
 		map.put("/uploadImage.do", new UploadImage()); // 프로필 이미지 업로드 실행
 
+		map.put("/InsertImageDo.do", new InsertImageDo()); // 프로필 이미지 삽입
 		map.put("/insertImageForm.do", new InsertImageForm()); // 프로필 이미지 삽입 폼 호출
 		map.put("/insertImage.do",new InsertImage()); // 프로필 이미지 삽입 실행
 		map.put("/InsertImageDo.do", new InsertImageDo()); // 진짜 진짜 프로필 이미지 삽입 실행
