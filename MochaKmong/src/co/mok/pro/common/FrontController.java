@@ -36,10 +36,7 @@ import co.mok.pro.classes.CreateClassView;
 import co.mok.pro.main.MainService;
 import co.mok.pro.main.MainServiceTest;
 import co.mok.pro.member.ExpertPage;
-<<<<<<< HEAD
-=======
 import co.mok.pro.member.InsertImage;
->>>>>>> refs/remotes/origin/changon
 import co.mok.pro.member.InsertImageDo;
 import co.mok.pro.member.InsertImageForm;
 import co.mok.pro.member.MyPage;
@@ -51,13 +48,16 @@ import co.mok.pro.member.ProfileUpdate;
 import co.mok.pro.member.UploadImage;
 import co.mok.pro.member.UploadImageForm;
 import co.mok.pro.places.CreatePlaceView;
+import co.mok.pro.web.ApplyViewForm;
 import co.mok.pro.web.ClassSearch;
 import co.mok.pro.web.ClassSearch1;
 import co.mok.pro.web.ClassSearch2;
+import co.mok.pro.web.ClassViewForm;
 import co.mok.pro.web.FindPw;
 import co.mok.pro.web.FindPwForm;
 import co.mok.pro.web.LoginForm;
 import co.mok.pro.web.Logout;
+import co.mok.pro.web.PayClass;
 import co.mok.pro.web.UserIdCheck;
 import co.mok.pro.web.UserJoin;
 import co.mok.pro.web.UserJoinForm;
@@ -134,13 +134,10 @@ public class FrontController extends HttpServlet {
 		map.put("/profileUpdate.do", new ProfileUpdate()); // 프로필 업데이트
 		map.put("/uploadImageForm.do", new UploadImageForm()); // 프로필 이미지 업로드 폼 호출
 		map.put("/uploadImage.do", new UploadImage()); // 프로필 이미지 업로드 실행
-<<<<<<< HEAD
-		map.put("/InsertImageDo.do", new InsertImageDo()); // 프로필 이미지 삽입
-=======
+
 		map.put("/insertImageForm.do", new InsertImageForm()); // 프로필 이미지 삽입 폼 호출
 		map.put("/insertImage.do",new InsertImage()); // 프로필 이미지 삽입 실행
 		map.put("/InsertImageDo.do", new InsertImageDo()); // 진짜 진짜 프로필 이미지 삽입 실행
->>>>>>> refs/remotes/origin/changon
 
 		map.put("/logout.do", new Logout()); // 로그아웃
 		map.put("/findPwForm.do", new FindPwForm()); // 비밀번호 찾기 폼
@@ -153,16 +150,17 @@ public class FrontController extends HttpServlet {
 		map.put("/classSearch.do", new ClassSearch()); // 메인페이지에서 클래스 검색
 		map.put("/classSearch1.do", new ClassSearch1()); // 클래스 list 페이지에서 단어입력 후 검색
 		map.put("/classSearch2.do", new ClassSearch2()); // 클래스 list 페이지에서 radio로 검색
-		map.put("/createClassView.do", new CreateClassView());
+		map.put("/createClassView.do", new CreateClassView()); //
 		map.put("/createClass.do", new CreateClass());
 
-<<<<<<< HEAD
+		map.put("/classViewForm.do", new ClassViewForm()); //클래스 상세보기 
+		map.put("/applyViewForm.do", new ApplyViewForm()); //클래스 신청 페이지(결제 하기 전)
+		map.put("/payClass.do", new PayClass());//신청과 결제 페이지 
+
 		map.put("/createPlaceView.do", new CreatePlaceView());
 
-		map.put("/insertImageForm.do", new InsertImageForm()); // 프로필 이미지 삽입 폼 호출
+		//map.put("/insertImageForm.do", new InsertImageForm()); // 프로필 이미지 삽입 폼 호출
 		// map.put("/insertImage.do",new InsertImage()); // 프로필 이미지 삽입 실행
-=======
->>>>>>> refs/remotes/origin/changon
 
 	}
 

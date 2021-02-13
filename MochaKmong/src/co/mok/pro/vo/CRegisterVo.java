@@ -4,7 +4,9 @@ public class CRegisterVo {
 	private int registerCode;
 	private String userId; //m_user 외래키
 	private int timeCode; //c_time 외래키 - 클래스 여러번 등록할 수도 있기 때문에?
+	private int registerNumber;
 	
+
 	public CRegisterVo() {
 		// TODO Auto-generated constructor stub
 	}
@@ -33,5 +35,12 @@ public class CRegisterVo {
 		this.timeCode = timeCode;
 	}
 	
+	public int getRegisterNumber() {
+		return registerNumber;
+	}
+	
+	public void setRegisterNumber(int registerNumber) {
+		this.registerNumber = registerNumber;
+	}
 	
 }

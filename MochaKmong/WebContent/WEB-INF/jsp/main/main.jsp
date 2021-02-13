@@ -94,7 +94,7 @@
                                         </div>
                                     </div>
                                     <div class="search-form mb-20">
-                                        <button type="submit"  class="button rounded primary-bg text-white w-100 btn_1 boxed-btn">SEARCH</button>
+                                        <button type="submit"  class="button rounded primary-bg text-white w-100 btn_1 boxed-btn" >SEARCH</button>
                                        
                                     </div>
 

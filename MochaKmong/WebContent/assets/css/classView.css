@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+*{font-family: 'Noto Sans KR', sans-serif;}
+body{margin-bottom:80px;}
+p { margin:20px 0px; }
+
+.row{margin-bottom:40px}
+* {box-sizing:border-box}
+
+.title {
+	margin-top:30px;
+}
+.title > span {
+	color: #727070;
+	font-size:25px;
+	font-weight:200;
+
+}
+.title > h3 {
+	font-size:40px;
+	
+}
+

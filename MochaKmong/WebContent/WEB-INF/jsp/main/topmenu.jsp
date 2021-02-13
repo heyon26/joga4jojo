@@ -32,8 +32,7 @@
 	padding-right: 20px;
 }
 
-@
-keyframes blinker { 50% {
+@keyframes blinker { 50% {
 	opacity: 0;
 }
 
@@ -47,6 +46,15 @@ keyframes blinker { 50% {
 	right: 5px;
 	top: 5px;
 }
+
+.name{
+height:35px;
+width: 200px;
+padding-left:25px;
+border-radius: 15px;
+border : 0.5px solid #eee;
+}
+
 </style>
 
 <header>
@@ -73,27 +81,26 @@ keyframes blinker { 50% {
 								<nav>
 								
 									<ul id="navigation">
-<<<<<<< HEAD
+
 										<li>
 											<div class="container01">
 												<form id="frm01" name="frm01" action="classSearch1.do"
 													method="post">
 													<span class="icon"><i id="icon1"
-														class="fa fa-search"></i></span> <input class="name" type="text"
-														id="word" name="word" placeholder="search..">
+														class="fa fa-search"></i></span> 
+														<input class="name" type="text"	id="word" name="word" placeholder="search..">
 
 												</form>
 											</div>
 										</li>
-										
-=======
+
 									
 									<!-- 로그인 알림(임시) -->
 										<c:if test="${not empty user_id }">
 											<li><a href="about.html" class="blink">${user_id }님
 													접속을 환영합니다.</a></li>
 										</c:if>
-										<!-- 로그인 알림(임시) -->
+
 									
 										<li><a href="boardList.do">공지사항</a>
 											<ul class="submenu">
@@ -101,9 +108,7 @@ keyframes blinker { 50% {
 												<li><a href="askList.do">자주묻는질문</a></li>
 												<li><a href="consultList.do">문의게시판</a></li>
 											</ul></li>
->>>>>>> refs/remotes/origin/changon
 
-<<<<<<< HEAD
 
 											<c:if test="${user_auth eq null }">
 												<li><a href="boardList.do">공지사항</a>
@@ -113,15 +118,8 @@ keyframes blinker { 50% {
 														<li><a href="askList.do">자주묻는질문</a></li>
 														<li><a href="consultList.do">문의게시판</a></li>
 													</ul></li>
-=======
+
 										<li><a href="createClassView.do">클래스등록</a></li>
-										<li><a href="blog.html">로그인</a>
-											<ul class="submenu">
-												<li><a href="loginForm.do">로그인</a></li>
-												<li><a href="userJoinForm.do">회원가입</a></li>
-												<li><a href="myPage.do">마이페이지</a></li>
-											</ul></li>
->>>>>>> refs/remotes/origin/changon
 
 												<li><i class="far fa-user-circle"></i>
 													<ul class="submenu">
@@ -130,7 +128,7 @@ keyframes blinker { 50% {
 														<li><a href="myPage.do">마이페이지</a></li>
 													</ul>
 											</c:if>
-											<!-- 로그인 알림(임시) -->
+											
 											<c:if test="${user_auth ne null }">
 												<li><a href="boardList.do">공지사항</a>
 													<ul class="submenu">
