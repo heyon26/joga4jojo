@@ -52,7 +52,7 @@ function updateAlert() {
            <div class="card z-depth-3">
             <div class="card-body">
             
-            <ul class="nav nav-pills nav-pills-primary nav-justified">
+            <ul class="navs nav-pills nav-pills-primary nav-justified">
                 <li class="nav-item">
                     <a href="myPage.do" data-target="#profile" data-toggle="pill" class="nav-link"><i class="icon-user"></i> <span class="hidden-xs">수강생</span></a>
                 </li>
@@ -61,7 +61,7 @@ function updateAlert() {
                 </li>
             </ul>
             
-            <ul class="nav nav-pills nav-pills-primary nav-justified">
+            <ul class="navs nav-pills nav-pills-primary nav-justified">
                 <li class="nav-item">
                     <a href="expertPage.do" data-target="#profile" data-toggle="pill" class="nav-link"><i class="icon-user"></i> <span class="hidden-xs">신청한 클래스</span></a>
                 </li>

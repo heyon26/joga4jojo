@@ -4246,8 +4246,17 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	list-style: none;
 	width:1200px;
 	background-color: #f9df84;
-
 }
+
+.navs {
+    display: -ms-flexbox !important;	
+    display: flex !important;
+    -ms-flex-wrap: wrap !important;
+    flex-wrap: wrap !important;
+    padding-left: 0 !important;	
+    margin-bottom: 0 !important;
+    list-style: none !important;
+    }
 
 .nav-link {
 	display: block;
