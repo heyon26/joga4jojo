@@ -195,22 +195,13 @@
 	</div>
 
 <!-- 클래스 사진 보기 끝 -->
-<!-- Tabs -->
-<!-- <section id="tabs">
-	<div class="container">
-		<h6 class="section-title h1">Tabs</h6>
-		<div class="row">
 
-		</div>
-	</div>
-</section> -->
-<!-- ./Tabs -->
 <!-- 메뉴 탭바 시작  -->
     <div class="container" style="margin-bottom:40px">
       <div class="row">
 			<div class="col-xs-12 ">
 				<nav>
-					<div class="nav nav-items nav-justified" id="nav-tab" role="tablist">
+					<div class="nav nav-items nav-justified" id="nav-tab" role="tablist" style="width:1200px;background-color: #f9df84;">
 						<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#content" role="tab" aria-controls="nav-home" aria-selected="true">클래스 소개</a>
 						<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#location" role="tab" aria-controls="nav-profile" aria-selected="false">클래스 장소</a>
 						<a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#review" role="tab" aria-controls="nav-contact" aria-selected="false">리뷰</a>

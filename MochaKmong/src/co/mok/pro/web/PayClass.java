@@ -12,6 +12,7 @@ public class PayClass implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
+		//TODO 결제페이지로 넘길 정보 담고 결제페이지 호출
 		HttpSession session = request.getSession();
 		String id = (String) session.getAttribute("user_id");
 		
@@ -20,22 +21,15 @@ public class PayClass implements Command {
 		String sTime = request.getParameter("sTime");//신청하는 클래스 날짜
 		int tPrice = Integer.parseInt(request.getParameter("tPrice"));//결제할 가격
 		int rNumber =Integer.parseInt(request.getParameter("rNumber"));//신청인원
-		
-		CTimeVo tvo = new CTimeVo();
-		tvo.setRegisterNumber(Integer.parseInt(request.getParameter("rNumber")));
-		tvo.setClassCode(Integer.parseInt(request.getParameter("cCode")));
-		tvo.setStartTime(request.getParameter("sTime"));
-		
-		
-		CTimeDao tdao=new CTimeDao();
-		tdao.registerClass(id,sTime,cCode,rNumber); //register 테이블에 등록된 클래스 추가
-		
+				
+		request.setAttribute("rNumber", rNumber);
+		request.setAttribute("cCode", cCode);
 		request.setAttribute("sTime", sTime);
 		request.setAttribute("cName", cName);
 		request.setAttribute("id", id);
 		request.setAttribute("tPrice", tPrice);
 		
-		return "class/payClass";
+		return "class/payView";
 	}
 
 }
