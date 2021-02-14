@@ -40,8 +40,19 @@
 	
 %>
 
+<!-- 해당 아이디 프로필 이미지 삽입 구현  -->
+<%
+	ImageDAO idao = new ImageDAO();
+	ImageVo ivo = new ImageVo();
 
-<!-- 로그인 세션값 호출 -->
+	String filePath = request.getServletContext().getRealPath("image");
+	request.setAttribute("filePath", filePath); // image 파일 경로
+
+	ivo.setUserId(session.getAttribute("user_id").toString());
+	ivo = idao.selectImage(ivo);
+	request.setAttribute("ivo", ivo);
+%>
+
 
 <form name="frm" method="post">
 	<input type="hidden" name="userId" value="<%=vo.getUserId() %>">
@@ -54,7 +65,7 @@
                <div class="user-box">
                <div class="profileImage" style="background:#FFFFFF;">
                		<!-- <img src="assets/img/mypage/profile.png" name="image"> -->
-               		<img src="${filepath}/${ivo.image}" class="image" name="image">
+               		<img src="${filePath}\${ivo.image}" class="image" name="image">
                </div>
               </div>
               <div class="space"></div>
