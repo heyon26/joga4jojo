@@ -47,7 +47,7 @@ window.onload = function(){
                      <div class="row">
                         <div class="col-sm-2">
                            <div class="form-group">
-               <!-- 로그인 세션값 --><input class="form-control" id="userId"name="userId" type="text" placeholder="ID" value="hong" readonly="readonly">
+               <!-- 로그인 세션값 --><input class="form-control" id="userId"name="userId" type="text" placeholder="ID" value="${user_id }" readonly="readonly">
                            </div>
                         </div>
                          <div class="col-sm-2">
@@ -57,7 +57,7 @@ window.onload = function(){
                         </div>
                         <div class="col-sm-2">
                            <div class="form-group">
-                              <input class="form-control"id="bBoard"name="bBoard"size="30" value="consult" type="text" placeholder="대분류"readonly="readonly">
+                              <input class="form-control"id="bBoard"name="bBoard"size="30" value="문의" type="text" placeholder="대분류"readonly="readonly">
                            </div>
                         </div>
                         <div class="col-sm-3">
