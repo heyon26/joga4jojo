@@ -65,7 +65,7 @@
 				<div class="col-sm-2">
 					<div class="form-group">
 						<input class="form-control" id="bBoard" name="bBoard" size="30"
-							value="test" type="text" placeholder="대분류" readonly="readonly">
+							value="공지" type="text" placeholder="대분류" readonly="readonly">
 					</div>
 				</div>
 				

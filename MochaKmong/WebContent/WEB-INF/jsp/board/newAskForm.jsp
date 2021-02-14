@@ -57,7 +57,7 @@ window.onload = function(){
                         </div>
                         <div class="col-sm-2">
                            <div class="form-group">
-                              <input class="form-control"id="bBoard"name="bBoard"size="30" value="ask" type="text" placeholder="대분류"readonly="readonly">
+                              <input class="form-control"id="bBoard"name="bBoard"size="30" value="질문" type="text" placeholder="대분류"readonly="readonly">
                            </div>
                         </div>
                         <div class="col-sm-3">

@@ -24,6 +24,47 @@
             <link rel="stylesheet" href="assets/css/nice-select.css">
             <link rel="stylesheet" href="assets/css/style.css">
    </head>
+   <style media="screen">
+    body{
+      background-color: #f5f5f5;
+    }
+    .in-line{
+      width:300px;
+      height:40px;
+    }
+    input{
+      margin:0;
+    }
+    input[type="text"]{
+      width:73%;
+      height:100%;
+      border:none;
+      font-size:1em;
+      padding-left: 5px;
+      font-style: oblique;
+      display:inline;
+      outline:none;
+      box-sizing: border-box;
+      color:black;
+
+    }
+    input[type=button]{
+      width: 30%;
+      height:100%;
+      background-color: lightgray;
+      border:none;
+      background-color: white;
+      font-size:1em;
+      color:#042AaC;
+      outline:none;
+      display:inline;
+      margin-left: -10px;
+      box-sizing: border-box;
+    }
+    input[type=button]:hover{
+      background-color: lightgray;
+    }
+  </style>
 <jsp:include page="../main/topmenu.jsp"></jsp:include>
 <script type="text/javascript">
 	function formSubmit(str){
@@ -74,20 +115,37 @@
 					</div>
 				</div>
 			</div>
-			<div class="content">
+			<c:if test="${user_id eq 'admin' }">	
+			<div class="container box_1170">
 				<form action=""	id="frm2" name="frm2" method="post">
 				<select id="keyword"name="keyword">
 					<option value="b_Name">제목(Title)</option>
 				</select>
 					<input type="text" id="searchWord" name="searchWord">
-					<input type="submit" value="Search">
-						<div align="right" class="button-group-area mt-40">
+				
 						<a onclick="searchSubmit()"class="genric-btn info circle arrow">검색</a>
 						<a onclick="insertAlert()"class="genric-btn info circle arrow">글쓰기</a>
+		
+						<div align="right" class="button-group-area mt-40">
 						</div>
 				</form>		
 			</div>
-		</div>
+			</c:if>
+			<c:if test="${user_id ne 'admin' }">	
+			<div class="container box_1170">
+				<form action=""	id="frm2" name="frm2" method="post">
+				<select id="keyword"name="keyword">
+					<option value="b_Name">제목(Title)</option>
+				</select>
+					<input type="text" id="searchWord" name="searchWord">
+				
+						<a onclick="searchSubmit()"class="genric-btn info circle arrow">검색</a>
 		
+						<div align="right" class="button-group-area mt-40">
+						</div>
+				</form>		
+			</div>
+			</c:if>
+		</div>
 </body>
 </html>

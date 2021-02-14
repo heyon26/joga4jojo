@@ -66,9 +66,11 @@
 					</div>
 				</div>
 			</div>
+			<c:if test="${user_id eq 'admin' }">	
 			<div align="right" class="button-group-area mt-40">
 			<a onclick="insertAlert()"class="genric-btn info circle arrow">글쓰기</a>
 			</div>
+			</c:if>
 		</div>
 </body>
 </html>
