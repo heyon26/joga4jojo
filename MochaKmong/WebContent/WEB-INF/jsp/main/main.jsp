@@ -38,7 +38,7 @@
    		
    		if(e.value == 1) var a= className;
    		else if(e.value == 2) a= areaName;
-   		target.options.length = 2;
+   		target.options.length = 1;
    		
    		
    		for(value in a){
@@ -79,7 +79,6 @@
                                     <div class="select-form mb-20">
                                         <div class="select-itms">                               
                                             <select class="custom-select mr-sm-2" name="select1" id="select1" onchange="categoryChange(this)" style="height:57px">
-                                            	<option>OPTION</option>
 												<option value="1">카테고리</option>
                                                 <option value="2">지역</option>
                                             </select>
@@ -88,7 +87,6 @@
                                      <div class="select-form mb-20">
                                         <div class="select-itms">                               
                                             <select class="custom-select mr-sm-2" name="select2" id="select2" style="height:57px">
-                                            	<option>OPTION</option>
                                             	<option value="all">전체</option>
                                             </select>
                                         </div>
