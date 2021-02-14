@@ -16,7 +16,6 @@ public class InsertImageDo implements Command {
 
 		ImageDAO dao = new ImageDAO();
 		ImageVo ivo = new ImageVo();
-
 		HttpSession session = request.getSession();
 
 		ivo.setUserId(session.getAttribute("user_id").toString());
@@ -24,18 +23,14 @@ public class InsertImageDo implements Command {
 		
 		System.out.println("업로드 하려는 파일 이름 " + ivo);
 		
-		String filepath = request.getServletContext().getRealPath("image");
-		System.out.println("image 파일 경로 " + filepath);
-		
 		int n = dao.InsertImage(ivo);
+		String viewPage = null;
+		
 		if (n != 0) {
-			request.setAttribute("filepath", filepath);
+			viewPage = "member/myPageInfo";
 		}
 		
-		ivo = dao.selectImage(ivo);
-		request.setAttribute("ivo", ivo);
-		
-		return "member/myPageInfo";
+		return viewPage;
 
 	}
 }
