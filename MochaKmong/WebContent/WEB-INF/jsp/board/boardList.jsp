@@ -29,14 +29,14 @@
       background-color: #f5f5f5;
     }
     .in-line{
-      width:350px;
+      width:300px;
       height:40px;
     }
     input{
       margin:0;
     }
     input[type="text"]{
-      width:70%;
+      width:73%;
       height:100%;
       border:none;
       font-size:1em;
@@ -115,20 +115,37 @@
 					</div>
 				</div>
 			</div>
+			<c:if test="${user_id eq 'admin' }">	
 			<div class="container box_1170">
 				<form action=""	id="frm2" name="frm2" method="post">
 				<select id="keyword"name="keyword">
 					<option value="b_Name">제목(Title)</option>
 				</select>
 					<input type="text" id="searchWord" name="searchWord">
-					<input type="submit" value="Search">
-		
-						<div align="right" class="button-group-area mt-40">
+				
 						<a onclick="searchSubmit()"class="genric-btn info circle arrow">검색</a>
 						<a onclick="insertAlert()"class="genric-btn info circle arrow">글쓰기</a>
+		
+						<div align="right" class="button-group-area mt-40">
 						</div>
 				</form>		
 			</div>
+			</c:if>
+			<c:if test="${user_id ne 'admin' }">	
+			<div class="container box_1170">
+				<form action=""	id="frm2" name="frm2" method="post">
+				<select id="keyword"name="keyword">
+					<option value="b_Name">제목(Title)</option>
+				</select>
+					<input type="text" id="searchWord" name="searchWord">
+				
+						<a onclick="searchSubmit()"class="genric-btn info circle arrow">검색</a>
+		
+						<div align="right" class="button-group-area mt-40">
+						</div>
+				</form>		
+			</div>
+			</c:if>
 		</div>
 </body>
 </html>

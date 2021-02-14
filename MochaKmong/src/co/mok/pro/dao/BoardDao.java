@@ -18,7 +18,7 @@ public class BoardDao extends DAO {
 	public ArrayList<BoardVo> selectList(){
 		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
 		BoardVo vo;
-		String sql = "SELECT * FROM BOARD WHERE B_BOARD='test' order by 1 desc";
+		String sql = "SELECT * FROM BOARD WHERE B_BOARD='공지' order by 1 desc";
 	
 		try {
 		psmt = conn.prepareStatement(sql);
@@ -50,7 +50,7 @@ public class BoardDao extends DAO {
 	public ArrayList<BoardVo> askList(){
 		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
 		BoardVo vo;
-		String sql = "SELECT * FROM BOARD WHERE B_BOARD='ask' order by 1 desc";
+		String sql = "SELECT * FROM BOARD WHERE B_BOARD='질문' order by 1 desc";
 	
 		try {
 		psmt = conn.prepareStatement(sql);
@@ -81,7 +81,7 @@ public class BoardDao extends DAO {
 	public ArrayList<BoardVo> consultList(){
 		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
 		BoardVo vo;
-		String sql = "SELECT * FROM BOARD WHERE B_BOARD='consult' order by 1 desc";
+		String sql = "SELECT * FROM BOARD WHERE B_BOARD='문의' order by 1 desc";
 	
 		try {
 		psmt = conn.prepareStatement(sql);
@@ -139,7 +139,7 @@ public class BoardDao extends DAO {
 	public ArrayList<BoardVo> getBoardSearch(String searchWord){
 		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
 		BoardVo vo = null;
-		String sql ="select * from board where b_name like ? and b_board='test'"; //%여기에 넣기 불가
+		String sql ="select * from board where b_name like ? and b_board='공지'"; //%여기에 넣기 불가
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, "%"+searchWord+"%");

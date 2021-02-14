@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Travel HTML-5 Template </title>
+        <title>질문리스트 상세보기 </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="site.webmanifest">
@@ -72,12 +72,7 @@
                         <li><a href="#">${vo.bDate }</a></li>
                         <li><a href="#">조회수 ${vo.bHit }</a></li>
                      </ul>
-                     <p class="excert">
-                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                        should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                        fraction of the camp price. However, who has the willpower
-                        ${vo.bContent }
-                     </p>
+                     <p class="excert">${vo.bContent } </p>
                   </div>
                </div>
                <div align="right" class="button-group-area mt-40">
@@ -116,6 +111,7 @@
                      </div>
                   </div>
                  <!-- 댓글 리스트-->
+                 <c:if test="${user_id eq 'admin' }">	
                <div class="comment-form">
                   <h4>답변 작성</h4>
                   <form class="form-contact comment_form" action="newAnswer.do" id="frm"name="frm"method="post">
@@ -142,6 +138,7 @@
                      </div>
                   </form>
                </div>
+               </c:if>
             </div>
 </body>
 </html>
