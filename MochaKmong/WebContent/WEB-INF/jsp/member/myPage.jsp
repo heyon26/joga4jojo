@@ -7,12 +7,15 @@
 <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <link rel="stylesheet" href="assets/css/mypage.css">
+
+ 
 <title>수강생 마이페이지</title>
 
 <style>
 	#pointer{
 		cursor:pointer;
 	}
+
 </style>
 
 </head>
@@ -30,7 +33,7 @@
            <div class="card z-depth-3">
             <div class="card-body">
             
-           <ul class="nav nav-pills nav-pills-primary nav-justified">
+           <ul class="navs nav-pills nav-pills-primary nav-justified">
                 <li class="nav-item">
                     <a href="myPage.do" data-target="#profile" data-toggle="pill" class="nav-link active show"><i class="icon-user"></i> <span class="hidden-xs">수강생</span></a>
                 </li>
@@ -39,7 +42,7 @@
                 </li>
             </ul> 
             
-            <ul class="nav nav-pills nav-pills-primary nav-justified">
+            <ul class="navs nav-pills nav-pills-primary nav-justified">
                 <li class="nav-item">
                     <a href="myPage.do" data-target="#profile" data-toggle="pill" class="nav-link active show"><i class="icon-user"></i> <span class="hidden-xs">신청한 클래스</span></a>
                 </li>
@@ -206,6 +209,5 @@
         
     </div>
 </div>
-
 </body>
 </html>
