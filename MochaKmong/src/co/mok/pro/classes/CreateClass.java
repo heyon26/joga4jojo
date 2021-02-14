@@ -76,8 +76,9 @@ public class CreateClass implements Command {
 		}
 			
 		int classT = dao.classTime(list);
+		request.setAttribute("classCode", vo.getClassCode());
 		
-		return "main.do";
+		return "class/viewClass";
 	}
 
 }

@@ -9,7 +9,7 @@ public class PlaceVo {
 	private int areaCode;
 	private String placeName;
 	private String placeAddress;
-	private Clob placeContent;
+	private String placeContent;
 	private Date placeDate;
 	private String placeTel;
 	
@@ -44,10 +44,10 @@ public class PlaceVo {
 	public void setPlaceAddress(String placeAddress) {
 		this.placeAddress = placeAddress;
 	}
-	public Clob getPlaceContent() {
+	public String getPlaceContent() {
 		return placeContent;
 	}
-	public void setPlaceContent(Clob placeContent) {
+	public void setPlaceContent(String placeContent) {
 		this.placeContent = placeContent;
 	}
 	public Date getPlaceDate() {

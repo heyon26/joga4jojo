@@ -86,22 +86,22 @@ li {
 								<div class="card card-4">
 									<div class="card-body">
 
-										<h4 class="title">연락처</h4>
+										<h4 class="title">플레이스 연락처</h4>
 										<div class="row2 row2-space"
 											style="margin-bottom: 50px !important;">
 
 											<div class="col-22">
 												<div class="input-group">
 													<label class="label">이메일</label> <input
-														class="input--style-4" type="email" name="email" placeholder="이메일"
-														required="required">
+														class="input--style-4" type="email" name="email"
+														placeholder="이메일" required="required">
 												</div>
 											</div>
 											<div class="col-22">
 												<div class="input-group">
 													<label class="label">전화번호</label> <input
-														class="input--style-4" type="text" name="tel" placeholder="전화번호"
-														required="required">
+														class="input--style-4" type="text" name="tel"
+														placeholder="전화번호" required="required">
 												</div>
 											</div>
 											<div class="input-group">
@@ -112,7 +112,8 @@ li {
 															<label class="label">우편번호</label><input type="text"
 																class="input--style-4" id="zipcode" name="zipcode"
 																placeholder="우편번호" readonly="readonly"
-																required="required" style="background-color: #c1c1c1" title="ADDRESS SEARCH를 클릭해주세요">
+																required="required" style="background-color: #c1c1c1"
+																title="ADDRESS SEARCH를 클릭해주세요">
 														</div>
 													</div>
 													<div class="col-22">
@@ -121,7 +122,8 @@ li {
 															<label class="label">지역</label> <input
 																class="input--style-4" type="text" id="area" name="area"
 																placeholder="지역" readonly="readonly" required="required"
-																style="background-color: #c1c1c1" title="ADDRESS SEARCH를 클릭해주세요">
+																style="background-color: #c1c1c1"
+																title="ADDRESS SEARCH를 클릭해주세요">
 														</div>
 													</div>
 												</div>
@@ -130,7 +132,8 @@ li {
 													<label class="label">주소</label><input type="text"
 														class="input--style-4" id="address" name="address"
 														placeholder="주소" readonly="readonly" required="required"
-														style="background-color: #c1c1c1" title="ADDRESS SEARCH를 클릭해주세요">
+														style="background-color: #c1c1c1"
+														title="ADDRESS SEARCH를 클릭해주세요">
 												</div>
 												<div class="input-group">
 													<label class="label">상세주소</label><input type="text"
@@ -138,9 +141,9 @@ li {
 														name="detailAddress" placeholder="상세주소"
 														required="required">
 												</div>
-												<div class="input-group" style="width: 550px;height: 55px;">
-													<input type="button" style="background-image:url('/MochaKmong/assets/img/class/ADDRESSSEARCH.png'); 
-													background-size:contain; background-repeat:no-repeat; background-color:transparent; width: 100%;height: 100%;"
+												<div class="input-group" style="width: 550px; height: 55px;">
+													<input type="button"
+														style="background-image: url('/MochaKmong/assets/img/class/ADDRESSSEARCH.png'); background-size: contain; background-repeat: no-repeat; background-color: transparent; width: 100%; height: 100%;"
 														onclick="sample5_execDaumPostcode()" title="주소 검색"><br>
 												</div>
 
@@ -148,18 +151,19 @@ li {
 
 										</div>
 
-<div style="width:100%; height:1px; display: flex;  justify-content: space-between;">
-<a>
-		
-		</a> 
-		<a class="carousel-control-next" href="#carouselExampleIndicators"
-			role="button" data-slide="next"
-			style="height: 5%;width: 11%;top: 93%;  padding-right: 10px;"title="다음으로"> <span
-			class="carousel-control-next-icon" aria-hidden="true" style="background-size: contain;background-repeat: no-repeat;"></span> <span
-			class="sr-only">Next</span>
-		</a>
+										<div
+											style="width: 100%; height: 1px; display: flex; justify-content: space-between;">
+											<a> </a> <a class="carousel-control-next"
+												href="#carouselExampleIndicators" role="button"
+												data-slide="next"
+												style="height: 5%; width: 11%; top: 93%; padding-right: 10px;"
+												title="다음으로"> <span class="carousel-control-next-icon"
+												aria-hidden="true"
+												style="background-size: contain; background-repeat: no-repeat;"></span>
+												<span class="sr-only">Next</span>
+											</a>
 
-</div>
+										</div>
 
 									</div>
 
@@ -178,68 +182,40 @@ li {
 									<div class="card card-4">
 										<div class="card-body">
 											<div>
-												<h4 class="title">클래스 정보</h4>
+												<h4 class="title">플레이스 이름</h4>
 											</div>
 											<div class="input-group">
-												<label class="label">클래스 이름</label><input type="text"
+												<input type="text"
 													class="input--style-4" id="className" name="className"
 													placeholder="이름" required="required">
 											</div>
-											<br> <label class="label">클래스 분류</label>
+											<br><br>
+											<h4 class="title">플레이스 상세</h4>
 											<div>
-												<div class="rs-select2 js-select-simple"
-													style="width: 100% !important">
-													<select name="cateGoryA" required="required">
-														<option disabled="disabled" selected="selected">분류
-															선택</option>
-														<option>핸드메이드·수공예</option>
-														<option>쿠킹클래스</option>
-														<option>플라워레슨</option>
-														<option>드로잉</option>
-														<option>음악</option>
-														<option>요가·필라테스</option>
-														<option>레저·스포츠</option>
-														<option>체험</option>
-														<option>자기계발</option>
-													</select>
-													<div class="select-dropdown"></div>
-												</div>
-											</div>
-
-
-											<div class="input-group">
-												<label class="label">클래스 소개</label>
-												<textarea id="classIntroduce" name="classIntroduce" rows="3"
-													cols="33" style="height: 150px !important;"
+												<textarea id="summernote" name="summernote"
 													required="required"></textarea>
 											</div>
 
-											<br>
-											<div class="input-group">
-												<label class="label">수업비</label><input type="number"
-													class="input--style-4" id="classPrice" name="classPrice"
-													placeholder="(원)" required="required">
+
+											<div
+												style="width: 100%; height: 1px; display: flex; justify-content: space-between;">
+												<a class="carousel-control-prev"
+													href="#carouselExampleIndicators" role="button"
+													data-slide="prev"
+													style="height: 5%; width: 11%; top: 93%; padding-left: 10px;"
+													title="앞으로"> <span class="carousel-control-prev-icon"
+													aria-hidden="true"
+													style="background-size: contain; background-repeat: no-repeat;"></span>
+													<span class="sr-only">Previous</span>
+												</a> <a class="carousel-control-next"
+													style="height: 5%; width: 15%; top: 93%; padding-right: 10px;">
+													<button
+														style="background-image: url('/MochaKmong/assets/img/class/SUBMIT.png'); background-size: contain; background-repeat: no-repeat; width: 100%; height: 100%;"
+														type="submit" title="등록"></button>
+												</a>
+
 											</div>
-											
-											
-<div style="width:100%; height:1px; display: flex;  justify-content: space-between;">
-<a class="carousel-control-prev" href="#carouselExampleIndicators"
-			role="button" data-slide="prev"
-			style="height: 5%;width: 11%; top: 93%; padding-left: 10px;"title="앞으로">
-			<span
-			class="carousel-control-prev-icon" aria-hidden="true" style="background-size: contain;background-repeat: no-repeat;"></span>
-			<span
-			class="sr-only">Previous</span>
-		</a> 
-		<a class="carousel-control-next" href="#carouselExampleIndicators"
-			role="button" data-slide="next"
-			style="height: 5%;width: 11%;top: 93%;  padding-right: 10px;"title="다음으로"> <span
-			class="carousel-control-next-icon" aria-hidden="true" style="background-size: contain;background-repeat: no-repeat;"></span> <span
-			class="sr-only">Next</span>
-		</a>
 
-</div>
-											
 										</div>
 									</div>
 
@@ -250,76 +226,6 @@ li {
 						</div>
 					</div>
 
-
-					<div class="carousel-item">
-						<div class="d-block w-100">
-							<div class="page-wrapper p-t-130 p-b-100 font-poppins">
-								<div class="wrapper wrapper--w680">
-									<div class="card card-4">
-										<div class="card-body">
-											<h4 class="title">클래스 상세</h4>
-<div>
-											<textarea id="summernote" name="summernote"
-												required="required"></textarea>
-</div>
-
-<div style="width:100%; height:1px; display: flex;  justify-content: space-between;">
-<a class="carousel-control-prev" href="#carouselExampleIndicators"
-			role="button" data-slide="prev"
-			style="height: 5%;width: 11%; top: 93%; padding-left: 10px;">
-			<span
-			class="carousel-control-prev-icon" aria-hidden="true" style="background-size: contain;background-repeat: no-repeat;"></span>
-			<span
-			class="sr-only">Previous</span>
-		</a> 
-		<a class="carousel-control-next" href="#carouselExampleIndicators"
-			role="button" data-slide="next"
-			style="height: 5%;width: 11%;top: 93%;  padding-right: 10px;" title="다음으로"> <span
-			class="carousel-control-next-icon" aria-hidden="true" style="background-size: contain;background-repeat: no-repeat;"></span> <span
-			class="sr-only">Next</span>
-		</a>
-
-</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="d-block w-100">
-							<div class="page-wrapper p-t-130 p-b-100 font-poppins">
-								<div class="wrapper wrapper--w680">
-									<div class="card card-4">
-										<div class="card-body">
-											<h4 class="title">클래스 일정</h4>
-											<jsp:include page="calendar.jsp"></jsp:include>
-
-
-											
-<div style="width:100%; height:1px; display: flex;  justify-content: space-between;">
-<a class="carousel-control-prev" href="#carouselExampleIndicators"
-			role="button" data-slide="prev"
-			style="height: 5%;width: 11%; top: 93%; padding-left: 10px;" title="앞으로">
-			<span
-			class="carousel-control-prev-icon" aria-hidden="true" style="background-size: contain;background-repeat: no-repeat;"></span>
-			<span
-			class="sr-only">Previous</span>
-		</a> 
-		<a class="carousel-control-next"
-			
-			style="height: 5%;width: 15%; top: 93%; padding-right: 10px;">
-		<button style="background-image:url('/MochaKmong/assets/img/class/SUBMIT.png'); background-size: contain;background-repeat: no-repeat; width: 100%;height: 100%;"
-													type="submit" title="등록"></button>
-		</a>
-
-</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 			</div>
 
@@ -380,15 +286,15 @@ li {
 <script>
 		$('#summernote').summernote(
 				{	lang : "ko-KR",
-					placeholder : '클래스 설명을 써주세요',
+					placeholder : '플레이스 설명을 써주세요',
 					tabsize : 2,
-					height : 450,
+					height : 350,
 					toolbar : [ [ 'style', [ 'style' ] ],
 							[ 'font', [ 'bold', 'underline', 'clear' ] ],
 							[ 'color', [ 'color' ] ],
 							[ 'para', [ 'ul', 'ol', 'paragraph' ] ],
 							[ 'table', [ 'table' ] ],
-							[ 'insert', [ 'link', 'picture', 'video' ] ],
+							[ 'insert', [ 'link', 'picture' ] ],
 							[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ],
 					callbacks : {
 						onImageUpload : function(files, editor, welEditable) {
@@ -416,11 +322,10 @@ li {
 			}
 		});
 	}
-		
-		
-		$(document).ready(function () {
-			$("body").scrollTop($(document).height());
-	    });
+
+	$(document).ready(function() {
+		$("body").scrollTop($(document).height());
+	});
 </script>
 
 <!-- This templates was made by Colorlib (https://colorlib.com) -->

@@ -30,7 +30,7 @@ public class PlaceDao extends DAO {
 				vo.setAreaCode(rs.getInt("area_code"));
 				vo.setPlaceName(rs.getString("place_name"));
 				vo.setPlaceAddress(rs.getString("place_address"));
-				vo.setPlaceContent(rs.getClob("place_content"));
+				vo.setPlaceContent(rs.getString("place_content"));
 				vo.setPlaceDate(rs.getDate("place_date"));
 				vo.setPlaceTel(rs.getString("place_tel"));
 				list.add(vo);
@@ -57,7 +57,7 @@ public class PlaceDao extends DAO {
 				vo.setAreaCode(rs.getInt("area_code"));
 				vo.setPlaceName(rs.getString("place_name"));
 				vo.setPlaceAddress(rs.getString("place_address"));
-				vo.setPlaceContent(rs.getClob("place_content"));
+				vo.setPlaceContent(rs.getString("place_content"));
 				vo.setPlaceDate(rs.getDate("place_date"));
 				vo.setPlaceTel(rs.getString("place_tel"));
 			}
@@ -69,26 +69,31 @@ public class PlaceDao extends DAO {
 		return vo;
 	}
 	
-	public int PlaceInsert(PlaceVo vo) {
+	public PlaceVo PlaceInsert(PlaceVo vo) {
 		String sql = "INSERT INTO PLACE(PLACE_CODE, USER_ID, AREA_CODE, PLACE_NAME, PLACE_ADDRESS, PLACE_CONTENT, PLACE_TEL)"
-				+ "VALUES(?, ?, ?, ?, ?, ?, ?)";
+				+ "VALUES(PLACE_SEQ.NEXTVAL, ?, ?, ?, ?, ?, ?)";
 		int n = 0;
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, vo.getPlaceCode());
-			psmt.setString(2, vo.getUserId());
-			psmt.setInt(3, vo.getAreaCode());
-			psmt.setString(4, vo.getPlaceName());
-			psmt.setString(5, vo.getPlaceAddress());
-			psmt.setClob(6, vo.getPlaceContent());
-			psmt.setString(7, vo.getPlaceTel());
+			//psmt.setInt(1, vo.getPlaceCode());
+			psmt.setString(1, vo.getUserId());
+			psmt.setInt(2, vo.getAreaCode());
+			psmt.setString(3, vo.getPlaceName());
+			psmt.setString(4, vo.getPlaceAddress());
+			psmt.setString(5, vo.getPlaceContent());
+			psmt.setString(6, vo.getPlaceTel());
 			n = psmt.executeUpdate();
+			
+			psmt = conn.prepareStatement("SELECT PLACE_CODE FROM PLACE WHERE PLACE_NAME=?");
+			psmt.setString(1, vo.getPlaceName());
+			rs = psmt.executeQuery();
+			vo.setPlaceCode(rs.getInt("place_code"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close();
 		}
-		return n;
+		return vo;
 	}
 	
 	public int PlaceUpdate(PlaceVo vo) {
@@ -102,7 +107,7 @@ public class PlaceDao extends DAO {
 		try {
 			psmt = conn.prepareStatement(sql);
 			if (vo.getPlaceContent() != null)
-				psmt.setClob(1, vo.getPlaceContent());
+				psmt.setString(1, vo.getPlaceContent());
 			else if (vo.getPlaceTel() != null)
 				psmt.setString(1, vo.getPlaceTel());
 			    psmt.setInt(2, vo.getPlaceCode());

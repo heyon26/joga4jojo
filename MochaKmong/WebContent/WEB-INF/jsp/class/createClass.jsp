@@ -86,7 +86,7 @@ li {
 								<div class="card card-4">
 									<div class="card-body">
 
-										<h4 class="title">연락처</h4>
+										<h4 class="title">클래스 연락처</h4>
 										<div class="row2 row2-space"
 											style="margin-bottom: 50px !important;">
 

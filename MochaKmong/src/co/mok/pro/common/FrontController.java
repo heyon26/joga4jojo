@@ -31,6 +31,7 @@ import co.mok.pro.board.NewBoardForm;
 import co.mok.pro.board.NewConsult;
 import co.mok.pro.board.NewConsultForm;
 import co.mok.pro.board.SearchBoard;
+import co.mok.pro.classes.ClassView;
 import co.mok.pro.classes.CreateClass;
 import co.mok.pro.classes.CreateClassView;
 import co.mok.pro.main.MainService;
@@ -161,7 +162,7 @@ public class FrontController extends HttpServlet {
 		map.put("/classSearch2.do", new ClassSearch2()); // 클래스 list 페이지에서 radio로 검색
 		map.put("/createClassView.do", new CreateClassView()); //
 		map.put("/createClass.do", new CreateClass());
-
+		map.put("/classView.do", new ClassView());
 		map.put("/classViewForm.do", new ClassViewForm()); //클래스 상세보기 
 		map.put("/applyViewForm.do", new ApplyViewForm()); //클래스 신청 페이지(결제 하기 전)
 		map.put("/payClass.do", new PayClass());//신청과 결제 페이지 

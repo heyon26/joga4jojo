@@ -32,7 +32,8 @@
 	padding-right: 20px;
 }
 
-@keyframes blinker { 50% {
+@
+keyframes blinker { 50% {
 	opacity: 0;
 }
 
@@ -47,14 +48,13 @@
 	top: 5px;
 }
 
-.name{
-height:35px;
-width: 200px;
-padding-left:25px;
-border-radius: 15px;
-border : 0.5px solid #eee;
+.name {
+	height: 35px;
+	width: 200px;
+	padding-left: 25px;
+	border-radius: 15px;
+	border: 0.5px solid #eee;
 }
-
 </style>
 
 <header>
@@ -79,58 +79,74 @@ border : 0.5px solid #eee;
 							<!-- Main-menu -->
 							<div class="main-menu f-right d-none d-lg-block">
 								<nav>
-								
+
 									<ul id="navigation">
 										<li>
 											<div class="container01">
 												<form id="frm01" name="frm01" action="classSearch1.do"
 													method="post">
 													<span class="icon"><i id="icon1"
-														class="fa fa-search"></i></span> 
-														<input class="name" type="text"	id="word" name="word" placeholder="search..">
+														class="fa fa-search"></i></span> <input class="name" type="text"
+														id="word" name="word" placeholder="search..">
 
 												</form>
 											</div>
 										</li>
 
 
+										<!-- 로그인 전 -->
+										<c:if test="${user_auth eq null }">
+											<li><a href="boardList.do">공지사항</a>
+												<ul class="submenu">
 
-											<c:if test="${user_auth eq null }">
-												<li><a href="boardList.do">공지사항</a>
-													<ul class="submenu">
-
-														<li><a href="boardList.do">공지사항</a></li>
-														<li><a href="askList.do">자주묻는질문</a></li>
-														<li><a href="consultList.do">문의게시판</a></li>
-													</ul></li>
+													<li><a href="boardList.do">공지사항</a></li>
+													<li><a href="askList.do">자주묻는질문</a></li>
+													<li><a href="consultList.do">문의게시판</a></li>
+												</ul></li>
 
 
-												<li><i class="far fa-user-circle"></i>
-													<ul class="submenu">
-														<li><a href="loginForm.do">로그인</a></li>
-														<li><a href="userJoinForm.do">회원가입</a></li>
-														<li><a href="myPage.do">마이페이지</a></li>
-													</ul>
-											</c:if>
+											<li><i class="far fa-user-circle"></i>
+												<ul class="submenu">
+													<li><a href="loginForm.do">로그인</a></li>
+													<li><a href="userJoinForm.do">회원가입</a></li>
+
+												</ul></li>
+										</c:if>
+
+
+										<!-- 로그인 후 -->
+										<c:if test="${user_auth ne null }">
+											<li><a href="boardList.do">공지사항</a>
+												<ul class="submenu">
+													<li><a href="boardList.do">공지사항</a></li>
+													<li><a href="askList.do">자주묻는질문</a></li>
+													<li><a href="consultList.do">문의게시판</a></li>
+
+												</ul></li>
+											<li><a href="classView.do">클래스</a>
+											<ul class="submenu">
+											<li><a class="menuLink" href="classView.do">클래스 보기</a></li>
+											<li><a class="menuLink" href="createClassView.do">클래스 등록</a></li>
 											
-											<c:if test="${user_auth ne null }">
-												<li><a href="boardList.do">공지사항</a>
-													<ul class="submenu">
-														<li><a href="boardList.do">공지사항</a></li>
-														<li><a href="askList.do">자주묻는질문</a></li>
-														<li><a href="consultList.do">문의게시판</a></li>
-
-													</ul></li>
-												<li><a href="createClassView.do">클래스등록</a></li>
-												<li><a href="about.html" class="blink">${user_id }님
-														접속을 환영합니다.</a>
-													<ul class="submenu">
-														<li><a class="menuLink" href="logout.do">로그아웃</a></li>
-														<li></li>
-														<li><a class="menuLink" href="myPage.do">내클래스/프로필</a></li>
-													</ul>
-											</c:if>
-										</ul>
+											</ul>											
+											</li>
+											<li><a href="classView.do">플레이스</a>
+											<ul class="submenu">
+											<li><a class="menuLink" href="classView.do">플레이스 보기</a></li>
+											<li><a class="menuLink" href="createPlaceView.do">플레이스 등록</a></li>
+											
+											</ul>											
+											</li>
+											
+											<li><a href="myPage.do" class="blink">${user_id }님
+													접속을 환영합니다.</a>
+												<ul class="submenu">
+													<li><a class="menuLink" href="logout.do">로그아웃</a></li>
+													
+													<li><a class="menuLink" href="myPage.do">내클래스/프로필</a></li>
+												</ul></li>
+										</c:if>
+									</ul>
 								</nav>
 							</div>
 						</div>
