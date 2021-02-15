@@ -23,6 +23,12 @@
             <link rel="stylesheet" href="assets/css/slick.css">
             <link rel="stylesheet" href="assets/css/nice-select.css">
             <link rel="stylesheet" href="assets/css/style.css">
+            <style>
+
+	#button3{
+  			background-color: #ffc107 !important;
+		}
+</style>
    </head>
 <jsp:include page="../main/topmenu.jsp"></jsp:include>
 <script type="text/javascript">
@@ -61,13 +67,18 @@
                      <p class="excert">${vo.bContent } </p>
                   </div>
                </div>
+               <c:if test="${user_id eq 'admin' }">
                <div align="right" class="button-group-area mt-40">
-               		<a href="askList.do"class="genric-btn info circle arrow">목록</a>
-					<a onclick="updateAlert()"class="genric-btn info circle arrow">수정</a>
-					<a onclick="deleteAlert()"class="genric-btn info circle arrow">삭제</a>
+               		<a href="askList.do"id="button3"class="genric-btn info circle arrow">목록</a>
+					<a onclick="updateAlert()"id="button3"class="genric-btn info circle arrow">수정</a>
+					<a onclick="deleteAlert()"id="button3"class="genric-btn info circle arrow">삭제</a>
 			   </div>
-               
-             
+			   </c:if>
+               <c:if test="${user_id ne 'admin' }">
+             	<div align="right" class="button-group-area mt-40">
+               		<a href="askList.do"id="button3"class="genric-btn info circle arrow">목록</a>
+			   </div>
+			   </c:if>
             </div>
 </body>
 </html>

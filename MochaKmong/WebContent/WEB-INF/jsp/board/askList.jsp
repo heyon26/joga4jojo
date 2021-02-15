@@ -23,6 +23,14 @@
             <link rel="stylesheet" href="assets/css/slick.css">
             <link rel="stylesheet" href="assets/css/nice-select.css">
             <link rel="stylesheet" href="assets/css/style.css">
+<style>
+	#div1{
+	background-color: #F0FFF0 !important;
+	}
+	#button3{
+  			background-color: #ffc107 !important;
+		}
+</style>
    </head>
 <jsp:include page="../main/topmenu.jsp"></jsp:include>
 <script type="text/javascript">
@@ -45,8 +53,8 @@
 				<form id="frm" name="frm" action="" method="post">
 					<input type="hidden" id="boardCode" name="boardCode">
 				</form>
-				<div class="progress-table-wrap">
-					<div class="progress-table">
+				<div id="div1" class="progress-table-wrap">
+					<div id="div1" class="progress-table">
 						<div class="table-head">
 							<div class="serial">조회수</div>
 							<div class="serial">카테고리</div>
@@ -68,7 +76,7 @@
 			</div>
 			<c:if test="${user_id eq 'admin' }">	
 			<div align="right" class="button-group-area mt-40">
-			<a onclick="insertAlert()"class="genric-btn info circle arrow">글쓰기</a>
+			<a onclick="insertAlert()" id="button3"class="genric-btn info circle arrow">글쓰기</a>
 			</div>
 			</c:if>
 		</div>

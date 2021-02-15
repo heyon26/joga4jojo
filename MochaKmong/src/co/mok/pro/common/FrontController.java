@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.mok.pro.board.AnswerDelete;
 import co.mok.pro.board.AskDelete;
 import co.mok.pro.board.AskEdit;
 import co.mok.pro.board.AskEditForm;
@@ -111,7 +112,7 @@ public class FrontController extends HttpServlet {
 		map.put("/newConsultForm.do", new NewConsultForm()); // 문의하기 작성폼 이동
 		map.put("/newConsult.do", new NewConsult()); // 문의하기 글 작성
 		map.put("/newAnswer.do", new NewAnswer()); // 문의하기 답변 작성
-
+		map.put("/answerDelete.do", new AnswerDelete()); // 문의하기 답변 작성
 		// 로그인 기능
 		map.put("/loginForm.do", new LoginForm());
 

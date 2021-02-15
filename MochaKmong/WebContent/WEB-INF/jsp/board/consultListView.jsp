@@ -24,6 +24,12 @@
             <link rel="stylesheet" href="assets/css/nice-select.css">
             <link rel="stylesheet" href="assets/css/style.css">
    </head>
+    <style>
+
+	#button3{
+  			background-color: #ffc107 !important;
+		}
+		</style>
 <jsp:include page="../main/topmenu.jsp"></jsp:include>
 <script type="text/javascript">
 	
@@ -39,6 +45,12 @@
 		var ib = confirm("삭제 하시겠습니까");
 		if (ib) {
 			location.href = "boardDelete.do?boardCode="+"${vo.boardCode}";
+		}
+	}
+	function deleteAlert2(){
+		var ib = confirm("삭제 하시겠습니까");
+		if (ib) {
+			location.href = "answerDelete.do?boardCode="+"${vo.boardCode}";
 		}
 	}
 	window.onload = function(){
@@ -75,11 +87,17 @@
                      <p class="excert">${vo.bContent } </p>
                   </div>
                </div>
+               <c:if test="${user_id eq 'admin' }">
                <div align="right" class="button-group-area mt-40">
-               		<a href="consultList.do"class="genric-btn info circle arrow">목록</a>
-					<a onclick="updateAlert()"class="genric-btn info circle arrow">수정</a>
-					<a onclick="deleteAlert()"class="genric-btn info circle arrow">삭제</a>
+               		<a href="consultList.do"id="button3"class="genric-btn info circle arrow">목록</a>
+					<a onclick="deleteAlert()"id="button3"class="genric-btn info circle arrow">삭제</a>
 			   </div>
+			   </c:if>
+			   <c:if test="${user_id ne 'admin' }">
+               <div align="right" class="button-group-area mt-40">
+               		<a href="consultList.do"id="button3"class="genric-btn info circle arrow">목록</a>
+			   </div>
+			   </c:if>
 			   <!-- 댓글 부분 -->
                <div class="comments-area">
                   <h4>답변</h4>
@@ -110,6 +128,12 @@
                         </div>
                      </div>
                   </div>
+                  
+                <div align="right">
+                  <c:if test="${user_id eq 'admin' }">	
+                  <a onclick="deleteAlert2()"id="button3"class="genric-btn info circle arrow">삭제</a>
+                  </c:if>
+               </div>  
                  <!-- 댓글 리스트-->
                  <c:if test="${user_id eq 'admin' }">	
                <div class="comment-form">
@@ -139,6 +163,7 @@
                   </form>
                </div>
                </c:if>
+            </div>
             </div>
 </body>
 </html>
