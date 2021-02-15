@@ -16,15 +16,15 @@ public class MyPageClassDelete implements Command {
 
 		FavClassDao dao = new FavClassDao();
 		FavClassVo vo = new FavClassVo();
+		int classCode = Integer.parseInt(request.getParameter("classCode"));
 		
-		vo.setClassCode(Integer.parseInt(request.getParameter("classCode")));
+		vo.setClassCode(classCode);
 		int n = dao.deleteFavClass(vo);
 		String viewPage = null;
 
 		if (n != 0) {
 			viewPage = "member/myPageClass";
 		}
-
 		return viewPage;
 	}
 

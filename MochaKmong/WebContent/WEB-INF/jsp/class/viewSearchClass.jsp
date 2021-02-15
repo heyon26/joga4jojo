@@ -174,7 +174,7 @@ body{margin-bottom:80px;}
                 <c:if test="${not empty list }">
                 <c:forEach var="vo" items="${list }">
                     <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
+                        <div class="single-place mb-30"><a href="classViewForm.do?classCode=${vo.classCode }" style="font-weight:bold;">
                             <div class="place-img">
                                  <c:if test="${vo.cateGoryA == '핸드메이드·수공예'}">
 							    	<img src="assets/img/classImage/handmade.jpg" style="height:300px;">
@@ -208,7 +208,7 @@ body{margin-bottom:80px;}
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                     <span><i class="fas fa-star"></i><span>${vo.ratingCode }</span> </span>
-                                    <h5><a href="classViewForm.do?classCode=${vo.classCode }" style="font-weight:bold;">${vo.className }</a></h5>
+                                    <h5>${vo.className }</h5>
                                     <p class="dolor">${vo.classPrice }원<span>/1인당</span></p>
                                     <p style="font-size:13px;">${vo.classIntroduce }</p>
                                 </div>
@@ -219,7 +219,7 @@ body{margin-bottom:80px;}
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </a></div>
                     </div>
                     </c:forEach>
 					</c:if>                    

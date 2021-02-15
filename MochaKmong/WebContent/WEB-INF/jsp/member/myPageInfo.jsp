@@ -13,9 +13,9 @@
  <link rel="stylesheet" href="assets/css/mypage.css">
  
 <style>
-.profileImage {
+
+.profileImage { 
     width: 150px;
-    height: 150px; 
     border-radius: 70%;
     overflow: hidden;
    	margin: -20px;
@@ -45,9 +45,6 @@
 	ImageDAO idao = new ImageDAO();
 	ImageVo ivo = new ImageVo();
 
-	String filePath = request.getServletContext().getRealPath("image");
-	request.setAttribute("filePath", filePath); // image 파일 경로
-
 	ivo.setUserId(session.getAttribute("user_id").toString());
 	ivo = idao.selectImage(ivo);
 	request.setAttribute("ivo", ivo);
@@ -64,8 +61,15 @@
               <div class="card-body text-center bg-primary rounded-top">
                <div class="user-box">
                <div class="profileImage" style="background:#FFFFFF;">
-               		<!-- <img src="assets/img/mypage/profile.png" name="image"> -->
-               		<img src="${filePath}\${ivo.image}" class="image" name="image">
+               
+               		<c:if test="${empty ivo.image }">
+               		<img src="assets/img/mypage/profile.png" alt="프로필 이미지 없을 때 출력">
+               		</c:if>
+               		
+               		<c:if test="${not empty ivo.image }">
+               		<img src="${pageContext.request.contextPath}/image/${ivo.image}" alt="프로필 이미지 삽입 시 출력">
+               		</c:if>
+               		
                </div>
               </div>
               <div class="space"></div>

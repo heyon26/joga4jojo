@@ -88,9 +88,9 @@ h1 {
 	
 
 function insertImage(e){
-	var msg = confirm("해당 이미지로 변경하시겠습니까?");
+	var msg = confirm("해당 이미지로 수정하시겠습니까?");
 	if(msg){
-		e.preventDefault();
+		//e.preventDefault();
 		var imgName = $('#file').val();
 		imgName = imgName.substring(imgName.lastIndexOf('\\') + 1);
 		$('#image').val(imgName);
@@ -102,18 +102,7 @@ function insertImage(e){
 </head>
 <body>
 
-<!-- 로그인 세션값 호출 -->
-<%
-	String id = (String) session.getAttribute("user_id");
-
-UserDao dao = new UserDao();
-UserVo vo = new UserVo();
-
-vo = dao.getUserInfo(id);
-%>
-<!-- 로그인 세션값 호출 -->
-
-<form id="frm" name="frm" method="post"enctype="multipart/form-data" action="InsertImage" onsubmit="insertImage(event)">
+<form id="frm" name="frm" method="post"enctype="multipart/form-data" action="UploadImage" onsubmit="insertImage(event)">
 <div class="container">
     <h1>프로필 이미지 삽입 
         <small></small>
