@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,6 +34,14 @@ function updateAlert() {
 	if (msg) {
 		updateForm.action = "profileUpdate.do";
 		updateForm.userId.value = frm.userId.value;
+		updateForm.submit();
+	}
+}
+
+function deleteImage(){
+	var msg = confirm("프로필 이미지를 삭제하시겠습니까?");
+	if(msg){
+		updateForm.action = "profileDelete.do";
 		updateForm.submit();
 	}
 }
@@ -216,6 +225,15 @@ function updateAlert() {
                                 <input class="form-control" id="uploadImg" name="uploadImg" type="button" value="프로필 이미지 수정(Click!)" onclick="uploadImage()">
                             </div>
                         </div>
+                        
+                        <c:if test="${not empty ivo.image }">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">프로필 이미지 삭제</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" id="deleteImg" name="deleteImg" type="button" value="프로필 이미지 삭제(Click!)" onclick="deleteImage()">
+                            </div>
+                        </div>
+                        </c:if>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">주소</label>
                             <div class="col-lg-9">

@@ -122,7 +122,8 @@
                             <c:forEach var="cvo" items="${list }">
                             <tr  id="${cvo.classCode }" class="pointer" onclick="location.href='myPageClassExpert.do?classCode=${cvo.classCode}'">
                                 <td>
-                                   <span class="float-right font-weight-bold">${cvo.cateGoryA }</span>${cvo.className }
+                                   <span class="float-right font-weight-bold">${cvo.cateGoryA }</span>
+                                   <span name="className">${cvo.className }</span>
                                 </td>
                             </tr>
                         <c:if test="${empty cvo.className }">

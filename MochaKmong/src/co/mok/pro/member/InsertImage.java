@@ -38,10 +38,12 @@ public class InsertImage extends HttpServlet implements Command{
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	
-		response.setContentType("text/html; charset=UTF-8");
-		request.setCharacterEncoding(CHARSET);
+		request.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=UTF-8");
+		
 		String ATTACHES_DIR = request.getServletContext().getRealPath("image");
 		System.out.println("나의 경로" + request.getServletContext().getRealPath("image"));
 		PrintWriter out = response.getWriter();
@@ -83,7 +85,6 @@ public class InsertImage extends HttpServlet implements Command{
 		for (String cd : partHeader.split(";")) {
 			if (cd.trim().startsWith("filename")) {
 				String fileName = cd.substring(cd.indexOf("=") + 1).trim().replace("\"", "");
-				;
 				int index = fileName.lastIndexOf(File.separator);
 				return fileName.substring(index + 1);
 			}
