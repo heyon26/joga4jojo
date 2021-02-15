@@ -72,14 +72,23 @@
 				
 				<div class="col-sm-3">
 					<div class="form-group">
-						<input class="form-control" id="bCategoryA" name="bCategoryA"
-							type="text" placeholder="CategoryA" required="required">
+						<select id="bCategoryA"name="bCategoryA"  style="width:270px;height:50px;">
+							    <option value="없음">선택</option>
+							    <option value="오류">오류</option>
+							    <option value="이벤트">이벤트</option>
+							    <option value="공지">공지</option>
+							</select>
 					</div>
 				</div>
 				<div class="col-sm-3">
 					<div class="form-group">
-						<input class="form-control" id="bCategoryB" name="bCategoryB"
-							type="text" placeholder="CategoryB" required="required">
+						<select id="bCategoryB"name="bCategoryB"  style="width:270px;height:50px;">
+							    <option value="없음">클래스</option>
+							    <option value="취미">취미</option>
+							    <option value="이벤트">요리</option>
+							    <option value="공지">스포츠</option>
+							    <option value="기타">기타</option>
+							</select>
 					</div>
 				</div>
 				<div class="col-12">
