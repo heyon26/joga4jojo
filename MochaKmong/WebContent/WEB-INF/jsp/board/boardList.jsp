@@ -36,7 +36,7 @@
       margin:0;
     }
     input[type="text"]{
-      width:73%;
+      width:82%;
       height:100%;
       border:none;
       font-size:1em;
@@ -65,6 +65,14 @@
       background-color: lightgray;
     }
   </style>
+  <style>
+	#div1{
+	background-color: #dcdcdc !important;
+	}
+	#button3{
+  			background-color: #ffc107 !important;
+		}
+</style>
 <jsp:include page="../main/topmenu.jsp"></jsp:include>
 <script type="text/javascript">
 	function formSubmit(str){
@@ -92,8 +100,8 @@
 				<form id="frm" name="frm" action="" method="post">
 					<input type="hidden" id="boardCode" name="boardCode">
 				</form>
-				<div class="progress-table-wrap">
-					<div class="progress-table">
+				<div  class="progress-table-wrap">
+					<div id="div1"class="progress-table">
 						<div class="table-head">
 							<div class="serial">조회수</div>
 							<div class="serial">카테고리</div>
@@ -118,14 +126,9 @@
 			<c:if test="${user_id eq 'admin' }">	
 			<div class="container box_1170">
 				<form action=""	id="frm2" name="frm2" method="post">
-				<select id="keyword"name="keyword">
-					<option value="b_Name">제목(Title)</option>
-				</select>
-					<input type="text" id="searchWord" name="searchWord">
-				
-						<a onclick="searchSubmit()"class="genric-btn info circle arrow">검색</a>
-						<a onclick="insertAlert()"class="genric-btn info circle arrow">글쓰기</a>
-		
+					<input type="text" id="searchWord" name="searchWord" placeholder="Search..">
+						<a onclick="searchSubmit()"id="button3"class="genric-btn info circle arrow">검색</a>
+						<a onclick="insertAlert()"id="button3"class="genric-btn info circle arrow">글쓰기</a>
 						<div align="right" class="button-group-area mt-40">
 						</div>
 				</form>		
@@ -134,12 +137,9 @@
 			<c:if test="${user_id ne 'admin' }">	
 			<div class="container box_1170">
 				<form action=""	id="frm2" name="frm2" method="post">
-				<select id="keyword"name="keyword">
-					<option value="b_Name">제목(Title)</option>
-				</select>
-					<input type="text" id="searchWord" name="searchWord">
+					<input type="text" id="searchWord" name="searchWord" placeholder="Search..">
 				
-						<a onclick="searchSubmit()"class="genric-btn info circle arrow">검색</a>
+						<a onclick="searchSubmit()"id="button3" class="genric-btn info circle arrow">검색</a>
 		
 						<div align="right" class="button-group-area mt-40">
 						</div>

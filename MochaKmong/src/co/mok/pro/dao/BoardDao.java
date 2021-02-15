@@ -286,6 +286,22 @@ public class BoardDao extends DAO {
 	}
 	//answerSelect
 	//
+	// 답글 삭제
+	public int answerDelete(AnswerVo vo){
+		int n = 0;
+		String sql = "DELETE FROM ANSWER WHERE BOARD_CODE=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, vo.getBoardCode());
+			
+			n=psmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return n;
+	}
 	//
 	public int insertConsult(AnswerVo vo) {
 	String sql = "INSERT INTO ANSWER values(?,?,?,SYSDATE)";

@@ -23,6 +23,12 @@
             <link rel="stylesheet" href="assets/css/slick.css">
             <link rel="stylesheet" href="assets/css/nice-select.css">
             <link rel="stylesheet" href="assets/css/style.css">
+            <style>
+
+	#button3{
+  			background-color: #ffc107 !important;
+		}
+</style>
    </head>
 <jsp:include page="../main/topmenu.jsp"></jsp:include>
 <script type="text/javascript">
@@ -67,7 +73,7 @@
 				</div>
 			</div>
 			<div align="right" class="button-group-area mt-40">
-			<a onclick="insertAlert()"class="genric-btn info circle arrow">문의하기</a>
+			<a onclick="insertAlert()"id="button3"class="genric-btn info circle arrow">문의하기</a>
 			</div>
 		</div>
 </body>
