@@ -1,6 +1,5 @@
 package co.mok.pro.member;
 
-import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,14 +13,6 @@ public class UploadImageDo implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		try {
-			request.setCharacterEncoding("utf-8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		response.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=UTF-8");
 		// 프로필 이미지 수정
 		ImageDAO dao = new ImageDAO();
 		ImageVo ivo = new ImageVo();
@@ -31,11 +22,9 @@ public class UploadImageDo implements Command {
 		ivo.setUserId(session.getAttribute("user_id").toString());
 		ivo.setImage(fileName);
 		
-		//int n = dao.updateImage(ivo);
-		int n = 1;
+		int n = dao.updateImage(ivo);
 		String viewPage = null;
 		if(n != 0) {
-			request.setAttribute("ivo", ivo);
 			viewPage = "member/uploadSuccess";
 		}
 	

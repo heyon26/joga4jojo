@@ -7,13 +7,13 @@
 <head>
 <meta charset="UTF-8">
 <title>이미지 삽입 성공 페이지</title>
+<link rel="stylesheet" href="assets/css/style.css">
 <style>
 .user-box {
 	width: 110px;
 	margin: auto;
 	margin-bottom: 20px;
 }
-
 .user-box img {
 	width: 100%;
 	border-radius: 50%;
@@ -21,27 +21,30 @@
 	padding: 3px;
 	background: #fff;
 }
-
 .profileImage {
 	width: 150px;
 	border-radius: 70%;
 	margin: -20px;
 }
-
-h3{
-	color: #88B04B;
-	font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+h5{
+	color: #ffc107;
+	font-family: font-family: 'Nanum Gothic', sans-serif;
 	font-weight: 900;
-	font-size: 40px;
-	margin-bottom: 10px;
+	font-size: 25px;
+	margin:70px 0 70px 0;
+}
+.closeBtn{
+	margin-top: 30px;
+	background-color: #ffc107 !important;
 }
 </style>
 
 <script type="text/javascript">
-	function myclose() {
-
+	function myclose(){
+		opener.document.location.href="myPage.do"; // 자식창 닫고 부모창 refresh
 		window.close();
 	}
+	
 </script>
 </head>
 <body>
@@ -56,15 +59,13 @@ ivo = idao.selectImage(ivo);
 request.setAttribute("ivo", ivo);
 %>
 <div align="center">
-			<h3>Success</h3>
-			<div class="space">
+<h5>- 프로필 이미지가 수정 되었습니다 -</h5>
 	<div class="user-box" align="center">
 		<div class="profileImage" style="background:#FFFFFF;">
 			<img src="${pageContext.request.contextPath}/image/${ivo.image}" alt="프로필 이미지 삽입 시 출력">
+			<input type="button" value="닫기" class="genric-btn info circle arrow closeBtn" onclick="myclose()">
 		</div>
 	</div>
-	<p/>
-	<input type="button" value="닫기" onclick="myclose()">
 </div>
 </body>
 </html>
