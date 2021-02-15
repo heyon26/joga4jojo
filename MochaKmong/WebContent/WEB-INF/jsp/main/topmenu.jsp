@@ -131,7 +131,9 @@ keyframes blinker { 50% {
 											</ul>											
 											</li>
 
-											<li><i class="far fa-user-circle"></i>
+											<li><i class="fa fa-user-circle" style="font-family: Font Awesome\ 5 Free !important;font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;"></i>
 												<ul class="submenu">
 													<li><a href="loginForm.do">로그인</a></li>
 													<li><a href="userJoinForm.do">회원가입</a></li>

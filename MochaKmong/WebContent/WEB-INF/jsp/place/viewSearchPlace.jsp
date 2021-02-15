@@ -107,7 +107,7 @@ body{margin-bottom:80px;}
 								</label>
 							</div>
 							<div class="text-center">
-					<button class="button rounded primary-bg text-white w-100 btn_1 boxed-btn" type="submit" id ="frm2Button" name="frm2Button">검색하기</button> 
+					<button class="button rounded primary-bg text-white w-100 btn_1 boxed-btn" type="submit" id ="frm2Button" name="frm2Button" style="background:#ffc107 !important; border:#ffc107 !important; font-weight:bold; font-size:15px;">검색하기</button> 
 				</div>	
 				</fieldset>
 		</div>

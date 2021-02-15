@@ -63,7 +63,7 @@
                <div class="profileImage" style="background:#FFFFFF;">
                
                		<c:if test="${empty ivo.image }">
-               		<img src="assets/img/mypage/profile.png" alt="프로필 이미지 없을 때 출력">
+               		<img src="/MochaKmong/assets/img/mypage/profile.png" alt="프로필 이미지 없을 때 출력">
                		</c:if>
                		
                		<c:if test="${not empty ivo.image }">
