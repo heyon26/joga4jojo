@@ -18,9 +18,7 @@ location.href ="main.do";
 	z-index: 1900 !important;
 }
 
-body {
-	background-color: #ffea84 !important;
-}
+
 
 .note-modal-content {
 	height: 360px;
@@ -66,7 +64,7 @@ li {
 
 
 <jsp:include page="../main/topmenu.jsp" />
-<main>
+<main style="border-top: 1px dotted #eee;">
 	<div id="carouselExampleIndicators" class="carousel slide"
 		data-ride="carousel" data-interval="false">
 		<ol class="carousel-indicators">

@@ -129,16 +129,16 @@ body{margin-bottom:80px;}
                 <c:if test="${fn:contains(vo.placeName, word) }">
                 	<c:set var ="sameword" value="1" scope="request"/>
                     <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
+                        <div class="single-place mb-30"><a href="placeViewForm.do?placeCode=${vo.placeCode }">
                         
                             <div class="place-img">
-                                <img src="assets/img/service/services1.jpg" alt="">
+                                <img src="assets/img/placeImage/cafe2.jpg" alt="">
                             </div>
                             
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                     <span><i class="fas fa-star"></i><span>5</span> </span>
-                                    <h5><a href="placeViewForm.do?placeCode=${vo.placeCode }">${vo.placeName }</a></h5>
+                                    <h5>${vo.placeName }</h5>
                                     
                                     <p>편안한 공간</p>
                                 </div>
@@ -149,25 +149,32 @@ body{margin-bottom:80px;}
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                       </a> </div>
                     </div>
                     </c:if>
                     </c:forEach>
+                    <c:if test ="${empty sameword }">
+                	<div id="nonClass">
+	                	<img src="assets/img/icon/nontext.png" style="width:150px">
+	                	<p style="font-family:'Noto Sans KR' sans-serif;">등록된 플레이스가 없습니다.<br/>
+	                	   </p>
+                	</div>
+                </c:if> 
                     </c:if>
                     
                     <c:if test="${word eq null }">
                     <c:forEach var="vo" items="${list }">
                     <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
+                        <div class="single-place mb-30"><a href="placeViewForm.do?placeCode=${vo.placeCode }">
                         
                             <div class="place-img">
-                                <img src="assets/img/service/services1.jpg" alt="">
+                                <img src="assets/img/placeImage/cafe2.jpg" alt="">
                             </div>
                             
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                     <span><i class="fas fa-star"></i><span>5</span> </span>
-                                    <h5><a href="placeViewForm.do?placeCode=${vo.placeCode }">${vo.placeName }</a></h5>
+                                    <h5>${vo.placeName }</h5>
                                     
                                     <p>편안한 공간</p>
                                 </div>
@@ -178,7 +185,7 @@ body{margin-bottom:80px;}
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                       </a> </div>
                     </div>
 
                     </c:forEach>
@@ -192,13 +199,7 @@ body{margin-bottom:80px;}
 	                	   </p>
                 	</div>
                 </c:if>
-                <c:if test ="${empty sameword }">
-                	<div id="nonClass">
-	                	<img src="assets/img/icon/nontext.png" style="width:150px">
-	                	<p style="font-family:'Noto Sans KR' sans-serif;">등록된 플레이스가 없습니다.<br/>
-	                	   </p>
-                	</div>
-                </c:if>                    
+                                   
                 <!-- 여기까지 반복해서 생성 되어야함. -->
                 </div>
             </div>

@@ -55,6 +55,13 @@ keyframes blinker { 50% {
 	border-radius: 15px;
 	border: 0.5px solid #eee;
 }
+
+#navigation>li:hover>ul.submenu {
+	visibility: visible;
+    opacity: 1;
+    top: 100%;
+    z-index: 99999;
+}
 </style>
 
 <header>
