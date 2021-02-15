@@ -4312,8 +4312,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-	color: #fff;
-	background-color: #007bff
+	color: #000000;
+	background-color: #ffc107;
 }
 
 .nav-fill .nav-item {
@@ -6447,7 +6447,7 @@ button.close {
 }
 
 .bg-primary {
-	background-color: #007bff !important
+	background-color: #ffc107 !important
 }
 
 a.bg-primary:focus, a.bg-primary:hover, button.bg-primary:focus, button.bg-primary:hover
@@ -8953,7 +8953,7 @@ a.bg-dark:focus, a.bg-dark:hover, button.bg-dark:focus, button.bg-dark:hover
 }
 
 .text-white {
-	color: #fff !important
+	color: #000000 !important
 }
 
 .text-primary {
@@ -9005,7 +9005,7 @@ a.text-danger:focus, a.text-danger:hover {
 }
 
 .text-light {
-	color: #f8f9fa !important
+	color: #000000 !important
 }
 
 a.text-light:focus, a.text-light:hover {
