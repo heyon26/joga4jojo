@@ -49,7 +49,10 @@
 </script>
 <div class="container box_1170">
 <div class="section-top-border">
-				<h3 align="center"class="mb-30">자주 묻는 질문</h3>
+				<div align="center" class="logo">
+								<img src="assets/img/logo/4ji.png" alt="">
+
+							</div>
 				<form id="frm" name="frm" action="" method="post">
 					<input type="hidden" id="boardCode" name="boardCode">
 				</form>

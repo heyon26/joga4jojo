@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import co.mok.pro.common.Command;
 import co.mok.pro.dao.ClassDao;
@@ -14,8 +15,14 @@ public class MyPageClassExpert implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		// 강사 탭에서 등록한 클래스 페이지 호출
+		ArrayList<ClassVo> list = new ArrayList<ClassVo>();
+		ClassDao dao = new ClassDao();
 		
+		HttpSession session = request.getSession();
+		String id = session.getAttribute("user_id").toString();
 		
+		list = dao.selectUserClassList(id);
+		request.setAttribute("list", list);
 		
 		return "member/myPageClassExpert";
 	}

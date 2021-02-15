@@ -39,6 +39,28 @@ public class ImageDAO extends DAO {
 		return list;
 	}
 	
+	// 이미지 가져오기
+	public ImageVo selectImage(ImageVo vo) {
+		String sql = "SELECT * FROM IMAGE WHERE USER_ID = ?";
+		
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, vo.getUserId());
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				vo = new ImageVo();
+				vo.setImage(rs.getString("image"));
+				vo.setImageCode(rs.getInt("image_code"));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return vo;
+	}
+	
+	// 이미지 삽입
 	public int InsertImage(ImageVo vo) {
 		int n = 0;
 		String sql = "INSERT INTO IMAGE VALUES(IMAGE_SEQ.NEXTVAL, ?, ?)";
@@ -51,8 +73,6 @@ public class ImageDAO extends DAO {
 			
 		}catch(SQLException e) {
 			e.printStackTrace();
-		}finally {
-			close();
 		}
 		
 		return n;

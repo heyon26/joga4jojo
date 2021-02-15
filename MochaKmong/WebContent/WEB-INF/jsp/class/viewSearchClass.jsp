@@ -49,6 +49,7 @@ $(document).ready(function(){
 <style>
 *{font-family: 'Noto Sans KR', sans-serif;}
 body{margin-bottom:80px;}
+#frm2Button{background:#ffc107 !important; border:#ffc107 !important; font-weight:bold; font-size:15px;}
 </style>
 </head>
 <jsp:include page="../main/topmenu.jsp" />
@@ -174,17 +175,42 @@ body{margin-bottom:80px;}
                 <c:forEach var="vo" items="${list }">
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
-                        
                             <div class="place-img">
-                                <img src="assets/img/service/services1.jpg" alt="">
+                                 <c:if test="${vo.cateGoryA == '핸드메이드·수공예'}">
+							    	<img src="assets/img/classImage/handmade.jpg" style="height:300px;">
+							    </c:if>
+							   	<c:if test="${vo.cateGoryA == '쿠킹클래스'}">
+							    	<img src="assets/img/classImage/makaron.jpg" style="height:300px;">
+							    </c:if>
+							   	<c:if test="${vo.cateGoryA == '플라워레슨'}">
+							    	<img src="assets/img/classImage/flower.jpg" style="height:300px;">
+							    </c:if>
+							   	<c:if test="${vo.cateGoryA == '드로잉'}">
+							    	<img src="assets/img/classImage/drawing.jpg" style="height:300px;">
+							    </c:if>
+							   	<c:if test="${vo.cateGoryA == '음악'}">
+							    	<img src="assets/img/classImage/music.jpg" style="height:300px;">
+							    </c:if>
+							   	<c:if test="${vo.cateGoryA == '요가·필라테스'}">
+							    	<img src="assets/img/classImage/yoga.jpg" style="height:300px;">
+							    </c:if>
+							   	<c:if test="${vo.cateGoryA == '레저·스포츠'}">
+							    	<img src="assets/img/classImage/sport.png" style="height:300px;">
+							    </c:if>
+							    <c:if test="${vo.cateGoryA == '체험'}">
+							    	<img src="assets/img/classImage/coffee.jpg" style="height:300px;">
+							    </c:if>
+							    <c:if test="${vo.cateGoryA == '자기계발'}">
+							    	<img src="assets/img/classImage/programming.jpg" style="height:300px;">
+							    </c:if>
                             </div>
                             
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                     <span><i class="fas fa-star"></i><span>${vo.ratingCode }</span> </span>
-                                    <h5><a href="classViewForm.do?classCode=${vo.classCode }">${vo.className }</a></h5>
+                                    <h5><a href="classViewForm.do?classCode=${vo.classCode }" style="font-weight:bold;">${vo.className }</a></h5>
                                     <p class="dolor">${vo.classPrice }원<span>/1인당</span></p>
-                                    <p>${vo.classIntroduce }</p>
+                                    <p style="font-size:13px;">${vo.classIntroduce }</p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>

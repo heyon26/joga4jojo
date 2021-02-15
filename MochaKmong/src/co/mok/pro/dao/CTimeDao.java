@@ -47,7 +47,8 @@ public class CTimeDao extends DAO {
 	//클래스 결제 완료후  등록테이블에 등록 (트리거 생성 되어있어서 c_register에 insert 되면 자동으로 c_time의 register_number 업데이트 )
 	public int registerClass(String id,String startTime, int cCode, int registerNumber) {
 		int n=0;
-		String sql="INSERT INTO C_REGISTER VALUES(REGISTER_CODE_SEQ.NEXTVAL,?,(select time_code from c_time where start_time= to_date(?,'yyyy/mm/dd') and class_code= ? ),?)";
+		String sql="INSERT INTO C_REGISTER(REGISTER_CODE,USER_ID,TIME_CODE,REGISTER_NUMBER) "
+				+ " VALUES(REGISTER_CODE_SEQ.NEXTVAL,?,(SELECT TIME_CODE FROM C_TIME WHERE START_TIME= TO_DATE(?,'YYYY/MM/DD') AND CLASS_CODE= ? ),?)";
 		try {
 			psmt=conn.prepareStatement(sql);
 			psmt.setString(1, id);
@@ -56,26 +57,24 @@ public class CTimeDao extends DAO {
 			psmt.setInt(4, registerNumber);
 			
 			n=psmt.executeUpdate();
-			System.out.println(n+"개 행 register 테이블 업뎃 완료");
+			System.out.println(n+"개 행 클래스 등록(insert) 업뎃 완료 (c_register table)");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return n;
 	}
 	
-
-	
-	
 	
 	//클래스 결제 결과 등록 
-	public int payClassPrice(int rCode, String sTime, int totalPrice) {
+	public int payResultInto(PaymentVo vo) {
 		int n=0;
-		String sql = "insert into payment values(pay_seq.nextval,?,?,?,sysdate,'카드결제')";
+		String sql = "insert into payment(pay_code,user_id,money,pay_date,pay_method) values(pay_seq.nextval,?,?,sysdate,'카드결제')";
 		try {
 			psmt=conn.prepareStatement(sql);
-			psmt.setInt(1, rCode);
-			psmt.setString(2, sTime);
-			psmt.setInt(3, totalPrice);
+			psmt.setString(1, vo.getUserId());
+			psmt.setInt(2,vo.getMoney());
+			n=psmt.executeUpdate();
+			System.out.println(n+"개 행 결제결과 insert 완료(payment table)");
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -83,5 +82,5 @@ public class CTimeDao extends DAO {
 		
 		return n;
 	}
-	
+
 }

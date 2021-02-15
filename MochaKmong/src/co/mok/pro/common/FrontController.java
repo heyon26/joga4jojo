@@ -61,6 +61,7 @@ import co.mok.pro.web.FindPwForm;
 import co.mok.pro.web.LoginForm;
 import co.mok.pro.web.Logout;
 import co.mok.pro.web.PayClass;
+import co.mok.pro.web.PayResultInsert;
 import co.mok.pro.web.UserIdCheck;
 import co.mok.pro.web.UserJoin;
 import co.mok.pro.web.UserJoinForm;
@@ -165,7 +166,8 @@ public class FrontController extends HttpServlet {
 		map.put("/classViewForm.do", new ClassViewForm()); //클래스 상세보기 
 		map.put("/applyViewForm.do", new ApplyViewForm()); //클래스 신청 페이지(결제 하기 전)
 		map.put("/payClass.do", new PayClass());//신청과 결제 페이지 
-
+		map.put("/payResultInsert.do", new PayResultInsert()); //신청결과 db(c_register, payment테이블 insert
+		
 		map.put("/createPlaceView.do", new CreatePlaceView());
 
 		//map.put("/insertImageForm.do", new InsertImageForm()); // 프로필 이미지 삽입 폼 호출
