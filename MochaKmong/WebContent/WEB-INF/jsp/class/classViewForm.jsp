@@ -53,11 +53,12 @@
 		width:150px;
 	}
 	#add2{
-		border:0.5px solid ;
-		width:70px;
-		height:40px;
-		border-radius: 10px;
+		width:150px;
+		height:30px;
+		border: 1px solid #ced4da;
+   		border-radius: .25rem;
 		padding:15px;
+		text-align:right;
 	}
 	
 	#total{
@@ -83,7 +84,10 @@
 	    border-radius: .25rem;
 	    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
-
+	#btn{background:#ffc107 !important; border:#ffc107 !important;}
+	#btn1{background:#ffc107 !important; border:#ffc107 !important;}
+	.review{margin-top:40px; margin-bottom:40px; padding:20px;}
+	.table{margin-top:20px; margin-bottom:40px; padding:20px; text-align:center;}
 </style>
 
 <!-- 실시간 결제 예상 금액 계산 -->
@@ -99,7 +103,6 @@
 			  });
 		
 	})
-
 
 	
 	function applyClassDate() {
@@ -126,10 +129,10 @@
 <!-- 클래스 사진 -->
 	<div class="container">
 		    <c:if test="${vo.cateGoryA == '핸드메이드·수공예'}">
-		    	<img src="assets/img/classImage/handmade.jpg" style="width:800px; height:500px; border-radius:15px">
+		    	<img src="assets/img/classImage/handmade.jpg" style="width:800px; height:500px;">
 		    </c:if>
 		   	<c:if test="${vo.cateGoryA == '쿠킹클래스'}">
-		    	<img src="assets/img/classImage/cooking.jpg" style="width:800px; height:500px;">
+		    	<img src="assets/img/classImage/makaron.jpg"  style="width:800px; height:500px;">
 		    </c:if>
 		   	<c:if test="${vo.cateGoryA == '플라워레슨'}">
 		    	<img src="assets/img/classImage/flower.jpg" style="width:800px; height:500px;">
@@ -147,7 +150,7 @@
 		    	<img src="assets/img/classImage/sport.png" style="width:800px; height:500px;">
 		    </c:if>
 		    <c:if test="${vo.cateGoryA == '체험'}">
-		    	<img src="assets/img/classImage/dying.png" style="width:800px; height:500px; border-radius:15px">
+		    	<img src="assets/img/classImage/coffee.jpg" style="width:800px; height:500px;">
 		    </c:if>
 		    <c:if test="${vo.cateGoryA == '자기계발'}">
 		    	<img src="assets/img/classImage/programming.jpg" style="width:800px; height:500px;">
@@ -180,15 +183,14 @@
 								<option>날짜 선택</option>
 								<c:if test="${not empty list }">
 									<c:forEach var="clist" items="${list }">
-<%-- 									<c:if test="${clist.startTime == null || clist.possibleNumber==0 }">
-									 		<option>선택가능한 일자가 없습니다.</option>
-									 	</c:if> --%>
 								 		<option value="${clist.startTime }"> 신청일자 : ${clist.startTime } / 현재 신청가능인원 : ${clist.possibleNumber }</option>
 								 </c:forEach>
 							 	</c:if>
 	  					</select>
   							
+
 					<button type="submit" style="background-color: #ffc107; width: 200px; height: 55px; color: black;"> 클래스 신청하기</button>
+
 				</div>
 			</div>
 		</form>	
@@ -221,8 +223,8 @@
 		              		</div>
 						</div>
 						<div class="tab-pane fade" id="review" >
-								<div class="review" style="margin-top:40px; margin-bottom:40px; padding:20px;">
-									<table class="table" style="margin-top:40px; margin-bottom:40px; padding:20px;">
+								<div class="review">
+									<table class="table">
 										<tr>
 											<th>번호</th>
 											<th>작성자</th>
@@ -233,7 +235,7 @@
 										<td colspan=4 style="text-align:center"> 현재 등록된 리뷰가 없습니다.</td>	
 									</table>
 									<div align="right">
-										<button class="btn-secondary btn-sm" type="button" onclick="createReview()">리뷰 작성하기</button>
+										<button class="btn-secondary btn-sm" id="btn1" type="button" onclick="#">리뷰 작성하기</button>
 									</div>
 								</div>
 							</div>
