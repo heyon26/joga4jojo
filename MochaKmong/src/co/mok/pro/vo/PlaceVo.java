@@ -12,8 +12,16 @@ public class PlaceVo {
 	private String placeContent;
 	private Date placeDate;
 	private String placeTel;
+	private String placeEmail;
+	private String areaName;
 	
 	
+	public String getPlaceEmail() {
+		return placeEmail;
+	}
+	public void setPlaceEmail(String placeEmail) {
+		this.placeEmail = placeEmail;
+	}
 	public int getPlaceCode() {
 		return placeCode;
 	}
@@ -61,6 +69,12 @@ public class PlaceVo {
 	}
 	public void setPlaceTel(String placeTel) {
 		this.placeTel = placeTel;
+	}
+	public String getAreaName() {
+		return areaName;
+	}
+	public void setAreaName(String areaName) {
+		this.areaName = areaName;
 	}
 	
 	

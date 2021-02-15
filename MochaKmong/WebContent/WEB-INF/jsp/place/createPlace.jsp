@@ -76,7 +76,7 @@ li {
 			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 			<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
 		</ol>
-		<form id="frm" name="frm" action="createClass.do" method="POST">
+		<form id="frm" name="frm" action="createPlace.do" method="POST">
 			<div class="carousel-inner">
 				<!-- 첫번째 슬라이드 -->
 				<div class="d-block w-100">
@@ -186,7 +186,7 @@ li {
 											</div>
 											<div class="input-group">
 												<input type="text"
-													class="input--style-4" id="className" name="className"
+													class="input--style-4" id="placeName" name="placeName"
 													placeholder="이름" required="required">
 											</div>
 											<br><br>

@@ -53,7 +53,7 @@ public class CreateClass implements Command {
 		vo.setClassIntroduce(request.getParameter("classIntroduce"));
 		//vo.setCurriculum(curriculum);
 		vo.setClassContent(request.getParameter("summernote"));
-		vo.setClassAddress(request.getParameter("address")+request.getParameter("detailAddress"));
+		vo.setClassAddress(request.getParameter("address")+"."+request.getParameter("detailAddress"));
 		vo.setClassPrice(Integer.parseInt(request.getParameter("classPrice")));
 		vo.setClassTel(request.getParameter("tel"));
 //		vo.setClassEmail(request.getParameter("email"));

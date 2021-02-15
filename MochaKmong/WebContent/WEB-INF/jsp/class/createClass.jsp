@@ -388,7 +388,7 @@ li {
 							[ 'color', [ 'color' ] ],
 							[ 'para', [ 'ul', 'ol', 'paragraph' ] ],
 							[ 'table', [ 'table' ] ],
-							[ 'insert', [ 'link', 'picture', 'video' ] ],
+							[ 'insert', [ 'link', 'picture' ] ],
 							[ 'view', [ 'fullscreen', 'codeview', 'help' ] ] ],
 					callbacks : {
 						onImageUpload : function(files, editor, welEditable) {

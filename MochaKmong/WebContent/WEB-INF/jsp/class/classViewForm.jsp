@@ -216,7 +216,7 @@
 							<div style="padding-left:20px; margin-bottom:20px;" >
 		             			<p style="font-size:15px; font-weight:20;"> 클래스 장소 : ${vo.classAddress } </p>
 	             			</div>
-		              		<div id="map" style="width:1200px;height:600px; margin-bottom:60px;">
+		              		<div id="map" style="width:600px;height:600px; margin-bottom:60px;">
 		              	
 		              		</div>
 						</div>
@@ -288,7 +288,7 @@
 			// 지도를 표시하는 div 크기를 변경하는 함수입니다
 			function resizeMap() {
 			    var mapContainer = document.getElementById('map');
-			    mapContainer.style.width = '1200px';
+			    mapContainer.style.width = '600px';
 			    mapContainer.style.height = '600px'; 
 			}
 
@@ -303,8 +303,11 @@
 			// 주소-좌표 변환 객체를 생성합니다
 			var geocoder = new kakao.maps.services.Geocoder();
 			
+			var classAd = ("${vo.classAddress}").split('.');
+			
+			
 			// 주소로 좌표를 검색합니다
-			geocoder.addressSearch("${vo.classAddress }", function(result, status) {
+			geocoder.addressSearch(classAd[0], function(result, status) {
 			
 			    // 정상적으로 검색이 완료됐으면 
 			     if (status === kakao.maps.services.Status.OK) {

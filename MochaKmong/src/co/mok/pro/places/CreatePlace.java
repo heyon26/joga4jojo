@@ -50,20 +50,21 @@ public class CreatePlace implements Command {
 		vo.setPlaceName(request.getParameter("placeName"));
 
 		vo.setPlaceContent(request.getParameter("summernote"));
-		vo.setPlaceAddress(request.getParameter("address")+request.getParameter("detailAddress"));
+		vo.setPlaceAddress(request.getParameter("address")+"."+request.getParameter("detailAddress"));
 		vo.setPlaceTel(request.getParameter("tel"));
+		vo.setPlaceEmail(request.getParameter("email"));
 //		vo.setClassEmail(request.getParameter("email"));
 //		vo.setClassZipcode(request.getParameter("zipcode"));
 
 		
 		vo = dao.PlaceInsert(vo);
 		
+		request.setAttribute("placeCode", vo.getPlaceCode());
 		
-		
 
 
 
-		return "main.do";
+		return "place/viewPlace";
 	}
 
 

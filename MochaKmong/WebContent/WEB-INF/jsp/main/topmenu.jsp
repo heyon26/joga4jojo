@@ -130,9 +130,9 @@ keyframes blinker { 50% {
 											
 											</ul>											
 											</li>
-											<li><a href="classView.do">플레이스</a>
+											<li><a href="placeSearch.do">플레이스</a>
 											<ul class="submenu">
-											<li><a class="menuLink" href="classView.do">플레이스 보기</a></li>
+											<li><a class="menuLink" href="placeSearch.do">플레이스 보기</a></li>
 											<li><a class="menuLink" href="createPlaceView.do">플레이스 등록</a></li>
 											
 											</ul>											

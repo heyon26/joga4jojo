@@ -50,7 +50,10 @@ import co.mok.pro.member.MyPageExpertEdit;
 import co.mok.pro.member.ProfileUpdate;
 import co.mok.pro.member.UploadImage;
 import co.mok.pro.member.UploadImageForm;
+import co.mok.pro.places.CreatePlace;
 import co.mok.pro.places.CreatePlaceView;
+import co.mok.pro.places.PlaceSearch;
+import co.mok.pro.places.PlaceViewForm;
 import co.mok.pro.web.ApplyViewForm;
 import co.mok.pro.web.ClassSearch;
 import co.mok.pro.web.ClassSearch1;
@@ -168,10 +171,14 @@ public class FrontController extends HttpServlet {
 		map.put("/payClass.do", new PayClass());//신청과 결제 페이지 
 		map.put("/payResultInsert.do", new PayResultInsert()); //신청결과 db(c_register, payment테이블 insert
 		
-		map.put("/createPlaceView.do", new CreatePlaceView());
 
 		//map.put("/insertImageForm.do", new InsertImageForm()); // 프로필 이미지 삽입 폼 호출
 		// map.put("/insertImage.do",new InsertImage()); // 프로필 이미지 삽입 실행
+		
+		map.put("/createPlaceView.do", new CreatePlaceView());
+		map.put("/createPlace.do", new CreatePlace());
+		map.put("/placeViewForm.do", new PlaceViewForm());
+		map.put("/placeSearch.do", new PlaceSearch());
 
 	}
 
