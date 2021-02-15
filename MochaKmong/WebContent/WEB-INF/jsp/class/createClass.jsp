@@ -14,12 +14,16 @@ location.href ="main.do";
 </script> -->
 
 <style>
+
+
+
 #carouselExampleIndicators {
 	z-index: 1900 !important;
 }
 
 body {
 	background-color: transparent;
+	
 }
 
 .note-modal-content {

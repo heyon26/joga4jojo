@@ -35,6 +35,13 @@
 
 
 <style>
+@font-face {
+    font-family: 'Recipekorea';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 img {
 	display: block;
 	margin: auto;
@@ -197,7 +204,7 @@ img {
 
 
 
-					<button type="button" class="placeCall" style="background-color: #ffc107; width: 200px; height: 55px;">플레이스 신청하기</button>
+					<button type="button" class="placeCall" style="background-color: #ffc107; width: 200px; height: 55px; color: black;">플레이스 신청하기</button>
 
 
 

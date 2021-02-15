@@ -188,7 +188,7 @@
 							 	</c:if>
 	  					</select>
   							
-					<button type="submit" class="btn-secondary btn-sm"> 클래스 신청하기</button>
+					<button type="submit" style="background-color: #ffc107; width: 200px; height: 55px; color: black;"> 클래스 신청하기</button>
 				</div>
 			</div>
 		</form>	
