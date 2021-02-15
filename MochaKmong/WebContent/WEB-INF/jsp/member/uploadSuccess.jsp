@@ -24,7 +24,7 @@ ivo = idao.selectImage(ivo);
 request.setAttribute("ivo", ivo);
 %>
 <div align="center">
-			<h3>프로필 이미지가 수정 되었습니다.</h3>
+<h3>프로필 이미지가 수정 되었습니다.</h3>
 	<div class="user-box" align="center">
 		<div class="profileImage" style="background:#FFFFFF;">
 			<img src="${pageContext.request.contextPath}/image/${ivo.image}" alt="프로필 이미지 삽입 시 출력">
