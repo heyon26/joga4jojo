@@ -56,12 +56,7 @@ keyframes blinker { 50% {
 	border: 0.5px solid #eee;
 }
 
-#navigation>li:hover>ul.submenu {
-	visibility: visible;
-    opacity: 1;
-    top: 100%;
-    z-index: 99999;
-}
+
 </style>
 
 <header>
@@ -110,7 +105,20 @@ keyframes blinker { 50% {
 													<li><a href="askList.do">자주묻는질문</a></li>
 													<li><a href="consultList.do">문의게시판</a></li>
 												</ul></li>
-
+											<li><a href="classView.do">클래스</a>
+											<ul class="submenu">
+											<li><a class="menuLink" href="classView.do">클래스 보기</a></li>
+											
+											
+											</ul>											
+											</li>
+											<li><a href="placeSearch.do">플레이스</a>
+											<ul class="submenu">
+											<li><a class="menuLink" href="placeSearch.do">플레이스 보기</a></li>
+											
+											
+											</ul>											
+											</li>
 
 											<li><i class="far fa-user-circle"></i>
 												<ul class="submenu">

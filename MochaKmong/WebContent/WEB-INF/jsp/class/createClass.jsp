@@ -69,7 +69,8 @@ li {
 
 
 <jsp:include page="../main/topmenu.jsp" />
-<main style="border-top: 1px dotted #eee;">
+<div style="height: 100px;border-top: 1px dotted #eee;"></div>
+<main>
 	<div id="carouselExampleIndicators" class="carousel slide"
 		data-ride="carousel" data-interval="false">
 		<ol class="carousel-indicators">
@@ -84,7 +85,7 @@ li {
 				<!-- 첫번째 슬라이드 -->
 				<div class="d-block w-100">
 					<div class="carousel-item active">
-						<div class="page-wrapper p-t-130 p-b-100 font-poppins">
+						<div class="page-wrapper p-b-100 font-poppins">
 							<div class="wrapper wrapper--w680">
 								<div class="card card-4">
 									<div class="card-body">
@@ -176,7 +177,7 @@ li {
 
 						<!-- 두번째 슬라이드 -->
 						<div class="d-block w-100">
-							<div class="page-wrapper p-t-130 p-b-100 font-poppins">
+							<div class="page-wrapper p-b-100 font-poppins">
 								<div class="wrapper wrapper--w680">
 									<div class="card card-4">
 										<div class="card-body">
@@ -256,7 +257,7 @@ li {
 
 					<div class="carousel-item">
 						<div class="d-block w-100">
-							<div class="page-wrapper p-t-130 p-b-100 font-poppins">
+							<div class="page-wrapper p-b-100 font-poppins">
 								<div class="wrapper wrapper--w680">
 									<div class="card card-4">
 										<div class="card-body">
@@ -291,7 +292,7 @@ li {
 					</div>
 					<div class="carousel-item">
 						<div class="d-block w-100">
-							<div class="page-wrapper p-t-130 p-b-100 font-poppins">
+							<div class="page-wrapper p-b-100 font-poppins">
 								<div class="wrapper wrapper--w680">
 									<div class="card card-4">
 										<div class="card-body">

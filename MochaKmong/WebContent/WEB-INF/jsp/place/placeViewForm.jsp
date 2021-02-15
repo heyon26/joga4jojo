@@ -197,7 +197,7 @@ img {
 
 
 
-					<button type="button" class="placeCall">플레이스 신청하기</button>
+					<button type="button" class="placeCall" style="background-color: #ffc107; width: 200px; height: 55px;">플레이스 신청하기</button>
 
 
 
