@@ -62,12 +62,22 @@ window.onload = function(){
                         </div>
                         <div class="col-sm-3">
                            <div class="form-group">
-                              <input class="form-control" id="bCategoryA"name="bCategoryA" type="text" placeholder="CategoryA"required="required">
+                              <select id="bCategoryA"name="bCategoryA"  style="width:270px;height:50px;">
+							    <option value="">선택</option>
+							    <option value="클래스">클래스</option>
+							    <option value="결제">결제</option>
+							    <option value="환불">환불</option>
+							</select>
                            </div>
                         </div>
                          <div class="col-sm-3">
                            <div class="form-group">
-                              <input class="form-control" id="bCategoryB"name="bCategoryB" type="text" placeholder="CategoryB"required="required">
+                            <select id="bCategoryB"name="bCategoryB"  style="width:270px;height:50px;">
+							    <option value="">클래스 선택</option>
+							    <option value="쿠키">요리클래스</option>
+							    <option value="스포츠">스포츠클래스</option>
+							    <option value="기타">기타클래스</option>
+							</select>
                            </div>
                         </div>
                         <div class="col-12">

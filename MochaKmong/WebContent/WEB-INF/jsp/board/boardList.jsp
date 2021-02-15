@@ -67,7 +67,7 @@
   </style>
   <style>
 	#div1{
-	background-color: #dcdcdc !important;
+	background-color: #F9FFFF !important;
 	}
 	#button3{
   			background-color: #ffc107 !important;
@@ -96,7 +96,10 @@
 </script>
 <div class="container box_1170">
 <div class="section-top-border">
-				<h3 align="center"class="mb-30">공지사항</h3>
+				<div align="center" class="logo">
+								<img src="assets/img/logo/6ji.png" alt="">
+
+							</div>
 				<form id="frm" name="frm" action="" method="post">
 					<input type="hidden" id="boardCode" name="boardCode">
 				</form>
