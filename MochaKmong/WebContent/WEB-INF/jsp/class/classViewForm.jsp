@@ -114,13 +114,14 @@
 		}
 		if('${user_id }'!=null){
 		var classTime=$("#classTime option:selected").val();
-			alert(classTime);
+			/* alert(classTime); */
 			$("#startTime").empty();
 			$("#startTime").val(classTime);
 		}
 		return result;
 	}
 	
+
 </script>
 </head>
 	<jsp:include page="/WEB-INF/jsp/main/topmenu.jsp" />
@@ -227,6 +228,7 @@
 											<th>번호</th>
 											<th>작성자</th>
 											<th>리뷰</th>
+											<th>별점</th>
 											<th>작성일자</th>
 										</tr>
 										<tr>
@@ -279,8 +281,10 @@
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			    mapOption = {
 			        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-			        level: 3 // 지도의 확대 레벨
+			        level: 2 // 지도의 확대 레벨
 			    };  
+			
+			
 			
 			// 지도를 생성합니다    
 			var map = new kakao.maps.Map(mapContainer, mapOption); 
@@ -326,7 +330,8 @@
 			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 			        map.setCenter(coords);
 			    } 
-			});    
+			});
+			
 </script>
 
     
