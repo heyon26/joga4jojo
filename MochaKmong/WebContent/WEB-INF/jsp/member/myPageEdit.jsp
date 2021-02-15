@@ -242,7 +242,9 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">주소</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="" name="userAddress" placeholder="주소">
+                                <input class="form-control" type="text" name="userAddress" value="주소" 
+                                onfocus="this.value=''"
+								onblur="if(this.value=='')this.value='주소'">
                             </div>
                         </div>
                        
