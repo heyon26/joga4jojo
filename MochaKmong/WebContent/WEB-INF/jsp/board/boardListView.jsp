@@ -23,7 +23,14 @@
             <link rel="stylesheet" href="assets/css/slick.css">
             <link rel="stylesheet" href="assets/css/nice-select.css">
             <link rel="stylesheet" href="assets/css/style.css">
+            
    </head>
+   <style>
+
+	#button3{
+  			background-color: #ffc107 !important;
+		}
+		</style>
 <jsp:include page="../main/topmenu.jsp"></jsp:include>
 <script type="text/javascript">
 	
@@ -60,18 +67,24 @@
                         <li><a href="#">조회수 ${vo.bHit }</a></li>
                      </ul>
                      <p class="excert">
-                        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-                        should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-                        fraction of the camp price. However, who has the willpower
+                      
                         ${vo.bContent }
                      </p>
                   </div>
                </div>
+              <c:if test="${user_id eq 'admin' }">
                <div align="right" class="button-group-area mt-40">
-               		<a href="boardList.do"class="genric-btn info circle arrow">목록</a>
-					<a onclick="updateAlert()"class="genric-btn info circle arrow">수정</a>
-					<a onclick="deleteAlert()"class="genric-btn info circle arrow">삭제</a>
+               		<a id="button3"href="boardList.do"class="genric-btn info circle arrow">목록</a>
+					<a onclick="updateAlert()"id="button3"class="genric-btn info circle arrow">수정</a>
+					<a onclick="deleteAlert()"id="button3"class="genric-btn info circle arrow">삭제</a>
 			   </div>
+			   </c:if>
+			   <c:if test="${user_id ne 'admin' }">
+               <div align="right" class="button-group-area mt-40">
+               		<a id="button3"href="boardList.do"class="genric-btn info circle arrow">목록</a>
+			   </div>
+			   </c:if>
+			   
 	</div>		
 </div>              
 </body>

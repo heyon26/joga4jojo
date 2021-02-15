@@ -1,5 +1,7 @@
  package co.mok.pro.board;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,6 +23,10 @@ public class BoardListView implements Command {
 		
 		request.setAttribute("vo", vo);
 		
+		//페이지 리스트
+		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
+		list = dao.selectList();
+		request.setAttribute("list", list);
 		
 		return "board/boardListView";
 	}

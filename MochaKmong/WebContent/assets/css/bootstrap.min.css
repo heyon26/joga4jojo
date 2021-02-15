@@ -4244,8 +4244,8 @@ input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].bt
 	padding-left: 0;
 	margin-bottom: 0;
 	list-style: none;
-	width:1200px;
-	background-color: #f9df84;
+/* 	width:1200px;
+	background-color: #f9df84; */
 }
 
 .navs {
