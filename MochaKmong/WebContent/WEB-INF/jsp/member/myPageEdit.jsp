@@ -41,6 +41,14 @@
 			updateForm.submit();
 		}
 	}
+	
+	function deleteImage(){
+		var msg = confirm("프로필 이미지를 삭제하시겠습니까?");
+		if(msg){
+			updateForm.action = "profileDelete.do";
+			updateForm.submit();
+		}
+	}
 </script>
 </head>
 <jsp:include page="../main/topmenu.jsp" />
@@ -223,11 +231,20 @@
                                 <input class="form-control" id="uploadImg" name="uploadImg" type="button" value="프로필 이미지 수정(Click!)" onclick="uploadImage()">
                             </div>
                         </div>
-                        
+                        <c:if test="${not empty ivo.image }">
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">프로필 이미지 삭제</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" id="deleteImg" name="deleteImg" type="button" value="프로필 이미지 삭제(Click!)" onclick="deleteImage()">
+                            </div>
+                        </div>
+                        </c:if>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">주소</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="" name="userAddress" placeholder="주소">
+                                <input class="form-control" type="text" name="userAddress" value="주소" 
+                                onfocus="this.value=''"
+								onblur="if(this.value=='')this.value='주소'">
                             </div>
                         </div>
                        

@@ -108,7 +108,6 @@
 				    </div>
                   </div>
                   <c:forEach var="cvo" items="${list }">
-                  <!-- <form id="frm" name="frm" method="post" onsubmit="return valuecheck(this)" action="myPageClass.do"> -->
                     <table class="table table-hover table-striped">
                         <tbody> 
                         <!-- 신청한 클래스 출력 -->

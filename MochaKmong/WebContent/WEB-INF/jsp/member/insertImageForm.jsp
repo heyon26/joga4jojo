@@ -85,31 +85,20 @@ h1 {
 </style>
 <script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
 <script type="text/javascript">
-	
-
 function insertImage(e){
+	//e.preventDefault();
 	var msg = confirm("해당 이미지로 변경하시겠습니까?");
 	if(msg){
-		e.preventDefault();
 		var imgName = $('#file').val();
 		imgName = imgName.substring(imgName.lastIndexOf('\\') + 1);
 		$('#image').val(imgName);
 		document.frm.submit();
+	}
+}
 </script>		
 
 </head>
 <body>
-
-<!-- 로그인 세션값 호출 -->
-<%
-	String id = (String) session.getAttribute("user_id");
-
-UserDao dao = new UserDao();
-UserVo vo = new UserVo();
-
-vo = dao.getUserInfo(id);
-%>
-<!-- 로그인 세션값 호출 -->
 
 <form id="frm" name="frm" method="post"enctype="multipart/form-data" action="InsertImage" onsubmit="insertImage(event)">
 <div class="container">

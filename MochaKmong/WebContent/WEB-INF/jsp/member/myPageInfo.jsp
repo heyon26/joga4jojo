@@ -13,9 +13,9 @@
  <link rel="stylesheet" href="assets/css/mypage.css">
  
 <style>
-.profileImage {
+
+.profileImage { 
     width: 150px;
-    height: 150px; 
     border-radius: 70%;
     overflow: hidden;
    	margin: -20px;
@@ -40,8 +40,16 @@
 	
 %>
 
+<!-- 해당 아이디 프로필 이미지 삽입 구현  -->
+<%
+	ImageDAO idao = new ImageDAO();
+	ImageVo ivo = new ImageVo();
 
-<!-- 로그인 세션값 호출 -->
+	ivo.setUserId(session.getAttribute("user_id").toString());
+	ivo = idao.selectImage(ivo);
+	request.setAttribute("ivo", ivo);
+%>
+
 
 <form name="frm" method="post">
 	<input type="hidden" name="userId" value="<%=vo.getUserId() %>">
@@ -53,8 +61,15 @@
               <div class="card-body text-center bg-primary rounded-top">
                <div class="user-box">
                <div class="profileImage" style="background:#FFFFFF;">
-               		<!-- <img src="assets/img/mypage/profile.png" name="image"> -->
-               		<img src="${filepath}/${ivo.image}" class="image" name="image">
+               
+               		<c:if test="${empty ivo.image }">
+               		<img src="assets/img/mypage/profile.png" alt="프로필 이미지 없을 때 출력">
+               		</c:if>
+               		
+               		<c:if test="${not empty ivo.image }">
+               		<img src="${pageContext.request.contextPath}/image/${ivo.image}" alt="프로필 이미지 삽입 시 출력">
+               		</c:if>
+               		
                </div>
               </div>
               <div class="space"></div>

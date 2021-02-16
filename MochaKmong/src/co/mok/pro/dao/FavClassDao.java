@@ -23,6 +23,7 @@ public class FavClassDao extends DAO { // 찜한 클래스 Dao
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while(rs.next()) {
+				vo = new FavClassVo();
 				vo.setClassCode(rs.getInt("class_code"));
 				vo.setUserId(rs.getString("user_id"));
 				vo.setClassName(rs.getString("class_name"));

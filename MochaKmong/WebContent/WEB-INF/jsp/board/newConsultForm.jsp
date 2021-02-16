@@ -47,7 +47,7 @@ window.onload = function(){
                      <div class="row">
                         <div class="col-sm-2">
                            <div class="form-group">
-               <!-- 로그인 세션값 --><input class="form-control" id="userId"name="userId" type="text" placeholder="ID" value="hong" readonly="readonly">
+               <!-- 로그인 세션값 --><input class="form-control" id="userId"name="userId" type="text" placeholder="ID" value="${user_id }" readonly="readonly">
                            </div>
                         </div>
                          <div class="col-sm-2">
@@ -57,17 +57,27 @@ window.onload = function(){
                         </div>
                         <div class="col-sm-2">
                            <div class="form-group">
-                              <input class="form-control"id="bBoard"name="bBoard"size="30" value="consult" type="text" placeholder="대분류"readonly="readonly">
+                              <input class="form-control"id="bBoard"name="bBoard"size="30" value="문의" type="text" placeholder="대분류"readonly="readonly">
                            </div>
                         </div>
                         <div class="col-sm-3">
                            <div class="form-group">
-                              <input class="form-control" id="bCategoryA"name="bCategoryA" type="text" placeholder="CategoryA"required="required">
+                              <select id="bCategoryA"name="bCategoryA"  style="width:270px;height:50px;">
+							    <option value="">선택</option>
+							    <option value="클래스">클래스</option>
+							    <option value="결제">결제</option>
+							    <option value="환불">환불</option>
+							</select>
                            </div>
                         </div>
                          <div class="col-sm-3">
                            <div class="form-group">
-                              <input class="form-control" id="bCategoryB"name="bCategoryB" type="text" placeholder="CategoryB"required="required">
+                            <select id="bCategoryB"name="bCategoryB"  style="width:270px;height:50px;">
+							    <option value="">클래스 선택</option>
+							    <option value="쿠키">요리클래스</option>
+							    <option value="스포츠">스포츠클래스</option>
+							    <option value="기타">기타클래스</option>
+							</select>
                            </div>
                         </div>
                         <div class="col-12">

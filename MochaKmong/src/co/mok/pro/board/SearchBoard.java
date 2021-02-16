@@ -18,9 +18,10 @@ public class SearchBoard implements Command {
 		ArrayList<BoardVo> list = new ArrayList<BoardVo>();
 		
 		String str = request.getParameter("searchWord");
-		String str2 = request.getParameter("keyword");
-		list = dao.getBoardSearch(str2, str);
+		list = dao.getBoardSearch(str);
+		
 		request.setAttribute("list", list);
+		
 		return "board/boardList";
 	}
 

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import co.mok.pro.board.AnswerDelete;
 import co.mok.pro.board.AskDelete;
 import co.mok.pro.board.AskEdit;
 import co.mok.pro.board.AskEditForm;
@@ -46,8 +47,10 @@ import co.mok.pro.member.MyPageClassDelete;
 import co.mok.pro.member.MyPageClassExpert;
 import co.mok.pro.member.MyPageEdit;
 import co.mok.pro.member.MyPageExpertEdit;
+import co.mok.pro.member.ProfileDelete;
 import co.mok.pro.member.ProfileUpdate;
 import co.mok.pro.member.UploadImage;
+import co.mok.pro.member.UploadImageDo;
 import co.mok.pro.member.UploadImageForm;
 import co.mok.pro.places.CreatePlaceView;
 import co.mok.pro.web.ApplyViewForm;
@@ -64,6 +67,7 @@ import co.mok.pro.web.PayResultInsert;
 import co.mok.pro.web.UserIdCheck;
 import co.mok.pro.web.UserJoin;
 import co.mok.pro.web.UserJoinForm;
+
 
 @WebServlet("/FrontController")
 public class FrontController extends HttpServlet {
@@ -111,7 +115,7 @@ public class FrontController extends HttpServlet {
 		map.put("/newConsultForm.do", new NewConsultForm()); // 문의하기 작성폼 이동
 		map.put("/newConsult.do", new NewConsult()); // 문의하기 글 작성
 		map.put("/newAnswer.do", new NewAnswer()); // 문의하기 답변 작성
-
+		map.put("/answerDelete.do", new AnswerDelete()); // 문의하기 답변 작성
 		// 로그인 기능
 		map.put("/loginForm.do", new LoginForm());
 
@@ -137,15 +141,18 @@ public class FrontController extends HttpServlet {
 		// 찜한 클래스 취소
 		map.put("/myPageClassDelete.do", new MyPageClassDelete());
 
-		// 프로필 수정 기능
+		// 프로필 이미지 수정
 		map.put("/profileUpdate.do", new ProfileUpdate()); // 프로필 업데이트
 		map.put("/uploadImageForm.do", new UploadImageForm()); // 프로필 이미지 업로드 폼 호출
-		map.put("/uploadImage.do", new UploadImage()); // 프로필 이미지 업로드 실행
+		map.put("/uploadImage.do", new UploadImageDo()); // 프로필 이미지 업로드 실행
 
+		// 프로필 이미지 삽입
 		map.put("/InsertImageDo.do", new InsertImageDo()); // 프로필 이미지 삽입
 		map.put("/insertImageForm.do", new InsertImageForm()); // 프로필 이미지 삽입 폼 호출
 		map.put("/insertImage.do",new InsertImage()); // 프로필 이미지 삽입 실행
-		map.put("/InsertImageDo.do", new InsertImageDo()); // 진짜 진짜 프로필 이미지 삽입 실행
+		
+		// 프로필 이미지 삭제
+		map.put("/profileDelete.do", new ProfileDelete()); // 프로필 이미지 삭제 실행
 
 		map.put("/logout.do", new Logout()); // 로그아웃
 		map.put("/findPwForm.do", new FindPwForm()); // 비밀번호 찾기 폼
@@ -168,8 +175,6 @@ public class FrontController extends HttpServlet {
 		
 		map.put("/createPlaceView.do", new CreatePlaceView());
 
-		//map.put("/insertImageForm.do", new InsertImageForm()); // 프로필 이미지 삽입 폼 호출
-		// map.put("/insertImage.do",new InsertImage()); // 프로필 이미지 삽입 실행
 
 	}
 

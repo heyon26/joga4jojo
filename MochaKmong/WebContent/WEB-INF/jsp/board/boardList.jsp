@@ -24,6 +24,55 @@
             <link rel="stylesheet" href="assets/css/nice-select.css">
             <link rel="stylesheet" href="assets/css/style.css">
    </head>
+   <style media="screen">
+    body{
+      background-color: #f5f5f5;
+    }
+    .in-line{
+      width:300px;
+      height:40px;
+    }
+    input{
+      margin:0;
+    }
+    input[type="text"]{
+      width:82%;
+      height:100%;
+      border:none;
+      font-size:1em;
+      padding-left: 5px;
+      font-style: oblique;
+      display:inline;
+      outline:none;
+      box-sizing: border-box;
+      color:black;
+
+    }
+    input[type=button]{
+      width: 30%;
+      height:100%;
+      background-color: lightgray;
+      border:none;
+      background-color: white;
+      font-size:1em;
+      color:#042AaC;
+      outline:none;
+      display:inline;
+      margin-left: -10px;
+      box-sizing: border-box;
+    }
+    input[type=button]:hover{
+      background-color: lightgray;
+    }
+  </style>
+  <style>
+	#div1{
+	background-color: #F9FFFF !important;
+	}
+	#button3{
+  			background-color: #ffc107 !important;
+		}
+</style>
 <jsp:include page="../main/topmenu.jsp"></jsp:include>
 <script type="text/javascript">
 	function formSubmit(str){
@@ -47,12 +96,15 @@
 </script>
 <div class="container box_1170">
 <div class="section-top-border">
-				<h3 align="center"class="mb-30">공지사항</h3>
+				<div align="center" class="logo">
+								<img src="assets/img/logo/6ji.png" alt="">
+
+							</div>
 				<form id="frm" name="frm" action="" method="post">
 					<input type="hidden" id="boardCode" name="boardCode">
 				</form>
-				<div class="progress-table-wrap">
-					<div class="progress-table">
+				<div  class="progress-table-wrap">
+					<div id="div1"class="progress-table">
 						<div class="table-head">
 							<div class="serial">조회수</div>
 							<div class="serial">카테고리</div>
@@ -74,20 +126,29 @@
 					</div>
 				</div>
 			</div>
-			<div class="content">
+			<c:if test="${user_id eq 'admin' }">	
+			<div class="container box_1170">
 				<form action=""	id="frm2" name="frm2" method="post">
-				<select id="keyword"name="keyword">
-					<option value="b_Name">제목(Title)</option>
-				</select>
-					<input type="text" id="searchWord" name="searchWord">
-					<input type="submit" value="Search">
+					<input type="text" id="searchWord" name="searchWord" placeholder="Search..">
+						<a onclick="searchSubmit()"id="button3"class="genric-btn info circle arrow">검색</a>
+						<a onclick="insertAlert()"id="button3"class="genric-btn info circle arrow">글쓰기</a>
 						<div align="right" class="button-group-area mt-40">
-						<a onclick="searchSubmit()"class="genric-btn info circle arrow">검색</a>
-						<a onclick="insertAlert()"class="genric-btn info circle arrow">글쓰기</a>
 						</div>
 				</form>		
 			</div>
-		</div>
+			</c:if>
+			<c:if test="${user_id ne 'admin' }">	
+			<div class="container box_1170">
+				<form action=""	id="frm2" name="frm2" method="post">
+					<input type="text" id="searchWord" name="searchWord" placeholder="Search..">
+				
+						<a onclick="searchSubmit()"id="button3" class="genric-btn info circle arrow">검색</a>
 		
+						<div align="right" class="button-group-area mt-40">
+						</div>
+				</form>		
+			</div>
+			</c:if>
+		</div>
 </body>
 </html>

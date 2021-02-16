@@ -23,6 +23,12 @@
             <link rel="stylesheet" href="assets/css/slick.css">
             <link rel="stylesheet" href="assets/css/nice-select.css">
             <link rel="stylesheet" href="assets/css/style.css">
+            <style>
+
+	#button3{
+  			background-color: #ffc107 !important;
+		}
+</style>
    </head>
 <jsp:include page="../main/topmenu.jsp"></jsp:include>
 <script type="text/javascript">
@@ -41,7 +47,10 @@
 </script>
 <div class="container box_1170">
 <div class="section-top-border">
-				<h3 align="center"class="mb-30">문의게시판</h3>
+				<div align="center" class="logo">
+								<img src="assets/img/logo/5ji.png" alt="">
+
+							</div>
 				<form id="frm" name="frm" action="" method="post">
 					<input type="hidden" id="boardCode" name="boardCode">
 				</form>
@@ -67,7 +76,7 @@
 				</div>
 			</div>
 			<div align="right" class="button-group-area mt-40">
-			<a onclick="insertAlert()"class="genric-btn info circle arrow">문의하기</a>
+			<a onclick="insertAlert()"id="button3"class="genric-btn info circle arrow">문의하기</a>
 			</div>
 		</div>
 </body>
