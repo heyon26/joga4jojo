@@ -47,8 +47,10 @@ import co.mok.pro.member.MyPageClassDelete;
 import co.mok.pro.member.MyPageClassExpert;
 import co.mok.pro.member.MyPageEdit;
 import co.mok.pro.member.MyPageExpertEdit;
-import co.mok.pro.member.ProfileDelete;
-import co.mok.pro.member.ProfileUpdate;
+import co.mok.pro.member.UpdateAddr;
+import co.mok.pro.member.UpdateEmail;
+import co.mok.pro.member.UpdateName;
+import co.mok.pro.member.UpdateTel;
 import co.mok.pro.member.UploadImage;
 import co.mok.pro.member.UploadImageDo;
 import co.mok.pro.member.UploadImageForm;
@@ -141,18 +143,20 @@ public class FrontController extends HttpServlet {
 		// 찜한 클래스 취소
 		map.put("/myPageClassDelete.do", new MyPageClassDelete());
 
+		// 프로필 정보 수정
+		map.put("/updateName.do", new UpdateName()); // 프로필 이름 업로드
+		map.put("/updateTel.do", new UpdateTel()); // 프로필 전화번호 업로드
+		map.put("/updateEmail.do", new UpdateEmail()); // 프로필 이메일 업로드
+		map.put("/updateAddr.do", new UpdateAddr()); // 프로필 주소 업로드
+
 		// 프로필 이미지 수정
-		map.put("/profileUpdate.do", new ProfileUpdate()); // 프로필 업데이트
 		map.put("/uploadImageForm.do", new UploadImageForm()); // 프로필 이미지 업로드 폼 호출
 		map.put("/uploadImage.do", new UploadImageDo()); // 프로필 이미지 업로드 실행
-
+		
 		// 프로필 이미지 삽입
 		map.put("/InsertImageDo.do", new InsertImageDo()); // 프로필 이미지 삽입
 		map.put("/insertImageForm.do", new InsertImageForm()); // 프로필 이미지 삽입 폼 호출
 		map.put("/insertImage.do",new InsertImage()); // 프로필 이미지 삽입 실행
-		
-		// 프로필 이미지 삭제
-		map.put("/profileDelete.do", new ProfileDelete()); // 프로필 이미지 삭제 실행
 
 		map.put("/logout.do", new Logout()); // 로그아웃
 		map.put("/findPwForm.do", new FindPwForm()); // 비밀번호 찾기 폼
@@ -160,8 +164,6 @@ public class FrontController extends HttpServlet {
 
 		map.put("/myPage.do", new MyPage()); // 마이페이지 호출
 		map.put("/expertPage.do", new ExpertPage()); // 강사 페이지 호출
-		// map.put("/profileEdit.do", new ProfileEdit()); // 프로필 수정 페이지 호출
-		// map.put("/profileEditUpdate.do", new ProfileEditUpdate()); // 프로필 수정 값 전달
 		map.put("/classSearch.do", new ClassSearch()); // 메인페이지에서 클래스 검색
 		map.put("/classSearch1.do", new ClassSearch1()); // 클래스 list 페이지에서 단어입력 후 검색
 		map.put("/classSearch2.do", new ClassSearch2()); // 클래스 list 페이지에서 radio로 검색

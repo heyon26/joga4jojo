@@ -28,16 +28,22 @@
 		window.open(url, "프로필 이미지 삽입", "width=500, height=450");
 	}
 
-	function profileEdit() { // 프로필 수정
-		var url = "profileEdit.do";
-		window.open(url, "프로필 수정", "width=500, height=450");
-	}
-
-	function updateAlert() {
-		var msg = confirm("수정하시겠습니까?");
-		if (msg) {
-			updateForm.action = "profileUpdate.do";
-			updateForm.userId.value = frm.userId.value;
+	function updateAlert() { // 프로필 수정
+		if (updateForm.userName.value != "") {
+			confirm("이름을 수정하시겠습니까?");
+			updateForm.action = "updateName.do";
+			updateForm.submit();
+		}if(updateForm.userTel.value != ""){
+			confirm("전화번호를 수정하시겠습니까?");
+			updateForm.action = "updateTel.do";
+			updateForm.submit();
+		}if(updateForm.userEmail.value != ""){
+			confirm("이메일을 수정하시겠습니까?");
+			updateForm.action = "updateEmail.do";
+			updateForm.submit();
+		}if(updateForm.userAddress.value != ""){
+			confirm("주소를 수정하시겠습니까?");
+			updateForm.action = "updateAddr.do";
 			updateForm.submit();
 		}
 	}
@@ -196,34 +202,38 @@
                     	<div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">이름</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" name="userName" value="이름"
-						onfocus="this.value=''"
-						onblur="if(this.value=='')this.value='이름'">
+                                <input class="form-control" type="text" name="userName" id="userName" value="${vo.userName }"
+                                	onfocus="this.value=''" onblur="if(this.value=='')this.value=''">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">전화번호</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" name="userTel" value="전화번호"
-						onfocus="this.value=''"
-						onblur="if(this.value=='')this.value='전화번호'">
+                                <input class="form-control" type="text" name="userTel" value="${vo.userTel }"
+                                	onfocus="this.value=''" onblur="if(this.value=='')this.value=''">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">이메일</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="email" name="userEmail" value="이메일"
-						onfocus="this.value=''"
-						onblur="if(this.value=='')this.value='이메일'">
+                                <input class="form-control" type="email" name="userEmail" value="${vo.userEmail}"
+                                	onfocus="this.value=''" onblur="if(this.value=='')this.value=''">
                             </div>
                         </div>
+                        
+                        <!-- 프로필 이미지 삽입 버튼 / 프로필 이미지가 없을 때 출력 -->
+                        <c:if test="${empty ivo.image }">
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">프로필 이미지 삽입</label>
                             <div class="col-lg-9">
                                 <input class="form-control" id="insertImg" name="insertImg" type="button" value="프로필 이미지 삽입(Click!)" onclick="insertImage()">
                             </div>
                         </div>
+                        </c:if>
+                        <!-- 프로필 이미지 삽입 버튼 / 프로필 이미지가 없을 때 출력 -->
                         
+                        <!-- 프로필 이미지 수정 버튼 / 프로필 이미지가 있을 때 출력 -->
+                        <c:if test="${not empty ivo.image }">
                         <!-- 함수 이름과 id,name 태그 이름이 동일하면 오류 발생. 주의할 것. -->
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">프로필 이미지 수정</label>
@@ -231,24 +241,17 @@
                                 <input class="form-control" id="uploadImg" name="uploadImg" type="button" value="프로필 이미지 수정(Click!)" onclick="uploadImage()">
                             </div>
                         </div>
-                        <c:if test="${not empty ivo.image }">
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">프로필 이미지 삭제</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" id="deleteImg" name="deleteImg" type="button" value="프로필 이미지 삭제(Click!)" onclick="deleteImage()">
-                            </div>
-                        </div>
                         </c:if>
+                        <!-- 프로필 이미지 수정 버튼 / 프로필 이미지가 있을 때 출력 -->
+                        
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">주소</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" name="userAddress" value="주소" 
-                                onfocus="this.value=''"
-								onblur="if(this.value=='')this.value='주소'">
+                                <input class="form-control" type="text" name="userAddress" value="${vo.userAddress }"
+                                	onfocus="this.value=''" onblur="if(this.value=='')this.value=''">
                             </div>
                         </div>
                        
-                        
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
@@ -256,8 +259,6 @@
                                 <input type="reset" class="" value="Cancel">
                             </div>
                         </div>
-                        
-                        <input type="hidden" name="userId">
                     </form>
                 </div>
             </div>

@@ -82,10 +82,10 @@ public class ImageDAO extends DAO {
 	public int updateImage(ImageVo vo) {
 		int n = 0;
 		
-		String sql = "UPDATE IMAGE SET IMAGE= ? WHERE USER_ID = ?";
+		String sqlUpdate = "UPDATE IMAGE SET IMAGE= ? WHERE USER_ID = ?";
 		
 		try {
-			psmt = conn.prepareStatement(sql);
+			psmt = conn.prepareStatement(sqlUpdate);
 			psmt.setString(1, vo.getImage());
 			psmt.setString(2, vo.getUserId());
 			n = psmt.executeUpdate();
@@ -97,23 +97,6 @@ public class ImageDAO extends DAO {
 		return n;
 	}
 	
-	// 프로필 이미지 삭제
-	public int deleteImage(ImageVo vo) {
-		int n = 0;
-		String sql = "DELETE FROM IMAGE WHERE USER_ID = ?";
-		
-		try {
-			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, vo.getUserId());
-			n = psmt.executeUpdate();
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			close();
-		}
-		return n;
-	}
-
 	private void close() {
 		try {
 			if (rs != null)

@@ -1,31 +1,33 @@
 package co.mok.pro.member;
 
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import co.mok.pro.common.Command;
-import co.mok.pro.dao.ImageDAO;
-import co.mok.pro.vo.ImageVo;
+import co.mok.pro.dao.UserDao;
+import co.mok.pro.vo.UserVo;
 
-public class ProfileDelete implements Command {
+public class UpdateEmail implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		// 프로필 이미지 삭제
+		// 프로필 이메일 수정
 		
-		ImageDAO dao = new ImageDAO();
-		ImageVo vo = new ImageVo();
+		UserDao dao = new UserDao();
+		UserVo vo = new UserVo();
 		HttpSession session = request.getSession();
+		String userId = session.getAttribute("user_id").toString();
 		
-		vo.setUserId(session.getAttribute("user_id").toString());
+		vo.setUserEmail(request.getParameter("userEmail"));
+		vo.setUserId(userId);
 		
-		int n = dao.deleteImage(vo);
+		int n = dao.UpdateEmail(vo);
 		String viewPage = null;
 		if(n != 0) {
 			viewPage = "member/myPage";
 		}
+		
 		return viewPage;
 	}
 

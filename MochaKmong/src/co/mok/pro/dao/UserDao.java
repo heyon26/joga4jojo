@@ -203,24 +203,18 @@ public class UserDao extends DAO {
 			return vo;
 		}
 		
-		// 수정(김찬곤)_210208
-		// 회원 정보 수정
-		public int UpdateProfile(UserVo vo) {
+		// 회원 이름 수정
+		public int UpdateName(UserVo vo) {
 			int n = 0;
-			
-			String sql = "update m_user ";
-				   sql += "set user_name = ?, user_tel = ?, user_email = ?, user_address = ?";
-				   sql += " where user_id = ?";
+				   
+			String updateName = "update m_user set user_name  = ? where user_id = ?";
 			
 			try {
-				psmt = conn.prepareStatement(sql);
+				
+				psmt = conn.prepareStatement(updateName);
 				psmt.setString(1, vo.getUserName());
-				psmt.setString(2, vo.getUserTel());
-				psmt.setString(3, vo.getUserEmail());
-				psmt.setString(4, vo.getUserAddress());
-				psmt.setString(5, vo.getUserId());
+				psmt.setString(2, vo.getUserId());
 				n = psmt.executeUpdate();
-				System.out.println(n + "건 수정 완료");
 			}catch(SQLException e) {
 				e.printStackTrace();
 				System.out.println("수정 실패");
@@ -230,7 +224,65 @@ public class UserDao extends DAO {
 			
 			return n;
 		}
-	
+		
+		// 회원 전화번호 수정
+		public int UpdateTel(UserVo vo) {
+			int n = 0;
+				   
+			String updateTel = "update m_user set user_tel  = ? where user_id = ?";
+			try {
+				psmt = conn.prepareStatement(updateTel);
+				psmt.setString(1, vo.getUserTel());
+				psmt.setString(2, vo.getUserId());
+				n = psmt.executeUpdate();
+			}catch(SQLException e) {
+				e.printStackTrace();
+				System.out.println("수정 실패");
+			}finally {
+				close();
+			}
+			
+			return n;
+		}
+		// 회원 이메일 수정
+		public int UpdateEmail(UserVo vo) {
+			int n = 0;
+				   
+			String updateEmail = "UPDATE M_USER SET USER_EMAIL = ? WHERE USER_ID = ?";
+			
+			try {
+				psmt = conn.prepareStatement(updateEmail);
+				psmt.setString(1, vo.getUserEmail());
+				psmt.setString(2, vo.getUserId());
+				n = psmt.executeUpdate();
+			}catch(SQLException e) {
+				e.printStackTrace();
+				System.out.println("수정 실패");
+			}finally {
+				close();
+			}
+			
+			return n;
+		}
+		// 회원 주소 수정
+		public int UpdateAddr(UserVo vo) {
+			int n = 0;
+			String updateAddr = "update m_user set user_address  = ? where user_id = ?";
+			
+			try {
+				psmt = conn.prepareStatement(updateAddr);
+				psmt.setString(1, vo.getUserAddress());
+				psmt.setString(2, vo.getUserId());
+				n = psmt.executeUpdate();
+			}catch(SQLException e) {
+				e.printStackTrace();
+				System.out.println("수정 실패");
+			}finally {
+				close();
+			}
+			
+			return n;
+		}
 
 	public String findPw(String userId, String userName, String userEmail ) {
 		String pw = null;

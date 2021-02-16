@@ -37,14 +37,14 @@
 	UserVo vo = new UserVo();
 	
 	vo = dao.getUserInfo(id);
-	
+	request.setAttribute("vo", vo);
 %>
 
 <!-- 해당 아이디 프로필 이미지 삽입 구현  -->
 <%
 	ImageDAO idao = new ImageDAO();
 	ImageVo ivo = new ImageVo();
-
+	
 	ivo.setUserId(session.getAttribute("user_id").toString());
 	ivo = idao.selectImage(ivo);
 	request.setAttribute("ivo", ivo);
@@ -62,12 +62,14 @@
                <div class="user-box">
                <div class="profileImage" style="background:#FFFFFF;">
                
+               		<!-- 프로필 이미지 없을 때 출력 -->
                		<c:if test="${empty ivo.image }">
-               		<img src="assets/img/mypage/profile.png" alt="프로필 이미지 없을 때 출력">
+               		<img src="assets/img/mypage/profile.png" alt="No Image">
                		</c:if>
                		
+               		<!-- 프로필 이미지 삽입 시 출력 -->
                		<c:if test="${not empty ivo.image }">
-               		<img src="${pageContext.request.contextPath}/image/${ivo.image}" alt="프로필 이미지 삽입 시 출력">
+               		<img src="${pageContext.request.contextPath}/image/${ivo.image}" alt="No Image">
                		</c:if>
                		
                </div>
