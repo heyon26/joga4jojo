@@ -91,6 +91,7 @@
 </style>
 
 <!-- 실시간 결제 예상 금액 계산 -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f614ddf014ea92f2a62125c93f40009a&libraries=services"></script> 
 <script>
 	$(document).ready(function(){
 		$('.numPerson').on('keyup',function(e){ 
@@ -234,6 +235,13 @@
 										<tr>
 										<td colspan=4 style="text-align:center"> 현재 등록된 리뷰가 없습니다.</td>	
 									</table>
+									<div class="textArea">
+										<form action="" method="post">
+
+											<textarea class="form-control" name="classReview" rows="3"></textarea>
+											<button>리뷰 등록하기</button>
+										</form>
+									</div>
 									<div align="right">
 										<button class="btn-secondary btn-sm" id="btn1" type="button" onclick="#">리뷰 작성하기</button>
 									</div>
@@ -274,10 +282,9 @@
 			</div>
         </div>
 <!-- 메뉴 탭바 끝 -->   
- 
 <!-- 주소 받아서 지도생성(카카오API) -->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f614ddf014ea92f2a62125c93f40009a&libraries=services"></script>         		
-     <script>
+        		
+<script>
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			    mapOption = {
 			        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -285,25 +292,10 @@
 			    };  
 			
 			
-			
 			// 지도를 생성합니다    
 			var map = new kakao.maps.Map(mapContainer, mapOption); 
-			
-			// 지도를 표시하는 div 크기를 변경하는 함수입니다
-			function resizeMap() {
-			    var mapContainer = document.getElementById('map');
-			    mapContainer.style.width = '1200px';
-			    mapContainer.style.height = '600px'; 
-			}
 
-			function relayout() {    
-			    
-			    // 지도를 표시하는 div 크기를 변경한 이후 지도가 정상적으로 표출되지 않을 수도 있습니다
-			    // 크기를 변경한 이후에는 반드시  map.relayout 함수를 호출해야 합니다 
-			    // window의 resize 이벤트에 의한 크기변경은 map.relayout 함수가 자동으로 호출됩니다
-			    map.relayout();
-			}
-			
+
 			// 주소-좌표 변환 객체를 생성합니다
 			var geocoder = new kakao.maps.services.Geocoder();
 			
@@ -314,23 +306,20 @@
 			     if (status === kakao.maps.services.Status.OK) {
 			
 			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-			
+
 			        // 결과값으로 받은 위치를 마커로 표시합니다
 			        var marker = new kakao.maps.Marker({
 			            map: map,
 			            position: coords
 			        });
-/* 			        // 인포윈도우로 장소에 대한 설명을 표시합니다
-			        var infowindow = new kakao.maps.InfoWindow({
-			            content: '<div style="width:150px;text-align:center;padding:6px 0;"></div>'
-			        });
-			        infowindow.open(map, marker); */
-
 
 			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+
 			        map.setCenter(coords);
+			        map.relayout();
 			    } 
 			});
+
 			
 </script>
 
