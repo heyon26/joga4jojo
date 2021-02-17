@@ -122,7 +122,9 @@
 		return result;
 	}
 	
-
+	$('#showHidden').click(function(){
+		$('.textArea').show();
+	})
 </script>
 </head>
 	<jsp:include page="/WEB-INF/jsp/main/topmenu.jsp" />
@@ -239,11 +241,11 @@
 										<form action="" method="post">
 
 											<textarea class="form-control" name="classReview" rows="3"></textarea>
-											<button>리뷰 등록하기</button>
+											<button type="submit">리뷰 등록하기</button>
 										</form>
 									</div>
 									<div align="right">
-										<button class="btn-secondary btn-sm" id="btn1" type="button" onclick="#">리뷰 작성하기</button>
+										<button class="btn-secondary btn-sm" id="btn1" name="showHidden" type="button" >리뷰 작성하기</button>
 									</div>
 								</div>
 							</div>
@@ -315,8 +317,8 @@
 
 			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 
-			        map.setCenter(coords);
 			        map.relayout();
+			        map.setCenter(coords);
 			    } 
 			});
 
