@@ -107,7 +107,6 @@ public class ClassDao extends DAO {
 		return n;
 	}
 	
-	
 	// 유저에 따른 클래스 목록 조회
 	// 작성(김찬곤 / 210209)
 	public ArrayList<ClassVo> selectUserClassList(String id){
@@ -137,6 +136,58 @@ public class ClassDao extends DAO {
 		return list;
 	}
 	
+	// 페이징_전체 갯수
+	public int getTotalCnt() {
+		int count = 0;
+		String sql = "SELECT COUNT(*) FROM CLASS";
+		try {
+			psmt = conn.prepareStatement(sql);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				count = rs.getInt(1);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		return count;
+	}
+	
+	// 페이징_한 페이지에 5개씩 출력
+	public ArrayList<ClassVo> getPagingList(int page, String id){
+		ArrayList<ClassVo> list = new ArrayList<ClassVo>();
+		String sql = "select a.rnum, a.user_id, a.class_code, a.class_name, a.category_a from("
+				+ "select rownum as rnum, c.user_id, c.class_code, c.class_name, c.category_a from("
+				+ "select user_id, class_code, class_name, category_a "
+				+ "from class "
+				+ "order by class_code)c)a "
+				+ "where a.rnum between ? and ? "
+				+ "and user_id = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			int startCnt = 1 + (page-1)*10;
+			int endCnt = page*10;
+			psmt.setInt(1, startCnt);
+			psmt.setInt(2, endCnt);
+			psmt.setString(3, id);
+			rs = psmt.executeQuery();
+			while(rs.next()){
+				ClassVo vo = new ClassVo();
+				vo.setUserId(rs.getString("user_id"));
+				vo.setClassCode(rs.getInt("class_code"));
+				vo.setClassName(rs.getString("class_name"));
+				vo.setCateGoryA(rs.getString("category_a"));
+				list.add(vo);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			close();
+		}
+		
+		return list;
+	}
 	
 	//class 등록
 

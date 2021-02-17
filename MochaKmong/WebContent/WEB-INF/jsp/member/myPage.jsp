@@ -12,11 +12,46 @@
 <title>수강생 마이페이지</title>
 
 <style>
-	#pointer{
-		cursor:pointer;
-	}
 
+.center {
+  text-align: center;
+  padding-left: 60px;
+}
+
+#pointer {
+	cursor: pointer;
+}
+
+.pagination {
+	display: inline-block;
+}
+
+.pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+	margin: 0 4px;
+}
+
+.pagination a.active {
+	background-color: #4CAF50;
+	color: white;
+	border: 1px solid #4CAF50;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
 </style>
+
+<script>
+	function goPage(page) {
+		location.href = '${pageContext.request.contextPath}/paging.do?pageNo='+ page;
+	}
+</script>
 
 </head>
 <jsp:include page="../main/topmenu.jsp" />
@@ -107,7 +142,9 @@
 				      <span><strong>신청한 클래스 목록</strong></span>
 				    </div>
                   </div>
-                  <c:forEach var="cvo" items="${list }">
+                  
+                  <!-- myPage.do 호출 -->
+                  <%-- <c:forEach var="cvo" items="${list }">
                     <table class="table table-hover table-striped">
                         <tbody> 
                         <!-- 신청한 클래스 출력 -->
@@ -121,10 +158,28 @@
                         <!-- 신청한 클래스 출력 -->
                         </tbody> 
                     </table>
-                    <!-- <input type="submit" value="찜하기"> -->
-                    
-                    <!-- </form> -->
+                    </c:forEach> --%>
+                     <!-- myPage.do 호출 -->
+                     
+                    <!-- paging.do 호출 -->
+                    <c:forEach var="vo" items="${list }">
+                    <table class="table table-hover table-striped">
+                        <tbody> 
+                        <!-- 신청한 클래스 출력 -->
+                            <tr id="pointer" onclick="location.href='insertFavClass.do?classCode=${vo.classCode}'">
+                                <td>
+                                   <span class="float-right font-weight-bold" name="categoryA">${vo.cateGoryA }</span>
+                                   <span name="className">${vo.className }</span>
+                                </td>
+                            </tr>
+                        
+                        <!-- 신청한 클래스 출력 -->
+                        </tbody> 
+                    </table>
                     </c:forEach>
+                    <jsp:include page="../main/paging.jsp" />
+                    <!-- paging.do 호출 -->
+                    
                 </div>
                 <div class="tab-pane" id="edit">
                     <form>

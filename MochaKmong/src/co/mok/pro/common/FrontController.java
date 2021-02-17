@@ -47,6 +47,7 @@ import co.mok.pro.member.MyPageClassDelete;
 import co.mok.pro.member.MyPageClassExpert;
 import co.mok.pro.member.MyPageEdit;
 import co.mok.pro.member.MyPageExpertEdit;
+import co.mok.pro.member.Paging;
 import co.mok.pro.member.UpdateAddr;
 import co.mok.pro.member.UpdateEmail;
 import co.mok.pro.member.UpdateName;
@@ -134,6 +135,9 @@ public class FrontController extends HttpServlet {
 		map.put("/myPageClass.do", new MyPageClass()); // 신청한 클래스 페이지 호출
 		map.put("/insertFavClass.do", new InsertFavClass()); // 클래스 찜하기
 		map.put("/myPageEdit.do", new MyPageEdit()); // 프로필 수정 페이지 호출
+		
+		// 마이페이지 클래스 페이징
+		map.put("/paging.do", new Paging());
 
 		// 마이페이지_강사
 		map.put("/expertPage.do", new ExpertPage()); // 강사 페이지 호출
@@ -176,6 +180,7 @@ public class FrontController extends HttpServlet {
 		map.put("/payResultInsert.do", new PayResultInsert()); //신청결과 db(c_register, payment테이블 insert
 		
 		map.put("/createPlaceView.do", new CreatePlaceView());
+		
 
 
 	}

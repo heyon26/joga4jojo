@@ -127,7 +127,8 @@ border : 0.5px solid #eee;
 													<ul class="submenu">
 														<li><a class="menuLink" href="logout.do">로그아웃</a></li>
 														<li></li>
-														<li><a class="menuLink" href="myPage.do">내클래스/프로필</a></li>
+														<!-- <li><a class="menuLink" href="myPage.do">내클래스/프로필</a></li> -->
+														<li><a class="menuLink" href="paging.do">내클래스/프로필</a></li>
 													</ul>
 											</c:if>
 										</ul>
